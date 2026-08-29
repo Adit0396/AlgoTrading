@@ -12,3 +12,4 @@ LogComponents=never
 SaveTwsSettingsAt=
 OverrideTwsApiPort=4002
 ReadOnlyLogin=no
+ReadOnlyApi=no

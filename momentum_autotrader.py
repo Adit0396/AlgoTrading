@@ -226,7 +226,11 @@ class MomentumBot:
                 f"account (paper accounts start with 'DU'). This bot will never trade a "
                 f"live-looking account. Fix your Gateway login and rerun."
             )
-        summary = {v.tag: v.value for v in self.ib.accountSummary(acct)}
+        # accountSummary() takes an Account Groups name, not an account ID —
+        # passing the account ID directly ("DUT058323") produced
+        # "Group name cannot be null" errors from Gateway. Request the
+        # default "All" group and filter to this account instead.
+        summary = {v.tag: v.value for v in self.ib.accountSummary() if v.account == acct}
         print(f"[safety] NetLiquidation={summary.get('NetLiquidation')} "
               f"Currency={summary.get('Currency')}")
         log_event("STARTED", account=acct, net_liquidation=summary.get("NetLiquidation"),
