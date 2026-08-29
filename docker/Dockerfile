@@ -22,7 +22,7 @@ ARG IBGATEWAY_VERSION=10.30.1t
 RUN wget -q "https://download2.interactivebrokers.com/installers/ibgateway/stable-standalone/ibgateway-stable-standalone-linux-x64.sh" \
     -O /tmp/ibgateway-install.sh \
     && chmod +x /tmp/ibgateway-install.sh \
-    && /tmp/ibgateway-install.sh -q -dir /root/Jts \
+    && /tmp/ibgateway-install.sh -q -dir /root/Jts/ibgateway/1045 \
     && rm /tmp/ibgateway-install.sh
 
 # --- IBC (auto-login / keep-alive controller) --------------------------------
