@@ -20,8 +20,19 @@ sed -e "s/__IBC_USER__/$IBC_USER/" -e "s/__IBC_PASSWORD__/$IBC_PASSWORD/" \
     /opt/ibc/config.ini.template > /root/ibc/config.ini
 
 # --- Start the virtual display Gateway needs to run headlessly ------------
+# Wait for Xvfb's own lock file to actually appear rather than a fixed sleep
+# — a fixed 2s guess was too short and Gateway tried to connect to a display
+# that wasn't listening yet ("Can't connect to X11 window server").
+rm -f /tmp/.X1-lock
 Xvfb :1 -screen 0 1024x768x16 &
-sleep 2
+for i in $(seq 1 30); do
+  if [ -e /tmp/.X1-lock ]; then
+    echo "Xvfb is up on display :1."
+    break
+  fi
+  sleep 1
+done
+sleep 1
 
 # --- Bind Render's expected HTTP port immediately -------------------------
 # Render's web-service health check needs SOMETHING listening on $PORT right
