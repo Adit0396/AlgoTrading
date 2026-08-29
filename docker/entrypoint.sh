@@ -91,6 +91,11 @@ done
 sleep 20
 
 # --- Start the bot ----------------------------------------------------------
+# -u (and PYTHONUNBUFFERED as a belt-and-suspenders) disables stdout
+# buffering — without it, print() output (including our own connection
+# retry/backoff logging) can sit in a buffer for minutes before Render's
+# logs show it, making the bot look hung when it isn't.
 export DASHBOARD_URL="${DASHBOARD_URL}"
 export DASHBOARD_API_KEY="${DASHBOARD_API_KEY}"
-exec python3 /app/momentum_autotrader.py
+export PYTHONUNBUFFERED=1
+exec python3 -u /app/momentum_autotrader.py
