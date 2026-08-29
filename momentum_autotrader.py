@@ -200,7 +200,7 @@ class MomentumBot:
         # and fully usable moments later. Retry with backoff instead of
         # treating that as fatal.
         last_err = None
-        for attempt in range(1, 9):
+        for attempt in range(1, 15):
             try:
                 self.ib.connect(HOST, PORT, clientId=CLIENT_ID, readonly=False, timeout=15)
                 last_err = None

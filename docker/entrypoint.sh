@@ -53,7 +53,23 @@ http.server.HTTPServer(('0.0.0.0', $PORT), H).serve_forever()
 " &
 
 # --- Start IB Gateway via IBC (this handles login + keep-alive) -----------
-/opt/ibc/gatewaystart.sh -inline --ibc-ini=/root/ibc/config.ini &
+# During a Render deploy, the old container briefly overlaps with the new
+# one. IBKR only allows one active session per account, so one side loses
+# an "Existing session detected" fight and Gateway exits (IBC exit code
+# 1100 / Gateway status 76). Nothing was restarting it afterwards, so a
+# container that lost that race sat there forever with a dead Gateway
+# while Render's health check (just the dummy HTTP port below) kept
+# reporting it as healthy. Loop it so a crashed Gateway relaunches on its
+# own — by the time this container is the only one running (a few seconds
+# after the old one drains), a retry logs in cleanly with no competing
+# session.
+(
+  while true; do
+    /opt/ibc/gatewaystart.sh -inline --ibc-ini=/root/ibc/config.ini
+    echo "Gateway/IBC exited (status $?) — restarting in 10s..."
+    sleep 10
+  done
+) &
 
 # --- Stream IBC/Gateway's own diagnostic log to stdout ---------------------
 # IBC writes the real reason for any crash to a log file inside the
