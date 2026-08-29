@@ -84,6 +84,12 @@ for i in $(seq 1 60); do
   sleep 5
 done
 
+# The TCP port opens before Gateway has actually finished its internal
+# login/configuration sequence, so connecting immediately can be rejected.
+# The bot itself now retries its connection too, but give Gateway a head
+# start here so that's rarely needed.
+sleep 20
+
 # --- Start the bot ----------------------------------------------------------
 export DASHBOARD_URL="${DASHBOARD_URL}"
 export DASHBOARD_API_KEY="${DASHBOARD_API_KEY}"

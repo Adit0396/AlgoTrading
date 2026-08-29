@@ -193,7 +193,29 @@ class MomentumBot:
         self.universe = get_universe()
 
     def connect_and_safety_check(self):
-        self.ib.connect(HOST, PORT, clientId=CLIENT_ID, readonly=False)
+        # Gateway can accept the TCP connection before it has actually
+        # finished its internal login/configuration sequence — an API
+        # connection attempt in that narrow window gets rejected (e.g. IBKR's
+        # "paper trading disclaimer" error) even though the account is fine
+        # and fully usable moments later. Retry with backoff instead of
+        # treating that as fatal.
+        last_err = None
+        for attempt in range(1, 9):
+            try:
+                self.ib.connect(HOST, PORT, clientId=CLIENT_ID, readonly=False, timeout=15)
+                last_err = None
+                break
+            except Exception as e:
+                last_err = e
+                wait = min(10 * attempt, 60)
+                print(f"[connect] attempt {attempt} failed ({e!r}); retrying in {wait}s")
+                if self.ib.isConnected():
+                    self.ib.disconnect()
+                time.sleep(wait)
+        if last_err is not None:
+            log_event("REFUSED", reason=f"could not connect to Gateway after retries: {last_err!r}")
+            raise SystemExit(f"Could not connect to IB Gateway after retries: {last_err!r}")
+
         acct = self.ib.managedAccounts()[0]
         print(f"[safety] connected account: {acct}")
         if not acct.startswith("DU"):
