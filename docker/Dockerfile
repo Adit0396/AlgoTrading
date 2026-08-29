@@ -40,7 +40,7 @@ RUN IBC_URL=$(wget -qO- https://api.github.com/repos/IbcAlpha/IBC/releases/lates
 # --- The momentum bot itself ---------------------------------------------
 WORKDIR /app
 COPY ../momentum_autotrader.py /app/momentum_autotrader.py
-RUN pip3 install --no-cache-dir ib_insync pandas numpy requests
+RUN pip3 install --no-cache-dir ib_insync pandas numpy requests lxml
 
 # --- Config template (values injected via env vars at runtime, see entrypoint) --
 COPY config.ini.template /opt/ibc/config.ini.template

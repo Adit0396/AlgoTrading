@@ -40,6 +40,25 @@ http.server.HTTPServer(('0.0.0.0', $PORT), H).serve_forever()
 # --- Start IB Gateway via IBC (this handles login + keep-alive) -----------
 /opt/ibc/gatewaystart.sh -inline --config=/opt/ibc/config.ini &
 
+# --- Stream IBC/Gateway's own diagnostic log to stdout ---------------------
+# IBC writes the real reason for any crash to a log file inside the
+# container (path printed in its own startup banner, e.g.
+# /root/ibc/logs/ibc-<ver>_GATEWAY-<build>_<Day>.txt) rather than stdout, so
+# a failure otherwise shows only a generic "An error has occurred" banner
+# on the platform's logs with no way to diagnose it. Find that file as soon
+# as it appears and tail it so the real error is visible remotely.
+(
+  for i in $(seq 1 30); do
+    LOGFILE=$(ls -t /root/ibc/logs/*.txt 2>/dev/null | head -n1)
+    if [ -n "$LOGFILE" ]; then
+      echo "--- streaming IBC diagnostic log: $LOGFILE ---"
+      tail -n +1 -F "$LOGFILE" &
+      break
+    fi
+    sleep 1
+  done
+) &
+
 # --- Wait for Gateway's API port to actually come up before the bot tries --
 echo "Waiting for IB Gateway to finish logging in..."
 for i in $(seq 1 60); do
