@@ -19,6 +19,24 @@ sed -e "s/__IBC_USER__/$IBC_USER/" -e "s/__IBC_PASSWORD__/$IBC_PASSWORD/" \
 Xvfb :1 -screen 0 1024x768x16 &
 sleep 2
 
+# --- Bind Render's expected HTTP port immediately -------------------------
+# Render's web-service health check needs SOMETHING listening on $PORT right
+# away, or it keeps "scanning" and eventually kills the deploy — even though
+# the real work here (Gateway + the bot) has nothing to do with HTTP. This
+# tiny server just answers 200 so the platform sees the container as alive;
+# it isn't used for anything else.
+PORT="${PORT:-10000}"
+python3 -c "
+import http.server, threading
+class H(http.server.BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b'ok')
+    def log_message(self, *a): pass
+http.server.HTTPServer(('0.0.0.0', $PORT), H).serve_forever()
+" &
+
 # --- Start IB Gateway via IBC (this handles login + keep-alive) -----------
 /opt/ibc/gatewaystart.sh -inline --config=/opt/ibc/config.ini &
 

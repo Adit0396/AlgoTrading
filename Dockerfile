@@ -11,6 +11,8 @@ FROM eclipse-temurin:17-jre-jammy
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     xvfb x11vnc wget unzip python3 python3-pip ca-certificates \
+    libxtst6 libxrender1 libxi6 libxrandr2 libnss3 libasound2 \
+    fontconfig fonts-dejavu-core procps \
     && rm -rf /var/lib/apt/lists/*
 
 ARG IBGATEWAY_VERSION=10.30.1t
