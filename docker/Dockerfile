@@ -24,8 +24,12 @@ RUN wget -q "https://download2.interactivebrokers.com/installers/ibgateway/stabl
     && rm /tmp/ibgateway-install.sh
 
 # --- IBC (auto-login / keep-alive controller) --------------------------------
-RUN wget -q "https://github.com/IbcAlpha/IBC/releases/latest/download/IBCLinux-3.20.0.zip" \
-    -O /tmp/ibc.zip \
+RUN IBC_URL=$(wget -qO- https://api.github.com/repos/IbcAlpha/IBC/releases/latest \
+        | grep -o '"browser_download_url": *"[^"]*Linux[^"]*\.zip"' \
+        | head -n1 \
+        | sed -e 's/.*"browser_download_url": *"//' -e 's/"$//') \
+    && echo "Resolved IBC download URL: $IBC_URL" \
+    && wget -q "$IBC_URL" -O /tmp/ibc.zip \
     && mkdir -p /opt/ibc \
     && unzip -q /tmp/ibc.zip -d /opt/ibc \
     && chmod +x /opt/ibc/*.sh /opt/ibc/scripts/*.sh \

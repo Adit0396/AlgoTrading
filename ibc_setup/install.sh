@@ -32,7 +32,12 @@ echo "== Step 2: Installing IBC =="
 if [ ! -d "$IBC_DIR" ]; then
   mkdir -p "$IBC_DIR"
   cd /tmp
-  curl -L -o ibc.zip "https://github.com/IbcAlpha/IBC/releases/latest/download/IBCMacos-3.20.0.zip"
+  IBC_URL=$(curl -sL https://api.github.com/repos/IbcAlpha/IBC/releases/latest \
+      | grep -o '"browser_download_url": *"[^"]*Macos[^"]*\.zip"' \
+      | head -n1 \
+      | sed -e 's/.*"browser_download_url": *"//' -e 's/"$//')
+  echo "Resolved IBC download URL: $IBC_URL"
+  curl -L -o ibc.zip "$IBC_URL"
   unzip -o ibc.zip -d "$IBC_DIR"
   chmod +x "$IBC_DIR"/*.sh
 fi
