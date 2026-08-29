@@ -3,6 +3,7 @@
 IbLoginId=__IBC_USER__
 IbPassword=__IBC_PASSWORD__
 TradingMode=paper
+TwsPath=/root/Jts
 ClosedownAt=05:00
 AcceptIncomingConnectionAction=accept
 AllowBlindTrading=yes
