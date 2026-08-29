@@ -1,0 +1,13 @@
+# Filled in from environment variables at container start — see entrypoint.sh.
+# Never edit this with real credentials; it's a template baked into the image.
+IbLoginId=__IBC_USER__
+IbPassword=__IBC_PASSWORD__
+TradingMode=paper
+ClosedownAt=05:00
+AcceptIncomingConnectionAction=accept
+AllowBlindTrading=yes
+ExistingSessionDetectedAction=primary
+LogComponents=never
+SaveTwsSettingsAt=
+OverrideTwsApiPort=4002
+ReadOnlyLogin=no

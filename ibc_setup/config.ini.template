@@ -1,0 +1,33 @@
+# IBC (Interactive Brokers Controller) config template
+# https://github.com/IbcAlpha/IBC
+#
+# This file drives Gateway startup + auto-relogin with ZERO clicks after the
+# first run. Copy this to config.ini and fill in the two blank fields below
+# YOURSELF — this is the one step nobody but you can do, on principle, same
+# as every other login moment in this project.
+#
+# cp config.ini.template config.ini
+# nano config.ini   (or any text editor)
+
+# ── Fill these in yourself ───────────────────────────────────────────────
+IbLoginId=
+IbPassword=
+# ─────────────────────────────────────────────────────────────────────────
+
+TradingMode=paper
+
+# Auto-restart Gateway daily at 5am to pick up IBKR's own forced updates
+# without you needing to notice or intervene.
+ClosedownAt=05:00
+
+# Suppress every dialog that would otherwise need a click — this is what
+# makes it genuinely unattended.
+AcceptIncomingConnectionAction=accept
+AllowBlindTrading=yes
+ExistingSessionDetectedAction=primary
+LogComponents=never
+SaveTwsSettingsAt=
+
+# Socket API settings the bot needs
+OverrideTwsApiPort=4002
+ReadOnlyLogin=no
