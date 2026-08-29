@@ -12,8 +12,12 @@ if [ -z "$IBC_USER" ] || [ -z "$IBC_PASSWORD" ]; then
 fi
 
 # --- Render the real config.ini from the template + env vars --------------
+# IBC's default --ibc-ini path is ~/ibc/config.ini (i.e. /root/ibc/config.ini
+# when running as root) — write it there rather than under /opt/ibc, since
+# the --config= flag passed to gatewaystart.sh below isn't actually honored.
+mkdir -p /root/ibc
 sed -e "s/__IBC_USER__/$IBC_USER/" -e "s/__IBC_PASSWORD__/$IBC_PASSWORD/" \
-    /opt/ibc/config.ini.template > /opt/ibc/config.ini
+    /opt/ibc/config.ini.template > /root/ibc/config.ini
 
 # --- Start the virtual display Gateway needs to run headlessly ------------
 Xvfb :1 -screen 0 1024x768x16 &
@@ -38,7 +42,7 @@ http.server.HTTPServer(('0.0.0.0', $PORT), H).serve_forever()
 " &
 
 # --- Start IB Gateway via IBC (this handles login + keep-alive) -----------
-/opt/ibc/gatewaystart.sh -inline --config=/opt/ibc/config.ini &
+/opt/ibc/gatewaystart.sh -inline --ibc-ini=/root/ibc/config.ini &
 
 # --- Stream IBC/Gateway's own diagnostic log to stdout ---------------------
 # IBC writes the real reason for any crash to a log file inside the
