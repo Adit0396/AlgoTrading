@@ -106,6 +106,13 @@ def day_bars(tm, text, sym, day):
     return tm.split_sessions(bars).get(day.isoformat(), {})
 
 
+def bar_close(b):
+    """The time a 5-minute bar closes, e.g. the 09:55 bar -> 10:00."""
+    h, m = map(int, b["start"].split(":"))
+    m += 5
+    return "%02d:%02d" % (h + m // 60, m % 60)
+
+
 def actual_outcome(D, k, last, entry, stop, target):
     """Same rule as the time machine's history: stop checked before target in each bar."""
     for i in range(k + 1, last + 1):
@@ -113,9 +120,9 @@ def actual_outcome(D, k, last, entry, stop, target):
         if b is None:
             return None, None, None, "missing the %s bar" % i
         if b["l"] <= stop:
-            return "stop", b["start"], stop, ""
+            return "stop", bar_close(b), stop, ""
         if b["h"] >= target:
-            return "target", b["start"], target, ""
+            return "target", bar_close(b), target, ""
     b = D.get(last)
     return "flat at 3:55", "15:55", round(b["c"], 2), ""
 
@@ -133,7 +140,7 @@ def pick_day(tm, repo, day, args):
     n = args.or_minutes // 5
     last = (15 * 60 + 55 - tm.OPEN_MIN) // 5 - 1          # the bar that closes at 3:55 PM
     cands = []
-    for h in hits[:args.max_charts]:
+    for h in (hits[:args.max_charts] if args.max_charts else hits):
         try:
             text = chart_text(tm, h["symbol"], args)
             D = day_bars(tm, text, h["symbol"], day)
@@ -240,7 +247,8 @@ def main(argv=None):
     ap.add_argument("--or-minutes", type=int, default=15)
     ap.add_argument("--min-price", type=float, default=5.0)
     ap.add_argument("--min-volume", type=int, default=200000, help="shares traded 9:30 to 10:15")
-    ap.add_argument("--max-charts", type=int, default=25, help="breakouts to rank by dollar volume")
+    ap.add_argument("--max-charts", type=int, default=0,
+                    help="rank only the first N breakouts by dollar volume (0 = all of them)")
     ap.add_argument("--replays", type=int, default=10000)
     ap.add_argument("--seed", type=int, default=19)
     ap.add_argument("--scan-offline", help=argparse.SUPPRESS)

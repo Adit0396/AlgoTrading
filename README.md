@@ -13,7 +13,7 @@ that isn't logged yet:
 
 1. **Scan.** trader-scanner's opening-range breakout scan as of 10:15 AM New York time
    (15-minute range, price at least $5, at least 200,000 shares traded by 10:15).
-2. **Pick.** The 3 breakouts with the most dollar volume from 9:30 to 10:15.
+2. **Pick.** Of every breakout found, the 3 with the most dollar volume from 9:30 to 10:15.
 3. **Plan.** Entry at the breakout bar's close, stop at the opening-range midpoint,
    target at 1R, flat by 3:55 PM.
 4. **Time Machine.** trader-timemachine replays the rest of the day 10,000 times from the
@@ -41,7 +41,7 @@ Tuesday to Saturday, after the US close in both daylight and standard time. GitH
 scheduled runs late when it's busy. Each run commits new results back to this repo.
 
 To run it now: Actions tab, **ORB forward test**, **Run workflow**. Leave the mode as `catch-up`,
-or type one date such as `2026-10-30`.
+type `backfill` to redo the last 5 sessions, or type one date such as `2026-10-30`.
 
 ## Run it on your own computer
 

@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "catch-up (missing sessions from the last 5) or a date like 2026-10-30"
+        description: "catch-up (missing sessions from the last 5), backfill (redo the last 5), or a date like 2026-10-30"
         required: false
         default: "catch-up"
 
@@ -43,6 +43,8 @@ jobs:
         run: |
           if [ "$MODE" = "catch-up" ]; then
             python -I forward_test.py --repo day-trader-skill --state forward-test-data --catch-up
+          elif [ "$MODE" = "backfill" ]; then
+            python -I forward_test.py --repo day-trader-skill --state forward-test-data --backfill 5
           else
             python -I forward_test.py --repo day-trader-skill --state forward-test-data --date "$MODE"
           fi
