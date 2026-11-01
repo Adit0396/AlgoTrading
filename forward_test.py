@@ -38,7 +38,7 @@ FIELDS = ["date", "symbol", "entry_time", "entry", "stop", "target", "risk_per_s
           "position_usd", "max_loss_usd", "tm_target_pct", "tm_stop_pct", "tm_neither_pct", "tm_green_pct",
           "tm_avg_r", "hist_fired", "hist_target", "hist_stop", "hist_close", "hist_avg_r", "verdict",
           "actual_outcome", "exit_time", "exit_price", "r_multiple", "pnl_usd", "dollar_volume_to_1015",
-          "scan_hits", "seed", "run_at", "note"]
+          "scan_hits", "seed", "run_at", "note", "news_before_entry"]
 
 US_HOLIDAYS = {  # NYSE full closures, 2026-2027
     "2026-01-01", "2026-01-19", "2026-02-16", "2026-04-03", "2026-05-25", "2026-06-19", "2026-07-03",
@@ -127,6 +127,44 @@ def actual_outcome(D, k, last, entry, stop, target):
     return "flat at 3:55", "15:55", round(b["c"], 2), ""
 
 
+def entry_utc(tm, day, label):
+    """'10:15 AM' New York on day -> naive UTC datetime."""
+    t = datetime.datetime.strptime(label.strip(), "%I:%M %p").time()
+    return tm.eastern_to_utc(datetime.datetime.combine(day, t))
+
+
+def news_before(repo, workdir, sym, when_utc, hours, offline=None):
+    """trader-news for one ticker: Yahoo headlines (and 8-Ks when SEC_USER_AGENT is set) published in
+    the `hours` before the entry. Returns (one-line summary, items)."""
+    news = os.path.join(repo, "trader-news", "news.py")
+    state = os.path.join(workdir, "news-state.json")
+    cmd = [sys.executable, "-I", news, "--tickers", sym, "--now", when_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
+           "--hours", str(hours), "--all", "--dry-run", "--no-moves", "--json", "--state", state]
+    if not os.environ.get("SEC_USER_AGENT"):
+        cmd.append("--no-sec")
+    if offline:
+        cmd += ["--offline", offline]
+    p = subprocess.run(cmd, cwd=workdir, capture_output=True, text=True, timeout=120)
+    out = p.stdout.strip()
+    if not out.startswith("{"):
+        return "news check failed: " + (p.stderr.strip() or out or "no output")[-120:], []
+    doc = json.loads(out)
+    items = [{"time": i.get("time"), "source": i.get("source"), "kind": i.get("kind"), "title": i.get("title"),
+              "link": i.get("link"), "tags": i.get("tags") or [], "important": bool(i.get("important"))}
+             for i in doc.get("items") or []]
+    if not items:
+        errs = [n for n in (doc.get("notes") or []) if "skipped" not in n]
+        if errs:
+            return "news check failed: %s" % str(errs[0])[:120], []
+        return "no headlines in the %d hours before entry" % hours, []
+    tags = sorted({t for i in items for t in i["tags"]})
+    head = items[0]["title"] or ""
+    text = "%d item%s%s; latest: %s" % (len(items), "" if len(items) == 1 else "s",
+                                         (" (" + ", ".join(tags) + ")") if tags else "",
+                                         head[:140])
+    return text, items[:8]
+
+
 def pick_day(tm, repo, day, args):
     run_at = utcnow().strftime("%Y-%m-%d %H:%M UTC")
     workdir = os.path.join(args.state, "work")
@@ -184,6 +222,14 @@ def pick_day(tm, repo, day, args):
                        verdict=res["verdict"])
         except Exception as e:  # noqa: BLE001
             row["note"] = "time machine: %s" % e
+        if not args.no_news:
+            try:
+                text, items = news_before(repo, workdir, sym, entry_utc(tm, day, h["at"]), args.news_hours,
+                                          args.news_offline)
+            except Exception as e:  # noqa: BLE001
+                text, items = "news check failed: %s" % e, []
+            row["news_before_entry"] = text
+            row["_news"] = items
         if shares < 1:
             row["note"] = (row.get("note", "") + "; " if row.get("note") else "") + \
                 "0 shares: one share risks more than the max loss"
@@ -198,7 +244,8 @@ def pick_day(tm, repo, day, args):
     return rows
 
 
-TEXT_FIELDS = ("date", "symbol", "entry_time", "exit_time", "run_at", "verdict", "note", "actual_outcome")
+TEXT_FIELDS = ("date", "symbol", "entry_time", "exit_time", "run_at", "verdict", "note", "actual_outcome",
+               "news_before_entry")
 
 
 def sheet_row(r):
@@ -230,6 +277,76 @@ def save(rows, path):
             w.writerow({k: r.get(k, "") for k in FIELDS})
 
 
+NUMERIC = ("entry", "stop", "target", "risk_per_share", "shares", "position_usd", "max_loss_usd", "tm_target_pct",
+           "tm_stop_pct", "tm_neither_pct", "tm_green_pct", "tm_avg_r", "hist_fired", "hist_target", "hist_stop",
+           "hist_close", "hist_avg_r", "exit_price", "r_multiple", "pnl_usd", "dollar_volume_to_1015", "scan_hits",
+           "seed")
+TRADED = ("target", "stop", "flat at 3:55")
+
+
+def write_dashboard(csv_path, news_store, path, args):
+    """One JSON file a website can fetch: settings, totals, a P&L series by session, and every pick
+    with its news. Read it from https://raw.githubusercontent.com/<owner>/<repo>/main/forward-test-data/dashboard.json"""
+    picks = []
+    if os.path.exists(csv_path):
+        with open(csv_path, newline="") as fh:
+            for r in csv.DictReader(fh):
+                d = {}
+                for k in FIELDS:
+                    v = r.get(k, "")
+                    if k in NUMERIC:
+                        try:
+                            v = float(v) if v != "" else None
+                        except ValueError:
+                            v = None
+                    d[k] = v
+                d["news"] = news_store.get(d["date"], {}).get(d["symbol"], []) if d["symbol"] else []
+                picks.append(d)
+    trades = [p for p in picks if p["actual_outcome"] in TRADED and p["pnl_usd"] is not None]
+    by_day, cum, series = {}, 0.0, []
+    for p in picks:
+        by_day.setdefault(p["date"], 0.0)
+        if p in trades:
+            by_day[p["date"]] += p["pnl_usd"]
+    for d in sorted(by_day):
+        cum += by_day[d]
+        series.append({"date": d, "pnl_usd": round(by_day[d], 2), "cumulative_usd": round(cum, 2)})
+
+    def avg(vals):
+        vals = [v for v in vals if v is not None]
+        return round(sum(vals) / len(vals), 3) if vals else None
+
+    n = len(trades)
+    total = round(sum(p["pnl_usd"] for p in trades), 2)
+    doc = {
+        "generated_at": utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "simulation_only": True,
+        "settings": {"account_usd": args.account, "max_loss_usd": args.max_loss, "picks_per_day": args.top,
+                     "opening_range_minutes": args.or_minutes, "stop": "opening-range midpoint",
+                     "target_r": args.target_r, "flat_by": "15:55 New York", "seed": args.seed},
+        "totals": {
+            "sessions": len(by_day), "trades": n,
+            "target": sum(1 for p in trades if p["actual_outcome"] == "target"),
+            "stop": sum(1 for p in trades if p["actual_outcome"] == "stop"),
+            "flat": sum(1 for p in trades if p["actual_outcome"] == "flat at 3:55"),
+            "winners": sum(1 for p in trades if p["pnl_usd"] > 0),
+            "win_rate": round(sum(1 for p in trades if p["pnl_usd"] > 0) / n, 3) if n else None,
+            "pnl_usd": total, "return_on_account": round(total / args.account, 4) if args.account else None,
+            "avg_r": avg([p["r_multiple"] for p in trades]),
+            "predicted_target_first_pct": avg([p["tm_target_pct"] for p in trades]),
+            "actual_target_first_pct": round(100.0 * sum(1 for p in trades if p["actual_outcome"] == "target") / n, 1)
+            if n else None,
+            "predicted_stop_first_pct": avg([p["tm_stop_pct"] for p in trades]),
+            "actual_stop_first_pct": round(100.0 * sum(1 for p in trades if p["actual_outcome"] == "stop") / n, 1)
+            if n else None,
+        },
+        "daily": series,
+        "picks": picks,
+    }
+    with open(path, "w") as fh:
+        json.dump(doc, fh, indent=1)
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--repo", required=True, help="folder holding the trader-* skill folders")
@@ -250,6 +367,9 @@ def main(argv=None):
     ap.add_argument("--max-charts", type=int, default=0,
                     help="rank only the first N breakouts by dollar volume (0 = all of them)")
     ap.add_argument("--replays", type=int, default=10000)
+    ap.add_argument("--news-hours", type=int, default=18, help="headlines published this long before entry")
+    ap.add_argument("--no-news", action="store_true", help="skip trader-news")
+    ap.add_argument("--news-offline", help=argparse.SUPPRESS)
     ap.add_argument("--seed", type=int, default=19)
     ap.add_argument("--scan-offline", help=argparse.SUPPRESS)
     ap.add_argument("--chart-offline", help=argparse.SUPPRESS)
@@ -311,6 +431,18 @@ def main(argv=None):
                 allrows.append(sheet_row(r))
     with open(os.path.join(args.state, "sheet_rows.json"), "w") as fh:
         json.dump({"fields": FIELDS, "rows": allrows}, fh, indent=1)
+    news_path = os.path.join(args.state, "news.json")
+    news_store = {}
+    if os.path.exists(news_path):
+        with open(news_path) as fh:
+            news_store = json.load(fh)
+    for day in summary:
+        for r in day["rows"]:
+            if r.get("symbol") and "_news" in r:
+                news_store.setdefault(day["date"], {})[r["symbol"]] = r["_news"]
+    with open(news_path, "w") as fh:
+        json.dump(news_store, fh, indent=1, sort_keys=True)
+    write_dashboard(out, news_store, os.path.join(args.state, "dashboard.json"), args)
     print("Results: %s" % out)
     return status
 

@@ -40,6 +40,8 @@ jobs:
       - name: Run the forward test
         env:
           MODE: ${{ github.event.inputs.mode || 'catch-up' }}
+          # Optional repo secret "Your Name you@example.com": adds SEC 8-K filings to the news check
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
         run: |
           if [ "$MODE" = "catch-up" ]; then
             python -I forward_test.py --repo day-trader-skill --state forward-test-data --catch-up

@@ -18,10 +18,13 @@ that isn't logged yet:
    target at 1R, flat by 3:55 PM.
 4. **Time Machine.** trader-timemachine replays the rest of the day 10,000 times from the
    stock's own prior sessions (seed 19) and re-runs the rule on each of those sessions.
-5. **Score.** The real 5-minute bars after the entry decide what happened: stop first,
+5. **News.** trader-news collects the Yahoo Finance headlines for each pick published in the
+   18 hours before its entry, tagged (earnings, analyst, deal, legal, macro...). Add a repo secret
+   `SEC_USER_AGENT` set to `Your Name you@example.com` to include SEC 8-K filings as well.
+6. **Score.** The real 5-minute bars after the entry decide what happened: stop first,
    target first, or the price at 3:55 PM. A bar that touches both counts as the stop, the same
    rule the Time Machine uses.
-6. **Size.** $5,000 account, $50 max loss per trade: shares = the smaller of
+7. **Size.** $5,000 account, $50 max loss per trade: shares = the smaller of
    floor(50 / risk per share) and floor(5,000 / entry). P&L = shares x (exit - entry).
 
 ## Where the results go
@@ -31,8 +34,22 @@ that isn't logged yet:
 | `forward-test-data/results.csv` | One row per pick, or one "no setup" row for a day without a breakout |
 | `forward-test-data/sheet_rows.json` | Every row in the column order of the Google Sheet's Picks tab |
 | `forward-test-data/last_run.json` | What the latest run did |
+| `forward-test-data/news.json` | The headlines found before each pick's entry, by date and ticker |
+| `forward-test-data/dashboard.json` | Everything a website needs in one file: settings, totals, P&L by session, every pick with its news |
 | Google Sheet "Day Trader Forward Test" | Picks tab (raw log) and Summary tab (formulas). A Claude scheduled task copies new rows from `sheet_rows.json` each morning |
 | Claude artifact "ORB Forward Test" | The dashboard: P&L curve, win rate, predicted vs actual odds, every pick. It reads the sheet |
+
+## Showing it on a website
+
+`dashboard.json` is public and can be fetched straight from the browser (GitHub serves raw files
+with open CORS):
+
+```js
+const res = await fetch("https://raw.githubusercontent.com/Adit0396/AlgoTrading/main/forward-test-data/dashboard.json", { cache: "no-store" });
+const data = await res.json();   // data.totals, data.daily, data.picks
+```
+
+GitHub caches raw files for up to about 5 minutes, so a new run can take that long to show.
 
 ## Schedule
 
@@ -73,6 +90,8 @@ Needs Python 3.8 or newer and nothing to install. The workflow pins the skill pa
 - Yahoo keeps only about 6 days of 5-minute data for the scan, so a session missed for longer
   than that can't be filled in.
 - Yahoo's free endpoints are unofficial. They can lag, change, or rate-limit cloud servers.
+- Yahoo's headline feed keeps only the latest items per ticker, so a busy stock's early-morning
+  headlines may already be gone by the evening run, and older sessions in a backfill show few.
 - Fills are modeled at the stop and target prices. Real fills can be worse, especially across
   a gap, and there are no commissions or slippage in the numbers.
 - Most people who day trade lose money. This is a test harness, not financial advice.
