@@ -156,6 +156,20 @@ def news_before(repo, workdir, sym, when_utc, hours, offline=None):
         errs = [n for n in (doc.get("notes") or []) if "skipped" not in n]
         if errs:
             return "news check failed: %s" % str(errs[0])[:120], []
+        # say whether the window was empty or the feed has already moved past it
+        probe = [c for c in cmd if c != when_utc.strftime("%Y-%m-%dT%H:%M:%SZ") and c != "--now"]
+        probe[probe.index("--hours") + 1] = "100000"
+        q = subprocess.run(probe, cwd=workdir, capture_output=True, text=True, timeout=120)
+        try:
+            feed = json.loads(q.stdout).get("items") or []
+        except ValueError:
+            feed = []
+        times = sorted(i["time"] for i in feed if i.get("time"))
+        if not feed:
+            return "no headlines: Yahoo's feed returned nothing for %s" % sym, []
+        if times and times[0] > when_utc.strftime("%Y-%m-%dT%H:%M:%S"):
+            return ("no headlines found: Yahoo's feed now starts at %s UTC, after this entry"
+                    % times[0][:16].replace("T", " ")), []
         return "no headlines in the %d hours before entry" % hours, []
     tags = sorted({t for i in items for t in i["tags"]})
     head = items[0]["title"] or ""
