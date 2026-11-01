@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-01T04:48:04Z",
+ "generated_at": "2026-11-01T05:04:35Z",
  "simulation_only": true,
  "settings": {
   "account_usd": 5000.0,
@@ -505,9 +505,9 @@
    "dollar_volume_to_1015": 5394438423.0,
    "scan_hits": 108.0,
    "seed": 19.0,
-   "run_at": "2026-11-01 04:42 UTC",
+   "run_at": "2026-11-01 04:58 UTC",
    "note": "",
-   "news_before_entry": "no headlines in the 18 hours before entry",
+   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-10-31 11:27 UTC, after this entry",
    "news": []
   },
   {
@@ -540,9 +540,9 @@
    "dollar_volume_to_1015": 5471683374.0,
    "scan_hits": 108.0,
    "seed": 19.0,
-   "run_at": "2026-11-01 04:42 UTC",
+   "run_at": "2026-11-01 04:58 UTC",
    "note": "",
-   "news_before_entry": "no headlines in the 18 hours before entry",
+   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-10-30 15:02 UTC, after this entry",
    "news": []
   },
   {
@@ -575,9 +575,9 @@
    "dollar_volume_to_1015": 2613275601.0,
    "scan_hits": 108.0,
    "seed": 19.0,
-   "run_at": "2026-11-01 04:42 UTC",
+   "run_at": "2026-11-01 04:58 UTC",
    "note": "",
-   "news_before_entry": "no headlines in the 18 hours before entry",
+   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-10-30 17:58 UTC, after this entry",
    "news": []
   }
  ]

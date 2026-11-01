@@ -472,9 +472,9 @@
    5394438423.0,
    108,
    19,
-   "'2026-11-01 04:42 UTC",
+   "'2026-11-01 04:58 UTC",
    "",
-   "'no headlines in the 18 hours before entry"
+   "'no headlines found: Yahoo's feed now starts at 2026-10-31 11:27 UTC, after this entry"
   ],
   [
    "'2026-10-30",
@@ -506,9 +506,9 @@
    5471683374.0,
    108,
    19,
-   "'2026-11-01 04:42 UTC",
+   "'2026-11-01 04:58 UTC",
    "",
-   "'no headlines in the 18 hours before entry"
+   "'no headlines found: Yahoo's feed now starts at 2026-10-30 15:02 UTC, after this entry"
   ],
   [
    "'2026-10-30",
@@ -540,9 +540,9 @@
    2613275601.0,
    108,
    19,
-   "'2026-11-01 04:42 UTC",
+   "'2026-11-01 04:58 UTC",
    "",
-   "'no headlines in the 18 hours before entry"
+   "'no headlines found: Yahoo's feed now starts at 2026-10-30 17:58 UTC, after this entry"
   ]
  ]
 }
