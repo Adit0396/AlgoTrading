@@ -30,7 +30,8 @@
     "scan_hits",
     "seed",
     "run_at",
-    "note"
+    "note",
+    "news_before_entry"
   ],
   "days": [
     {
@@ -46,7 +47,7 @@
           "date": "2026-10-26",
           "scan_hits": 127,
           "seed": 19,
-          "run_at": "2026-11-01 03:31 UTC",
+          "run_at": "2026-11-01 04:22 UTC",
           "symbol": "TSLA",
           "dollar_volume_to_1015": 4911538558,
           "entry_time": "9:55 AM",
@@ -68,6 +69,8 @@
           "hist_close": 5,
           "hist_avg_r": -0.086,
           "verdict": "Leans toward the target: target first 45.5 % vs stop first 35.4 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "flat at 3:55",
           "exit_time": "15:55",
           "exit_price": 390.59,
@@ -78,7 +81,7 @@
           "date": "2026-10-26",
           "scan_hits": 127,
           "seed": 19,
-          "run_at": "2026-11-01 03:31 UTC",
+          "run_at": "2026-11-01 04:22 UTC",
           "symbol": "NU",
           "dollar_volume_to_1015": 1400618600,
           "entry_time": "10:10 AM",
@@ -100,6 +103,8 @@
           "hist_close": 10,
           "hist_avg_r": 0.028,
           "verdict": "Leans toward the stop: target first 14.7 % vs stop first 18.6 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "target",
           "exit_time": "13:15",
           "exit_price": 12.44,
@@ -110,7 +115,7 @@
           "date": "2026-10-26",
           "scan_hits": 127,
           "seed": 19,
-          "run_at": "2026-11-01 03:31 UTC",
+          "run_at": "2026-11-01 04:22 UTC",
           "symbol": "MRNA",
           "dollar_volume_to_1015": 801602998,
           "entry_time": "9:50 AM",
@@ -132,6 +137,8 @@
           "hist_close": 10,
           "hist_avg_r": 0.255,
           "verdict": "Leans toward the target: target first 47.1 % vs stop first 30.8 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "target",
           "exit_time": "10:25",
           "exit_price": 203.79,
@@ -170,8 +177,9 @@
           4911538558,
           127,
           19,
-          "'2026-11-01 03:31 UTC",
-          ""
+          "'2026-11-01 04:22 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ],
         [
           "'2026-10-26",
@@ -203,8 +211,9 @@
           1400618600,
           127,
           19,
-          "'2026-11-01 03:31 UTC",
-          ""
+          "'2026-11-01 04:22 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ],
         [
           "'2026-10-26",
@@ -236,8 +245,9 @@
           801602998,
           127,
           19,
-          "'2026-11-01 03:31 UTC",
-          ""
+          "'2026-11-01 04:22 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ]
       ]
     },
@@ -254,7 +264,7 @@
           "date": "2026-10-27",
           "scan_hits": 78,
           "seed": 19,
-          "run_at": "2026-11-01 03:36 UTC",
+          "run_at": "2026-11-01 04:27 UTC",
           "symbol": "SPCX",
           "dollar_volume_to_1015": 2288925627,
           "entry_time": "10:00 AM",
@@ -276,6 +286,8 @@
           "hist_close": 6,
           "hist_avg_r": 0.046,
           "verdict": "Leans toward the target: target first 55.8 % vs stop first 44.0 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "stop",
           "exit_time": "10:15",
           "exit_price": 147.86,
@@ -286,7 +298,7 @@
           "date": "2026-10-27",
           "scan_hits": 78,
           "seed": 19,
-          "run_at": "2026-11-01 03:36 UTC",
+          "run_at": "2026-11-01 04:27 UTC",
           "symbol": "STX",
           "dollar_volume_to_1015": 1333770376,
           "entry_time": "10:05 AM",
@@ -308,6 +320,8 @@
           "hist_close": 10,
           "hist_avg_r": -0.167,
           "verdict": "Leans toward the target: target first 43.5 % vs stop first 34.3 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "flat at 3:55",
           "exit_time": "15:55",
           "exit_price": 669.38,
@@ -318,7 +332,7 @@
           "date": "2026-10-27",
           "scan_hits": 78,
           "seed": 19,
-          "run_at": "2026-11-01 03:36 UTC",
+          "run_at": "2026-11-01 04:27 UTC",
           "symbol": "SOFI",
           "dollar_volume_to_1015": 796488581,
           "entry_time": "9:55 AM",
@@ -340,6 +354,8 @@
           "hist_close": 6,
           "hist_avg_r": 0.105,
           "verdict": "Leans toward the stop: target first 31.6 % vs stop first 41.5 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "target",
           "exit_time": "10:40",
           "exit_price": 16.44,
@@ -378,8 +394,9 @@
           2288925627,
           78,
           19,
-          "'2026-11-01 03:36 UTC",
-          ""
+          "'2026-11-01 04:27 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ],
         [
           "'2026-10-27",
@@ -411,8 +428,9 @@
           1333770376,
           78,
           19,
-          "'2026-11-01 03:36 UTC",
-          ""
+          "'2026-11-01 04:27 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ],
         [
           "'2026-10-27",
@@ -444,8 +462,9 @@
           796488581,
           78,
           19,
-          "'2026-11-01 03:36 UTC",
-          ""
+          "'2026-11-01 04:27 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ]
       ]
     },
@@ -462,7 +481,7 @@
           "date": "2026-10-28",
           "scan_hits": 113,
           "seed": 19,
-          "run_at": "2026-11-01 03:40 UTC",
+          "run_at": "2026-11-01 04:31 UTC",
           "symbol": "SKHY",
           "dollar_volume_to_1015": 2428820390,
           "entry_time": "10:00 AM",
@@ -484,6 +503,8 @@
           "hist_close": 5,
           "hist_avg_r": 0.141,
           "verdict": "Close to a coin flip: target first 44.2 % vs stop first 36.4 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "target",
           "exit_time": "12:10",
           "exit_price": 164.19,
@@ -494,7 +515,7 @@
           "date": "2026-10-28",
           "scan_hits": 113,
           "seed": 19,
-          "run_at": "2026-11-01 03:40 UTC",
+          "run_at": "2026-11-01 04:31 UTC",
           "symbol": "LITE",
           "dollar_volume_to_1015": 844743541,
           "entry_time": "10:00 AM",
@@ -516,6 +537,8 @@
           "hist_close": 8,
           "hist_avg_r": 0.05,
           "verdict": "Close to a coin flip: target first 53.0 % vs stop first 47.0 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "stop",
           "exit_time": "10:10",
           "exit_price": 882.1,
@@ -526,7 +549,7 @@
           "date": "2026-10-28",
           "scan_hits": 113,
           "seed": 19,
-          "run_at": "2026-11-01 03:40 UTC",
+          "run_at": "2026-11-01 04:31 UTC",
           "symbol": "TSM",
           "dollar_volume_to_1015": 606993133,
           "entry_time": "10:05 AM",
@@ -548,6 +571,8 @@
           "hist_close": 6,
           "hist_avg_r": 0.247,
           "verdict": "Leans toward the target: target first 56.1 % vs stop first 43.8 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "stop",
           "exit_time": "10:15",
           "exit_price": 438.54,
@@ -586,8 +611,9 @@
           2428820390,
           113,
           19,
-          "'2026-11-01 03:40 UTC",
-          ""
+          "'2026-11-01 04:31 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ],
         [
           "'2026-10-28",
@@ -619,8 +645,9 @@
           844743541,
           113,
           19,
-          "'2026-11-01 03:40 UTC",
-          ""
+          "'2026-11-01 04:31 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ],
         [
           "'2026-10-28",
@@ -652,8 +679,9 @@
           606993133,
           113,
           19,
-          "'2026-11-01 03:40 UTC",
-          ""
+          "'2026-11-01 04:31 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ]
       ]
     },
@@ -670,7 +698,7 @@
           "date": "2026-10-29",
           "scan_hits": 109,
           "seed": 19,
-          "run_at": "2026-11-01 03:44 UTC",
+          "run_at": "2026-11-01 04:37 UTC",
           "symbol": "META",
           "dollar_volume_to_1015": 2712981919,
           "entry_time": "10:00 AM",
@@ -692,6 +720,8 @@
           "hist_close": 10,
           "hist_avg_r": -0.045,
           "verdict": "Close to a coin flip: target first 51.3 % vs stop first 48.6 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "target",
           "exit_time": "11:00",
           "exit_price": 626.66,
@@ -702,7 +732,7 @@
           "date": "2026-10-29",
           "scan_hits": 109,
           "seed": 19,
-          "run_at": "2026-11-01 03:44 UTC",
+          "run_at": "2026-11-01 04:37 UTC",
           "symbol": "SPCX",
           "dollar_volume_to_1015": 2041871901,
           "entry_time": "10:00 AM",
@@ -724,6 +754,8 @@
           "hist_close": 6,
           "hist_avg_r": 0.015,
           "verdict": "Leans toward the target: target first 55.4 % vs stop first 43.2 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "flat at 3:55",
           "exit_time": "15:55",
           "exit_price": 143.83,
@@ -734,7 +766,7 @@
           "date": "2026-10-29",
           "scan_hits": 109,
           "seed": 19,
-          "run_at": "2026-11-01 03:44 UTC",
+          "run_at": "2026-11-01 04:37 UTC",
           "symbol": "CAT",
           "dollar_volume_to_1015": 1508177978,
           "entry_time": "10:00 AM",
@@ -756,6 +788,8 @@
           "hist_close": 7,
           "hist_avg_r": -0.23,
           "verdict": "Close to a coin flip: target first 9.7 % vs stop first 8.4 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "stop",
           "exit_time": "14:50",
           "exit_price": 642.78,
@@ -794,8 +828,9 @@
           2712981919,
           109,
           19,
-          "'2026-11-01 03:44 UTC",
-          ""
+          "'2026-11-01 04:37 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ],
         [
           "'2026-10-29",
@@ -827,8 +862,9 @@
           2041871901,
           109,
           19,
-          "'2026-11-01 03:44 UTC",
-          ""
+          "'2026-11-01 04:37 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ],
         [
           "'2026-10-29",
@@ -860,8 +896,9 @@
           1508177978,
           109,
           19,
-          "'2026-11-01 03:44 UTC",
-          ""
+          "'2026-11-01 04:37 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ]
       ]
     },
@@ -878,7 +915,7 @@
           "date": "2026-10-30",
           "scan_hits": 108,
           "seed": 19,
-          "run_at": "2026-11-01 03:49 UTC",
+          "run_at": "2026-11-01 04:42 UTC",
           "symbol": "MU",
           "dollar_volume_to_1015": 5471683374,
           "entry_time": "9:55 AM",
@@ -900,6 +937,8 @@
           "hist_close": 10,
           "hist_avg_r": 0.086,
           "verdict": "Close to a coin flip: target first 48.5 % vs stop first 42.9 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "stop",
           "exit_time": "10:20",
           "exit_price": 889.57,
@@ -910,7 +949,7 @@
           "date": "2026-10-30",
           "scan_hits": 108,
           "seed": 19,
-          "run_at": "2026-11-01 03:49 UTC",
+          "run_at": "2026-11-01 04:42 UTC",
           "symbol": "AMZN",
           "dollar_volume_to_1015": 5394438423,
           "entry_time": "9:50 AM",
@@ -932,6 +971,8 @@
           "hist_close": 6,
           "hist_avg_r": -0.27,
           "verdict": "Leans toward the target: target first 4.6 % vs stop first 2.7 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "flat at 3:55",
           "exit_time": "15:55",
           "exit_price": 240.54,
@@ -942,7 +983,7 @@
           "date": "2026-10-30",
           "scan_hits": 108,
           "seed": 19,
-          "run_at": "2026-11-01 03:49 UTC",
+          "run_at": "2026-11-01 04:42 UTC",
           "symbol": "TSLA",
           "dollar_volume_to_1015": 2613275601,
           "entry_time": "9:55 AM",
@@ -964,6 +1005,8 @@
           "hist_close": 7,
           "hist_avg_r": -0.113,
           "verdict": "Leans toward the target: target first 55.2 % vs stop first 40.7 %.",
+          "news_before_entry": "no headlines in the 18 hours before entry",
+          "_news": [],
           "actual_outcome": "target",
           "exit_time": "10:05",
           "exit_price": 397.75,
@@ -1002,8 +1045,9 @@
           5471683374,
           108,
           19,
-          "'2026-11-01 03:49 UTC",
-          ""
+          "'2026-11-01 04:42 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ],
         [
           "'2026-10-30",
@@ -1035,8 +1079,9 @@
           5394438423,
           108,
           19,
-          "'2026-11-01 03:49 UTC",
-          ""
+          "'2026-11-01 04:42 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ],
         [
           "'2026-10-30",
@@ -1068,8 +1113,9 @@
           2613275601,
           108,
           19,
-          "'2026-11-01 03:49 UTC",
-          ""
+          "'2026-11-01 04:42 UTC",
+          "",
+          "'no headlines in the 18 hours before entry"
         ]
       ]
     }
