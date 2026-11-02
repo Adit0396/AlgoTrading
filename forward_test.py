@@ -39,6 +39,8 @@ FIELDS = ["date", "symbol", "entry_time", "entry", "stop", "target", "risk_per_s
           "tm_avg_r", "hist_fired", "hist_target", "hist_stop", "hist_close", "hist_avg_r", "verdict",
           "actual_outcome", "exit_time", "exit_price", "r_multiple", "pnl_usd", "dollar_volume_to_1015",
           "scan_hits", "seed", "run_at", "note", "news_before_entry"]
+SHEET_FIELDS = list(FIELDS)  # the Google Sheet's Picks columns; extra fields below stay out of it
+FIELDS += ["or_high", "or_low", "breakout_pct"]
 
 US_HOLIDAYS = {  # NYSE full closures, 2026-2027
     "2026-01-01", "2026-01-19", "2026-02-16", "2026-04-03", "2026-05-25", "2026-06-19", "2026-07-03",
@@ -220,6 +222,7 @@ def pick_day(tm, repo, day, args):
             continue
         target = round(entry + args.target_r * risk, 2)
         shares = min(int(math.floor(args.max_loss / risk + 1e-9)), int(math.floor(args.account / entry)))
+        row.update(or_high=oh, or_low=ol, breakout_pct=h.get("pct_over"))
         row.update(entry_time=h["at"], entry=entry, stop=stop, target=target, risk_per_share=risk,
                    shares=shares, position_usd=round(shares * entry, 2), max_loss_usd=round(shares * risk, 2))
         try:
@@ -266,7 +269,7 @@ def sheet_row(r):
     """One row for the Google Sheet, in FIELDS order. Text that looks like a date or time gets a
     leading apostrophe so Sheets keeps it as text."""
     out = []
-    for k in FIELDS:
+    for k in SHEET_FIELDS:
         v = r.get(k, "")
         if v is None:
             v = ""
@@ -274,6 +277,39 @@ def sheet_row(r):
             v = "'" + str(v)
         out.append(v)
     return out
+
+
+def fill_opening_range(tm, path, args):
+    """Rows logged before or_high/or_low/breakout_pct existed: rebuild them from the stock's
+    60-day 5-minute chart (the same bars the time machine reads)."""
+    if not os.path.exists(path):
+        return
+    with open(path, newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    todo = [r for r in rows if r.get("symbol") and r.get("entry") and not r.get("or_high")]
+    if not todo:
+        return
+    n = args.or_minutes // 5
+    texts = {}
+    for r in todo:
+        sym = r["symbol"]
+        try:
+            if sym not in texts:
+                texts[sym] = chart_text(tm, sym, args)
+            D = day_bars(tm, texts[sym], sym, datetime.date.fromisoformat(r["date"]))
+        except Exception as e:  # noqa: BLE001
+            print("opening range for %s %s: %s" % (r["date"], sym, e), file=sys.stderr)
+            continue
+        if not all(i in D for i in range(n)):
+            continue
+        oh, ol = tm.opening_range(D, n)
+        r["or_high"], r["or_low"] = round(oh, 2), round(ol, 2)
+        r["breakout_pct"] = round((float(r["entry"]) / oh - 1) * 100, 2)
+    with open(path, "w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=FIELDS, extrasaction="ignore")
+        w.writeheader()
+        for r in rows:
+            w.writerow({k: r.get(k, "") for k in FIELDS})
 
 
 def save(rows, path):
@@ -294,7 +330,7 @@ def save(rows, path):
 NUMERIC = ("entry", "stop", "target", "risk_per_share", "shares", "position_usd", "max_loss_usd", "tm_target_pct",
            "tm_stop_pct", "tm_neither_pct", "tm_green_pct", "tm_avg_r", "hist_fired", "hist_target", "hist_stop",
            "hist_close", "hist_avg_r", "exit_price", "r_multiple", "pnl_usd", "dollar_volume_to_1015", "scan_hits",
-           "seed")
+           "seed", "or_high", "or_low", "breakout_pct")
 TRADED = ("target", "stop", "flat at 3:55")
 
 
@@ -336,8 +372,11 @@ def write_dashboard(csv_path, news_store, path, args):
         "generated_at": utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
         "simulation_only": True,
         "settings": {"account_usd": args.account, "max_loss_usd": args.max_loss, "picks_per_day": args.top,
-                     "opening_range_minutes": args.or_minutes, "stop": "opening-range midpoint",
-                     "target_r": args.target_r, "flat_by": "15:55 New York", "seed": args.seed},
+                     "scan_time": "10:15 New York", "opening_range_minutes": args.or_minutes,
+                     "min_price_usd": args.min_price, "min_volume_shares": args.min_volume,
+                     "ranked_by": "dollar volume 9:30 to 10:15", "entry": "close of the first bar above the range",
+                     "stop": "opening-range midpoint", "target_r": args.target_r, "flat_by": "15:55 New York",
+                     "replays": args.replays, "seed": args.seed, "news_hours": args.news_hours},
         "totals": {
             "sessions": len(by_day), "trades": n,
             "target": sum(1 for p in trades if p["actual_outcome"] == "target"),
@@ -425,6 +464,7 @@ def main(argv=None):
         print("%s: %s -> P&L $%.2f" % (d, ", ".join(
             "%s %s" % (r["symbol"], r.get("actual_outcome", "?")) for r in rows if r.get("symbol")) or "no setup",
             pnl))
+    fill_opening_range(tm, out, args)
     with open(os.path.join(args.state, "last_run.json"), "w") as fh:
         json.dump({"fields": FIELDS, "days": summary}, fh, indent=2)
     # every logged row, in the Google Sheet's column order, so a sync can add whatever is missing
@@ -444,7 +484,7 @@ def main(argv=None):
                             pass
                 allrows.append(sheet_row(r))
     with open(os.path.join(args.state, "sheet_rows.json"), "w") as fh:
-        json.dump({"fields": FIELDS, "rows": allrows}, fh, indent=1)
+        json.dump({"fields": SHEET_FIELDS, "rows": allrows}, fh, indent=1)
     news_path = os.path.join(args.state, "news.json")
     news_store = {}
     if os.path.exists(news_path):

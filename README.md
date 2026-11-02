@@ -14,7 +14,8 @@ that isn't logged yet:
 1. **Scan.** trader-scanner's opening-range breakout scan as of 10:15 AM New York time
    (15-minute range, price at least $5, at least 200,000 shares traded by 10:15).
 2. **Pick.** Of every breakout found, the 3 with the most dollar volume from 9:30 to 10:15.
-3. **Plan.** Entry at the breakout bar's close, stop at the opening-range midpoint,
+3. **Plan.** The opening range (high and low of 9:30 to 9:45) and how far the breakout bar
+   closed above it are recorded. Entry at the breakout bar's close, stop at the opening-range midpoint,
    target at 1R, flat by 3:55 PM.
 4. **Time Machine.** trader-timemachine replays the rest of the day 10,000 times from the
    stock's own prior sessions (seed 19) and re-runs the rule on each of those sessions.
@@ -37,7 +38,8 @@ that isn't logged yet:
 | `forward-test-data/news.json` | The headlines found before each pick's entry, by date and ticker |
 | `forward-test-data/dashboard.json` | Everything a website needs in one file: settings, totals, P&L by session, every pick with its news |
 | Google Sheet "Day Trader Forward Test" | Picks tab (raw log) and Summary tab (formulas). A Claude scheduled task copies new rows from `sheet_rows.json` each morning |
-| Claude artifact "ORB Forward Test" | The dashboard: P&L curve, win rate, predicted vs actual odds, every pick. It reads the sheet |
+| Claude artifact "ORB Forward Test" | A dashboard that reads the Google Sheet |
+| Trading tab on personal-dashboard-ebc.pages.dev | Reads `dashboard.json` from this repo on every page load |
 
 ## Showing it on a website
 
@@ -53,9 +55,11 @@ GitHub caches raw files for up to about 5 minutes, so a new run can take that lo
 
 ## Schedule
 
-`.github/workflows/forward-test.yml` runs at 22:17 UTC Monday to Friday: 8:17 AM Brisbane,
-Tuesday to Saturday, after the US close in both daylight and standard time. GitHub can start
-scheduled runs late when it's busy. Each run commits new results back to this repo.
+`.github/workflows/forward-test.yml` is scheduled for 21:23 UTC Monday to Friday: 7:23 AM
+Brisbane, Tuesday to Saturday, after the US close in both daylight and standard time. GitHub often
+starts scheduled runs 2 to 4 hours late; each run fills in any of the last 5 sessions that are
+missing, so a late or skipped run is picked up by the next one. Each run commits new results back
+to this repo, and the Claude sync task copies them into the Google Sheet at 1:41 PM Brisbane.
 
 To run it now: Actions tab, **ORB forward test**, **Run workflow**. Leave the mode as `catch-up`,
 type `backfill` to redo the last 5 sessions, or type one date such as `2026-10-30`.

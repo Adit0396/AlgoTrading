@@ -1,12 +1,14 @@
 name: ORB forward test
 
 # Simulation only. This workflow never places, stages or drafts an order.
-# Runs after the US close: 22:17 UTC Mon-Fri = 5:17 PM New York (EST) / 6:17 PM (EDT)
-# = 8:17 AM Brisbane Tue-Sat. GitHub can start scheduled runs late at busy times.
+# Runs after the US close: 21:23 UTC Mon-Fri = 4:23 PM New York (EST) / 5:23 PM (EDT)
+# = 7:23 AM Brisbane Tue-Sat. GitHub often starts scheduled runs late (2-4 hours on this
+# account); --catch-up fills any of the last 5 sessions that are missing, so a late or skipped run
+# is picked up by the next one.
 
 on:
   schedule:
-    - cron: "17 22 * * 1-5"
+    - cron: "23 21 * * 1-5"
   workflow_dispatch:
     inputs:
       mode:
