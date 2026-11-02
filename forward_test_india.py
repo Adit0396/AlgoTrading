@@ -10,7 +10,7 @@ The same method as forward_test.py (the US test), moved to NSE hours (9:15 to 15
   3. Take the 3 with the most rupee turnover from 9:15 to 10:00.
   4. Buy at the 10:00 price. Stop at the opening-range midpoint, target 1R, flat by 15:15.
   5. The day-trader pack's Time Machine (its own simulate and history_replay code, with the NSE
-     session in place of New York's) replays the rest of the day 10,000 times, seed 19.
+     session from 9:15 to 15:15 in place of New York's) replays the rest of the day 10,000 times, seed 19.
   6. The real 5-minute bars after 10:00 decide what happened. Sized to an account and a max loss.
 
 All of it comes from one Yahoo chart request per stock (60 days of 5-minute bars), so this test
@@ -39,8 +39,11 @@ import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OPEN_MIN = 9 * 60 + 15
-CLOSE_MIN = 15 * 60 + 30
-SESSION_BARS = 75                 # 9:15 to 15:30 in 5-minute bars
+# The test is out by 15:15, so a "session" here is 9:15 to 15:15: 72 five-minute bars. Yahoo leaves the
+# 15:20 and 15:25 bars empty for many large NSE stocks, which would otherwise keep every one of their days
+# out of the Time Machine's pool.
+CLOSE_MIN = 15 * 60 + 15
+SESSION_BARS = 72
 IST = datetime.timedelta(hours=5, minutes=30)
 SCAN_LABEL = "10:00 AM"           # when every pick is decided and bought (India time)
 SCAN_BAR = 8                      # the bar 9:55 to 10:00 (9:15 is bar 0)
@@ -187,7 +190,7 @@ def news_before(news, sym, when_utc, hours, state):
 
 
 def session_days(charts, tm):
-    """Dates where the reference stocks have a full 75-bar session, oldest first."""
+    """Dates where at least a quarter of the stocks have every bar from 9:15 to 15:15, oldest first."""
     counts = {}
     for days in charts.values():
         for d, bars in days.items():
@@ -290,7 +293,8 @@ def diagnose(tm, charts, syms, now, offline=None):
     stamps = res.get("timestamp") or []
     print("raw: %d stamps, kept %d, dropped %s, meta tz %s gmtoffset %s" % (
         len(stamps), len(bars), dropped, meta.get("exchangeTimezoneName"), meta.get("gmtoffset")))
-    tail = [datetime.datetime.utcfromtimestamp(t).strftime("%m-%d %H:%M:%S") for t in stamps[-80:-70]]
+    tail = [(datetime.datetime(1970, 1, 1) + datetime.timedelta(seconds=t)).strftime("%m-%d %H:%M:%S")
+            for t in stamps[-80:-70]]
     print("raw stamps near a day's end (UTC):", tail)
     for d in ("2026-10-23", "2026-10-22"):
         full = sum(1 for days in charts.values() if all(i in days.get(d, {}) for i in range(SCAN_BAR + 1)))

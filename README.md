@@ -57,8 +57,10 @@ Every step uses only what was known at 10:15, so each trade is one a person coul
 | Account, max loss | $5,000, $50 | Rs 5,00,000, Rs 5,000 |
 
 The Time Machine for India is the skill pack's own `simulate` and `history_replay` code from
-`trader-timemachine/timemachine.py`, loaded with the NSE session (75 five-minute bars) in place of
-New York's 78. The pack's scanner and chart tools only know US tickers and hours, so the India
+`trader-timemachine/timemachine.py`, loaded with the NSE session from 9:15 to 3:15 (72 five-minute
+bars) in place of New York's 78. It stops at 3:15 because the test is out by then, and because
+Yahoo leaves the 3:20 and 3:25 bars empty for many large NSE stocks, which would otherwise keep
+their history out of the replays. The pack's scanner and chart tools only know US tickers and hours, so the India
 script fetches each stock's 60 days of 5-minute bars from Yahoo (`SYMBOL.NS`) itself and scans
 them. Because every chart holds 60 days, a backfill can cover the last 15 or so sessions at once.
 News uses the pack's `news.py` with `.NS` symbols. Costs (brokerage, STT, exchange charges, GST,
