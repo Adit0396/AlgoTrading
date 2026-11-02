@@ -1,4 +1,4 @@
-# AlgoTrading: ORB forward test
+# AlgoTrading: ORB forward test (US and India)
 
 A daily forward test of the [day-trader skill pack](https://github.com/Jakeschincariol/day-trader-skill)
 for Claude. **Simulation only:** nothing in this repo places, stages or drafts an order.
@@ -39,6 +39,31 @@ Every step uses only what was known at 10:15, so each trade is one a person coul
   at 9:50 which stocks would rank in the top 3 at 10:15. Those results are kept in
   `forward-test-data/archive/` and are not counted.
 
+## India (NSE)
+
+`forward_test_india.py` runs the same method on India's NSE, moved to NSE hours (9:15 AM to
+3:30 PM India time). `.github/workflows/forward-test-india.yml` runs it after each NSE close
+(scheduled 10:43 UTC, 4:13 PM India, 8:43 PM Brisbane) and writes `forward-test-data-india/`.
+
+| Step | US | India |
+| --- | --- | --- |
+| Stocks scanned | every US-listed stock (Nasdaq Trader list) | the Nifty 500 (NSE's list) |
+| Opening range | 9:30 to 9:45 New York | 9:15 to 9:30 India |
+| Decide and buy | 10:15 | 10:00 (also 45 minutes after the open) |
+| Filters | price $5+, 200,000+ shares by 10:15 | price Rs 50+, 100,000+ shares by 10:00 |
+| Ranked by | dollars traded since the open | rupee turnover since the open |
+| Stop, target | range midpoint, 1R | range midpoint, 1R |
+| Flat by | 3:55 PM | 3:15 PM (before brokers square off intraday positions) |
+| Account, max loss | $5,000, $50 | Rs 5,00,000, Rs 5,000 |
+
+The Time Machine for India is the skill pack's own `simulate` and `history_replay` code from
+`trader-timemachine/timemachine.py`, loaded with the NSE session (75 five-minute bars) in place of
+New York's 78. The pack's scanner and chart tools only know US tickers and hours, so the India
+script fetches each stock's 60 days of 5-minute bars from Yahoo (`SYMBOL.NS`) itself and scans
+them. Because every chart holds 60 days, a backfill can cover the last 15 or so sessions at once.
+News uses the pack's `news.py` with `.NS` symbols. Costs (brokerage, STT, exchange charges, GST,
+stamp duty) are not included.
+
 ## Where the results go
 
 | Place | What |
@@ -47,7 +72,8 @@ Every step uses only what was known at 10:15, so each trade is one a person coul
 | `forward-test-data/sheet_rows.json` | Every row in the column order of the Google Sheet's Picks tab |
 | `forward-test-data/last_run.json` | What the latest run did |
 | `forward-test-data/news.json` | The headlines found before each pick's entry, by date and ticker |
-| `forward-test-data/dashboard.json` | Everything a website needs in one file: settings, totals, P&L by session, every pick with its news |
+| `forward-test-data/dashboard.json` | Everything a website needs in one file: settings, totals, P&L by session, every pick with its company name and news |
+| `forward-test-data-india/` | The same files for the India test (`results.csv`, `news.json`, `dashboard.json`, `universe.csv`) |
 | Google Sheet "Day Trader Forward Test" | Picks tab (raw log) and Summary tab (formulas). A Claude scheduled task copies new rows from `sheet_rows.json` each morning |
 | Claude artifact "ORB Forward Test" | A dashboard that reads the Google Sheet |
 | Trading tab on personal-dashboard-ebc.pages.dev | Reads `dashboard.json` from this repo on every page load |

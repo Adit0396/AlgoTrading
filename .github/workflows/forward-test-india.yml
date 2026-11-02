@@ -1,0 +1,65 @@
+name: ORB forward test (India)
+
+# Simulation only. This workflow never places, stages or drafts an order.
+# Runs after the NSE close: 10:43 UTC Mon-Fri = 4:13 PM India = 8:43 PM Brisbane.
+# GitHub often starts scheduled runs late; --catch-up fills any of the last 15 sessions that are missing.
+
+on:
+  schedule:
+    - cron: "43 10 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "catch-up (missing sessions from the last 15), backfill N (redo the last N), or a date like 2026-10-30"
+        required: false
+        default: "catch-up"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: forward-test # shared with the US workflow: both commit to this repo
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Get the day-trader skill pack (pinned)
+        run: |
+          git clone --quiet https://github.com/Jakeschincariol/day-trader-skill.git day-trader-skill
+          git -C day-trader-skill checkout --quiet 3d0f4ef6986f4984b7c6bd46f7ff4f87744c3abd
+
+      - name: Run the forward test
+        env:
+          MODE: ${{ github.event.inputs.mode || 'catch-up' }}
+        run: |
+          if [ "$MODE" = "catch-up" ]; then
+            python -I forward_test_india.py --repo day-trader-skill --catch-up
+          elif [[ "$MODE" =~ ^backfill\ ([0-9]+)$ ]]; then
+            python -I forward_test_india.py --repo day-trader-skill --backfill "${BASH_REMATCH[1]}"
+          else
+            python -I forward_test_india.py --repo day-trader-skill --date "$MODE"
+          fi
+
+      - name: Save the results to the repo
+        if: always()
+        run: |
+          git config user.name "orb-forward-test bot"
+          git config user.email "actions@users.noreply.github.com"
+          rm -f forward-test-data-india/news-state.json
+          git add forward-test-data-india
+          if git diff --cached --quiet; then
+            echo "No new results."
+          else
+            git commit -m "Forward test results (India) $(date -u +%Y-%m-%d)"
+            git pull --rebase --quiet origin main
+            git push
+          fi

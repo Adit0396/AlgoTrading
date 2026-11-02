@@ -64,5 +64,6 @@ jobs:
             echo "No new results."
           else
             git commit -m "Forward test results $(date -u +%Y-%m-%d)"
+            git pull --rebase --quiet origin main
             git push
           fi

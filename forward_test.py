@@ -25,6 +25,7 @@ import datetime
 import importlib.util
 import json
 import math
+import re
 import os
 import subprocess
 import sys
@@ -131,7 +132,7 @@ def actual_outcome(D, k, last, entry, stop, target):
         if b["h"] >= target:
             return "target", bar_close(b), target, ""
     b = D.get(last)
-    return "flat at 3:55", "15:55", round(b["c"], 2), ""
+    return "flat at 3:55", bar_close(b), round(b["c"], 2), ""
 
 
 def entry_utc(tm, day, label):
@@ -342,10 +343,41 @@ NUMERIC = ("entry", "stop", "target", "risk_per_share", "shares", "position_usd"
            "tm_stop_pct", "tm_neither_pct", "tm_green_pct", "tm_avg_r", "hist_fired", "hist_target", "hist_stop",
            "hist_close", "hist_avg_r", "exit_price", "r_multiple", "pnl_usd", "dollar_volume_to_1015", "scan_hits",
            "seed", "or_high", "or_low", "breakout_pct", "breakout_price", "rank", "candidates")
-TRADED = ("target", "stop", "flat at 3:55")
+TRADED = ("target", "stop", "flat at 3:55", "flat at 3:15")  # 3:15 is the NSE test's exit time
 
 
-def write_dashboard(csv_path, news_store, path, args):
+def clean_name(name):
+    """'Tesla, Inc. - Common Stock' -> 'Tesla, Inc.'; 'Alcoa Corporation Common Stock' -> 'Alcoa Corporation'."""
+    n = (name or "").strip()
+    n = re.sub(r"\s+-\s+.*$", "", n)
+    n = re.sub(r"\s+(Class [A-Z] )?(Common Stock|Ordinary Shares|Common Shares|American Depositary Shares.*|"
+               r"Depositary Shares.*|Shares of Beneficial Interest)$", "", n, flags=re.I)
+    return n.strip(" ,")
+
+
+def universe_names(path):
+    """SYMBOL|Name lines (trader-scanner's universe file) -> {symbol: clean name}."""
+    names = {}
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as fh:
+            for line in fh:
+                sym, _, name = line.rstrip("\n").partition("|")
+                if sym:
+                    names[sym.strip().upper()] = clean_name(name)
+    return names
+
+
+US_SETTINGS = {
+    "market": "US", "market_label": "US stocks (NYSE, Nasdaq)", "currency": "USD", "timezone": "New York",
+    "universe": "every US-listed stock on Nasdaq Trader's list (about 5,900)",
+    "opening_range": "9:30 to 9:45", "scan_time": "10:15 New York", "flat_by": "15:55 New York",
+    "ranked_by": "dollar volume 9:30 to 10:15",
+    "eligible": "broke out above the range by 10:15 and still above it at 10:15",
+    "entry": "the 10:15 price (close of the 10:10 bar)", "stop": "opening-range midpoint",
+}
+
+
+def write_dashboard(csv_path, news_store, path, args, settings=None, names=None):
     """One JSON file a website can fetch: settings, totals, a P&L series by session, and every pick
     with its news. Read it from https://raw.githubusercontent.com/<owner>/<repo>/main/forward-test-data/dashboard.json"""
     picks = []
@@ -362,6 +394,7 @@ def write_dashboard(csv_path, news_store, path, args):
                             v = None
                     d[k] = v
                 d["news"] = news_store.get(d["date"], {}).get(d["symbol"], []) if d["symbol"] else []
+                d["name"] = (names or {}).get((d["symbol"] or "").upper(), "")
                 picks.append(d)
     trades = [p for p in picks if p["actual_outcome"] in TRADED and p["pnl_usd"] is not None]
     by_day, cum, series = {}, 0.0, []
@@ -382,19 +415,16 @@ def write_dashboard(csv_path, news_store, path, args):
     doc = {
         "generated_at": utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
         "simulation_only": True,
-        "settings": {"account_usd": args.account, "max_loss_usd": args.max_loss, "picks_per_day": args.top,
-                     "scan_time": "10:15 New York", "opening_range_minutes": args.or_minutes,
-                     "min_price_usd": args.min_price, "min_volume_shares": args.min_volume,
-                     "ranked_by": "dollar volume 9:30 to 10:15",
-                     "eligible": "broke out above the range by 10:15 and still above it at 10:15",
-                     "entry": "the 10:15 price (close of the 10:10 bar)", "rule_version": RULE,
-                     "stop": "opening-range midpoint", "target_r": args.target_r, "flat_by": "15:55 New York",
-                     "replays": args.replays, "seed": args.seed, "news_hours": args.news_hours},
+        "settings": dict(settings or US_SETTINGS, account_usd=args.account, max_loss_usd=args.max_loss,
+                         picks_per_day=args.top, opening_range_minutes=args.or_minutes,
+                         min_price_usd=args.min_price, min_volume_shares=args.min_volume, rule_version=RULE,
+                         target_r=args.target_r, replays=args.replays, seed=args.seed,
+                         news_hours=args.news_hours),
         "totals": {
             "sessions": len(by_day), "trades": n,
             "target": sum(1 for p in trades if p["actual_outcome"] == "target"),
             "stop": sum(1 for p in trades if p["actual_outcome"] == "stop"),
-            "flat": sum(1 for p in trades if p["actual_outcome"] == "flat at 3:55"),
+            "flat": sum(1 for p in trades if p["actual_outcome"].startswith("flat")),
             "winners": sum(1 for p in trades if p["pnl_usd"] > 0),
             "win_rate": round(sum(1 for p in trades if p["pnl_usd"] > 0) / n, 3) if n else None,
             "pnl_usd": total, "return_on_account": round(total / args.account, 4) if args.account else None,
@@ -509,7 +539,8 @@ def main(argv=None):
                 news_store.setdefault(day["date"], {})[r["symbol"]] = r["_news"]
     with open(news_path, "w") as fh:
         json.dump(news_store, fh, indent=1, sort_keys=True)
-    write_dashboard(out, news_store, os.path.join(args.state, "dashboard.json"), args)
+    write_dashboard(out, news_store, os.path.join(args.state, "dashboard.json"), args,
+                    names=universe_names(os.path.join(args.state, "universe.txt")))
     print("Results: %s" % out)
     return status
 
