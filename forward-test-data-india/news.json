@@ -1,0 +1,111 @@
+{
+ "2026-10-08": {
+  "ICICIBANK": [],
+  "LICHSGFIN": [],
+  "TRENT": []
+ },
+ "2026-10-09": {
+  "CUPID": [],
+  "SAIL": [],
+  "TCS": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/asia-stocks-mixed-chipmakers-slide-043811625.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-10-09T04:38:11+00:00",
+    "title": "Asia stocks turn higher, tech recovers as OpenAI revenue fears ease"
+   }
+  ]
+ },
+ "2026-10-12": {
+  "NETWEB": [],
+  "SAIL": [],
+  "TDPOWERSYS": []
+ },
+ "2026-10-13": {
+  "INFY": [],
+  "NETWEB": [],
+  "TCS": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/technology/articles/satya-nadella-went-h-1b-193752422.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "people"
+    ],
+    "time": "2026-10-12T19:37:52+00:00",
+    "title": "Satya Nadella went from H-1B worker to Microsoft CEO. The Trump administration just shut that path for his employees"
+   }
+  ]
+ },
+ "2026-10-14": {
+  "AEGISLOG": [],
+  "TARIL": [],
+  "TATAELXSI": []
+ },
+ "2026-10-16": {
+  "BHARTIARTL": [],
+  "TCS": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/technology/ai/articles/haiintel-appoints-former-tcs-business-133300545.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "people"
+    ],
+    "time": "2026-10-15T13:33:00+00:00",
+    "title": "Haiintel Appoints Former TCS Business Unit Head Karthik Sukumaran as CEO"
+   }
+  ],
+  "TECHM": []
+ },
+ "2026-10-19": {
+  "LTM": [],
+  "UNIONBANK": [],
+  "WELCORP": []
+ },
+ "2026-10-21": {
+  "HDFCBANK": [],
+  "KARURVYSYA": [],
+  "TECHM": []
+ },
+ "2026-10-22": {
+  "BHARTIARTL": [],
+  "COFORGE": [],
+  "DIVISLAB": []
+ },
+ "2026-10-26": {
+  "BSE": [],
+  "MRPL": [],
+  "TCS": []
+ },
+ "2026-10-27": {
+  "ATHERENERG": [],
+  "BHARTIARTL": [],
+  "SONACOMS": []
+ },
+ "2026-10-28": {
+  "MAZDOCK": [],
+  "PPLPHARMA": [],
+  "RELIANCE": []
+ },
+ "2026-10-29": {
+  "ACUTAAS": [],
+  "HDFCBANK": [],
+  "RELIANCE": []
+ },
+ "2026-10-30": {
+  "ETERNAL": [],
+  "GODREJCP": [],
+  "LAURUSLABS": []
+ },
+ "2026-11-02": {
+  "DELHIVERY": [],
+  "DIXON": [],
+  "RELIANCE": []
+ }
+}
