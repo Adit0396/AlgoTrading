@@ -42,11 +42,11 @@ jobs:
           MODE: ${{ github.event.inputs.mode || 'catch-up' }}
         run: |
           if [ "$MODE" = "catch-up" ]; then
-            python -I forward_test_india.py --repo day-trader-skill --catch-up
+            python -I -u forward_test_india.py --repo day-trader-skill --catch-up
           elif [[ "$MODE" =~ ^backfill\ ([0-9]+)$ ]]; then
-            python -I forward_test_india.py --repo day-trader-skill --backfill "${BASH_REMATCH[1]}"
+            python -I -u forward_test_india.py --repo day-trader-skill --backfill "${BASH_REMATCH[1]}"
           else
-            python -I forward_test_india.py --repo day-trader-skill --date "$MODE"
+            python -I -u forward_test_india.py --repo day-trader-skill --date "$MODE"
           fi
 
       - name: Save the results to the repo

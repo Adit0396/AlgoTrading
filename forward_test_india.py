@@ -22,6 +22,7 @@ Usage:
   python3 forward_test_india.py --repo day-trader-skill --date 2026-10-30
 """
 import argparse
+import concurrent.futures
 import contextlib
 import csv
 import datetime
@@ -106,7 +107,7 @@ def load_universe(state, offline=None):
         if not fresh:
             for url in UNIVERSE_URLS:
                 try:
-                    text = http_get(url)
+                    text = http_get(url, timeout=15)
                     if "Symbol" in text.splitlines()[0]:
                         break
                 except (urllib.error.URLError, OSError, IndexError) as e:
@@ -138,7 +139,7 @@ def fetch_chart(tm, sym, offline=None):
             url = "https://%s.finance.yahoo.com/v8/finance/chart/%s?range=60d&interval=5m" % (
                 host, urllib.parse.quote(sym + ".NS"))
             try:
-                return http_get(url, timeout=20)
+                return http_get(url, timeout=12)
             except urllib.error.HTTPError as e:
                 last = e.code
                 if e.code == 404:
@@ -292,7 +293,9 @@ def main(argv=None):
     ap.add_argument("--seed", type=int, default=19)
     ap.add_argument("--news-hours", type=int, default=18)
     ap.add_argument("--no-news", action="store_true")
-    ap.add_argument("--pause", type=float, default=0.25, help="seconds between Yahoo requests")
+    ap.add_argument("--pause", type=float, default=0.2, help="seconds each worker waits between Yahoo requests")
+    ap.add_argument("--workers", type=int, default=6, help="charts downloaded at once")
+    ap.add_argument("--chart-minutes", type=float, default=35, help="stop downloading charts after this long")
     ap.add_argument("--universe-offline", help=argparse.SUPPRESS)
     ap.add_argument("--chart-offline", help=argparse.SUPPRESS)
     args = ap.parse_args(argv)
@@ -307,20 +310,37 @@ def main(argv=None):
     names = {s: n for s, n in universe}
     now = ft.utcnow()
     charts, texts, failed = {}, {}, []
-    for i, (sym, _) in enumerate(universe):
-        try:
-            text = fetch_chart(tm, sym, args.chart_offline)
-            _, bars, _ = tm.parse_bars(tm.chart_result(text, sym + ".NS"), now)
-            charts[sym] = tm.split_sessions(bars)
-        except Exception as e:  # noqa: BLE001 - one bad chart should not stop the run
-            failed.append("%s: %s" % (sym, str(e)[:80]))
+    t0 = time.time()
+    print("universe: %d stocks" % len(universe), flush=True)
+
+    deadline = t0 + args.chart_minutes * 60
+
+    def one(sym):
+        if time.time() > deadline:
+            raise RuntimeError("skipped: chart time limit reached")
+        text = fetch_chart(tm, sym, args.chart_offline)
         if not args.chart_offline and args.pause:
             time.sleep(args.pause)
-    print("charts: %d of %d loaded" % (len(charts), len(universe)))
+        return text
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
+        futures = {pool.submit(one, sym): sym for sym, _ in universe}
+        for i, fut in enumerate(concurrent.futures.as_completed(futures), 1):
+            sym = futures[fut]
+            try:
+                _, bars, _ = tm.parse_bars(tm.chart_result(fut.result(), sym + ".NS"), now)
+                charts[sym] = tm.split_sessions(bars)
+            except Exception as e:  # noqa: BLE001 - one bad chart should not stop the run
+                failed.append("%s: %s" % (sym, str(e)[:80]))
+            if i % 50 == 0:
+                print("  %d/%d charts, %d failed, %.0fs" % (i, len(universe), len(failed), time.time() - t0), flush=True)
+    print("charts: %d of %d loaded in %.0fs" % (len(charts), len(universe), time.time() - t0), flush=True)
     if failed:
         print("  failed: %s%s" % ("; ".join(failed[:5]), " ..." if len(failed) > 5 else ""), file=sys.stderr)
-    if len(charts) < len(universe) // 2:
-        print("Too many charts failed; not writing results.", file=sys.stderr)
+    if len(charts) < len(universe) * 0.9:
+        # Ranking a partial list would pick from the wrong set of stocks, so write nothing.
+        print("Only %d of %d charts loaded; not writing results. First failures: %s"
+              % (len(charts), len(universe), "; ".join(failed[:8])), file=sys.stderr, flush=True)
         return 1
 
     complete = session_days(charts, tm)
@@ -344,6 +364,7 @@ def main(argv=None):
         with open(news_path) as fh:
             news_store = json.load(fh)
     for d in days:
+        t1 = time.time()
         rows = pick_day(tm, news, d, charts, texts, names, args)
         save(rows, out)
         for r in rows:
@@ -352,8 +373,9 @@ def main(argv=None):
         pnl = sum(r["pnl_usd"] for r in rows if r.get("pnl_usd") is not None)
         summary.append({"date": d.isoformat(), "picks": [r.get("symbol") for r in rows if r.get("symbol")],
                         "pnl_inr": round(pnl, 2)})
-        print("%s: %s -> P&L Rs %.2f" % (d, ", ".join("%s %s" % (r["symbol"], r.get("actual_outcome", "?"))
-                                                      for r in rows if r.get("symbol")) or "no setup", pnl))
+        print("%s: %s -> P&L Rs %.2f (%.0fs)" % (d, ", ".join("%s %s" % (r["symbol"], r.get("actual_outcome", "?"))
+                                                              for r in rows if r.get("symbol")) or "no setup", pnl,
+                                                 time.time() - t1), flush=True)
     with open(news_path, "w") as fh:
         json.dump(news_store, fh, indent=1, sort_keys=True)
     with open(os.path.join(args.state, "last_run.json"), "w") as fh:
