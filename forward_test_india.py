@@ -271,6 +271,35 @@ def pick_day(tm, news, day, charts, texts, names, args):
     return rows
 
 
+def diagnose(tm, charts, syms, now, offline=None):
+    """Print how Yahoo's NSE bars line up, to see why sessions are or aren't 75 bars."""
+    for sym in syms:
+        days = charts.get(sym)
+        if not days:
+            print(sym, "no chart")
+            continue
+        print("==", sym)
+        for d in sorted(days)[-12:]:
+            slots = sorted(days[d])
+            missing = [i for i in range(SESSION_BARS) if i not in days[d]]
+            print("  %s: %d bars, first %s last %s, missing slots %s" % (
+                d, len(slots), days[d][slots[0]]["start"], days[d][slots[-1]]["start"], missing[:12]))
+    text = fetch_chart(tm, syms[0], offline)
+    res = tm.chart_result(text, syms[0] + ".NS")
+    meta, bars, dropped = tm.parse_bars(res, now)
+    stamps = res.get("timestamp") or []
+    print("raw: %d stamps, kept %d, dropped %s, meta tz %s gmtoffset %s" % (
+        len(stamps), len(bars), dropped, meta.get("exchangeTimezoneName"), meta.get("gmtoffset")))
+    tail = [datetime.datetime.utcfromtimestamp(t).strftime("%m-%d %H:%M:%S") for t in stamps[-80:-70]]
+    print("raw stamps near a day's end (UTC):", tail)
+    for d in ("2026-10-23", "2026-10-22"):
+        full = sum(1 for days in charts.values() if all(i in days.get(d, {}) for i in range(SCAN_BAR + 1)))
+        vols = sorted(sum(days[d][i]["v"] for i in range(SCAN_BAR + 1)) for days in charts.values()
+                      if all(i in days.get(d, {}) for i in range(SCAN_BAR + 1)))
+        print("%s: %d stocks with bars to 10:00; median shares to 10:00 %s" % (d, full, vols[len(vols) // 2] if vols else None))
+    return 0
+
+
 FIELDS = ft.FIELDS + ["name"]
 
 
@@ -296,6 +325,7 @@ def main(argv=None):
     ap.add_argument("--pause", type=float, default=0.3, help="seconds each worker waits between Yahoo requests")
     ap.add_argument("--workers", type=int, default=3, help="charts downloaded at once")
     ap.add_argument("--chart-minutes", type=float, default=35, help="stop downloading charts after this long")
+    ap.add_argument("--diagnose", help=argparse.SUPPRESS)
     ap.add_argument("--universe-offline", help=argparse.SUPPRESS)
     ap.add_argument("--chart-offline", help=argparse.SUPPRESS)
     args = ap.parse_args(argv)
@@ -343,6 +373,8 @@ def main(argv=None):
               % (len(charts), len(universe), "; ".join(failed[:8])), file=sys.stderr, flush=True)
         return 1
 
+    if args.diagnose:
+        return diagnose(tm, charts, args.diagnose.split(","), now, args.chart_offline)
     complete = session_days(charts, tm)
     out = os.path.join(args.state, "results.csv")
     done = set()

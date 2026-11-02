@@ -43,6 +43,8 @@ jobs:
         run: |
           if [ "$MODE" = "catch-up" ]; then
             python -I -u forward_test_india.py --repo day-trader-skill --catch-up
+          elif [[ "$MODE" =~ ^diagnose\ ([A-Z0-9,&-]+)$ ]]; then
+            python -I -u forward_test_india.py --repo day-trader-skill --backfill 1 --no-news --diagnose "${BASH_REMATCH[1]}"
           elif [[ "$MODE" =~ ^backfill\ ([0-9]+)$ ]]; then
             python -I -u forward_test_india.py --repo day-trader-skill --backfill "${BASH_REMATCH[1]}"
           else
