@@ -1,21 +1,27 @@
 {
- "generated_at": "2026-11-02T13:14:24Z",
+ "generated_at": "2026-11-02T14:30:03Z",
  "simulation_only": true,
  "settings": {
-  "account_usd": 5000.0,
-  "max_loss_usd": 50.0,
-  "picks_per_day": 3,
+  "market": "US",
+  "market_label": "US stocks (NYSE, Nasdaq)",
+  "currency": "USD",
+  "timezone": "New York",
+  "universe": "every US-listed stock on Nasdaq Trader's list (about 5,900)",
+  "opening_range": "9:30 to 9:45",
   "scan_time": "10:15 New York",
-  "opening_range_minutes": 15,
-  "min_price_usd": 5.0,
-  "min_volume_shares": 200000,
+  "flat_by": "15:55 New York",
   "ranked_by": "dollar volume 9:30 to 10:15",
   "eligible": "broke out above the range by 10:15 and still above it at 10:15",
   "entry": "the 10:15 price (close of the 10:10 bar)",
-  "rule_version": "v2",
   "stop": "opening-range midpoint",
+  "account_usd": 5000.0,
+  "max_loss_usd": 50.0,
+  "picks_per_day": 3,
+  "opening_range_minutes": 15,
+  "min_price_usd": 5.0,
+  "min_volume_shares": 200000,
+  "rule_version": "v2",
   "target_r": 1.0,
-  "flat_by": "15:55 New York",
   "replays": 10000,
   "seed": 19,
   "news_hours": 18
@@ -100,7 +106,8 @@
    "rank": 2.0,
    "candidates": 38.0,
    "rule": "v2",
-   "news": []
+   "news": [],
+   "name": "Dell Technologies Inc."
   },
   {
    "date": "2026-10-27",
@@ -143,7 +150,8 @@
    "rank": 3.0,
    "candidates": 38.0,
    "rule": "v2",
-   "news": []
+   "news": [],
+   "name": "GE Aerospace"
   },
   {
    "date": "2026-10-27",
@@ -186,7 +194,8 @@
    "rank": 1.0,
    "candidates": 38.0,
    "rule": "v2",
-   "news": []
+   "news": [],
+   "name": "Seagate Technology Holdings PLC"
   },
   {
    "date": "2026-10-28",
@@ -229,7 +238,8 @@
    "rank": 3.0,
    "candidates": 83.0,
    "rule": "v2",
-   "news": []
+   "news": [],
+   "name": "Eli Lilly and Company"
   },
   {
    "date": "2026-10-28",
@@ -274,69 +284,70 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-10-28T13:15:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "NXPI Q3 Earnings Call Highlights SDV and Data Center Growth",
      "link": "https://finance.yahoo.com/markets/stocks/articles/nxpi-q3-earnings-call-highlights-131500396.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings"
      ],
-     "important": false
+     "time": "2026-10-28T13:15:00+00:00",
+     "title": "NXPI Q3 Earnings Call Highlights SDV and Data Center Growth"
     },
     {
-     "time": "2026-10-28T12:58:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Volkswagen Bets $4B on Audi's U.S. Expansion: What's Ahead?",
      "link": "https://finance.yahoo.com/markets/stocks/articles/volkswagen-bets-4b-audis-u-125800634.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "macro"
      ],
-     "important": false
+     "time": "2026-10-28T12:58:00+00:00",
+     "title": "Volkswagen Bets $4B on Audi's U.S. Expansion: What's Ahead?"
     },
     {
-     "time": "2026-10-28T12:30:01+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "NXP Semiconductors (NXPI) Recently Broke Out Above the 200-Day Moving Average",
      "link": "https://finance.yahoo.com/markets/stocks/articles/nxp-semiconductors-nxpi-recently-broke-123001608.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-10-28T12:30:01+00:00",
+     "title": "NXP Semiconductors (NXPI) Recently Broke Out Above the 200-Day Moving Average"
     },
     {
-     "time": "2026-10-28T12:03:41+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Premarket movers: Vertiv, SK Hynix jump; Enphase, NXP slide",
      "link": "https://finance.yahoo.com/markets/stocks/articles/premarket-movers-vertiv-sk-hynix-120341988.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings",
       "macro"
      ],
-     "important": false
+     "time": "2026-10-28T12:03:41+00:00",
+     "title": "Premarket movers: Vertiv, SK Hynix jump; Enphase, NXP slide"
     },
     {
-     "time": "2026-10-28T11:20:16+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "NXP Semiconductors (NXPI) Stock Looks Reasonable After Its 55% Run",
      "link": "https://finance.yahoo.com/markets/stocks/articles/nxp-semiconductors-nxpi-stock-looks-112016847.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-10-28T11:20:16+00:00",
+     "title": "NXP Semiconductors (NXPI) Stock Looks Reasonable After Its 55% Run"
     },
     {
-     "time": "2026-10-28T11:02:49+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Vertiv Soars 16% and Enphase Sinks 17%: 6 Stocks Moving Before the Bell",
      "link": "https://247wallst.com/investing/2026/10/28/vertiv-soars-16-and-enphase-sinks-17-6-stocks-moving-before-the-bell/?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings"
      ],
-     "important": false
+     "time": "2026-10-28T11:02:49+00:00",
+     "title": "Vertiv Soars 16% and Enphase Sinks 17%: 6 Stocks Moving Before the Bell"
     }
-   ]
+   ],
+   "name": "NXP Semiconductors N.V."
   },
   {
    "date": "2026-10-28",
@@ -381,26 +392,27 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-10-28T12:30:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Teradyne, Inc. Q3 2026 Earnings Call Summary",
      "link": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-teradyne-inc-q3-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings"
      ],
-     "important": false
+     "time": "2026-10-28T12:30:00+00:00",
+     "title": "Teradyne, Inc. Q3 2026 Earnings Call Summary"
     },
     {
-     "time": "2026-10-28T09:26:26+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "The Case For Lam Research Stock Rests On One Thing",
      "link": "https://www.trefis.com/stock/lrcx/articles/621006/the-case-for-lam-research-stock-rests-on-one-thing/2026-10-28?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-10-28T09:26:26+00:00",
+     "title": "The Case For Lam Research Stock Rests On One Thing"
     }
-   ]
+   ],
+   "name": "Teradyne, Inc."
   },
   {
    "date": "2026-10-29",
@@ -443,7 +455,8 @@
    "rank": 3.0,
    "candidates": 68.0,
    "rule": "v2",
-   "news": []
+   "news": [],
+   "name": "Caterpillar, Inc."
   },
   {
    "date": "2026-10-29",
@@ -486,7 +499,8 @@
    "rank": 1.0,
    "candidates": 68.0,
    "rule": "v2",
-   "news": []
+   "news": [],
+   "name": "Meta Platforms, Inc."
   },
   {
    "date": "2026-10-29",
@@ -529,7 +543,8 @@
    "rank": 2.0,
    "candidates": 68.0,
    "rule": "v2",
-   "news": []
+   "news": [],
+   "name": "Space Exploration Technologies Corp."
   },
   {
    "date": "2026-10-30",
@@ -574,60 +589,61 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-10-30T14:21:58+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Earnings Calendar and Analysis for This Week",
      "link": "https://www.kiplinger.com/investing/stocks/17494/next-week-earnings-calendar-stocks?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings"
      ],
-     "important": false
+     "time": "2026-10-30T14:21:58+00:00",
+     "title": "Earnings Calendar and Analysis for This Week"
     },
     {
-     "time": "2026-10-30T13:41:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Amazon and Intel earnings lead to a tech sell-off, and Binance is hacked for $6.3B",
      "link": "https://finance.yahoo.com/video/amazon-and-intel-earnings-lead-to-a-tech-sell-off-and-binance-is-hacked-for-63b-134100370.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings",
       "risk"
      ],
-     "important": false
+     "time": "2026-10-30T13:41:00+00:00",
+     "title": "Amazon and Intel earnings lead to a tech sell-off, and Binance is hacked for $6.3B"
     },
     {
-     "time": "2026-10-30T13:17:23+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "4 Stocks Where Rising Yields Come From Bigger Dividend Checks, Not Falling Prices",
      "link": "https://247wallst.com/investing/2026/10/30/4-stocks-where-rising-yields-come-from-bigger-dividend-checks-not-falling-prices/?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "capital"
      ],
-     "important": false
+     "time": "2026-10-30T13:17:23+00:00",
+     "title": "4 Stocks Where Rising Yields Come From Bigger Dividend Checks, Not Falling Prices"
     },
     {
-     "time": "2026-10-30T12:50:59+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Boeing vs Caterpillar: Which Is Better for a Retirement Portfolio Now?",
      "link": "https://247wallst.com/investing/2026/10/30/boeing-vs-caterpillar-which-is-better-for-a-retirement-portfolio-now/?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings"
      ],
-     "important": false
+     "time": "2026-10-30T12:50:59+00:00",
+     "title": "Boeing vs Caterpillar: Which Is Better for a Retirement Portfolio Now?"
     },
     {
-     "time": "2026-10-30T11:15:56+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Why Did Caterpillar Stock Fall?",
      "link": "https://www.trefis.com/stock/cat/articles/621581/why-did-caterpillar-stock-fall/2026-10-30?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-10-30T11:15:56+00:00",
+     "title": "Why Did Caterpillar Stock Fall?"
     }
-   ]
+   ],
+   "name": "Caterpillar, Inc."
   },
   {
    "date": "2026-10-30",
@@ -672,95 +688,96 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-10-30T14:23:23+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Stryker lowers 2026 guidance after slowdown in hip, knee procedures",
      "link": "https://www.medtechdive.com/news/stryker-lowers-2026-guidance-after-slowdown-in-hip-knee-procedures/873309/?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings",
       "people"
      ],
-     "important": false
+     "time": "2026-10-30T14:23:23+00:00",
+     "title": "Stryker lowers 2026 guidance after slowdown in hip, knee procedures"
     },
     {
-     "time": "2026-10-30T13:23:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "JNJ's MedTech Segment Disappoints in Q3: Will Growth Rebound in Q4?",
      "link": "https://finance.yahoo.com/healthcare/articles/jnjs-medtech-segment-disappoints-q3-132300678.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-10-30T13:23:00+00:00",
+     "title": "JNJ's MedTech Segment Disappoints in Q3: Will Growth Rebound in Q4?"
     },
     {
-     "time": "2026-10-30T13:00:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "SYK Q3 Earnings Call Highlights Softer Demand and Revised Outlook",
      "link": "https://finance.yahoo.com/healthcare/articles/syk-q3-earnings-call-highlights-130000501.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings"
      ],
-     "important": false
+     "time": "2026-10-30T13:00:00+00:00",
+     "title": "SYK Q3 Earnings Call Highlights Softer Demand and Revised Outlook"
     },
     {
-     "time": "2026-10-30T12:30:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Stryker Corporation Q3 2026 Earnings Call Summary",
      "link": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-stryker-corporation-q3-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings"
      ],
-     "important": false
+     "time": "2026-10-30T12:30:00+00:00",
+     "title": "Stryker Corporation Q3 2026 Earnings Call Summary"
     },
     {
-     "time": "2026-10-30T12:14:41+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Buy, Sell, or Hold? Today\u2019s Top Upgrades and Downgrades: Boston Scientific, DoorDash, GE Vernova, Honeywell Aerospace, Incyte. Intel, Reddit, Rivian Automotive, and More",
      "link": "https://247wallst.com/investing/2026/10/30/buy-sell-or-hold-todays-top-upgrades-and-downgrades-boston-scientific-doordash-ge-vernova-honeywell-aerospace-incyte-intel-reddit-rivian-automotive-and-more/?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "analyst",
       "macro"
      ],
-     "important": false
+     "time": "2026-10-30T12:14:41+00:00",
+     "title": "Buy, Sell, or Hold? Today\u2019s Top Upgrades and Downgrades: Boston Scientific, DoorDash, GE Vernova, Honeywell Aerospace, Incyte. Intel, Reddit, Rivian Automotive, and More"
     },
     {
-     "time": "2026-10-30T11:14:34+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "What Stryker (SYK) Said on Its Q3 Earnings Call",
      "link": "https://www.marketbeat.com/instant-alerts/transcript-what-stryker-syk-said-on-its-q3-earnings-call-2026-10-30/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings"
      ],
-     "important": false
+     "time": "2026-10-30T11:14:34+00:00",
+     "title": "What Stryker (SYK) Said on Its Q3 Earnings Call"
     },
     {
-     "time": "2026-10-30T10:01:40+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Stryker\u2019s Guidance Cut Rattles Investors: What It Really Says About 2027",
      "link": "https://247wallst.com/investing/2026/10/30/strykers-guidance-cut-rattles-investors-what-it-really-says-about-2027/?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings",
       "people"
      ],
-     "important": false
+     "time": "2026-10-30T10:01:40+00:00",
+     "title": "Stryker\u2019s Guidance Cut Rattles Investors: What It Really Says About 2027"
     },
     {
-     "time": "2026-10-29T21:00:02+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Stryker (SYK) Q3 Earnings: Taking a Look at Key Metrics Versus Estimates",
      "link": "https://finance.yahoo.com/markets/stocks/articles/stryker-syk-q3-earnings-taking-210002538.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings"
      ],
-     "important": false
+     "time": "2026-10-29T21:00:02+00:00",
+     "title": "Stryker (SYK) Q3 Earnings: Taking a Look at Key Metrics Versus Estimates"
     }
-   ]
+   ],
+   "name": "Stryker Corporation"
   },
   {
    "date": "2026-10-30",
@@ -803,7 +820,8 @@
    "rank": 1.0,
    "candidates": 51.0,
    "rule": "v2",
-   "news": []
+   "news": [],
+   "name": "Tesla, Inc."
   }
  ]
 }
