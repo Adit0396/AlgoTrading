@@ -51,8 +51,8 @@ UNIVERSE_URLS = (
     "https://nsearchives.nseindia.com/content/indices/ind_nifty500list.csv",
     "https://www.niftyindices.com/IndexConstituent/ind_nifty500list.csv",
 )
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) "
-      "Chrome/124.0 Safari/537.36")
+# The skill pack's own User-Agent: it names the tool honestly, and Yahoo answers it.
+UA = "Mozilla/5.0 (compatible; day-trader-skill/2.0; +https://github.com/Jakeschincariol/day-trader-skill)"
 SETTINGS = {
     "market": "IN", "market_label": "India (NSE)", "currency": "INR", "timezone": "India",
     "universe": "the Nifty 500 (NSE's constituents list)",
@@ -139,13 +139,13 @@ def fetch_chart(tm, sym, offline=None):
             url = "https://%s.finance.yahoo.com/v8/finance/chart/%s?range=60d&interval=5m" % (
                 host, urllib.parse.quote(sym + ".NS"))
             try:
-                return http_get(url, timeout=12)
+                return tm._get(url, timeout=15)  # the pack's request code, same as its Time Machine
             except urllib.error.HTTPError as e:
                 last = e.code
                 if e.code == 404:
                     raise RuntimeError("Yahoo has no chart for %s.NS" % sym)
                 if e.code == 429 and attempt == 0:
-                    time.sleep(5)
+                    time.sleep(tm.BACKOFF)
                     continue
                 break
             except (urllib.error.URLError, OSError) as e:
@@ -293,8 +293,8 @@ def main(argv=None):
     ap.add_argument("--seed", type=int, default=19)
     ap.add_argument("--news-hours", type=int, default=18)
     ap.add_argument("--no-news", action="store_true")
-    ap.add_argument("--pause", type=float, default=0.2, help="seconds each worker waits between Yahoo requests")
-    ap.add_argument("--workers", type=int, default=6, help="charts downloaded at once")
+    ap.add_argument("--pause", type=float, default=0.3, help="seconds each worker waits between Yahoo requests")
+    ap.add_argument("--workers", type=int, default=3, help="charts downloaded at once")
     ap.add_argument("--chart-minutes", type=float, default=35, help="stop downloading charts after this long")
     ap.add_argument("--universe-offline", help=argparse.SUPPRESS)
     ap.add_argument("--chart-offline", help=argparse.SUPPRESS)
