@@ -40,13 +40,18 @@ FIELDS = ["date", "symbol", "entry_time", "entry", "stop", "target", "risk_per_s
           "actual_outcome", "exit_time", "exit_price", "r_multiple", "pnl_usd", "dollar_volume_to_1015",
           "scan_hits", "seed", "run_at", "note", "news_before_entry"]
 SHEET_FIELDS = list(FIELDS)  # the Google Sheet's Picks columns; extra fields below stay out of it
-FIELDS += ["or_high", "or_low", "breakout_pct"]
+FIELDS += ["or_high", "or_low", "breakout_pct", "breakout_time", "breakout_price", "rank", "candidates", "rule"]
+RULE = "v2"  # v2: picked and bought at 10:15 (v1 bought at each stock's own breakout bar: look-ahead)
 
 US_HOLIDAYS = {  # NYSE full closures, 2026-2027
     "2026-01-01", "2026-01-19", "2026-02-16", "2026-04-03", "2026-05-25", "2026-06-19", "2026-07-03",
     "2026-09-07", "2026-11-26", "2026-12-25", "2027-01-01", "2027-01-18", "2027-02-15", "2027-03-26",
     "2027-05-31", "2027-06-18", "2027-07-05", "2027-09-06", "2027-11-25", "2027-12-24",
 }
+
+
+SCAN_LABEL = "10:15 AM"   # when the scan runs and every pick is bought (New York time)
+SCAN_BAR = 8              # the 5-minute bar that closes at 10:15 (9:30 is bar 0)
 
 
 def load_module(path, name):
@@ -187,34 +192,40 @@ def pick_day(tm, repo, day, args):
     os.makedirs(workdir, exist_ok=True)
     doc = run_scan(repo, workdir, day, args)
     hits = doc.get("hits") or []
-    base = {"date": day.isoformat(), "scan_hits": len(hits), "seed": args.seed, "run_at": run_at}
+    base = {"date": day.isoformat(), "scan_hits": len(hits), "seed": args.seed, "run_at": run_at, "rule": RULE}
     if not hits:
         return [dict(base, symbol="", actual_outcome="no setup", note="no opening-range breakout by 10:15 AM")]
 
-    n = args.or_minutes // 5
     last = (15 * 60 + 55 - tm.OPEN_MIN) // 5 - 1          # the bar that closes at 3:55 PM
-    cands = []
+    k = SCAN_BAR                                          # every pick is decided and bought at 10:15
+    # Everything below uses only what was known at 10:15: which stocks had broken out, whether they
+    # were still above their range then, and how many dollars had traded since 9:30.
+    cands, failed = [], 0
     for h in (hits[:args.max_charts] if args.max_charts else hits):
         try:
             text = chart_text(tm, h["symbol"], args)
             D = day_bars(tm, text, h["symbol"], day)
-        except Exception as e:  # noqa: BLE001 - one bad chart should not stop the day
-            cands.append((0, h, None, None, "chart: %s" % e))
+        except Exception:  # noqa: BLE001 - one bad chart should not stop the day
+            failed += 1
             continue
-        dv = sum(D[i]["c"] * D[i]["v"] for i in range(h["bar_index"] + 1) if i in D)
-        cands.append((dv, h, text, D, ""))
-    cands.sort(key=lambda x: (bool(x[4]), -x[0]))  # charts that loaded first, most traded first
+        if any(i not in D for i in range(k + 1)) or D[k]["c"] <= h["or_high"]:
+            continue  # missing bars, or back inside its range by 10:15
+        dv = sum(D[i]["c"] * D[i]["v"] for i in range(k + 1))
+        cands.append((dv, h, text, D))
+    cands.sort(key=lambda x: -x[0])
+    base["candidates"] = len(cands)
+    if not cands:
+        return [dict(base, symbol="", actual_outcome="no setup",
+                     note="no breakout still above its range at 10:15 AM"
+                          + (" (%d charts failed to load)" % failed if failed else ""))]
 
     rows = []
-    for dv, h, text, D, err in cands[:args.top]:
+    for rank, (dv, h, text, D) in enumerate(cands[:args.top], 1):
         sym = h["symbol"]
-        row = dict(base, symbol=sym, dollar_volume_to_1015=round(dv))
-        if err:
-            rows.append(dict(row, note=err))
-            continue
-        k = h["bar_index"]
+        row = dict(base, symbol=sym, dollar_volume_to_1015=round(dv), rank=rank,
+                   breakout_time=h["at"], breakout_price=h["price"])
         oh, ol = h["or_high"], h["or_low"]
-        entry = h["price"]
+        entry = round(D[k]["c"], 2)
         stop = tm.cents_away((oh + ol) / 2, True)
         risk = round(entry - stop, 2)
         if risk <= 0:
@@ -222,8 +233,8 @@ def pick_day(tm, repo, day, args):
             continue
         target = round(entry + args.target_r * risk, 2)
         shares = min(int(math.floor(args.max_loss / risk + 1e-9)), int(math.floor(args.account / entry)))
-        row.update(or_high=oh, or_low=ol, breakout_pct=h.get("pct_over"))
-        row.update(entry_time=h["at"], entry=entry, stop=stop, target=target, risk_per_share=risk,
+        row.update(or_high=oh, or_low=ol, breakout_pct=round((entry / oh - 1) * 100, 2))
+        row.update(entry_time=SCAN_LABEL, entry=entry, stop=stop, target=target, risk_per_share=risk,
                    shares=shares, position_usd=round(shares * entry, 2), max_loss_usd=round(shares * risk, 2))
         try:
             plan = tm.normalize_plan({"symbol": sym, "date": day.isoformat(), "entry": entry, "stop": stop,
@@ -241,7 +252,7 @@ def pick_day(tm, repo, day, args):
             row["note"] = "time machine: %s" % e
         if not args.no_news:
             try:
-                text, items = news_before(repo, workdir, sym, entry_utc(tm, day, h["at"]), args.news_hours,
+                text, items = news_before(repo, workdir, sym, entry_utc(tm, day, SCAN_LABEL), args.news_hours,
                                           args.news_offline)
             except Exception as e:  # noqa: BLE001
                 text, items = "news check failed: %s" % e, []
@@ -330,7 +341,7 @@ def save(rows, path):
 NUMERIC = ("entry", "stop", "target", "risk_per_share", "shares", "position_usd", "max_loss_usd", "tm_target_pct",
            "tm_stop_pct", "tm_neither_pct", "tm_green_pct", "tm_avg_r", "hist_fired", "hist_target", "hist_stop",
            "hist_close", "hist_avg_r", "exit_price", "r_multiple", "pnl_usd", "dollar_volume_to_1015", "scan_hits",
-           "seed", "or_high", "or_low", "breakout_pct")
+           "seed", "or_high", "or_low", "breakout_pct", "breakout_price", "rank", "candidates")
 TRADED = ("target", "stop", "flat at 3:55")
 
 
@@ -374,7 +385,9 @@ def write_dashboard(csv_path, news_store, path, args):
         "settings": {"account_usd": args.account, "max_loss_usd": args.max_loss, "picks_per_day": args.top,
                      "scan_time": "10:15 New York", "opening_range_minutes": args.or_minutes,
                      "min_price_usd": args.min_price, "min_volume_shares": args.min_volume,
-                     "ranked_by": "dollar volume 9:30 to 10:15", "entry": "close of the first bar above the range",
+                     "ranked_by": "dollar volume 9:30 to 10:15",
+                     "eligible": "broke out above the range by 10:15 and still above it at 10:15",
+                     "entry": "the 10:15 price (close of the 10:10 bar)", "rule_version": RULE,
                      "stop": "opening-range midpoint", "target_r": args.target_r, "flat_by": "15:55 New York",
                      "replays": args.replays, "seed": args.seed, "news_hours": args.news_hours},
         "totals": {

@@ -11,22 +11,33 @@ opening-range breakout setup and its Time Machine odds hold up on real sessions.
 After the US close, GitHub Actions runs `forward_test.py` for every one of the last 5 sessions
 that isn't logged yet:
 
-1. **Scan.** trader-scanner's opening-range breakout scan as of 10:15 AM New York time
-   (15-minute range, price at least $5, at least 200,000 shares traded by 10:15).
-2. **Pick.** Of every breakout found, the 3 with the most dollar volume from 9:30 to 10:15.
-3. **Plan.** The opening range (high and low of 9:30 to 9:45) and how far the breakout bar
-   closed above it are recorded. Entry at the breakout bar's close, stop at the opening-range midpoint,
-   target at 1R, flat by 3:55 PM.
-4. **Time Machine.** trader-timemachine replays the rest of the day 10,000 times from the
-   stock's own prior sessions (seed 19) and re-runs the rule on each of those sessions.
-5. **News.** trader-news collects the Yahoo Finance headlines for each pick published in the
-   18 hours before its entry, tagged (earnings, analyst, deal, legal, macro...). Add a repo secret
+1. **Scan at 10:15 AM New York.** trader-scanner finds every stock whose 5-minute close broke above
+   its opening range (the high of 9:30 to 9:45), with a price of at least $5 and at least 200,000
+   shares traded by 10:15.
+2. **Keep the ones still breaking out.** Only stocks whose 10:15 price is still above the range high.
+3. **Pick.** The 3 with the most dollars traded from 9:30 to 10:15.
+4. **Plan.** Entry at the 10:15 price, stop at the opening-range midpoint, target 1R above the
+   entry (the same distance as the stop is below), flat by 3:55 PM.
+5. **Time Machine.** trader-timemachine replays the rest of the day 10,000 times from the stock's
+   own prior sessions (seed 19) and re-runs the rule on each of those sessions.
+6. **News.** trader-news collects the Yahoo Finance headlines for each pick published in the
+   18 hours before 10:15, tagged (earnings, analyst, deal, legal, macro...). Add a repo secret
    `SEC_USER_AGENT` set to `Your Name you@example.com` to include SEC 8-K filings as well.
-6. **Score.** The real 5-minute bars after the entry decide what happened: stop first,
-   target first, or the price at 3:55 PM. A bar that touches both counts as the stop, the same
-   rule the Time Machine uses.
-7. **Size.** $5,000 account, $50 max loss per trade: shares = the smaller of
+7. **Score.** The real 5-minute bars after 10:15 decide what happened: stop first, target first, or
+   the price at 3:55 PM. A bar that touches both counts as the stop, the same rule the Time Machine uses.
+8. **Size.** $5,000 account, $50 max loss per trade: shares = the smaller of
    floor(50 / risk per share) and floor(5,000 / entry). P&L = shares x (exit - entry).
+
+Every step uses only what was known at 10:15, so each trade is one a person could have placed.
+
+### Rule versions
+
+- **v2 (current):** as above. 27 to 30 Oct 2026 were re-run under it; 26 Oct was already past
+  Yahoo's 6-day scan window, so it has no v2 result.
+- **v1 (26 to 30 Oct 2026):** bought each stock at the close of its own breakout bar, often 9:50 to
+  10:05, but chose the stocks using the 10:15 ranking. That is look-ahead: nobody could have known
+  at 9:50 which stocks would rank in the top 3 at 10:15. Those results are kept in
+  `forward-test-data/archive/` and are not counted.
 
 ## Where the results go
 
@@ -62,7 +73,7 @@ missing, so a late or skipped run is picked up by the next one. Each run commits
 to this repo, and the Claude sync task copies them into the Google Sheet at 1:41 PM Brisbane.
 
 To run it now: Actions tab, **ORB forward test**, **Run workflow**. Leave the mode as `catch-up`,
-type `backfill` to redo the last 5 sessions, or type one date such as `2026-10-30`.
+type `backfill` (or `backfill 3`) to redo the last 5 (or 3) sessions, or type one date such as `2026-10-30`.
 
 ## Run it on your own computer
 
