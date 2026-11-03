@@ -1,5 +1,15 @@
 {
-  "days": [],
+  "days": [
+    {
+      "date": "2026-11-03",
+      "picks": [
+        "HDFCBANK",
+        "GRSE",
+        "MARICO"
+      ],
+      "pnl_inr": 6683.98
+    }
+  ],
   "charts_loaded": 495,
   "charts_failed": 1
 }
