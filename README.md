@@ -15,7 +15,8 @@ that isn't logged yet:
    its opening range (the high of 9:30 to 9:45), with a price of at least $5 and at least 200,000
    shares traded by 10:15.
 2. **Keep the ones still breaking out.** Only stocks whose 10:15 price is still above the range high.
-3. **Pick.** The 3 with the most dollars traded from 9:30 to 10:15.
+3. **Pick.** The 3 with the most dollars traded from 9:30 to 10:15, one per company (when both
+   GOOGL and GOOG qualify, only the more traded one is taken: two share classes are the same bet).
 4. **Plan.** Entry at the 10:15 price, stop at the opening-range midpoint, target 1R above the
    entry (the same distance as the stop is below), flat by 3:55 PM.
 5. **Time Machine.** trader-timemachine replays the rest of the day 10,000 times from the stock's
@@ -70,13 +71,15 @@ stamp duty) are not included.
 
 | Place | What |
 | --- | --- |
-| `forward-test-data/results.csv` | One row per pick, or one "no setup" row for a day without a breakout |
-| `forward-test-data/sheet_rows.json` | Every row in the column order of the Google Sheet's Picks tab |
+| `forward-test-data/results.csv` | One row per pick with its company name, or one "no setup" row for a day without a breakout |
+| `forward-test-data/sheet_rows.json` | Every pick in the column order of the Google Sheet's US Picks tab |
+| `forward-test-data/daily.csv` | One line per session: the picks with company names and outcomes, counts, day P&L, running total |
+| `forward-test-data/daily_rows.json` | The same lines in the column order of the sheet's US Daily tab |
 | `forward-test-data/last_run.json` | What the latest run did |
 | `forward-test-data/news.json` | The headlines found before each pick's entry, by date and ticker |
 | `forward-test-data/dashboard.json` | Everything a website needs in one file: settings, totals, P&L by session, every pick with its company name and news |
-| `forward-test-data-india/` | The same files for the India test (`results.csv`, `news.json`, `dashboard.json`, `universe.csv`) |
-| Google Sheet "Day Trader Forward Test" | Picks tab (raw log) and Summary tab (formulas). A Claude scheduled task copies new rows from `sheet_rows.json` each morning |
+| `forward-test-data-india/` | The same files for the India test, feeding the sheet's India Picks and India Daily tabs |
+| Google Sheet "Day Trader Forward Test" | US Picks, US Daily, US Summary, India Picks, India Daily, India Summary. A Claude scheduled task copies new rows from each market's `sheet_rows.json` and `daily_rows.json` at 1:41 PM Brisbane on weekdays |
 | Claude artifact "ORB Forward Test" | A dashboard that reads the Google Sheet |
 | Trading tab on personal-dashboard-ebc.pages.dev | Reads `dashboard.json` from this repo on every page load |
 

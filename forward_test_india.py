@@ -231,7 +231,8 @@ def pick_day(tm, news, day, charts, texts, names, args):
         return [dict(base, symbol="", actual_outcome="no setup", note="no breakout still above its range at 10:00")]
 
     rows = []
-    for rank, (turnover, sym, D, oh, ol, first) in enumerate(cands[:args.top], 1):
+    chosen = ft.one_per_company(cands, lambda c: c[1], names, args.top)
+    for rank, (turnover, sym, D, oh, ol, first) in enumerate(chosen, 1):
         entry = round(D[k]["c"], 2)
         stop = tm.cents_away((oh + ol) / 2, True)
         risk = round(entry - stop, 2)
@@ -304,7 +305,7 @@ def diagnose(tm, charts, syms, now, offline=None):
     return 0
 
 
-FIELDS = ft.FIELDS + ["name"]
+FIELDS = ft.FIELDS
 
 
 def main(argv=None):
@@ -416,6 +417,9 @@ def main(argv=None):
         json.dump(news_store, fh, indent=1, sort_keys=True)
     with open(os.path.join(args.state, "last_run.json"), "w") as fh:
         json.dump({"days": summary, "charts_loaded": len(charts), "charts_failed": len(failed)}, fh, indent=2)
+    ft.fill_names(out, names)
+    ft.write_sheet_rows(out, args.state)
+    ft.write_daily(out, args.state)
     ft.write_dashboard(out, news_store, os.path.join(args.state, "dashboard.json"), args, settings=SETTINGS,
                        names=names)
     print("Results: %s" % out)

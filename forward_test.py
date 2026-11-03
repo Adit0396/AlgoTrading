@@ -35,7 +35,7 @@ import time
 def utcnow():
     return datetime.datetime.now(datetime.timezone.utc).replace(tzinfo=None)
 
-FIELDS = ["date", "symbol", "entry_time", "entry", "stop", "target", "risk_per_share", "shares",
+FIELDS = ["date", "symbol", "name", "entry_time", "entry", "stop", "target", "risk_per_share", "shares",
           "position_usd", "max_loss_usd", "tm_target_pct", "tm_stop_pct", "tm_neither_pct", "tm_green_pct",
           "tm_avg_r", "hist_fired", "hist_target", "hist_stop", "hist_close", "hist_avg_r", "verdict",
           "actual_outcome", "exit_time", "exit_price", "r_multiple", "pnl_usd", "dollar_volume_to_1015",
@@ -221,9 +221,10 @@ def pick_day(tm, repo, day, args):
                           + (" (%d charts failed to load)" % failed if failed else ""))]
 
     rows = []
-    for rank, (dv, h, text, D) in enumerate(cands[:args.top], 1):
+    chosen = one_per_company(cands, lambda c: c[1]["symbol"], args.names, args.top)
+    for rank, (dv, h, text, D) in enumerate(chosen, 1):
         sym = h["symbol"]
-        row = dict(base, symbol=sym, dollar_volume_to_1015=round(dv), rank=rank,
+        row = dict(base, symbol=sym, name=args.names.get(sym, ""), dollar_volume_to_1015=round(dv), rank=rank,
                    breakout_time=h["at"], breakout_price=h["price"])
         oh, ol = h["or_high"], h["or_low"]
         entry = round(D[k]["c"], 2)
@@ -273,7 +274,7 @@ def pick_day(tm, repo, day, args):
     return rows
 
 
-TEXT_FIELDS = ("date", "symbol", "entry_time", "exit_time", "run_at", "verdict", "note", "actual_outcome",
+TEXT_FIELDS = ("date", "symbol", "name", "entry_time", "exit_time", "run_at", "verdict", "note", "actual_outcome",
                "news_before_entry")
 
 
@@ -322,6 +323,109 @@ def fill_opening_range(tm, path, args):
         w.writeheader()
         for r in rows:
             w.writerow({k: r.get(k, "") for k in FIELDS})
+
+
+def one_per_company(cands, symbol_of, names, top):
+    """The first `top` candidates, skipping a second share class of a company already picked
+    (GOOG after GOOGL, BRK.A after BRK.B): same company name, same bet."""
+    seen, out = set(), []
+    for c in cands:
+        sym = symbol_of(c)
+        key = (names.get(sym) or sym).lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(c)
+        if len(out) == top:
+            break
+    return out
+
+
+def fill_names(path, names):
+    """Rows logged before names were stored get the company name from the universe list."""
+    if not os.path.exists(path):
+        return
+    with open(path, newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    if not any(r.get("symbol") and not r.get("name") for r in rows):
+        return
+    for r in rows:
+        if r.get("symbol") and not r.get("name"):
+            r["name"] = names.get(r["symbol"].upper(), "")
+    with open(path, "w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=FIELDS, extrasaction="ignore")
+        w.writeheader()
+        for r in rows:
+            w.writerow({k: r.get(k, "") for k in FIELDS})
+
+
+def read_rows(path):
+    """results.csv with numbers as numbers."""
+    out = []
+    if not os.path.exists(path):
+        return out
+    with open(path, newline="") as fh:
+        for r in csv.DictReader(fh):
+            for k in FIELDS:
+                v = r.get(k, "")
+                if k not in TEXT_FIELDS and v not in ("", None):
+                    try:
+                        f = float(v)
+                        r[k] = int(f) if f.is_integer() and k in ("shares", "hist_fired", "hist_target", "hist_stop",
+                                                                   "hist_close", "scan_hits", "seed", "rank",
+                                                                   "candidates") else f
+                    except ValueError:
+                        pass
+            out.append(r)
+    return out
+
+
+def write_sheet_rows(csv_path, state):
+    """Every logged pick in the Google Sheet's Picks column order, so a sync can add whatever is missing."""
+    with open(os.path.join(state, "sheet_rows.json"), "w") as fh:
+        json.dump({"fields": SHEET_FIELDS, "rows": [sheet_row(r) for r in read_rows(csv_path)]}, fh, indent=1)
+
+
+DAILY_FIELDS = ["date", "picks", "trades", "target", "stop", "flat", "day_pnl", "running_pnl", "candidates",
+                "broke_out"]
+
+
+def write_daily(csv_path, state):
+    """One line per session: the picks with their names and outcomes, counts, the day's P&L and the running
+    total. Writes daily.csv (values) and daily_rows.json (Google Sheet rows; the running total there is a
+    formula over the Day P&L column, so it stays right if a row is added)."""
+    by_date = {}
+    for r in read_rows(csv_path):
+        by_date.setdefault(r["date"], []).append(r)
+    lines, sheet, running = [], [], 0.0
+    for d in sorted(by_date):
+        rows = by_date[d]
+        picks = [r for r in rows if r.get("symbol")]
+        trades = [r for r in picks if r.get("actual_outcome") in TRADED and r.get("pnl_usd") not in ("", None)]
+
+        def label(o):
+            return ("closed " + o[8:]) if (o or "").startswith("flat at ") else (o or "not scored")
+        text = "; ".join("%s (%s) %s" % (r["symbol"], r.get("name") or "?", label(r.get("actual_outcome")))
+                         for r in picks) or (rows[0].get("note") or "no setup")
+        day_pnl = round(sum(r["pnl_usd"] for r in trades), 2)
+        running = round(running + day_pnl, 2)
+        line = {"date": d, "picks": text, "trades": len(trades),
+                "target": sum(1 for r in trades if r["actual_outcome"] == "target"),
+                "stop": sum(1 for r in trades if r["actual_outcome"] == "stop"),
+                "flat": sum(1 for r in trades if r["actual_outcome"].startswith("flat")),
+                "day_pnl": day_pnl, "running_pnl": running,
+                "candidates": rows[0].get("candidates", ""), "broke_out": rows[0].get("scan_hits", "")}
+        lines.append(line)
+        sheet.append(["'" + d, "'" + text, line["trades"], line["target"], line["stop"], line["flat"], day_pnl,
+                      '=SUM(INDIRECT("G2:G"&ROW()))', line["candidates"], line["broke_out"]])
+    with open(os.path.join(state, "daily.csv"), "w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=DAILY_FIELDS)
+        w.writeheader()
+        w.writerows(lines)
+    with open(os.path.join(state, "daily_rows.json"), "w") as fh:
+        json.dump({"fields": ["Date", "Stocks picked", "Trades", "Hit target", "Hit stop", "Closed at the end",
+                              "Day P&L", "Running total", "Still above range at scan", "Broke out by scan"],
+                   "rows": sheet}, fh, indent=1)
 
 
 def save(rows, path):
@@ -477,6 +581,7 @@ def main(argv=None):
     tm = load_module(os.path.join(repo, "trader-timemachine", "timemachine.py"), "timemachine")
 
     out = os.path.join(args.state, "results.csv")
+    args.names = universe_names(os.path.join(args.state, "universe.txt"))
     if args.date:
         days = [datetime.date.fromisoformat(args.date)]
     elif args.catch_up:
@@ -510,24 +615,9 @@ def main(argv=None):
     fill_opening_range(tm, out, args)
     with open(os.path.join(args.state, "last_run.json"), "w") as fh:
         json.dump({"fields": FIELDS, "days": summary}, fh, indent=2)
-    # every logged row, in the Google Sheet's column order, so a sync can add whatever is missing
-    allrows = []
-    if os.path.exists(out):
-        with open(out, newline="") as fh:
-            for r in csv.DictReader(fh):
-                for k in FIELDS:
-                    v = r.get(k, "")
-                    if k not in TEXT_FIELDS and v not in ("", None):
-                        try:
-                            f = float(v)
-                            r[k] = int(f) if f.is_integer() and k in ("shares", "hist_fired", "hist_target",
-                                                                       "hist_stop", "hist_close", "scan_hits",
-                                                                       "seed") else f
-                        except ValueError:
-                            pass
-                allrows.append(sheet_row(r))
-    with open(os.path.join(args.state, "sheet_rows.json"), "w") as fh:
-        json.dump({"fields": SHEET_FIELDS, "rows": allrows}, fh, indent=1)
+    fill_names(out, args.names)
+    write_sheet_rows(out, args.state)
+    write_daily(out, args.state)
     news_path = os.path.join(args.state, "news.json")
     news_store = {}
     if os.path.exists(news_path):
@@ -539,8 +629,7 @@ def main(argv=None):
                 news_store.setdefault(day["date"], {})[r["symbol"]] = r["_news"]
     with open(news_path, "w") as fh:
         json.dump(news_store, fh, indent=1, sort_keys=True)
-    write_dashboard(out, news_store, os.path.join(args.state, "dashboard.json"), args,
-                    names=universe_names(os.path.join(args.state, "universe.txt")))
+    write_dashboard(out, news_store, os.path.join(args.state, "dashboard.json"), args, names=args.names)
     print("Results: %s" % out)
     return status
 
