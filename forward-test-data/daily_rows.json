@@ -1,0 +1,76 @@
+{
+ "fields": [
+  "Date",
+  "Stocks picked",
+  "Trades",
+  "Hit target",
+  "Hit stop",
+  "Closed at the end",
+  "Day P&L",
+  "Running total",
+  "Still above range at scan",
+  "Broke out by scan"
+ ],
+ "rows": [
+  [
+   "'2026-10-27",
+   "'DELL (Dell Technologies Inc.) target; GE (GE Aerospace) target; STX (Seagate Technology Holdings PLC) closed 3:55",
+   3,
+   2,
+   0,
+   1,
+   63.58,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   38,
+   78
+  ],
+  [
+   "'2026-10-28",
+   "'LLY (Eli Lilly and Company) closed 3:55; NXPI (NXP Semiconductors N.V.) closed 3:55; TER (Teradyne, Inc.) target",
+   3,
+   1,
+   0,
+   2,
+   76.02,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   83,
+   113
+  ],
+  [
+   "'2026-10-29",
+   "'CAT (Caterpillar, Inc.) stop; META (Meta Platforms, Inc.) target; SPCX (Space Exploration Technologies Corp.) closed 3:55",
+   3,
+   1,
+   1,
+   1,
+   -18.27,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   68,
+   109
+  ],
+  [
+   "'2026-10-30",
+   "'CAT (Caterpillar, Inc.) stop; SYK (Stryker Corporation) closed 3:55; TSLA (Tesla, Inc.) target",
+   3,
+   1,
+   1,
+   1,
+   -26.3,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   51,
+   108
+  ],
+  [
+   "'2026-11-02",
+   "'AMZN (Amazon.com, Inc.) stop; AVGO (Broadcom Inc.) stop; GOOGL (Alphabet Inc.) stop",
+   3,
+   0,
+   3,
+   0,
+   -135.07,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   107,
+   140
+  ]
+ ]
+}

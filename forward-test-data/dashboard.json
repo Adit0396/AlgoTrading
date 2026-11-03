@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T03:03:28Z",
+ "generated_at": "2026-11-03T07:44:54Z",
  "simulation_only": true,
  "settings": {
   "market": "US",
@@ -34,12 +34,12 @@
   "flat": 5,
   "winners": 7,
   "win_rate": 0.467,
-  "pnl_usd": -34.24,
-  "return_on_account": -0.0068,
+  "pnl_usd": -40.04,
+  "return_on_account": -0.008,
   "avg_r": -0.029,
-  "predicted_target_first_pct": 31.54,
+  "predicted_target_first_pct": 31.267,
   "actual_target_first_pct": 33.3,
-  "predicted_stop_first_pct": 29.253,
+  "predicted_stop_first_pct": 28.587,
   "actual_stop_first_pct": 33.3
  },
  "daily": [
@@ -65,14 +65,15 @@
   },
   {
    "date": "2026-11-02",
-   "pnl_usd": -129.27,
-   "cumulative_usd": -34.24
+   "pnl_usd": -135.07,
+   "cumulative_usd": -40.04
   }
  ],
  "picks": [
   {
    "date": "2026-10-27",
    "symbol": "DELL",
+   "name": "Dell Technologies Inc.",
    "entry_time": "10:15 AM",
    "entry": 486.02,
    "stop": 478.32,
@@ -111,12 +112,12 @@
    "rank": 2.0,
    "candidates": 38.0,
    "rule": "v2",
-   "news": [],
-   "name": "Dell Technologies Inc."
+   "news": []
   },
   {
    "date": "2026-10-27",
    "symbol": "GE",
+   "name": "GE Aerospace",
    "entry_time": "10:15 AM",
    "entry": 292.15,
    "stop": 290.24,
@@ -155,12 +156,12 @@
    "rank": 3.0,
    "candidates": 38.0,
    "rule": "v2",
-   "news": [],
-   "name": "GE Aerospace"
+   "news": []
   },
   {
    "date": "2026-10-27",
    "symbol": "STX",
+   "name": "Seagate Technology Holdings PLC",
    "entry_time": "10:15 AM",
    "entry": 674.41,
    "stop": 660.43,
@@ -199,12 +200,12 @@
    "rank": 1.0,
    "candidates": 38.0,
    "rule": "v2",
-   "news": [],
-   "name": "Seagate Technology Holdings PLC"
+   "news": []
   },
   {
    "date": "2026-10-28",
    "symbol": "LLY",
+   "name": "Eli Lilly and Company",
    "entry_time": "10:15 AM",
    "entry": 1291.01,
    "stop": 1275.37,
@@ -243,12 +244,12 @@
    "rank": 3.0,
    "candidates": 83.0,
    "rule": "v2",
-   "news": [],
-   "name": "Eli Lilly and Company"
+   "news": []
   },
   {
    "date": "2026-10-28",
    "symbol": "NXPI",
+   "name": "NXP Semiconductors N.V.",
    "entry_time": "10:15 AM",
    "entry": 247.71,
    "stop": 240.86,
@@ -351,12 +352,12 @@
      "time": "2026-10-28T11:02:49+00:00",
      "title": "Vertiv Soars 16% and Enphase Sinks 17%: 6 Stocks Moving Before the Bell"
     }
-   ],
-   "name": "NXP Semiconductors N.V."
+   ]
   },
   {
    "date": "2026-10-28",
    "symbol": "TER",
+   "name": "Teradyne, Inc.",
    "entry_time": "10:15 AM",
    "entry": 306.52,
    "stop": 300.75,
@@ -416,12 +417,12 @@
      "time": "2026-10-28T09:26:26+00:00",
      "title": "The Case For Lam Research Stock Rests On One Thing"
     }
-   ],
-   "name": "Teradyne, Inc."
+   ]
   },
   {
    "date": "2026-10-29",
    "symbol": "CAT",
+   "name": "Caterpillar, Inc.",
    "entry_time": "10:15 AM",
    "entry": 655.55,
    "stop": 642.78,
@@ -460,12 +461,12 @@
    "rank": 3.0,
    "candidates": 68.0,
    "rule": "v2",
-   "news": [],
-   "name": "Caterpillar, Inc."
+   "news": []
   },
   {
    "date": "2026-10-29",
    "symbol": "META",
+   "name": "Meta Platforms, Inc.",
    "entry_time": "10:15 AM",
    "entry": 622.58,
    "stop": 619.5,
@@ -504,12 +505,12 @@
    "rank": 1.0,
    "candidates": 68.0,
    "rule": "v2",
-   "news": [],
-   "name": "Meta Platforms, Inc."
+   "news": []
   },
   {
    "date": "2026-10-29",
    "symbol": "SPCX",
+   "name": "Space Exploration Technologies Corp.",
    "entry_time": "10:15 AM",
    "entry": 144.03,
    "stop": 141.93,
@@ -548,12 +549,12 @@
    "rank": 2.0,
    "candidates": 68.0,
    "rule": "v2",
-   "news": [],
-   "name": "Space Exploration Technologies Corp."
+   "news": []
   },
   {
    "date": "2026-10-30",
    "symbol": "CAT",
+   "name": "Caterpillar, Inc.",
    "entry_time": "10:15 AM",
    "entry": 635.57,
    "stop": 628.04,
@@ -647,12 +648,12 @@
      "time": "2026-10-30T11:15:56+00:00",
      "title": "Why Did Caterpillar Stock Fall?"
     }
-   ],
-   "name": "Caterpillar, Inc."
+   ]
   },
   {
    "date": "2026-10-30",
    "symbol": "SYK",
+   "name": "Stryker Corporation",
    "entry_time": "10:15 AM",
    "entry": 297.64,
    "stop": 288.05,
@@ -781,12 +782,12 @@
      "time": "2026-10-29T21:00:02+00:00",
      "title": "Stryker (SYK) Q3 Earnings: Taking a Look at Key Metrics Versus Estimates"
     }
-   ],
-   "name": "Stryker Corporation"
+   ]
   },
   {
    "date": "2026-10-30",
    "symbol": "TSLA",
+   "name": "Tesla, Inc.",
    "entry_time": "10:15 AM",
    "entry": 396.45,
    "stop": 390.49,
@@ -825,12 +826,12 @@
    "rank": 1.0,
    "candidates": 51.0,
    "rule": "v2",
-   "news": [],
-   "name": "Tesla, Inc."
+   "news": []
   },
   {
    "date": "2026-11-02",
    "symbol": "AMZN",
+   "name": "Amazon.com, Inc.",
    "entry_time": "10:15 AM",
    "entry": 251.25,
    "stop": 246.33,
@@ -858,9 +859,9 @@
    "dollar_volume_to_1015": 3576273651.0,
    "scan_hits": 140.0,
    "seed": 19.0,
-   "run_at": "2026-11-03 02:57 UTC",
+   "run_at": "2026-11-03 07:40 UTC",
    "note": "",
-   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-11-02 21:02 UTC, after this entry",
+   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-11-02 21:25 UTC, after this entry",
    "or_high": 250.39,
    "or_low": 242.28,
    "breakout_pct": 0.34,
@@ -869,56 +870,131 @@
    "rank": 1.0,
    "candidates": 107.0,
    "rule": "v2",
-   "news": [],
-   "name": "Amazon.com, Inc."
+   "news": []
   },
   {
    "date": "2026-11-02",
-   "symbol": "GOOG",
+   "symbol": "AVGO",
+   "name": "Broadcom Inc.",
    "entry_time": "10:15 AM",
-   "entry": 284.97,
-   "stop": 282.49,
-   "target": 287.45,
-   "risk_per_share": 2.48,
-   "shares": 17.0,
-   "position_usd": 4844.49,
-   "max_loss_usd": 42.16,
-   "tm_target_pct": 31.5,
-   "tm_stop_pct": 37.7,
-   "tm_neither_pct": 30.8,
-   "tm_green_pct": 46.6,
-   "tm_avg_r": -0.065,
-   "hist_fired": 33.0,
+   "entry": 330.79,
+   "stop": 326.43,
+   "target": 335.15,
+   "risk_per_share": 4.36,
+   "shares": 11.0,
+   "position_usd": 3638.69,
+   "max_loss_usd": 47.96,
+   "tm_target_pct": 27.4,
+   "tm_stop_pct": 27.7,
+   "tm_neither_pct": 44.9,
+   "tm_green_pct": 48.5,
+   "tm_avg_r": -0.017,
+   "hist_fired": 30.0,
    "hist_target": 9.0,
-   "hist_stop": 17.0,
-   "hist_close": 7.0,
-   "hist_avg_r": -0.259,
-   "verdict": "Close to a coin flip: target first 31.5 % vs stop first 37.7 %.",
+   "hist_stop": 12.0,
+   "hist_close": 9.0,
+   "hist_avg_r": -0.104,
+   "verdict": "Close to a coin flip: target first 27.4 % vs stop first 27.7 %.",
    "actual_outcome": "stop",
-   "exit_time": "11:00",
-   "exit_price": 282.49,
+   "exit_time": "14:05",
+   "exit_price": 326.43,
    "r_multiple": -1.0,
-   "pnl_usd": -42.16,
-   "dollar_volume_to_1015": 1987401005.0,
+   "pnl_usd": -47.96,
+   "dollar_volume_to_1015": 1031288098.0,
    "scan_hits": 140.0,
    "seed": 19.0,
-   "run_at": "2026-11-03 02:57 UTC",
+   "run_at": "2026-11-03 07:40 UTC",
    "note": "",
-   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-11-02 20:02 UTC, after this entry",
-   "or_high": 284.55,
-   "or_low": 280.44,
-   "breakout_pct": 0.15,
-   "breakout_time": "9:50 AM",
-   "breakout_price": 284.67,
+   "news_before_entry": "9 items (earnings); latest: Wall Street May Be Underestimating This Smaller AI Chip Stock",
+   "or_high": 328.55,
+   "or_low": 324.31,
+   "breakout_pct": 0.68,
+   "breakout_time": "10:00 AM",
+   "breakout_price": 328.64,
    "rank": 3.0,
    "candidates": 107.0,
    "rule": "v2",
-   "news": [],
-   "name": "Alphabet Inc."
+   "news": [
+    {
+     "time": "2026-11-02T14:33:09+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Wall Street May Be Underestimating This Smaller AI Chip Stock",
+     "link": "https://247wallst.com/investing/2026/11/02/wall-street-may-be-underestimating-this-smaller-ai-chip-stock/?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-02T14:01:10+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "23 Big Funds Bought Advanced Micro Devices Last Quarter. Is It a Buy Before Earnings?",
+     "link": "https://www.tikr.com/blog/23-big-funds-bought-amd-stock-before-earnings?ref=yahoofinance&tlnk=yf-261102-h559788v&.tsrc=rss",
+     "tags": [
+      "earnings"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-02T13:45:19+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Broadcom\u2019s Supply Bottlenecks \u2013 Not Demand \u2013 Continue to Offer Investors a Discount I Keep Buying",
+     "link": "https://247wallst.com/investing/2026/11/02/broadcoms-supply-bottlenecks-not-demand-continue-to-offer-investors-a-discount-i-keep-buying/?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-02T13:20:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "My Top 3 AI Stock Picks for November",
+     "link": "https://www.fool.com/investing/2026/11/02/my-top-3-ai-stock-picks-for-november/?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-02T13:18:16+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Anthropic Has Promised $417 Billion For Computing",
+     "link": "https://www.trefis.com/stock/amzn/articles/622004/anthropic-has-promised-417-billion-for-computing/2026-11-02?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-02T12:30:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "DriveNets to Join AT&T, KDDI and Broadcom on FYUZ 26 Panel: \"From Backbone Networks to AI Fabrics\"",
+     "link": "https://finance.yahoo.com/technology/ai/articles/drivenets-join-t-kddi-broadcom-123000740.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-02T12:00:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Is this the dot-com bubble again? Nearly $1 trillion gone",
+     "link": "https://finance.yahoo.com/video/dot-com-bubble-again-nearly-120000826.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-02T11:38:12+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "AI Chips Today - Dual-Use Tech Drives Mobility And Defense Innovation",
+     "link": "https://finance.yahoo.com/technology/ai/articles/ai-chips-today-dual-tech-113812212.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    }
+   ]
   },
   {
    "date": "2026-11-02",
    "symbol": "GOOGL",
+   "name": "Alphabet Inc.",
    "entry_time": "10:15 AM",
    "entry": 286.62,
    "stop": 284.39,
@@ -946,9 +1022,9 @@
    "dollar_volume_to_1015": 3052002293.0,
    "scan_hits": 140.0,
    "seed": 19.0,
-   "run_at": "2026-11-03 02:57 UTC",
+   "run_at": "2026-11-03 07:40 UTC",
    "note": "",
-   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-11-02 20:02 UTC, after this entry",
+   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-11-02 21:30 UTC, after this entry",
    "or_high": 286.42,
    "or_low": 282.36,
    "breakout_pct": 0.07,
@@ -957,8 +1033,7 @@
    "rank": 2.0,
    "candidates": 107.0,
    "rule": "v2",
-   "news": [],
-   "name": "Alphabet Inc."
+   "news": []
   }
  ]
 }

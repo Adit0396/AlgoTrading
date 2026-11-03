@@ -251,6 +251,82 @@
  },
  "2026-11-02": {
   "AMZN": [],
+  "AVGO": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://247wallst.com/investing/2026/11/02/wall-street-may-be-underestimating-this-smaller-ai-chip-stock/?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-02T14:33:09+00:00",
+    "title": "Wall Street May Be Underestimating This Smaller AI Chip Stock"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.tikr.com/blog/23-big-funds-bought-amd-stock-before-earnings?ref=yahoofinance&tlnk=yf-261102-h559788v&.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "earnings"
+    ],
+    "time": "2026-11-02T14:01:10+00:00",
+    "title": "23 Big Funds Bought Advanced Micro Devices Last Quarter. Is It a Buy Before Earnings?"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://247wallst.com/investing/2026/11/02/broadcoms-supply-bottlenecks-not-demand-continue-to-offer-investors-a-discount-i-keep-buying/?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-02T13:45:19+00:00",
+    "title": "Broadcom\u2019s Supply Bottlenecks \u2013 Not Demand \u2013 Continue to Offer Investors a Discount I Keep Buying"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.fool.com/investing/2026/11/02/my-top-3-ai-stock-picks-for-november/?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-02T13:20:00+00:00",
+    "title": "My Top 3 AI Stock Picks for November"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.trefis.com/stock/amzn/articles/622004/anthropic-has-promised-417-billion-for-computing/2026-11-02?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-02T13:18:16+00:00",
+    "title": "Anthropic Has Promised $417 Billion For Computing"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/technology/ai/articles/drivenets-join-t-kddi-broadcom-123000740.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-02T12:30:00+00:00",
+    "title": "DriveNets to Join AT&T, KDDI and Broadcom on FYUZ 26 Panel: \"From Backbone Networks to AI Fabrics\""
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/video/dot-com-bubble-again-nearly-120000826.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-02T12:00:00+00:00",
+    "title": "Is this the dot-com bubble again? Nearly $1 trillion gone"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/technology/ai/articles/ai-chips-today-dual-tech-113812212.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-02T11:38:12+00:00",
+    "title": "AI Chips Today - Dual-Use Tech Drives Mobility And Defense Innovation"
+   }
+  ],
   "GOOG": [],
   "GOOGL": []
  }

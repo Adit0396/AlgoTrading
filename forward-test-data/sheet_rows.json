@@ -2,6 +2,7 @@
  "fields": [
   "date",
   "symbol",
+  "name",
   "entry_time",
   "entry",
   "stop",
@@ -37,6 +38,7 @@
   [
    "'2026-10-27",
    "'DELL",
+   "'Dell Technologies Inc.",
    "'10:15 AM",
    486.02,
    478.32,
@@ -71,6 +73,7 @@
   [
    "'2026-10-27",
    "'GE",
+   "'GE Aerospace",
    "'10:15 AM",
    292.15,
    290.24,
@@ -105,6 +108,7 @@
   [
    "'2026-10-27",
    "'STX",
+   "'Seagate Technology Holdings PLC",
    "'10:15 AM",
    674.41,
    660.43,
@@ -139,6 +143,7 @@
   [
    "'2026-10-28",
    "'LLY",
+   "'Eli Lilly and Company",
    "'10:15 AM",
    1291.01,
    1275.37,
@@ -173,6 +178,7 @@
   [
    "'2026-10-28",
    "'NXPI",
+   "'NXP Semiconductors N.V.",
    "'10:15 AM",
    247.71,
    240.86,
@@ -207,6 +213,7 @@
   [
    "'2026-10-28",
    "'TER",
+   "'Teradyne, Inc.",
    "'10:15 AM",
    306.52,
    300.75,
@@ -241,6 +248,7 @@
   [
    "'2026-10-29",
    "'CAT",
+   "'Caterpillar, Inc.",
    "'10:15 AM",
    655.55,
    642.78,
@@ -275,6 +283,7 @@
   [
    "'2026-10-29",
    "'META",
+   "'Meta Platforms, Inc.",
    "'10:15 AM",
    622.58,
    619.5,
@@ -309,6 +318,7 @@
   [
    "'2026-10-29",
    "'SPCX",
+   "'Space Exploration Technologies Corp.",
    "'10:15 AM",
    144.03,
    141.93,
@@ -343,6 +353,7 @@
   [
    "'2026-10-30",
    "'CAT",
+   "'Caterpillar, Inc.",
    "'10:15 AM",
    635.57,
    628.04,
@@ -377,6 +388,7 @@
   [
    "'2026-10-30",
    "'SYK",
+   "'Stryker Corporation",
    "'10:15 AM",
    297.64,
    288.05,
@@ -411,6 +423,7 @@
   [
    "'2026-10-30",
    "'TSLA",
+   "'Tesla, Inc.",
    "'10:15 AM",
    396.45,
    390.49,
@@ -445,6 +458,7 @@
   [
    "'2026-11-02",
    "'AMZN",
+   "'Amazon.com, Inc.",
    "'10:15 AM",
    251.25,
    246.33,
@@ -472,47 +486,49 @@
    3576273651.0,
    140,
    19,
-   "'2026-11-03 02:57 UTC",
+   "'2026-11-03 07:40 UTC",
    "",
-   "'no headlines found: Yahoo's feed now starts at 2026-11-02 21:02 UTC, after this entry"
+   "'no headlines found: Yahoo's feed now starts at 2026-11-02 21:25 UTC, after this entry"
   ],
   [
    "'2026-11-02",
-   "'GOOG",
+   "'AVGO",
+   "'Broadcom Inc.",
    "'10:15 AM",
-   284.97,
-   282.49,
-   287.45,
-   2.48,
-   17,
-   4844.49,
-   42.16,
-   31.5,
-   37.7,
-   30.8,
-   46.6,
-   -0.065,
-   33,
+   330.79,
+   326.43,
+   335.15,
+   4.36,
+   11,
+   3638.69,
+   47.96,
+   27.4,
+   27.7,
+   44.9,
+   48.5,
+   -0.017,
+   30,
    9,
-   17,
-   7,
-   -0.259,
-   "'Close to a coin flip: target first 31.5 % vs stop first 37.7 %.",
+   12,
+   9,
+   -0.104,
+   "'Close to a coin flip: target first 27.4 % vs stop first 27.7 %.",
    "'stop",
-   "'11:00",
-   282.49,
+   "'14:05",
+   326.43,
    -1.0,
-   -42.16,
-   1987401005.0,
+   -47.96,
+   1031288098.0,
    140,
    19,
-   "'2026-11-03 02:57 UTC",
+   "'2026-11-03 07:40 UTC",
    "",
-   "'no headlines found: Yahoo's feed now starts at 2026-11-02 20:02 UTC, after this entry"
+   "'9 items (earnings); latest: Wall Street May Be Underestimating This Smaller AI Chip Stock"
   ],
   [
    "'2026-11-02",
    "'GOOGL",
+   "'Alphabet Inc.",
    "'10:15 AM",
    286.62,
    284.39,
@@ -540,9 +556,9 @@
    3052002293.0,
    140,
    19,
-   "'2026-11-03 02:57 UTC",
+   "'2026-11-03 07:40 UTC",
    "",
-   "'no headlines found: Yahoo's feed now starts at 2026-11-02 20:02 UTC, after this entry"
+   "'no headlines found: Yahoo's feed now starts at 2026-11-02 21:30 UTC, after this entry"
   ]
  ]
 }
