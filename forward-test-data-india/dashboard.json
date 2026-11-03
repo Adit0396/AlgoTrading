@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T14:54:23Z",
+ "generated_at": "2026-11-03T07:46:41Z",
  "simulation_only": true,
  "settings": {
   "market": "IN",
@@ -128,6 +128,7 @@
   {
    "date": "2026-10-08",
    "symbol": "ICICIBANK",
+   "name": "ICICI Bank Ltd.",
    "entry_time": "10:00 AM",
    "entry": 1353.6,
    "stop": 1347.79,
@@ -166,12 +167,12 @@
    "rank": 2.0,
    "candidates": 22.0,
    "rule": "v2",
-   "news": [],
-   "name": "ICICI Bank Ltd."
+   "news": []
   },
   {
    "date": "2026-10-08",
    "symbol": "LICHSGFIN",
+   "name": "LIC Housing Finance Ltd.",
    "entry_time": "10:00 AM",
    "entry": 542.9,
    "stop": 530.9,
@@ -210,12 +211,12 @@
    "rank": 1.0,
    "candidates": 22.0,
    "rule": "v2",
-   "news": [],
-   "name": "LIC Housing Finance Ltd."
+   "news": []
   },
   {
    "date": "2026-10-08",
    "symbol": "TRENT",
+   "name": "Trent Ltd.",
    "entry_time": "10:00 AM",
    "entry": 2914.3,
    "stop": 2892.65,
@@ -254,12 +255,12 @@
    "rank": 3.0,
    "candidates": 22.0,
    "rule": "v2",
-   "news": [],
-   "name": "Trent Ltd."
+   "news": []
   },
   {
    "date": "2026-10-09",
    "symbol": "CUPID",
+   "name": "Cupid Ltd.",
    "entry_time": "10:00 AM",
    "entry": 366.6,
    "stop": 362.3,
@@ -298,12 +299,12 @@
    "rank": 2.0,
    "candidates": 72.0,
    "rule": "v2",
-   "news": [],
-   "name": "Cupid Ltd."
+   "news": []
   },
   {
    "date": "2026-10-09",
    "symbol": "SAIL",
+   "name": "Steel Authority of India Ltd.",
    "entry_time": "10:00 AM",
    "entry": 172.9,
    "stop": 169.76,
@@ -342,12 +343,12 @@
    "rank": 3.0,
    "candidates": 72.0,
    "rule": "v2",
-   "news": [],
-   "name": "Steel Authority of India Ltd."
+   "news": []
   },
   {
    "date": "2026-10-09",
    "symbol": "TCS",
+   "name": "Tata Consultancy Services Ltd.",
    "entry_time": "10:00 AM",
    "entry": 2175.6,
    "stop": 2134.5,
@@ -388,20 +389,20 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-10-09T04:38:11+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Asia stocks turn higher, tech recovers as OpenAI revenue fears ease",
      "link": "https://finance.yahoo.com/markets/stocks/articles/asia-stocks-mixed-chipmakers-slide-043811625.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-10-09T04:38:11+00:00",
+     "title": "Asia stocks turn higher, tech recovers as OpenAI revenue fears ease"
     }
-   ],
-   "name": "Tata Consultancy Services Ltd."
+   ]
   },
   {
    "date": "2026-10-12",
    "symbol": "NETWEB",
+   "name": "Netweb Technologies India Ltd.",
    "entry_time": "10:00 AM",
    "entry": 4909.0,
    "stop": 4816.75,
@@ -440,12 +441,12 @@
    "rank": 1.0,
    "candidates": 48.0,
    "rule": "v2",
-   "news": [],
-   "name": "Netweb Technologies India Ltd."
+   "news": []
   },
   {
    "date": "2026-10-12",
    "symbol": "SAIL",
+   "name": "Steel Authority of India Ltd.",
    "entry_time": "10:00 AM",
    "entry": 176.71,
    "stop": 172.31,
@@ -484,12 +485,12 @@
    "rank": 2.0,
    "candidates": 48.0,
    "rule": "v2",
-   "news": [],
-   "name": "Steel Authority of India Ltd."
+   "news": []
   },
   {
    "date": "2026-10-12",
    "symbol": "TDPOWERSYS",
+   "name": "TD Power Systems Ltd.",
    "entry_time": "10:00 AM",
    "entry": 836.75,
    "stop": 816.44,
@@ -528,12 +529,12 @@
    "rank": 3.0,
    "candidates": 48.0,
    "rule": "v2",
-   "news": [],
-   "name": "TD Power Systems Ltd."
+   "news": []
   },
   {
    "date": "2026-10-13",
    "symbol": "INFY",
+   "name": "Infosys Ltd.",
    "entry_time": "10:00 AM",
    "entry": 1041.9,
    "stop": 1033.77,
@@ -572,12 +573,12 @@
    "rank": 3.0,
    "candidates": 108.0,
    "rule": "v2",
-   "news": [],
-   "name": "Infosys Ltd."
+   "news": []
   },
   {
    "date": "2026-10-13",
    "symbol": "NETWEB",
+   "name": "Netweb Technologies India Ltd.",
    "entry_time": "10:00 AM",
    "entry": 5015.0,
    "stop": 4855.55,
@@ -616,12 +617,12 @@
    "rank": 2.0,
    "candidates": 108.0,
    "rule": "v2",
-   "news": [],
-   "name": "Netweb Technologies India Ltd."
+   "news": []
   },
   {
    "date": "2026-10-13",
    "symbol": "TCS",
+   "name": "Tata Consultancy Services Ltd.",
    "entry_time": "10:00 AM",
    "entry": 2236.0,
    "stop": 2191.5,
@@ -662,22 +663,22 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-10-12T19:37:52+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Satya Nadella went from H-1B worker to Microsoft CEO. The Trump administration just shut that path for his employees",
      "link": "https://finance.yahoo.com/technology/articles/satya-nadella-went-h-1b-193752422.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "people"
      ],
-     "important": false
+     "time": "2026-10-12T19:37:52+00:00",
+     "title": "Satya Nadella went from H-1B worker to Microsoft CEO. The Trump administration just shut that path for his employees"
     }
-   ],
-   "name": "Tata Consultancy Services Ltd."
+   ]
   },
   {
    "date": "2026-10-14",
    "symbol": "AEGISLOG",
+   "name": "Aegis Logistics Ltd.",
    "entry_time": "10:00 AM",
    "entry": 1481.5,
    "stop": 1408.75,
@@ -716,12 +717,12 @@
    "rank": 3.0,
    "candidates": 59.0,
    "rule": "v2",
-   "news": [],
-   "name": "Aegis Logistics Ltd."
+   "news": []
   },
   {
    "date": "2026-10-14",
    "symbol": "TARIL",
+   "name": "Transformers And Rectifiers (India) Ltd.",
    "entry_time": "10:00 AM",
    "entry": 356.3,
    "stop": 340.47,
@@ -760,12 +761,12 @@
    "rank": 1.0,
    "candidates": 59.0,
    "rule": "v2",
-   "news": [],
-   "name": "Transformers And Rectifiers (India) Ltd."
+   "news": []
   },
   {
    "date": "2026-10-14",
    "symbol": "TATAELXSI",
+   "name": "Tata Elxsi Ltd.",
    "entry_time": "10:00 AM",
    "entry": 3687.6,
    "stop": 3592.75,
@@ -804,12 +805,12 @@
    "rank": 2.0,
    "candidates": 59.0,
    "rule": "v2",
-   "news": [],
-   "name": "Tata Elxsi Ltd."
+   "news": []
   },
   {
    "date": "2026-10-16",
    "symbol": "BHARTIARTL",
+   "name": "Bharti Airtel Ltd.",
    "entry_time": "10:00 AM",
    "entry": 1886.5,
    "stop": 1872.65,
@@ -848,12 +849,12 @@
    "rank": 3.0,
    "candidates": 45.0,
    "rule": "v2",
-   "news": [],
-   "name": "Bharti Airtel Ltd."
+   "news": []
   },
   {
    "date": "2026-10-16",
    "symbol": "TCS",
+   "name": "Tata Consultancy Services Ltd.",
    "entry_time": "10:00 AM",
    "entry": 2429.7,
    "stop": 2401.84,
@@ -894,22 +895,22 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-10-15T13:33:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Haiintel Appoints Former TCS Business Unit Head Karthik Sukumaran as CEO",
      "link": "https://finance.yahoo.com/technology/ai/articles/haiintel-appoints-former-tcs-business-133300545.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "people"
      ],
-     "important": false
+     "time": "2026-10-15T13:33:00+00:00",
+     "title": "Haiintel Appoints Former TCS Business Unit Head Karthik Sukumaran as CEO"
     }
-   ],
-   "name": "Tata Consultancy Services Ltd."
+   ]
   },
   {
    "date": "2026-10-16",
    "symbol": "TECHM",
+   "name": "Tech Mahindra Ltd.",
    "entry_time": "10:00 AM",
    "entry": 1763.0,
    "stop": 1715.0,
@@ -948,12 +949,12 @@
    "rank": 1.0,
    "candidates": 45.0,
    "rule": "v2",
-   "news": [],
-   "name": "Tech Mahindra Ltd."
+   "news": []
   },
   {
    "date": "2026-10-19",
    "symbol": "LTM",
+   "name": "LTM Ltd.",
    "entry_time": "10:00 AM",
    "entry": 4291.2,
    "stop": 4196.0,
@@ -992,12 +993,12 @@
    "rank": 1.0,
    "candidates": 17.0,
    "rule": "v2",
-   "news": [],
-   "name": "LTM Ltd."
+   "news": []
   },
   {
    "date": "2026-10-19",
    "symbol": "UNIONBANK",
+   "name": "Union Bank of India",
    "entry_time": "10:00 AM",
    "entry": 176.7,
    "stop": 174.98,
@@ -1036,12 +1037,12 @@
    "rank": 2.0,
    "candidates": 17.0,
    "rule": "v2",
-   "news": [],
-   "name": "Union Bank of India"
+   "news": []
   },
   {
    "date": "2026-10-19",
    "symbol": "WELCORP",
+   "name": "Welspun Corp Ltd.",
    "entry_time": "10:00 AM",
    "entry": 2612.2,
    "stop": 2571.8,
@@ -1080,12 +1081,12 @@
    "rank": 3.0,
    "candidates": 17.0,
    "rule": "v2",
-   "news": [],
-   "name": "Welspun Corp Ltd."
+   "news": []
   },
   {
    "date": "2026-10-21",
    "symbol": "HDFCBANK",
+   "name": "HDFC Bank Ltd.",
    "entry_time": "10:00 AM",
    "entry": 713.1,
    "stop": 711.39,
@@ -1124,12 +1125,12 @@
    "rank": 1.0,
    "candidates": 7.0,
    "rule": "v2",
-   "news": [],
-   "name": "HDFC Bank Ltd."
+   "news": []
   },
   {
    "date": "2026-10-21",
    "symbol": "KARURVYSYA",
+   "name": "Karur Vysya Bank Ltd.",
    "entry_time": "10:00 AM",
    "entry": 384.7,
    "stop": 373.32,
@@ -1168,12 +1169,12 @@
    "rank": 2.0,
    "candidates": 7.0,
    "rule": "v2",
-   "news": [],
-   "name": "Karur Vysya Bank Ltd."
+   "news": []
   },
   {
    "date": "2026-10-21",
    "symbol": "TECHM",
+   "name": "Tech Mahindra Ltd.",
    "entry_time": "10:00 AM",
    "entry": 1814.6,
    "stop": 1802.2,
@@ -1212,12 +1213,12 @@
    "rank": 3.0,
    "candidates": 7.0,
    "rule": "v2",
-   "news": [],
-   "name": "Tech Mahindra Ltd."
+   "news": []
   },
   {
    "date": "2026-10-22",
    "symbol": "BHARTIARTL",
+   "name": "Bharti Airtel Ltd.",
    "entry_time": "10:00 AM",
    "entry": 1906.5,
    "stop": 1882.25,
@@ -1256,12 +1257,12 @@
    "rank": 1.0,
    "candidates": 32.0,
    "rule": "v2",
-   "news": [],
-   "name": "Bharti Airtel Ltd."
+   "news": []
   },
   {
    "date": "2026-10-22",
    "symbol": "COFORGE",
+   "name": "Coforge Ltd.",
    "entry_time": "10:00 AM",
    "entry": 1979.0,
    "stop": 1965.7,
@@ -1300,12 +1301,12 @@
    "rank": 3.0,
    "candidates": 32.0,
    "rule": "v2",
-   "news": [],
-   "name": "Coforge Ltd."
+   "news": []
   },
   {
    "date": "2026-10-22",
    "symbol": "DIVISLAB",
+   "name": "Divi's Laboratories Ltd.",
    "entry_time": "10:00 AM",
    "entry": 9152.5,
    "stop": 9062.75,
@@ -1344,12 +1345,12 @@
    "rank": 2.0,
    "candidates": 32.0,
    "rule": "v2",
-   "news": [],
-   "name": "Divi's Laboratories Ltd."
+   "news": []
   },
   {
    "date": "2026-10-23",
    "symbol": "",
+   "name": "",
    "entry_time": "",
    "entry": null,
    "stop": null,
@@ -1388,12 +1389,12 @@
    "rank": null,
    "candidates": 0.0,
    "rule": "v2",
-   "news": [],
-   "name": ""
+   "news": []
   },
   {
    "date": "2026-10-26",
    "symbol": "BSE",
+   "name": "BSE Ltd.",
    "entry_time": "10:00 AM",
    "entry": 3352.1,
    "stop": 3236.3,
@@ -1432,12 +1433,12 @@
    "rank": 1.0,
    "candidates": 175.0,
    "rule": "v2",
-   "news": [],
-   "name": "BSE Ltd."
+   "news": []
   },
   {
    "date": "2026-10-26",
    "symbol": "MRPL",
+   "name": "Mangalore Refinery & Petrochemicals Ltd.",
    "entry_time": "10:00 AM",
    "entry": 177.76,
    "stop": 162.2,
@@ -1476,12 +1477,12 @@
    "rank": 2.0,
    "candidates": 175.0,
    "rule": "v2",
-   "news": [],
-   "name": "Mangalore Refinery & Petrochemicals Ltd."
+   "news": []
   },
   {
    "date": "2026-10-26",
    "symbol": "TCS",
+   "name": "Tata Consultancy Services Ltd.",
    "entry_time": "10:00 AM",
    "entry": 2540.0,
    "stop": 2510.05,
@@ -1520,12 +1521,12 @@
    "rank": 3.0,
    "candidates": 175.0,
    "rule": "v2",
-   "news": [],
-   "name": "Tata Consultancy Services Ltd."
+   "news": []
   },
   {
    "date": "2026-10-27",
    "symbol": "ATHERENERG",
+   "name": "Ather Energy Ltd.",
    "entry_time": "10:00 AM",
    "entry": 1663.9,
    "stop": 1626.64,
@@ -1564,12 +1565,12 @@
    "rank": 1.0,
    "candidates": 109.0,
    "rule": "v2",
-   "news": [],
-   "name": "Ather Energy Ltd."
+   "news": []
   },
   {
    "date": "2026-10-27",
    "symbol": "BHARTIARTL",
+   "name": "Bharti Airtel Ltd.",
    "entry_time": "10:00 AM",
    "entry": 1937.9,
    "stop": 1920.5,
@@ -1608,12 +1609,12 @@
    "rank": 3.0,
    "candidates": 109.0,
    "rule": "v2",
-   "news": [],
-   "name": "Bharti Airtel Ltd."
+   "news": []
   },
   {
    "date": "2026-10-27",
    "symbol": "SONACOMS",
+   "name": "Sona BLW Precision Forgings Ltd.",
    "entry_time": "10:00 AM",
    "entry": 834.25,
    "stop": 821.17,
@@ -1652,12 +1653,12 @@
    "rank": 2.0,
    "candidates": 109.0,
    "rule": "v2",
-   "news": [],
-   "name": "Sona BLW Precision Forgings Ltd."
+   "news": []
   },
   {
    "date": "2026-10-28",
    "symbol": "MAZDOCK",
+   "name": "Mazagoan Dock Shipbuilders Ltd.",
    "entry_time": "10:00 AM",
    "entry": 1773.1,
    "stop": 1722.7,
@@ -1696,12 +1697,12 @@
    "rank": 3.0,
    "candidates": 70.0,
    "rule": "v2",
-   "news": [],
-   "name": "Mazagoan Dock Shipbuilders Ltd."
+   "news": []
   },
   {
    "date": "2026-10-28",
    "symbol": "PPLPHARMA",
+   "name": "Piramal Pharma Ltd.",
    "entry_time": "10:00 AM",
    "entry": 225.21,
    "stop": 216.28,
@@ -1740,12 +1741,12 @@
    "rank": 1.0,
    "candidates": 70.0,
    "rule": "v2",
-   "news": [],
-   "name": "Piramal Pharma Ltd."
+   "news": []
   },
   {
    "date": "2026-10-28",
    "symbol": "RELIANCE",
+   "name": "Reliance Industries Ltd.",
    "entry_time": "10:00 AM",
    "entry": 1195.7,
    "stop": 1190.9,
@@ -1784,12 +1785,12 @@
    "rank": 2.0,
    "candidates": 70.0,
    "rule": "v2",
-   "news": [],
-   "name": "Reliance Industries Ltd."
+   "news": []
   },
   {
    "date": "2026-10-29",
    "symbol": "ACUTAAS",
+   "name": "Acutaas Chemicals Ltd.",
    "entry_time": "10:00 AM",
    "entry": 3955.0,
    "stop": 3764.09,
@@ -1828,12 +1829,12 @@
    "rank": 2.0,
    "candidates": 46.0,
    "rule": "v2",
-   "news": [],
-   "name": "Acutaas Chemicals Ltd."
+   "news": []
   },
   {
    "date": "2026-10-29",
    "symbol": "HDFCBANK",
+   "name": "HDFC Bank Ltd.",
    "entry_time": "10:00 AM",
    "entry": 683.1,
    "stop": 680.37,
@@ -1872,12 +1873,12 @@
    "rank": 3.0,
    "candidates": 46.0,
    "rule": "v2",
-   "news": [],
-   "name": "HDFC Bank Ltd."
+   "news": []
   },
   {
    "date": "2026-10-29",
    "symbol": "RELIANCE",
+   "name": "Reliance Industries Ltd.",
    "entry_time": "10:00 AM",
    "entry": 1173.8,
    "stop": 1163.34,
@@ -1916,12 +1917,12 @@
    "rank": 1.0,
    "candidates": 46.0,
    "rule": "v2",
-   "news": [],
-   "name": "Reliance Industries Ltd."
+   "news": []
   },
   {
    "date": "2026-10-30",
    "symbol": "ETERNAL",
+   "name": "Eternal Ltd.",
    "entry_time": "10:00 AM",
    "entry": 343.9,
    "stop": 338.5,
@@ -1960,12 +1961,12 @@
    "rank": 2.0,
    "candidates": 31.0,
    "rule": "v2",
-   "news": [],
-   "name": "Eternal Ltd."
+   "news": []
   },
   {
    "date": "2026-10-30",
    "symbol": "GODREJCP",
+   "name": "Godrej Consumer Products Ltd.",
    "entry_time": "10:00 AM",
    "entry": 807.45,
    "stop": 791.79,
@@ -2004,12 +2005,12 @@
    "rank": 3.0,
    "candidates": 31.0,
    "rule": "v2",
-   "news": [],
-   "name": "Godrej Consumer Products Ltd."
+   "news": []
   },
   {
    "date": "2026-10-30",
    "symbol": "LAURUSLABS",
+   "name": "Laurus Labs Ltd.",
    "entry_time": "10:00 AM",
    "entry": 2334.4,
    "stop": 2269.15,
@@ -2048,12 +2049,12 @@
    "rank": 1.0,
    "candidates": 31.0,
    "rule": "v2",
-   "news": [],
-   "name": "Laurus Labs Ltd."
+   "news": []
   },
   {
    "date": "2026-11-02",
    "symbol": "DELHIVERY",
+   "name": "Delhivery Ltd.",
    "entry_time": "10:00 AM",
    "entry": 421.0,
    "stop": 403.02,
@@ -2092,12 +2093,12 @@
    "rank": 2.0,
    "candidates": 124.0,
    "rule": "v2",
-   "news": [],
-   "name": "Delhivery Ltd."
+   "news": []
   },
   {
    "date": "2026-11-02",
    "symbol": "DIXON",
+   "name": "Dixon Technologies (India) Ltd.",
    "entry_time": "10:00 AM",
    "entry": 11908.0,
    "stop": 11369.5,
@@ -2136,12 +2137,12 @@
    "rank": 3.0,
    "candidates": 124.0,
    "rule": "v2",
-   "news": [],
-   "name": "Dixon Technologies (India) Ltd."
+   "news": []
   },
   {
    "date": "2026-11-02",
    "symbol": "RELIANCE",
+   "name": "Reliance Industries Ltd.",
    "entry_time": "10:00 AM",
    "entry": 1236.2,
    "stop": 1223.09,
@@ -2180,8 +2181,7 @@
    "rank": 1.0,
    "candidates": 124.0,
    "rule": "v2",
-   "news": [],
-   "name": "Reliance Industries Ltd."
+   "news": []
   }
  ]
 }
