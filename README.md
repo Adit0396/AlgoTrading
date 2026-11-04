@@ -99,7 +99,7 @@ and:
 | --- | --- | --- |
 | Current rule | 15-min ORB, top 3 by money traded at the scan, long only | this repo, rule v2 |
 | Learned rule | current rule + proven changes (walk-forward) | this repo |
-| Stocks in Play ORB | first 5-min bar's direction, stop order at its high/low, stop 10% of ATR(14), held to the close; stocks with relative volume of 100%+ (top 3 here, top 20 in the paper), price > $5, 1M+ shares a day, ATR > $0.50 (India: ₹50, 500k shares, ATR > ₹10) | Zarattini, Barbon & Aziz (2024), SFI Research Paper 24-98 |
+| Stocks in Play ORB | first 5-min bar's direction, stop order at its high/low, stop 10% of ATR(14), held to the close; stocks with relative volume of 100%+ (top 3 here, top 20 in the paper), price > $5, 1M+ shares a day, ATR > $0.50. India: ₹50, 500k shares, ATR > ₹10, and a 15-minute range with relative volume from 9:20 to 9:30, because Yahoo often reports no volume for the NSE's 9:15 bar | Zarattini, Barbon & Aziz (2024), SFI Research Paper 24-98 |
 | VWAP trend | long above the session VWAP, short below, on QQQ (India: NIFTYBEES), checked on 5-minute closes | Zarattini & Aziz (2023) |
 | Intraday momentum | the previous close to the first half hour's return sets the direction of the last half hour on SPY (India: NIFTYBEES) | Gao, Han, Li & Zhou (2018), Journal of Financial Economics 129(2) |
 | Noise-area momentum | SPY (India: NIFTYBEES) breaking out of its usual 14-day move from the open, checked every 30 minutes, exit back inside the band or VWAP | Zarattini, Aziz & Barbon (2024), SFI Research Paper 24-97 |

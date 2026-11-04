@@ -206,6 +206,17 @@ class Strategies(unittest.TestCase):
         self.assertEqual([p[1] for p in picks], ["HOT"])
         self.assertAlmostEqual(picks[0][0], 3.0)
 
+    def test_stocks_in_play_fifteen_minute_range(self):
+        st0 = {"atr": 20.0, "avg_vol": 2e6, "avg_first_vol": 1e5, "prev_close": 1000}
+        D = {i: bar(1010, 1011, 1009, 1010) for i in range(72)}
+        D[0] = bar(1000, 1004, 999, 1003)
+        D[1] = bar(1003, 1006, 1002, 1005)
+        D[2] = bar(1005, 1007, 1004, 1006)                 # range 999-1007, closed up: buy stop 1007
+        t = st.stocks_in_play_trade("X", D, st0, 71, 500000, 5000, rs.MARKETS["in"]["open"], range_bars=3)
+        self.assertEqual((t["side"], t["entry"], t["entry_time"]), ("long", 1010.0, "09:35"))  # opened above 1007
+        self.assertEqual(t["shares"], 495)                 # min(5000 / 2.0, 500000 / 1010)
+        self.assertEqual((t["outcome"], t["pnl"]), ("closed at bell", 0.0))
+
     def test_vwap_trend_flips(self):
         D = {}
         prices = [100, 101, 102, 101, 99, 98, 99, 100]

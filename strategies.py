@@ -30,25 +30,34 @@ def session_ohlcv(D):
             "c": D[idx[-1]]["c"], "v": sum(D[i]["v"] for i in idx)}
 
 
-def prior_stats(days, iso, n=14):
-    """ATR, average daily volume, average first-bar volume and previous close over the n sessions
-    before iso. None if fewer than n sessions."""
+def prior_stats(days, iso, n=14, vol_bars=(0,)):
+    """ATR, average daily volume, average opening volume (the bars in vol_bars) and previous close
+    over the n sessions before iso. None if fewer than n sessions."""
     prev = sorted(d for d in days if d < iso and days[d])
     if len(prev) < n + 1:
         return None
     daily = [session_ohlcv(days[d]) for d in prev[-(n + 1):]]
     trs = [max(b["h"] - b["l"], abs(b["h"] - a["c"]), abs(b["l"] - a["c"])) for a, b in zip(daily, daily[1:])]
-    first = [days[d][0]["v"] for d in prev[-n:] if 0 in days[d]]
+    first = [sum(days[d][i]["v"] for i in vol_bars) for d in prev[-n:] if all(i in days[d] for i in vol_bars)]
     return {"atr": sum(trs) / len(trs), "avg_vol": sum(b["v"] for b in daily[1:]) / n,
             "avg_first_vol": (sum(first) / len(first)) if first else 0, "prev_close": daily[-1]["c"]}
 
 
 # ---------------------------------------------------------------- 1. Stocks in Play ORB
 
-def stocks_in_play_picks(charts, iso, min_price, min_avg_vol, min_atr, names, one_per_company, top=3, funnel=None):
+def opening_bar(D, range_bars):
+    """The opening range as one bar: the first `range_bars` 5-minute bars merged."""
+    bs = [D[i] for i in range(range_bars)]
+    return {"o": bs[0]["o"], "h": max(b["h"] for b in bs), "l": min(b["l"] for b in bs), "c": bs[-1]["c"]}
+
+
+def stocks_in_play_picks(charts, iso, min_price, min_avg_vol, min_atr, names, one_per_company, top=3, funnel=None,
+                         range_bars=1, vol_bars=(0,)):
     """Zarattini, Barbon & Aziz (2024): stocks opening above min_price, averaging min_avg_vol shares a
-    day and an ATR(14) above min_atr, whose first-5-minute volume is at least their 14-day average for
-    those minutes (relative volume >= 100%), ranked by relative volume. The paper trades the top 20;
+    day and an ATR(14) above min_atr, whose opening volume is at least their 14-day average for the
+    same minutes (relative volume >= 100%), ranked by relative volume. The paper uses the first 5
+    minutes (range_bars=1, vol_bars=(0,)); the India race uses 15 minutes with volume from 9:20 to
+    9:30, because Yahoo often reports no volume for the NSE's 9:15 bar. The paper trades the top 20;
     the race takes the top `top` so it risks the same as the current rule. -> [(rel_vol, sym, D, stats)]"""
     rows = []
     f = funnel if funnel is not None else {}
@@ -57,14 +66,14 @@ def stocks_in_play_picks(charts, iso, min_price, min_avg_vol, min_atr, names, on
         f[why] = f.get(why, 0) + 1
     for sym, days in charts.items():
         D = days.get(iso)
-        if not D or 0 not in D:
-            drop("no first bar")
+        if not D or any(i not in D for i in range(max(range_bars, max(vol_bars) + 1))):
+            drop("missing opening bars")
             continue
-        st = prior_stats(days, iso)
+        st = prior_stats(days, iso, vol_bars=vol_bars)
         if st is None or not st["avg_first_vol"]:
-            drop("short history or no first-bar volume")
+            drop("short history or no opening volume")
             continue
-        b0 = D[0]
+        b0 = opening_bar(D, range_bars)
         if b0["o"] < min_price:
             drop("price")
             continue
@@ -74,7 +83,7 @@ def stocks_in_play_picks(charts, iso, min_price, min_avg_vol, min_atr, names, on
         if st["atr"] < min_atr:
             drop("ATR")
             continue
-        rel = b0["v"] / st["avg_first_vol"]
+        rel = sum(D[i]["v"] for i in vol_bars) / st["avg_first_vol"]
         if rel < 1:
             drop("relative volume under 100%")
             continue
@@ -87,16 +96,16 @@ def stocks_in_play_picks(charts, iso, min_price, min_avg_vol, min_atr, names, on
     return one_per_company(rows, lambda r: r[1], names, top)
 
 
-def stocks_in_play_trade(sym, D, st, last, account, max_loss, open_min):
-    """Buy stop at the first 5-minute bar's high if that bar closed up, sell stop at its low if it
+def stocks_in_play_trade(sym, D, st, last, account, max_loss, open_min, range_bars=1):
+    """Buy stop at the opening range's high if the range closed up, sell stop at its low if it
     closed down; stop 10% of ATR from the fill; otherwise held to the flat time. Sized to lose
     max_loss at the stop, capped at the account. In the bar that triggers the entry, the stop counts
     only if that bar also closes beyond it (5-minute bars cannot show which came first)."""
-    b0 = D[0]
+    b0 = opening_bar(D, range_bars)
     side = 1 if b0["c"] > b0["o"] else -1
     trigger = b0["h"] if side > 0 else b0["l"]
     dist = 0.1 * st["atr"]
-    for i in range(1, last + 1):
+    for i in range(range_bars, last + 1):
         b = D.get(i)
         if b is None:
             return None

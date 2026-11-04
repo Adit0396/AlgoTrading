@@ -48,12 +48,12 @@ MARKETS = {
            "flat": 15 * 60 + 55, "index": "SPY", "index_name": "S&P 500 (SPY)", "account": 5000.0,
            "max_loss": 50.0, "min_price": 5.0, "min_volume": 200000, "cur": "$", "confirm_min": 15,
            "close": 16 * 60, "etf_trend": "QQQ", "etf_index": "SPY",
-           "sip": {"min_price": 5.0, "min_avg_vol": 1000000, "min_atr": 0.5}},
+           "sip": {"min_price": 5.0, "min_avg_vol": 1000000, "min_atr": 0.5, "range_bars": 1, "vol_bars": (0,)}},
     "in": {"label": "India", "state": "forward-test-data-india", "open": 9 * 60 + 15, "scan": 10 * 60,
            "flat": 15 * 60 + 15, "index": "^NSEI", "index_name": "Nifty 50", "account": 500000.0,
            "max_loss": 5000.0, "min_price": 50.0, "min_volume": 100000, "cur": "₹", "confirm_min": 15,
            "close": 15 * 60 + 15, "etf_trend": "NIFTYBEES", "etf_index": "NIFTYBEES",
-           "sip": {"min_price": 50.0, "min_avg_vol": 500000, "min_atr": 10.0}},
+           "sip": {"min_price": 50.0, "min_avg_vol": 500000, "min_atr": 10.0, "range_bars": 3, "vol_bars": (1, 2)}},
 }
 N_RANGE = 3            # 15-minute opening range = three 5-minute bars
 
@@ -649,8 +649,8 @@ RACE = [  # key, name, what it trades, source
      "the day-trader skill pack, forward test rule v2"),
     ("learned", "Learned rule", "current rule plus the fixes proven on earlier sessions (rebuilt each day)",
      "this project's loss review"),
-    ("sip", "Stocks in Play ORB", "5-min opening-range breakout, long or short, top 3 stocks by relative volume, "
-     "stop 10% of ATR, held to the close", "Zarattini, Barbon & Aziz 2024 (SFI 24-98)"),
+    ("sip", "Stocks in Play ORB", "opening-range breakout (US 5 min; India 15 min), long or short, top 3 stocks by "
+     "relative volume, stop 10% of ATR, held to the close", "Zarattini, Barbon & Aziz 2024 (SFI 24-98)"),
     ("vwap", "VWAP trend", "long above VWAP, short below, on the index ETF", "Zarattini & Aziz 2023"),
     ("momentum", "Intraday momentum", "last half hour in the direction of the first half hour, on the index ETF",
      "Gao, Han, Li & Zhou 2018 (JFE)"),
@@ -681,11 +681,12 @@ def race_day(m, iso, charts, names, etfs, by_day):
     if sum(1 for d in ref if d < iso) >= 15:   # the ATR and volume averages need 14 earlier sessions
         funnel = {}
         chosen = st.stocks_in_play_picks(charts, iso, sp["min_price"], sp["min_avg_vol"], sp["min_atr"], names,
-                                         ft.one_per_company, funnel=funnel)
+                                         ft.one_per_company, funnel=funnel, range_bars=sp["range_bars"],
+                                         vol_bars=sp["vol_bars"])
         print("  %s %s stocks in play: %s" % (m["label"], iso, ", ".join("%s %d" % kv for kv in sorted(funnel.items()))),
               flush=True)
-        trades = [t for t in (st.stocks_in_play_trade(sym, D, s, last, m["account"], m["max_loss"], m["open"])
-                              for _, sym, D, s in chosen) if t]
+        trades = [t for t in (st.stocks_in_play_trade(sym, D, s, last, m["account"], m["max_loss"], m["open"],
+                                                      range_bars=sp["range_bars"]) for _, sym, D, s in chosen) if t]
         out["sip"] = (sum(1 for t in trades if t["outcome"] != "not triggered"),
                       round(sum(t["pnl"] for t in trades), 2),
                       "; ".join(trade_text(m, t) for t in trades) or "no stock in play")
