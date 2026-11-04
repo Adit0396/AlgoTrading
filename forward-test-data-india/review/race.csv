@@ -229,6 +229,7 @@ date,strategy,trades,pnl,detail
 2026-10-22,momentum,1,674.46,NIFTYBEES short +₹674.46 (first half hour -0.46%)
 2026-10-22,noise,0,0,stayed inside the noise area
 2026-10-23,v2,0,0.0,no breakout still above its range at the scan
+2026-10-23,learned,0,0.0,no setup: 
 2026-10-23,sip,1,-1846.62,"CYIENT long -₹1,846.62"
 2026-10-23,vwap,3,3149.18,"3 flips; +₹3,149.18"
 2026-10-23,momentum,1,1050.86,"NIFTYBEES long +₹1,050.86 (first half hour +0.09%)"
