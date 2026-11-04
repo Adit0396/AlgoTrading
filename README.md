@@ -69,8 +69,9 @@ stamp duty) are not included.
 
 ## Loss review, lessons and strategy race
 
-`research.py` runs every weekday after both forward tests (`.github/workflows/research.yml`,
-23:53 UTC = 9:53 AM Brisbane). For each market it loads 60 days of 5-minute bars (US: the ~900
+`research.py` runs every weekday as soon as the US forward test finishes (`.github/workflows/research.yml`;
+India's run is earlier the same day), or from the Actions tab with **Loss review and strategy race**,
+**Run workflow**. For each market it loads 60 days of 5-minute bars (US: the ~900
 most traded stocks plus SPY and QQQ; India: the Nifty 500 plus the Nifty 50 index and NIFTYBEES)
 and:
 

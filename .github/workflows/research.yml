@@ -1,13 +1,15 @@
 name: Loss review and strategy race
 
 # Simulation only. This workflow never places, stages or drafts an order.
-# Mon-Fri 23:53 UTC (9:53 AM Brisbane), after both markets' forward tests. It reviews every losing
+# Runs right after each US forward-test run finishes (the later of the two markets each day), so its
+# results are in the repo before the Claude sheet sync at 1:41 PM Brisbane. It reviews every losing
 # trade, tests which changes would have helped across all stored sessions, keeps the walk-forward
 # "learned rule", and races the published strategies in strategies.py against the current rule.
 
 on:
-  schedule:
-    - cron: "53 23 * * 1-5"
+  workflow_run:
+    workflows: ["ORB forward test"]
+    types: [completed]
   workflow_dispatch:
     inputs:
       market:
