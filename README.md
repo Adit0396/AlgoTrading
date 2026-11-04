@@ -67,6 +67,54 @@ them. Because every chart holds 60 days, a backfill can cover the last 15 or so 
 News uses the pack's `news.py` with `.NS` symbols. Costs (brokerage, STT, exchange charges, GST,
 stamp duty) are not included.
 
+## Loss review, lessons and strategy race
+
+`research.py` runs every weekday after both forward tests (`.github/workflows/research.yml`,
+23:53 UTC = 9:53 AM Brisbane). For each market it loads 60 days of 5-minute bars (US: the ~900
+most traded stocks plus SPY and QQQ; India: the Nifty 500 plus the Nifty 50 index and NIFTYBEES)
+and:
+
+1. **Rebuilds rule v2 for every session in those 60 days** and stores each day's top 12
+   candidates in `review/candidates.csv`, so the history keeps growing past Yahoo's 60 days.
+   The log prints how many forward-test picks the rebuild matches.
+2. **Reviews every losing forward-test trade**: which "mistakes" were visible at entry (market
+   falling, chased more than 0.5% above the range, stop wider than 1.5% of the price, gap up over
+   2%, breakout in the last 10 minutes, already fading by more than half the risk, ordinary
+   volume), what happened after entry, and which of 8 changes would have made it a win
+   (targets of 0.5R, 1.5R or 2R, stop at the range low, breakeven after +0.5R, exit at noon,
+   buy the pullback to the range high, wait 15 minutes).
+3. **Scores every mistake and every change over all stored sessions.** A change is "proven"
+   only if it beats the current rule in both the earlier and the later half of the history
+   and its day-by-day gain has a t-statistic of 2.5 or more. About 15 changes are tested at
+   once, so a weaker test would "prove" something by luck most weeks. The thresholds were
+   fixed in advance, not tuned to the losses.
+4. **Keeps a learned rule**: the current rule plus the changes proven on the sessions *before*
+   each day, used on that day only. Its record in `review/learned.csv` is walk-forward, with no
+   hindsight. The forward test's own rule (v2) is not changed, so its record stays clean.
+5. **Races strategies** on the same days, data and account, logging each one's daily P&L in
+   `review/race.csv`:
+
+| Strategy | Rules | Source |
+| --- | --- | --- |
+| Current rule | 15-min ORB, top 3 by money traded at the scan, long only | this repo, rule v2 |
+| Learned rule | current rule + proven changes (walk-forward) | this repo |
+| Stocks in Play ORB | first 5-min bar's direction, stop order at its high/low, stop 10% of ATR(14), held to the close; stocks with relative volume of 100%+ (top 3 here, top 20 in the paper), price > $5, 1M+ shares a day, ATR > $0.50 (India: ₹50, 500k shares, ATR > ₹10) | Zarattini, Barbon & Aziz (2024), SFI Research Paper 24-98 |
+| VWAP trend | long above the session VWAP, short below, on QQQ (India: NIFTYBEES), checked on 5-minute closes | Zarattini & Aziz (2023) |
+| Intraday momentum | the previous close to the first half hour's return sets the direction of the last half hour on SPY (India: NIFTYBEES) | Gao, Han, Li & Zhou (2018), Journal of Financial Economics 129(2) |
+| Noise-area momentum | SPY (India: NIFTYBEES) breaking out of its usual 14-day move from the open, checked every 30 minutes, exit back inside the band or VWAP | Zarattini, Aziz & Barbon (2024), SFI Research Paper 24-97 |
+
+Stock strategies risk $50 (₹5,000) a trade, up to 3 a day; index-ETF strategies put the whole
+$5,000 (₹5,00,000) account in the ETF. Fills are at bar closes or stop/trigger levels, with no
+costs. The papers use 1-minute bars, more stocks and leverage, so these are faithful to their
+rules, not to their reported returns.
+
+Outputs in `forward-test-data/review/` and `forward-test-data-india/review/`: `loss_review.json`,
+`lessons.json`, `learned.csv`, `race.csv`, `candidates.csv`, and the Google Sheet rows
+`sheet_loss_review.json`, `sheet_lessons.json` and `sheet_race.json` (tabs US/India Loss review,
+Lessons and Strategy race).
+
+Tests: `python -m unittest discover -s tests`.
+
 ## Where the results go
 
 | Place | What |

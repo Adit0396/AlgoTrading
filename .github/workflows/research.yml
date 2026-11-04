@@ -1,0 +1,69 @@
+name: Loss review and strategy race
+
+# Simulation only. This workflow never places, stages or drafts an order.
+# Mon-Fri 23:53 UTC (9:53 AM Brisbane), after both markets' forward tests. It reviews every losing
+# trade, tests which changes would have helped across all stored sessions, keeps the walk-forward
+# "learned rule", and races the published strategies in strategies.py against the current rule.
+
+on:
+  schedule:
+    - cron: "53 23 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      market:
+        description: "us, in or both"
+        required: false
+        default: "both"
+      rebuild:
+        description: "recompute sessions already stored (true/false)"
+        required: false
+        default: "false"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: forward-test # shared with the forward tests: all commit to this repo
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Get the day-trader skill pack (pinned)
+        run: |
+          git clone --quiet https://github.com/Jakeschincariol/day-trader-skill.git day-trader-skill
+          git -C day-trader-skill checkout --quiet 3d0f4ef6986f4984b7c6bd46f7ff4f87744c3abd
+
+      - name: Tests
+        run: python -m unittest discover -s tests
+
+      - name: Review losses and race strategies
+        env:
+          MARKET: ${{ github.event.inputs.market || 'both' }}
+          REBUILD: ${{ github.event.inputs.rebuild || 'false' }}
+        run: |
+          extra=""
+          if [ "$REBUILD" = "true" ]; then extra="--rebuild"; fi
+          python -I -u research.py --repo day-trader-skill --market "$MARKET" $extra
+
+      - name: Save the results to the repo
+        if: always()
+        run: |
+          git config user.name "orb-forward-test bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add forward-test-data/review forward-test-data-india/review 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No new results."
+          else
+            git commit -m "Loss review and strategy race $(date -u +%Y-%m-%d)"
+            git pull --rebase --quiet origin main
+            git push
+          fi
