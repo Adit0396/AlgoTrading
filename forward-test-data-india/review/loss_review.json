@@ -55,7 +55,7 @@
   "outcome": "stop",
   "exit_time": "11:30",
   "pnl": -4996.6,
-  "wrong": "Ordinary volume (0.9x usual volume)",
+  "wrong": "Ordinary volume (1.0x usual volume)",
   "after": "",
   "fixes": [],
   "avoided": [
@@ -383,7 +383,7 @@
   "outcome": "stop",
   "exit_time": "11:15",
   "pnl": -4989.6,
-  "wrong": "Market falling at entry (index -0.34% since the open); Chased the breakout (1.32% above the range); Wide stop (risk 2.84% of price)",
+  "wrong": "Market falling at entry (index -0.35% since the open); Chased the breakout (1.32% above the range); Wide stop (risk 2.84% of price)",
   "after": "",
   "fixes": [],
   "avoided": [],
@@ -402,7 +402,7 @@
   "outcome": "stop",
   "exit_time": "10:05",
   "pnl": -2006.4,
-  "wrong": "Market falling at entry (index -0.34% since the open); Already fading (1.7R below its high)",
+  "wrong": "Market falling at entry (index -0.35% since the open); Already fading (1.7R below its high)",
   "after": "stopped within 5 minutes",
   "fixes": [],
   "avoided": [
