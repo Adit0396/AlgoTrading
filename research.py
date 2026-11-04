@@ -541,13 +541,14 @@ def review_losses(m, tm, state, charts, by_day, names, index_days):
         after = []
         if r["actual_outcome"] == "stop":
             if f.get("mfe_r") is not None and f["mfe_r"] >= 0.5:
-                after.append("was up %.1fR before turning down" % f["mfe_r"])
+                after.append("was up %.1fR before turning down" % (math.floor(f["mfe_r"] * 10) / 10))
             if f.get("mins_held") is not None and f["mins_held"] <= 30:
                 after.append("stopped within %d minutes" % f["mins_held"])
         fixes = [(EXIT_NAME[k], v[k]["pnl"]) for k, _, _ in EXITS if v.get(k) and v[k]["pnl"] > 0]
         avoided = [(k, v[k]) for k, _, _ in EXITS if v.get(k) and v[k]["outcome"] in ("no fill", "skipped")]
         skip_fix = ["skip if " + MISTAKE[k][0].lower() for k in mistakes_of(f)]
-        best = max(((EXIT_NAME[k], v[k]["pnl"]) for k, _, _ in EXITS if v.get(k)), key=lambda x: x[1], default=None)
+        best = max(((EXIT_NAME[k] + (" (no trade)" if v[k]["outcome"] in ("no fill", "skipped") else ""), v[k]["pnl"])
+                    for k, _, _ in EXITS if v.get(k)), key=lambda x: x[1], default=None)
         out.append({"date": iso, "symbol": sym, "name": r.get("name", "") or names.get(sym, ""),
                     "outcome": r["actual_outcome"], "exit_time": r.get("exit_time", ""), "pnl": float(r["pnl_usd"]),
                     "wrong": "; ".join(wrong) or "nothing flagged at entry", "after": "; ".join(after),
