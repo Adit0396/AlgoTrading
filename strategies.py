@@ -45,25 +45,43 @@ def prior_stats(days, iso, n=14):
 
 # ---------------------------------------------------------------- 1. Stocks in Play ORB
 
-def stocks_in_play_picks(charts, iso, min_price, min_avg_vol, min_atr, names, one_per_company, top=3):
+def stocks_in_play_picks(charts, iso, min_price, min_avg_vol, min_atr, names, one_per_company, top=3, funnel=None):
     """Zarattini, Barbon & Aziz (2024): stocks opening above min_price, averaging min_avg_vol shares a
     day and an ATR(14) above min_atr, whose first-5-minute volume is at least their 14-day average for
     those minutes (relative volume >= 100%), ranked by relative volume. The paper trades the top 20;
     the race takes the top `top` so it risks the same as the current rule. -> [(rel_vol, sym, D, stats)]"""
     rows = []
+    f = funnel if funnel is not None else {}
+
+    def drop(why):
+        f[why] = f.get(why, 0) + 1
     for sym, days in charts.items():
         D = days.get(iso)
         if not D or 0 not in D:
+            drop("no first bar")
             continue
         st = prior_stats(days, iso)
         if st is None or not st["avg_first_vol"]:
+            drop("short history or no first-bar volume")
             continue
         b0 = D[0]
-        if b0["o"] < min_price or st["avg_vol"] < min_avg_vol or st["atr"] < min_atr:
+        if b0["o"] < min_price:
+            drop("price")
+            continue
+        if st["avg_vol"] < min_avg_vol:
+            drop("average volume")
+            continue
+        if st["atr"] < min_atr:
+            drop("ATR")
             continue
         rel = b0["v"] / st["avg_first_vol"]
-        if rel < 1 or b0["c"] == b0["o"]:
+        if rel < 1:
+            drop("relative volume under 100%")
             continue
+        if b0["c"] == b0["o"]:
+            drop("first bar flat")
+            continue
+        drop("passed")
         rows.append((rel, sym, D, st))
     rows.sort(key=lambda r: -r[0])
     return one_per_company(rows, lambda r: r[1], names, top)

@@ -634,7 +634,7 @@ def sheet_rows_lessons(m, by_day, days, fwd_trades, learned_now, learned_log, v2
              ["History P&L", combo["pnl"], "vs current rule", round(combo["pnl"] - base["pnl"], 2)],
              ["The learned rule is rebuilt every day from the sessions before it, then used on that day only, so its "
               "forward record below has no hindsight."],
-             [], ["Date", "Learned rule", "Picks", "Day P&L", "Running P&L", "Current rule running P&L"]]
+             [], ["Date", "Learned rule", "Picks", "Day P&L", "Running P&L", "Current rule running P&L (same rebuild)"]]
     run = 0.0
     for r in learned_log:
         run += float(r["pnl"])
@@ -679,8 +679,11 @@ def race_day(m, iso, charts, names, etfs, by_day):
     sp = m["sip"]
     ref = etfs.get(m["etf_index"]) or {}
     if sum(1 for d in ref if d < iso) >= 15:   # the ATR and volume averages need 14 earlier sessions
+        funnel = {}
         chosen = st.stocks_in_play_picks(charts, iso, sp["min_price"], sp["min_avg_vol"], sp["min_atr"], names,
-                                         ft.one_per_company)
+                                         ft.one_per_company, funnel=funnel)
+        print("  %s %s stocks in play: %s" % (m["label"], iso, ", ".join("%s %d" % kv for kv in sorted(funnel.items()))),
+              flush=True)
         trades = [t for t in (st.stocks_in_play_trade(sym, D, s, last, m["account"], m["max_loss"], m["open"])
                               for _, sym, D, s in chosen) if t]
         out["sip"] = (sum(1 for t in trades if t["outcome"] != "not triggered"),
@@ -852,7 +855,8 @@ def run_market(key, args):
         with open(learned_path, newline="") as fh:
             log = list(csv.DictReader(fh))
     logged = {r["date"] for r in log}
-    fwd_days = sorted({r["date"] for r in fwd})
+    with open(os.path.join(state, "results.csv"), newline="") as fh:
+        fwd_days = sorted({r["date"] for r in csv.DictReader(fh) if r.get("rule") == "v2"})
     for d in fwd_days:
         if d in logged or (d not in by_day and d not in complete):
             continue
@@ -873,16 +877,13 @@ def run_market(key, args):
         w = csv.DictWriter(fh, fieldnames=["date", "rule", "exit", "skips", "picks", "pnl"])
         w.writeheader()
         w.writerows(log)
-    v2_run, run = {}, 0.0
-    for d in fwd_days:
-        run += sum(float(r["pnl_usd"]) for r in fwd if r["date"] == d and r.get("pnl_usd"))
-        v2_run[d] = round(run, 2)
-    start = log[0]["date"] if log else None
-    v2_log = {}
-    if start:
-        base_before = v2_run.get(max([d for d in fwd_days if d < start], default=""), 0.0)
-        v2_log = {d: round(v - base_before, 2) for d, v in v2_run.items() if d >= start}
-
+    # The learned rule's record next to the rebuilt current rule on the same days, so the only
+    # difference between the two columns is what was learned.
+    v2_log, run = {}, 0.0
+    for r in log:
+        d = r["date"]
+        run += sum(c["var"]["base"]["pnl"] for c in picks(by_day.get(d, [])) if c["var"].get("base"))
+        v2_log[d] = round(run, 2)
     race_path = os.path.join(out_dir, "race.csv")
     race = load_race(race_path)
     for iso in complete:
