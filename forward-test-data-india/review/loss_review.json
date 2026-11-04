@@ -1,0 +1,506 @@
+[
+ {
+  "date": "2026-10-08",
+  "symbol": "LICHSGFIN",
+  "name": "LIC Housing Finance Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -2662.4,
+  "wrong": "Market falling at entry (index -0.55% since the open); Chased the breakout (0.88% above the range); Wide stop (risk 2.21% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-10-08",
+  "symbol": "TRENT",
+  "name": "Trent Ltd.",
+  "outcome": "stop",
+  "exit_time": "12:40",
+  "pnl": -3702.15,
+  "wrong": "Market falling at entry (index -0.55% since the open); Already fading (0.7R below its high); Ordinary volume (1.0x usual volume)",
+  "after": "was up 1.0R before turning down",
+  "fixes": [
+   [
+    "Target 0.5R",
+    1850.22
+   ],
+   [
+    "Buy the pullback",
+    3257.55
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if already fading",
+   "skip if ordinary volume"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": 3257.55
+ },
+ {
+  "date": "2026-10-09",
+  "symbol": "CUPID",
+  "name": "Cupid Ltd.",
+  "outcome": "stop",
+  "exit_time": "11:30",
+  "pnl": -4996.6,
+  "wrong": "Ordinary volume (0.9x usual volume)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if ordinary volume"
+  ],
+  "best": "Wait 15 minutes",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-10-09",
+  "symbol": "SAIL",
+  "name": "Steel Authority of India Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -2849.68,
+  "wrong": "Chased the breakout (0.64% above the range); Wide stop (risk 1.81% of price); Already fading (0.9R below its high)",
+  "after": "",
+  "fixes": [
+   [
+    "Target 0.5R",
+    2499.44
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if already fading"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 2499.44
+ },
+ {
+  "date": "2026-10-09",
+  "symbol": "TCS",
+  "name": "Tata Consultancy Services Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -496.1,
+  "wrong": "Wide stop (risk 1.89% of price)",
+  "after": "",
+  "fixes": [
+   [
+    "Target 0.5R",
+    2486.55
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if wide stop"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 2486.55
+ },
+ {
+  "date": "2026-10-12",
+  "symbol": "SAIL",
+  "name": "Steel Authority of India Ltd.",
+  "outcome": "stop",
+  "exit_time": "14:50",
+  "pnl": -4998.4,
+  "wrong": "Market falling at entry (index -0.36% since the open); Chased the breakout (2.01% above the range); Wide stop (risk 2.49% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-10-12",
+  "symbol": "TDPOWERSYS",
+  "name": "TD Power Systems Ltd.",
+  "outcome": "stop",
+  "exit_time": "14:45",
+  "pnl": -4996.26,
+  "wrong": "Market falling at entry (index -0.36% since the open); Wide stop (risk 2.43% of price)",
+  "after": "was up 0.7R before turning down",
+  "fixes": [
+   [
+    "Target 0.5R",
+    2496.9
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if wide stop"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 2496.9
+ },
+ {
+  "date": "2026-10-14",
+  "symbol": "TARIL",
+  "name": "Transformers And Rectifiers (India) Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -2126.25,
+  "wrong": "Market falling at entry (index -0.03% since the open); Chased the breakout (2.74% above the range); Wide stop (risk 4.44% of price); Big gap up (gapped up 10.1%)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if big gap up"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-10-14",
+  "symbol": "TATAELXSI",
+  "name": "Tata Elxsi Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -3146.0,
+  "wrong": "Market falling at entry (index -0.03% since the open); Wide stop (risk 2.57% of price); Big gap up (gapped up 2.1%)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if wide stop",
+   "skip if big gap up"
+  ],
+  "best": "Wait 15 minutes",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-10-19",
+  "symbol": "LTM",
+  "name": "LTM Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -1144.0,
+  "wrong": "Market falling at entry (index -0.47% since the open); Chased the breakout (0.97% above the range); Wide stop (risk 2.22% of price)",
+  "after": "",
+  "fixes": [
+   [
+    "Target 0.5R",
+    2475.2
+   ],
+   [
+    "Exit at 12:00",
+    1419.6
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 2475.2
+ },
+ {
+  "date": "2026-10-19",
+  "symbol": "WELCORP",
+  "name": "Welspun Corp Ltd.",
+  "outcome": "stop",
+  "exit_time": "13:05",
+  "pnl": -4969.2,
+  "wrong": "Market falling at entry (index -0.47% since the open); Wide stop (risk 1.55% of price); Fresh breakout (broke out at 10:00); Ordinary volume (0.7x usual volume)",
+  "after": "",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if wide stop",
+   "skip if fresh breakout",
+   "skip if ordinary volume"
+  ],
+  "best": "Exit at 12:00",
+  "best_pnl": -701.1
+ },
+ {
+  "date": "2026-10-21",
+  "symbol": "HDFCBANK",
+  "name": "HDFC Bank Ltd.",
+  "outcome": "stop",
+  "exit_time": "10:15",
+  "pnl": -1198.71,
+  "wrong": "Already fading (1.4R below its high); Ordinary volume (0.9x usual volume)",
+  "after": "stopped within 15 minutes",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if already fading",
+   "skip if ordinary volume"
+  ],
+  "best": "Wait 15 minutes",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-10-21",
+  "symbol": "KARURVYSYA",
+  "name": "Karur Vysya Bank Ltd.",
+  "outcome": "stop",
+  "exit_time": "10:50",
+  "pnl": -4995.82,
+  "wrong": "Chased the breakout (1.61% above the range); Wide stop (risk 2.96% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": -4994.88
+ },
+ {
+  "date": "2026-10-22",
+  "symbol": "BHARTIARTL",
+  "name": "Bharti Airtel Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -1751.0,
+  "wrong": "Market falling at entry (index -0.21% since the open); Chased the breakout (0.87% above the range)",
+  "after": "",
+  "fixes": [
+   [
+    "Target 0.5R",
+    2496.72
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 2496.72
+ },
+ {
+  "date": "2026-10-22",
+  "symbol": "COFORGE",
+  "name": "Coforge Ltd.",
+  "outcome": "stop",
+  "exit_time": "10:45",
+  "pnl": -3351.6,
+  "wrong": "Market falling at entry (index -0.21% since the open); Already fading (0.6R below its high)",
+  "after": "",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if already fading"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": -2327.6
+ },
+ {
+  "date": "2026-10-22",
+  "symbol": "DIVISLAB",
+  "name": "Divi's Laboratories Ltd.",
+  "outcome": "stop",
+  "exit_time": "12:00",
+  "pnl": -4846.5,
+  "wrong": "Market falling at entry (index -0.21% since the open)",
+  "after": "",
+  "fixes": [
+   [
+    "Buy the pullback",
+    3010.5
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": 3010.5
+ },
+ {
+  "date": "2026-10-26",
+  "symbol": "TCS",
+  "name": "Tata Consultancy Services Ltd.",
+  "outcome": "stop",
+  "exit_time": "12:45",
+  "pnl": -4971.7,
+  "wrong": "Chased the breakout (0.59% above the range); Fresh breakout (broke out at 09:55); Ordinary volume (0.5x usual volume)",
+  "after": "",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if fresh breakout",
+   "skip if ordinary volume"
+  ],
+  "best": "Stop at range low",
+  "best_pnl": -244.2
+ },
+ {
+  "date": "2026-10-28",
+  "symbol": "MAZDOCK",
+  "name": "Mazagoan Dock Shipbuilders Ltd.",
+  "outcome": "stop",
+  "exit_time": "11:15",
+  "pnl": -4989.6,
+  "wrong": "Market falling at entry (index -0.34% since the open); Chased the breakout (1.32% above the range); Wide stop (risk 2.84% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Stop at range low",
+  "best_pnl": -2553.6
+ },
+ {
+  "date": "2026-10-28",
+  "symbol": "RELIANCE",
+  "name": "Reliance Industries Ltd.",
+  "outcome": "stop",
+  "exit_time": "10:05",
+  "pnl": -2006.4,
+  "wrong": "Market falling at entry (index -0.34% since the open); Already fading (1.7R below its high)",
+  "after": "stopped within 5 minutes",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if already fading"
+  ],
+  "best": "Wait 15 minutes",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-10-29",
+  "symbol": "RELIANCE",
+  "name": "Reliance Industries Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -3740.0,
+  "wrong": "Already fading (0.8R below its high)",
+  "after": "",
+  "fixes": [
+   [
+    "Target 0.5R",
+    2222.75
+   ],
+   [
+    "Exit at 12:00",
+    510.0
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if already fading"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 2222.75
+ },
+ {
+  "date": "2026-10-30",
+  "symbol": "ETERNAL",
+  "name": "Eternal Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -1295.0,
+  "wrong": "Chased the breakout (0.64% above the range); Wide stop (risk 1.57% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-02",
+  "symbol": "DELHIVERY",
+  "name": "Delhivery Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -3544.5,
+  "wrong": "Chased the breakout (3.34% above the range); Wide stop (risk 4.27% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-03",
+  "symbol": "GRSE",
+  "name": "Garden Reach Shipbuilders & Engineers Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -2964.0,
+  "wrong": "Chased the breakout (4.66% above the range); Wide stop (risk 5.81% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": 0.0
+ }
+]

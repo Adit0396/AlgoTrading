@@ -1,0 +1,199 @@
+[
+ {
+  "date": "2026-10-27",
+  "symbol": "STX",
+  "name": "Seagate Technology Holdings PLC",
+  "outcome": "flat at 3:55",
+  "exit_time": "15:55",
+  "pnl": -15.09,
+  "wrong": "Market falling at entry (index -0.20% since the open); Wide stop (risk 2.07% of price)",
+  "after": "",
+  "fixes": [
+   [
+    "Target 0.5R",
+    20.97
+   ],
+   [
+    "Exit at 12:00",
+    34.08
+   ],
+   [
+    "Buy the pullback",
+    49.64
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": 49.64
+ },
+ {
+  "date": "2026-10-29",
+  "symbol": "CAT",
+  "name": "Caterpillar, Inc.",
+  "outcome": "stop",
+  "exit_time": "14:50",
+  "pnl": -38.31,
+  "wrong": "Market falling at entry (index -0.02% since the open); Wide stop (risk 1.95% of price)",
+  "after": "was up 0.7R before turning down",
+  "fixes": [
+   [
+    "Target 0.5R",
+    19.17
+   ],
+   [
+    "Exit at 12:00",
+    7.47
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if wide stop"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 19.17
+ },
+ {
+  "date": "2026-10-29",
+  "symbol": "SPCX",
+  "name": "Space Exploration Technologies Corp.",
+  "outcome": "flat at 3:55",
+  "exit_time": "15:55",
+  "pnl": -4.6,
+  "wrong": "Market falling at entry (index -0.02% since the open); Chased the breakout (0.83% above the range); Ordinary volume (0.5x usual volume)",
+  "after": "",
+  "fixes": [
+   [
+    "Exit at 12:00",
+    6.9
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if ordinary volume"
+  ],
+  "best": "Exit at 12:00",
+  "best_pnl": 6.9
+ },
+ {
+  "date": "2026-10-30",
+  "symbol": "CAT",
+  "name": "Caterpillar, Inc.",
+  "outcome": "stop",
+  "exit_time": "12:50",
+  "pnl": -45.18,
+  "wrong": "Market falling at entry (index -0.37% since the open)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if market falling at entry"
+  ],
+  "best": "Wait 15 minutes",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-10-30",
+  "symbol": "SYK",
+  "name": "Stryker Corporation",
+  "outcome": "flat at 3:55",
+  "exit_time": "15:55",
+  "pnl": -28.8,
+  "wrong": "Market falling at entry (index -0.37% since the open); Chased the breakout (1.26% above the range); Wide stop (risk 3.22% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Exit at 12:00",
+  "best_pnl": -7.45
+ },
+ {
+  "date": "2026-11-02",
+  "symbol": "AMZN",
+  "name": "Amazon.com, Inc.",
+  "outcome": "stop",
+  "exit_time": "15:35",
+  "pnl": -49.2,
+  "wrong": "Wide stop (risk 1.96% of price)",
+  "after": "was up 0.5R before turning down",
+  "fixes": [
+   [
+    "Target 0.5R",
+    24.6
+   ],
+   [
+    "Exit at 12:00",
+    0.1
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if wide stop"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 24.6
+ },
+ {
+  "date": "2026-11-02",
+  "symbol": "AVGO",
+  "name": "Broadcom Inc.",
+  "outcome": "stop",
+  "exit_time": "14:05",
+  "pnl": -47.96,
+  "wrong": "Chased the breakout (0.68% above the range); Ordinary volume (0.9x usual volume)",
+  "after": "was up 0.6R before turning down",
+  "fixes": [
+   [
+    "Target 0.5R",
+    24.09
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if ordinary volume"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 24.09
+ },
+ {
+  "date": "2026-11-02",
+  "symbol": "GOOGL",
+  "name": "Alphabet Inc.",
+  "outcome": "stop",
+  "exit_time": "10:55",
+  "pnl": -37.91,
+  "wrong": "Fresh breakout (broke out at 10:15); Ordinary volume (1.0x usual volume)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if fresh breakout",
+   "skip if ordinary volume"
+  ],
+  "best": "Wait 15 minutes",
+  "best_pnl": 0.0
+ }
+]

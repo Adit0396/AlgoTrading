@@ -1,0 +1,17 @@
+date,rule,exit,skips,picks,pnl
+2026-10-08,Current rule,base,,LICHSGFIN ICICIBANK TRENT,-4220.66
+2026-10-09,Current rule,base,,TCS CUPID SAIL,-8342.38
+2026-10-12,Current rule,base,,NETWEB SAIL TDPOWERSYS,-5013.16
+2026-10-13,Current rule,base,,TCS NETWEB INFY,8211.37
+2026-10-14,Current rule + skip if fresh breakout,base,late,TARIL TATAELXSI AEGISLOG,-4653.45
+2026-10-16,Current rule + skip if fresh breakout,base,late,TECHM TCS BHARTIARTL,10435.59
+2026-10-19,Current rule + skip if fresh breakout,base,late,LTM UNIONBANK PREMIERENE,-1273.78
+2026-10-21,Current rule + skip if fresh breakout,base,late,HDFCBANK KARURVYSYA TECHM,-2784.53
+2026-10-22,Current rule + skip if fresh breakout,base,late,BHARTIARTL DIVISLAB COFORGE,-9949.1
+2026-10-26,Current rule + skip if fresh breakout,base,late,BSE MRPL CHENNPETRO,304.72
+2026-10-27,Current rule + skip if fresh breakout,base,late,ATHERENERG SONACOMS BHARTIARTL,14478.6
+2026-10-28,Current rule + skip if fresh breakout,base,late,PPLPHARMA RELIANCE MAZDOCK,-2004.13
+2026-10-29,Current rule + skip if fresh breakout,base,late,RELIANCE ACUTAAS HDFCBANK,-1146.37
+2026-10-30,Current rule + skip if fresh breakout,base,late,ETERNAL GODREJCP INDIGO,656.35
+2026-11-02,Current rule,base,,RELIANCE DELHIVERY DIXON,6296.91
+2026-11-03,Current rule,base,,HDFCBANK GRSE MARICO,6683.98
