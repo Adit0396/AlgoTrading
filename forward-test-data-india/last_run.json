@@ -1,13 +1,13 @@
 {
   "days": [
     {
-      "date": "2026-11-03",
+      "date": "2026-11-04",
       "picks": [
-        "HDFCBANK",
-        "GRSE",
-        "MARICO"
+        "FRACTAL",
+        "WELSPUNLIV",
+        "BHEL"
       ],
-      "pnl_inr": 6683.98
+      "pnl_inr": 1344.05
     }
   ],
   "charts_loaded": 495,
