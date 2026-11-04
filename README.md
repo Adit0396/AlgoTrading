@@ -114,6 +114,11 @@ Outputs in `forward-test-data/review/` and `forward-test-data-india/review/`: `l
 `sheet_loss_review.json`, `sheet_lessons.json` and `sheet_race.json` (tabs US/India Loss review,
 Lessons and Strategy race).
 
+Each session is scored once and then kept as stored (`rebuild` in the workflow redoes them).
+That matters for India: Yahoo returns slightly different NSE volumes from one download to the
+next, which can change a day's third pick or the VWAP, so rescoring old days would make the
+record drift. US data has been stable between downloads.
+
 Tests: `python -m unittest discover -s tests`.
 
 ## Where the results go
