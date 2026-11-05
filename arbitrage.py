@@ -230,55 +230,64 @@ def monthly(trades, audusd, months):
 
 
 def sheet_rows(trades, latest, mon, months, audusd):
+    """(main tab rows, trades tab rows). The main tab keeps fixed rows at the top (pairs, totals)
+    and the monthly table last, so it grows downward without moving anything."""
     capital_usd = LEG_USD * len(PAIRS)
     rate = audusd_on(audusd, max(audusd)) if audusd else None
-    capital_aud = capital_usd / rate if rate else None
+    capital_aud = capital_usd / rate if rate else 0.0
+    bench_m = (1 + BENCH_YEAR) ** (1 / 12) - 1
     rows = [["Cross-market arbitrage (simulated): the same company in two markets, priced in US$. Sell the expensive "
              "side and buy the cheap one when the price gap strays far from normal; close when it comes back. "
              "No orders are placed."],
             ["Fund: US$5,000 per pair x %d pairs = US$%s (about A$%s). Entry when the gap is 2+ standard deviations "
-             "from its 60-day average, exit near average, after 20 days, or if it widens 2 more (stop). Costs included. "
-             "Benchmark: an Indian arbitrage fund at %.2f%% a year." % (len(PAIRS), "{:,.0f}".format(capital_usd),
-                                                                        "{:,.0f}".format(capital_aud or 0), BENCH_YEAR * 100)],
-            [],
+             "from its 60-day average; exit near average, after 20 days, or if it widens 2 more (stop). Costs "
+             "included. Benchmark: an Indian arbitrage fund at %.2f%% a year on the same money."
+             % (len(PAIRS), "{:,.0f}".format(capital_usd), "{:,.0f}".format(capital_aud), BENCH_YEAR * 100)],
+            ["Real-world limits: Indian rules restrict moving shares between the NSE and US listings; NRIs can't "
+             "short NSE shares (that means stock futures, in large lots); shorting needs borrowable stock; the "
+             "markets' closes are hours apart. This measures how often the gaps stray and come back, not money "
+             "that could be collected."],
             ["PAIRS TODAY", "Company", "Markets", "US share = local shares", "Latest day", "Premium of US share",
              "60-day average", "Gap now (z)", "Signal", "Position"]]
     for key, name, region, us_sym, loc_sym, ratio, *_ in PAIRS:
         L = latest.get(key) or {}
-        rows.append([key + " / " + loc_sym, name, region, ratio, "'" + L.get("date", ""), L.get("premium", ""),
-                     L.get("mean", ""), L.get("z", ""), L.get("signal", ""), L.get("position", "")])
-    rows += [[], ["MONTHLY P&L (A$)", "Month"] + [p[0] for p in PAIRS] +
-             ["India ↔ US", "Australia ↔ US", "Total", "Return on fund", "Arbitrage-fund benchmark", "Running total"]]
-    run = 0.0
-    bench_m = (1 + BENCH_YEAR) ** (1 / 12) - 1
+        rows.append([key + " / " + loc_sym, name, region, ratio, "'" + L.get("date", "") if L else "",
+                     L.get("premium", ""), L.get("mean", ""), L.get("z", ""), L.get("signal", "no data"),
+                     L.get("position", "")])
+    closed = [t for t in trades if not t.get("open")]
+    wins = sum(1 for t in closed if t["pnl_usd"] > 0)
+    pnl_aud = round(sum(t["pnl_aud"] for t in closed), 2)
+    costs_aud = round(sum(t["costs_aud"] for t in closed), 2)
+    bench_total = round(bench_m * capital_aud * len(months), 2)
+    rows += [[],
+             ["TOTALS", "Closed trades", "Winners", "Win rate", "P&L (A$)", "Costs paid (A$)",
+              "Benchmark, same %d months (A$)" % len(months), "vs benchmark (A$)", "Open trades now (A$)"],
+             ["", len(closed), wins, round(wins / len(closed), 3) if closed else "", pnl_aud, costs_aud, bench_total,
+              round(pnl_aud - bench_total, 2), round(sum(t["pnl_aud"] for t in trades if t.get("open")), 2)],
+             [],
+             ["MONTHLY P&L (A$)", "Month"] + [p[0] for p in PAIRS] +
+             ["India ↔ US", "Australia ↔ US", "Total", "Return on fund", "Arbitrage-fund benchmark", "Running total",
+              "Benchmark running total"]]
+    run_t = run_b = 0.0
     for m in months:
         vals = [round(mon[m].get(p[0], 0.0), 2) for p in PAIRS]
         india = round(sum(v for v, p in zip(vals, PAIRS) if p[2].startswith("India")), 2)
         aus = round(sum(v for v, p in zip(vals, PAIRS) if p[2].startswith("Australia")), 2)
         total = round(india + aus, 2)
-        run += total
-        rows.append(["", "'" + m] + vals + [india, aus, total,
-                     round(total / capital_aud, 4) if capital_aud else "",
-                     round(bench_m * capital_aud, 2) if capital_aud else "", round(run, 2)])
-    closed = [t for t in trades if not t.get("open")]
-    wins = sum(1 for t in closed if t["pnl_usd"] > 0)
-    rows += [[], ["TOTALS", "Closed trades", len(closed), "Winners", wins,
-                  "Win rate", round(wins / len(closed), 3) if closed else "", "P&L (US$)",
-                  round(sum(t["pnl_usd"] for t in closed), 2), "Costs paid (US$)",
-                  round(sum(t["costs_usd"] for t in closed), 2)],
-             [], ["TRADES (newest first)", "Pair", "Markets", "Trade", "Signal day", "Gap at signal (z)", "Entry day",
-                  "Exit day", "Why closed", "Premium in", "Premium out", "P&L before costs (US$)", "Costs (US$)",
-                  "P&L (US$)", "Tracking"]]
-    for t in sorted(trades, key=lambda t: t["entry_date"], reverse=True)[:150]:
-        rows.append(["", t["pair"], t["region"], t["trade"], "'" + t["signal_date"], round(t["signal_z"], 2),
-                     "'" + t["entry_date"], "'" + t["exit_date"] if not t.get("open") else "still open",
-                     t["why"], round(t["entry_premium"], 4), round(t["exit_premium"], 4), t["gross_usd"],
-                     t["costs_usd"], t["pnl_usd"], "live" if t["entry_date"] >= LIVE_FROM else "backtest"])
-    rows += [[], ["Real-world limits: Indian rules restrict moving shares between the NSE and US listings; NRIs can't "
-                  "short NSE shares (an NSE short means stock futures, in large lots); shorting needs borrowable stock; "
-                  "the markets' closes are hours apart. Treat this as a measure of how often the gaps stray and come "
-                  "back, not as money that could be collected."]]
-    return rows
+        bench = round(bench_m * capital_aud, 2)
+        run_t += total
+        run_b += bench
+        rows.append(["", "'" + m] + vals + [india, aus, total, round(total / capital_aud, 4) if capital_aud else "",
+                                            bench, round(run_t, 2), round(run_b, 2)])
+    trade_rows = [["Pair", "Company", "Markets", "Trade", "Signal day", "Gap at signal (z)", "Entry day", "Exit day",
+                   "Why closed", "Premium in", "Premium out", "P&L before costs (US$)", "Costs (US$)", "P&L (US$)",
+                   "P&L (A$)", "Tracking"]]
+    for t in sorted(trades, key=lambda t: t["entry_date"], reverse=True):
+        trade_rows.append([t["pair"], t["name"], t["region"], t["trade"], "'" + t["signal_date"], round(t["signal_z"], 2),
+                           "'" + t["entry_date"], "still open" if t.get("open") else "'" + t["exit_date"], t["why"],
+                           round(t["entry_premium"], 4), round(t["exit_premium"], 4), t["gross_usd"], t["costs_usd"],
+                           t["pnl_usd"], t["pnl_aud"], "live" if t["entry_date"] >= LIVE_FROM else "backtest"])
+    return rows, trade_rows
 
 
 def run(out_dir, fetch=fetch_daily):
@@ -331,16 +340,23 @@ def run(out_dir, fetch=fetch_daily):
             months.append(m)
             y, mo = int(m[:4]), int(m[5:])
             m = "%04d-%02d" % (y + (mo == 12), 1 if mo == 12 else mo + 1)
+    for t in trades:
+        rate = audusd_on(audusd, t["exit_date"])
+        t["pnl_aud"] = round(t["pnl_usd"] / rate, 2) if rate else 0.0
+        t["costs_aud"] = round(t["costs_usd"] / rate, 2) if rate else 0.0
     mon = monthly(trades, audusd, months)
     with open(os.path.join(out_dir, "trades.csv"), "w", newline="") as fh:
         cols = ["pair", "name", "region", "trade", "signal_date", "signal_z", "entry_date", "exit_date", "why",
-                "entry_premium", "exit_premium", "gross_usd", "costs_usd", "pnl_usd", "open"]
+                "entry_premium", "exit_premium", "gross_usd", "costs_usd", "pnl_usd", "pnl_aud", "open"]
         w = csv.DictWriter(fh, fieldnames=cols, extrasaction="ignore")
         w.writeheader()
         for t in sorted(trades, key=lambda t: t["entry_date"]):
             w.writerow(t)
+    main_rows, trade_rows = sheet_rows(trades, latest, mon, months, audusd)
     with open(os.path.join(out_dir, "sheet_arbitrage.json"), "w") as fh:
-        json.dump(sheet_rows(trades, latest, mon, months, audusd), fh, ensure_ascii=False)
+        json.dump(main_rows, fh, ensure_ascii=False)
+    with open(os.path.join(out_dir, "sheet_arbitrage_trades.json"), "w") as fh:
+        json.dump(trade_rows, fh, ensure_ascii=False)
     summary = {"generated_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
                "pairs": report, "latest": latest, "failed": failed,
                "monthly_aud": {m: round(sum(mon[m].values()), 2) for m in months}}

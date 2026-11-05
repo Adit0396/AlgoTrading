@@ -98,7 +98,12 @@ class EndToEnd(unittest.TestCase):
             self.assertEqual(rc, 0)
             import json
             rows = json.load(open(os.path.join(out, "sheet_arbitrage.json")))
-            self.assertTrue(any(r and r[0] == "MONTHLY P&L (A$)" for r in rows))
+            self.assertEqual(rows[3][0], "PAIRS TODAY")
+            self.assertEqual(rows[12][0], "TOTALS")                       # fixed rows for the sheet's colours
+            self.assertEqual(rows[15][0], "MONTHLY P&L (A$)")
+            trades = json.load(open(os.path.join(out, "sheet_arbitrage_trades.json")))
+            self.assertEqual(trades[0][14], "P&L (A$)")
+            self.assertGreater(len(trades), 1)
             summ = json.load(open(os.path.join(out, "summary.json")))
             self.assertEqual(len(summ["latest"]), len(ab.PAIRS))
             self.assertTrue(summ["monthly_aud"])

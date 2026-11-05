@@ -137,8 +137,8 @@ more than 20 points is treated as a corporate action: the history restarts and a
 at the last clean prices. Costs: 5 bps a side in the US, 15 bps on the NSE, 10 bps on the ASX,
 10 bps currency conversion, and 3% a year to carry the short leg.
 
-Results go to `arbitrage-data/` (`trades.csv`, `summary.json`, `sheet_arbitrage.json` for the
-sheet's Arbitrage tab): monthly P&L in A$ per pair, per market pair and in total, against an
+Results go to `arbitrage-data/` (`trades.csv`, `summary.json`, `sheet_arbitrage.json` and
+`sheet_arbitrage_trades.json` for the sheet's Arbitrage and Arbitrage trades tabs): monthly P&L in A$ per pair, per market pair and in total, against an
 Indian arbitrage mutual fund at 6.55% a year on the same US$35,000. Trades entered before
 5 Nov 2026 are a backtest; later ones are tracked live.
 
