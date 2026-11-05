@@ -1,0 +1,49 @@
+name: NSE vs BSE gaps
+
+# Simulation only. This workflow never places, stages or drafts an order.
+# Mon-Fri 10:57 UTC (4:27 PM India, 8:57 PM Brisbane), after the Indian close. Measures the price
+# gaps between the NSE and BSE for the Nifty 500, minute by minute, for any finished day not yet
+# stored (Yahoo keeps about a week of 1-minute bars, so a missed day is picked up later).
+
+on:
+  schedule:
+    - cron: "57 10 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: forward-test # shared with the other workflows: all commit to this repo
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Tests
+        run: python -m unittest tests.test_nse_bse
+
+      - name: Measure the gaps
+        run: python -I -u nse_bse.py
+
+      - name: Save the results to the repo
+        if: always()
+        run: |
+          git config user.name "orb-forward-test bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add nse-bse-data 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "NSE vs BSE gaps $(date -u +%Y-%m-%d)"
+            git pull --rebase --quiet origin main
+            git push
+          fi
