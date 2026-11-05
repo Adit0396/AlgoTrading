@@ -1,0 +1,48 @@
+name: Cross-market arbitrage tracker
+
+# Simulation only. This workflow never places, stages or drafts an order.
+# Mon-Fri 21:47 UTC (7:47 AM Brisbane), after the New York close. Reloads two years of daily
+# closes for the dual-listed pairs in arbitrage.py and rewrites arbitrage-data/.
+
+on:
+  schedule:
+    - cron: "47 21 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: forward-test # shared with the other workflows: all commit to this repo
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Tests
+        run: python -m unittest tests.test_arbitrage
+
+      - name: Track the pairs
+        run: python -I -u arbitrage.py
+
+      - name: Save the results to the repo
+        if: always()
+        run: |
+          git config user.name "orb-forward-test bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add arbitrage-data 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "Arbitrage tracker $(date -u +%Y-%m-%d)"
+            git pull --rebase --quiet origin main
+            git push
+          fi

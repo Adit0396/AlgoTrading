@@ -121,6 +121,32 @@ record drift. US data has been stable between downloads.
 
 Tests: `python -m unittest discover -s tests`.
 
+## Cross-market arbitrage tracker
+
+`arbitrage.py` (`.github/workflows/arbitrage.yml`, weekdays 21:47 UTC after the New York close)
+follows seven companies listed in two markets: Infosys, Wipro, HDFC Bank, ICICI Bank and
+Dr. Reddy's (NSE vs their New York shares) and BHP and ResMed (ASX vs New York). Each day it prices
+the local shares in US$ (local close x shares per US share / exchange rate) and measures the US
+share's premium over that. Shares per US share: Infosys, Wipro, Dr. Reddy's 1; ICICI Bank 2;
+HDFC Bank 3; BHP 2; ResMed 10 ASX units.
+
+The simulated trade: when the premium is 2 standard deviations from its 60-day average, sell the
+expensive side and buy the cheap one (US$5,000 each, at each market's next close), and close when
+it is back within 0.5, after 20 trading days, or if it widens 2 more (stop). A one-day jump of
+more than 5 points is treated as a corporate action: the history restarts and an open trade closes
+at the last clean prices. Costs: 5 bps a side in the US, 15 bps on the NSE, 10 bps on the ASX,
+10 bps currency conversion, and 3% a year to carry the short leg.
+
+Results go to `arbitrage-data/` (`trades.csv`, `summary.json`, `sheet_arbitrage.json` for the
+sheet's Arbitrage tab): monthly P&L in A$ per pair, per market pair and in total, against an
+Indian arbitrage mutual fund at 6.55% a year on the same US$35,000. Trades entered before
+5 Nov 2026 are a backtest; later ones are tracked live.
+
+This measures how often the gaps stray and come back; it is not money that could be collected.
+Indian rules restrict moving shares between the NSE and US listings, NRIs can't short NSE shares
+(that means stock futures, in large lots), shorting needs borrowable stock, and the markets'
+closes are hours apart.
+
 ## Where the results go
 
 | Place | What |
