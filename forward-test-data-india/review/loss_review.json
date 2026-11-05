@@ -17,7 +17,7 @@
    "skip if chased the breakout",
    "skip if wide stop"
   ],
-  "best": "Buy the pullback",
+  "best": "Buy the pullback (no trade)",
   "best_pnl": 0.0
  },
  {
@@ -28,7 +28,7 @@
   "exit_time": "12:40",
   "pnl": -3702.15,
   "wrong": "Market falling at entry (index -0.55% since the open); Already fading (0.7R below its high); Ordinary volume (1.0x usual volume)",
-  "after": "was up 1.0R before turning down",
+  "after": "was up 0.9R before turning down",
   "fixes": [
    [
     "Target 0.5R",
@@ -64,7 +64,7 @@
   "skips": [
    "skip if ordinary volume"
   ],
-  "best": "Wait 15 minutes",
+  "best": "Wait 15 minutes (no trade)",
   "best_pnl": 0.0
  },
  {
@@ -133,7 +133,7 @@
    "skip if chased the breakout",
    "skip if wide stop"
   ],
-  "best": "Buy the pullback",
+  "best": "Buy the pullback (no trade)",
   "best_pnl": 0.0
  },
  {
@@ -180,7 +180,7 @@
    "skip if wide stop",
    "skip if big gap up"
   ],
-  "best": "Buy the pullback",
+  "best": "Buy the pullback (no trade)",
   "best_pnl": 0.0
  },
  {
@@ -201,7 +201,7 @@
    "skip if wide stop",
    "skip if big gap up"
   ],
-  "best": "Wait 15 minutes",
+  "best": "Wait 15 minutes (no trade)",
   "best_pnl": 0.0
  },
  {
@@ -271,7 +271,7 @@
    "skip if already fading",
    "skip if ordinary volume"
   ],
-  "best": "Wait 15 minutes",
+  "best": "Wait 15 minutes (no trade)",
   "best_pnl": 0.0
  },
  {
@@ -412,7 +412,7 @@
    "skip if market falling at entry",
    "skip if already fading"
   ],
-  "best": "Wait 15 minutes",
+  "best": "Wait 15 minutes (no trade)",
   "best_pnl": 0.0
  },
  {
@@ -460,7 +460,7 @@
    "skip if chased the breakout",
    "skip if wide stop"
   ],
-  "best": "Buy the pullback",
+  "best": "Buy the pullback (no trade)",
   "best_pnl": 0.0
  },
  {
@@ -480,7 +480,7 @@
    "skip if chased the breakout",
    "skip if wide stop"
   ],
-  "best": "Buy the pullback",
+  "best": "Buy the pullback (no trade)",
   "best_pnl": 0.0
  },
  {
@@ -500,7 +500,34 @@
    "skip if chased the breakout",
    "skip if wide stop"
   ],
-  "best": "Buy the pullback",
+  "best": "Buy the pullback (no trade)",
   "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-04",
+  "symbol": "WELSPUNLIV",
+  "name": "Welspun Living Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -658.0,
+  "wrong": "Chased the breakout (1.80% above the range); Wide stop (risk 3.98% of price)",
+  "after": "",
+  "fixes": [
+   [
+    "Buy the pullback",
+    2812.04
+   ],
+   [
+    "Wait 15 minutes",
+    461.76
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": 2812.04
  }
 ]

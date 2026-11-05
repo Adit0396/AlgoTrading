@@ -38,7 +38,7 @@
   "exit_time": "14:50",
   "pnl": -38.31,
   "wrong": "Market falling at entry (index -0.02% since the open); Wide stop (risk 1.95% of price)",
-  "after": "was up 0.7R before turning down",
+  "after": "was up 0.6R before turning down",
   "fixes": [
    [
     "Target 0.5R",
@@ -101,7 +101,7 @@
   "skips": [
    "skip if market falling at entry"
   ],
-  "best": "Wait 15 minutes",
+  "best": "Wait 15 minutes (no trade)",
   "best_pnl": 0.0
  },
  {
@@ -193,7 +193,46 @@
    "skip if fresh breakout",
    "skip if ordinary volume"
   ],
-  "best": "Wait 15 minutes",
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-04",
+  "symbol": "AMZN",
+  "name": "Amazon.com, Inc.",
+  "outcome": "stop",
+  "exit_time": "11:00",
+  "pnl": -48.3,
+  "wrong": "Big gap up (gapped up 5.6%)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if big gap up"
+  ],
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-04",
+  "symbol": "GOOGL",
+  "name": "Alphabet Inc.",
+  "outcome": "flat at 3:55",
+  "exit_time": "15:55",
+  "pnl": -32.7,
+  "wrong": "Chased the breakout (1.91% above the range); Wide stop (risk 3.00% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback (no trade)",
   "best_pnl": 0.0
  }
 ]

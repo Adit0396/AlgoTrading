@@ -43,7 +43,7 @@ date,strategy,trades,pnl,detail
 2026-08-28,v2,3,2029.07,"TEJASNET -₹4,984.65; BSE +₹4,992.12; TCS +₹2,021.60"
 2026-08-28,vwap,7,271.78,7 flips; +₹271.78
 2026-08-28,momentum,1,599.31,NIFTYBEES long +₹599.31 (first half hour +0.04%)
-2026-08-28,noise,0,0,stayed inside the noise area
+2026-08-28,noise,0,0.0,stayed inside the noise area
 2026-08-31,v2,3,-7824.15,"HINDCOPPER -₹4,186.35; ECLERX -₹3,142.80; TVSMOTOR -₹495.00"
 2026-08-31,sip,3,1814.57,"ICICIBANK long +₹5,269.89; ATHERENERG short -₹1,659.84; KAYNES short -₹1,795.48"
 2026-08-31,vwap,11,-1567.53,"11 flips; -₹1,567.53"
@@ -58,17 +58,17 @@ date,strategy,trades,pnl,detail
 2026-09-02,sip,1,-899.81,UNITDSPR short -₹899.81; DLF short not triggered; HCLTECH short not triggered
 2026-09-02,vwap,4,788.91,4 flips; +₹788.91
 2026-09-02,momentum,1,366.37,NIFTYBEES short +₹366.37 (first half hour -0.41%)
-2026-09-02,noise,0,0,stayed inside the noise area
+2026-09-02,noise,0,0.0,stayed inside the noise area
 2026-09-03,v2,3,3332.8,"ANANTRAJ +₹190.80; NETWEB -₹1,856.00; RBLBANK +₹4,998.00"
 2026-09-03,sip,2,3905.09,"GODREJCP short not triggered; ANANTRAJ long +₹4,085.08; GRASIM long -₹179.99"
 2026-09-03,vwap,3,2063.46,"3 flips; +₹2,063.46"
 2026-09-03,momentum,1,-54.96,NIFTYBEES long -₹54.96 (first half hour +0.50%)
-2026-09-03,noise,0,0,stayed inside the noise area
+2026-09-03,noise,0,0.0,stayed inside the noise area
 2026-09-04,v2,3,1331.12,"IFCI +₹4,999.92; RELIANCE -₹134.80; HBLENGINE -₹3,534.00"
 2026-09-04,sip,3,-4434.8,"HBLENGINE long -₹1,293.62; HAVELLS short -₹1,157.54; BRIGADE short -₹1,983.64"
 2026-09-04,vwap,15,-1957.72,"15 flips; -₹1,957.72"
 2026-09-04,momentum,1,128.04,NIFTYBEES long +₹128.04 (first half hour +0.07%)
-2026-09-04,noise,0,0,stayed inside the noise area
+2026-09-04,noise,0,0.0,stayed inside the noise area
 2026-09-07,v2,3,-4952.17,"SYRMA +₹4,971.70; WELCORP -₹4,931.87; KAYNES -₹4,992.00"
 2026-09-07,sip,3,-4996.87,"PFOCUS short -₹2,227.30; SYRMA long -₹1,380.98; ELGIEQUIP long -₹1,388.59"
 2026-09-07,vwap,3,735.02,3 flips; +₹735.02
@@ -93,7 +93,7 @@ date,strategy,trades,pnl,detail
 2026-09-11,sip,3,35127.33,"GRANULES short -₹1,341.76; COCHINSHIP short +₹20,299.50; OIL short +₹16,169.59"
 2026-09-11,vwap,3,2670.85,"3 flips; +₹2,670.85"
 2026-09-11,momentum,1,485.7,NIFTYBEES short +₹485.70 (first half hour -0.55%)
-2026-09-11,noise,0,0,stayed inside the noise area
+2026-09-11,noise,0,0.0,stayed inside the noise area
 2026-09-15,v2,3,-3057.18,"GROWW -₹4,998.48; KALYANKJIL -₹3,052.50; FSL +₹4,993.80"
 2026-09-15,sip,1,-1298.67,"TATAINVEST long not triggered; ZENSARTECH long -₹1,298.67; TATACONSUM long not triggered"
 2026-09-15,vwap,5,3871.9,"5 flips; +₹3,871.90"
@@ -113,7 +113,7 @@ date,strategy,trades,pnl,detail
 2026-09-18,sip,3,18880.79,"PNBHOUSING long +₹3,241.17; TATACHEM short +₹16,867.37; ZYDUSLIFE long -₹1,227.75"
 2026-09-18,vwap,17,-2309.0,"17 flips; -₹2,309.00"
 2026-09-18,momentum,1,-168.74,NIFTYBEES long -₹168.74 (first half hour +0.09%)
-2026-09-18,noise,0,0,stayed inside the noise area
+2026-09-18,noise,0,0.0,stayed inside the noise area
 2026-09-21,v2,3,2733.8,"TEGA +₹2,730.00; CARBORUNIV -₹4,993.20; PATANJALI +₹4,997.00"
 2026-09-21,sip,1,-2013.58,"ACMESOLAR long not triggered; JYOTICNC long -₹2,013.58; ATGL short not triggered"
 2026-09-21,vwap,7,-244.13,7 flips; -₹244.13
@@ -138,7 +138,7 @@ date,strategy,trades,pnl,detail
 2026-09-25,sip,2,-3045.23,"POLICYBZR long not triggered; STARHEALTH long -₹1,447.99; ABDL long -₹1,597.24"
 2026-09-25,vwap,9,-2956.54,"9 flips; -₹2,956.54"
 2026-09-25,momentum,1,-321.67,NIFTYBEES short -₹321.67 (first half hour -0.17%)
-2026-09-25,noise,0,0,stayed inside the noise area
+2026-09-25,noise,0,0.0,stayed inside the noise area
 2026-09-28,v2,3,-10305.2,"FIRSTCRY -₹4,992.80; GESHIP -₹1,995.00; CHENNPETRO -₹3,317.40"
 2026-09-28,sip,2,626.3,"DRREDDY short not triggered; WHIRLPOOL short -₹2,153.20; GESHIP long +₹2,779.50"
 2026-09-28,vwap,3,2273.52,"3 flips; +₹2,273.52"
@@ -163,7 +163,7 @@ date,strategy,trades,pnl,detail
 2026-10-05,sip,3,-5289.72,"DMART short -₹938.40; TDPOWERSYS long -₹2,520.46; CYIENT long -₹1,830.86"
 2026-10-05,vwap,4,600.96,4 flips; +₹600.96
 2026-10-05,momentum,1,-388.42,NIFTYBEES long -₹388.42 (first half hour +0.55%)
-2026-10-05,noise,0,0,stayed inside the noise area
+2026-10-05,noise,0,0.0,stayed inside the noise area
 2026-10-06,v2,3,7070.45,"TRENT +₹1,971.20; BHEL +₹2,173.50; HDFCBANK +₹2,925.75"
 2026-10-06,sip,2,-2657.98,"HONASA long -₹1,793.62; JINDALSTEL short not triggered; GODREJCP long -₹864.36"
 2026-10-06,vwap,1,2892.07,"1 flips; +₹2,892.07"
@@ -203,13 +203,13 @@ date,strategy,trades,pnl,detail
 2026-10-14,sip,1,-1734.35,"TARIL long -₹1,734.35; JSWSTEEL long not triggered; POONAWALLA short not triggered"
 2026-10-14,vwap,9,-2376.25,"9 flips; -₹2,376.25"
 2026-10-14,momentum,1,-135.67,NIFTYBEES short -₹135.67 (first half hour -0.08%)
-2026-10-14,noise,0,0,stayed inside the noise area
+2026-10-14,noise,0,0.0,stayed inside the noise area
 2026-10-16,v2,3,10435.59,"TECHM +₹1,778.40; TCS +₹4,986.94; BHARTIARTL +₹3,670.25"
 2026-10-16,learned,3,10435.59,Current rule + skip if fresh breakout: TECHM TCS BHARTIARTL
 2026-10-16,sip,3,8813.93,"TATACOMM short -₹1,656.11; TECHM long +₹12,226.19; IIFL short -₹1,756.15"
 2026-10-16,vwap,5,1694.83,"5 flips; +₹1,694.83"
 2026-10-16,momentum,1,379.17,NIFTYBEES long +₹379.17 (first half hour +0.13%)
-2026-10-16,noise,0,0,stayed inside the noise area
+2026-10-16,noise,0,0.0,stayed inside the noise area
 2026-10-19,v2,3,-1247.32,"LTM -₹1,144.00; UNIONBANK +₹4,865.88; WELCORP -₹4,969.20"
 2026-10-19,learned,3,-1273.78,Current rule + skip if fresh breakout: LTM UNIONBANK PREMIERENE
 2026-10-19,sip,3,3286.99,"HSCL short -₹996.22; JINDALSAW long +₹5,203.28; ICICIBANK short -₹920.07"
@@ -227,7 +227,7 @@ date,strategy,trades,pnl,detail
 2026-10-22,sip,2,-3013.25,"FRACTAL long not triggered; INDHOTEL long -₹1,204.77; INDIACEM long -₹1,808.48"
 2026-10-22,vwap,15,-15078.84,"15 flips; -₹15,078.84"
 2026-10-22,momentum,1,674.46,NIFTYBEES short +₹674.46 (first half hour -0.46%)
-2026-10-22,noise,0,0,stayed inside the noise area
+2026-10-22,noise,0,0.0,stayed inside the noise area
 2026-10-23,v2,0,0.0,no breakout still above its range at the scan
 2026-10-23,learned,0,0.0,no setup: 
 2026-10-23,sip,3,9142.31,"CYIENT long -₹1,832.84; INDIACEM short +₹12,354.32; IGIL long -₹1,379.17"
@@ -245,13 +245,13 @@ date,strategy,trades,pnl,detail
 2026-10-27,sip,3,9783.42,"SONACOMS long -₹1,422.63; MANKIND long +₹12,220.59; TATACONSUM long -₹1,014.54"
 2026-10-27,vwap,16,-1135.99,"16 flips; -₹1,135.99"
 2026-10-27,momentum,1,636.54,NIFTYBEES long +₹636.54 (first half hour +0.13%)
-2026-10-27,noise,0,0,stayed inside the noise area
+2026-10-27,noise,0,0.0,stayed inside the noise area
 2026-10-28,v2,3,-2004.13,"PPLPHARMA +₹4,991.87; RELIANCE -₹2,006.40; MAZDOCK -₹4,989.60"
 2026-10-28,learned,3,-2004.13,Current rule + skip if fresh breakout: PPLPHARMA RELIANCE MAZDOCK
 2026-10-28,sip,1,-1839.59,"ONESOURCE long -₹1,839.59; SYNGENE short not triggered; ACUTAAS long not triggered"
 2026-10-28,vwap,6,3802.51,"6 flips; +₹3,802.51"
 2026-10-28,momentum,1,-96.39,NIFTYBEES short -₹96.39 (first half hour -0.58%)
-2026-10-28,noise,0,0,stayed inside the noise area
+2026-10-28,noise,0,0.0,stayed inside the noise area
 2026-10-29,v2,3,-1146.37,"RELIANCE -₹3,740.00; ACUTAAS +₹598.00; HDFCBANK +₹1,995.63"
 2026-10-29,learned,3,-1146.37,Current rule + skip if fresh breakout: RELIANCE ACUTAAS HDFCBANK
 2026-10-29,sip,3,3348.62,"JSWENERGY long +₹7,325.99; BSOFT long -₹1,897.70; ACMESOLAR long -₹2,079.67"
@@ -263,7 +263,7 @@ date,strategy,trades,pnl,detail
 2026-10-30,sip,1,-1319.46,"GODREJCP short not triggered; TRENT long not triggered; LAURUSLABS long -₹1,319.46"
 2026-10-30,vwap,8,1012.51,"8 flips; +₹1,012.51"
 2026-10-30,momentum,1,494.28,NIFTYBEES short +₹494.28 (first half hour -0.06%)
-2026-10-30,noise,0,0,stayed inside the noise area
+2026-10-30,noise,0,0.0,stayed inside the noise area
 2026-11-02,v2,3,6296.91,"RELIANCE +₹4,994.91; DELHIVERY -₹3,544.50; DIXON +₹4,846.50"
 2026-11-02,learned,3,6296.91,Current rule: RELIANCE DELHIVERY DIXON
 2026-11-02,sip,2,12482.85,"RKFORGE long not triggered; WELSPUNLIV long -₹2,100.59; INTELLECT long +₹14,583.44"
@@ -276,3 +276,9 @@ date,strategy,trades,pnl,detail
 2026-11-03,vwap,1,3016.43,"1 flips; +₹3,016.43"
 2026-11-03,momentum,1,-55.53,NIFTYBEES long -₹55.53 (first half hour +1.15%)
 2026-11-03,noise,1,1988.07,"NIFTYBEES long +₹1,988.07"
+2026-11-04,v2,3,1344.05,"FRACTAL +₹1,948.05; WELSPUNLIV -₹658.00; BHEL +₹54.00"
+2026-11-04,learned,3,1344.05,Current rule: FRACTAL WELSPUNLIV BHEL
+2026-11-04,sip,3,-6056.05,"HEGAM long -₹2,078.16; JYOTICNC short -₹2,304.90; FRACTAL long -₹1,672.99"
+2026-11-04,vwap,7,407.51,7 flips; +₹407.51
+2026-11-04,momentum,1,421.78,NIFTYBEES long +₹421.78 (first half hour +0.89%)
+2026-11-04,noise,3,-1540.61,"NIFTYBEES long -₹1,980.75; NIFTYBEES long ₹0.00; NIFTYBEES long +₹440.14"
