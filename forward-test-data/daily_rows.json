@@ -83,6 +83,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    63,
    88
+  ],
+  [
+   "'2026-11-04",
+   "'AMZN (Amazon.com, Inc.) stop; GOOGL (Alphabet Inc.) closed 3:55; MSFT (Microsoft Corporation) closed 3:55",
+   3,
+   0,
+   1,
+   2,
+   -70.64,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   91,
+   122
   ]
  ]
 }
