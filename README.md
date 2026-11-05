@@ -147,6 +147,26 @@ Indian rules restrict moving shares between the NSE and US listings, NRIs can't 
 (that means stock futures, in large lots), shorting needs borrowable stock, and the markets'
 closes are hours apart.
 
+## NSE vs BSE gaps
+
+`nse_bse.py` (`.github/workflows/nse-bse.yml`, weekdays 10:57 UTC after the Indian close) compares
+every Nifty 500 share's NSE and BSE prices minute by minute (Yahoo 1-minute bars, about a week
+back; each finished day is measured once and kept in `nse-bse-data/days.csv` and `episodes.csv`).
+The same share trades on both exchanges in rupees, at the same hours, in the same demat account, so
+someone who already holds it can sell where it's dearer and buy back where it's cheaper.
+
+A gap only pays if it beats the round-trip cost: about 0.24% on a Rs 1,00,000 trade from holdings
+(STT 0.1% on each side, stamp duty, exchange and SEBI charges, GST, DP charge) or about 0.08%
+intraday (only if the broker lets the two legs offset; Zerodha users report the second leg being
+rejected for margin). Two measures: "same minute" trades at the prices of the minute the gap shows
+(an upper bound: those are two last trades up to a minute apart); "next minute" places both orders
+in the following minute, which is what someone watching a screen could do. Size: Rs 1,00,000 or what
+traded on each exchange that minute.
+
+First week (28 Oct to 4 Nov 2026, 493 shares): median gap 0.045%; about 1,000 gaps a day beat the
+holdings cost for one minute, but a minute later only about 2% still did, and trading them would
+have lost about Rs 75,000 a day. Firms next to the exchanges take these gaps in milliseconds.
+
 ## Where the results go
 
 | Place | What |
