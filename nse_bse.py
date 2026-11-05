@@ -107,10 +107,15 @@ def parse_minutes(doc):
 # ---------------------------------------------------------------- the measurement
 
 def episodes(sym, nse, bse, route):
-    """Opportunity episodes for one share: [dict]. Minutes need a trade on both exchanges."""
+    """Opportunity episodes for one share: [dict]. Minutes need a trade on both exchanges.
+    'profit' assumes you trade at the prices of the minute you see the gap (best case);
+    'next_profit' assumes you place both orders in the next minute and get that minute's prices
+    (what someone watching a screen could do). Same direction and size; the next minute must have
+    trades on both exchanges, otherwise the next-minute trade is counted as not done (0)."""
     be = breakeven(route)
     out, cur = [], None
-    for key in sorted(set(nse) & set(bse)):
+    both = sorted(set(nse) & set(bse))
+    for key in both:
         (pn, vn), (pb, vb) = nse[key], bse[key]
         hi, lo = max(pn, pb), min(pn, pb)
         gap = hi / lo - 1
@@ -125,11 +130,27 @@ def episodes(sym, nse, bse, route):
         sell_ex, buy_ex = ("NSE", "BSE") if pn > pb else ("BSE", "NSE")
         value = qty * lo
         profit = qty * (hi - lo) - (cost(route, buy_ex, sell_ex, value) if qty else 0)
+        nxt = (key[0], _plus_minute(key[1]))
+        next_profit, next_gap = 0.0, None
+        if nxt in nse and nxt in bse:
+            (pn2, vn2), (pb2, vb2) = nse[nxt], bse[nxt]
+            sell2, buy2 = (pn2, pb2) if pn > pb else (pb2, pn2)      # same direction as the signal
+            q2 = int(min(qty, vn2, vb2))
+            next_gap = sell2 / buy2 - 1
+            if q2:
+                next_profit = q2 * (sell2 - buy2) - cost(route, buy_ex, sell_ex, q2 * buy2)
         cur = {"date": key[0], "time": key[1], "last": key[1], "symbol": sym, "dir": pn > pb,
                "sell_on": sell_ex, "buy_on": buy_ex, "sell_px": hi, "buy_px": lo, "gap": gap, "max_gap": gap,
-               "qty": qty, "value": round(value, 2), "profit": round(profit, 2), "minutes": 1}
+               "qty": qty, "value": round(value, 2), "profit": round(profit, 2), "minutes": 1,
+               "next_gap": "" if next_gap is None else next_gap, "next_profit": round(next_profit, 2)}
         out.append(cur)
     return out
+
+
+def _plus_minute(hhmm):
+    h, m = map(int, hhmm.split(":"))
+    m += 1
+    return "%02d:%02d" % (h + m // 60, m % 60)
 
 
 def _next_minute(a, b):
@@ -222,11 +243,15 @@ def run(out_dir, universe=None, fetch=fetch_minutes, workers=3):
                          "minutes_above_holdings_cost": above_h, "minutes_above_intraday_cost": above_i,
                          "episodes_holdings": len(eps["holdings"]),
                          "profit_holdings": round(sum(e["profit"] for e in eps["holdings"]), 2),
+                         "next_profit_holdings": round(sum(e["next_profit"] for e in eps["holdings"]), 2),
+                         "next_wins_holdings": sum(1 for e in eps["holdings"] if e["next_profit"] > 0),
                          "episodes_intraday": len(eps["intraday"]),
-                         "profit_intraday": round(sum(e["profit"] for e in eps["intraday"]), 2)})
+                         "profit_intraday": round(sum(e["profit"] for e in eps["intraday"]), 2),
+                         "next_profit_intraday": round(sum(e["next_profit"] for e in eps["intraday"]), 2),
+                         "next_wins_intraday": sum(1 for e in eps["intraday"] if e["next_profit"] > 0)})
         new_eps += eps["holdings"] + eps["intraday"]
     cols = ["date", "time", "minutes", "route", "symbol", "name", "sell_on", "buy_on", "sell_px", "buy_px", "gap",
-            "max_gap", "qty", "value", "profit"]
+            "max_gap", "qty", "value", "profit", "next_gap", "next_profit"]
     write_rows(ep_path, cols, new_eps)
     dcols = list(new_days[0]) if new_days else []
     if new_days:
@@ -243,9 +268,11 @@ def run(out_dir, universe=None, fetch=fetch_minutes, workers=3):
         json.dump(sheet_rows(all_days, all_eps), fh, ensure_ascii=False)
     print("new days: %s" % (", ".join(d["date"] for d in new_days) or "none"))
     for d in new_days:
-        print("  %s: %d shares, median gap %.3f%%, %d holdings episodes Rs %.0f, %d intraday episodes Rs %.0f" % (
-            d["date"], d["shares"], d["median_gap_pct"], d["episodes_holdings"], d["profit_holdings"],
-            d["episodes_intraday"], d["profit_intraday"]))
+        print("  %s: %d shares, median gap %.3f%%; holdings: %d gaps, same minute Rs %.0f, next minute Rs %.0f "
+              "(%d won); intraday: %d gaps, same minute Rs %.0f, next minute Rs %.0f (%d won)" % (
+                  d["date"], d["shares"], d["median_gap_pct"], d["episodes_holdings"], d["profit_holdings"],
+                  d["next_profit_holdings"], d["next_wins_holdings"], d["episodes_intraday"], d["profit_intraday"],
+                  d["next_profit_intraday"], d["next_wins_intraday"]))
     return 0 if data else 1
 
 
@@ -269,31 +296,40 @@ def sheet_rows(days, eps):
              "money. Trade size: Rs 1,00,000 or what traded on each exchange that minute, whichever is smaller. "
              "Profits are an upper bound: the last trade of a minute may no longer be available." % (100 * bh, 100 * bi)],
             [],
+            ["Two measures: 'same minute' trades at the prices of the minute the gap shows (impossible by hand: "
+             "the gap is usually two last trades up to a minute apart, and firms next to the exchange take it in "
+             "milliseconds); 'next minute' places both orders in the following minute and gets that minute's "
+             "prices, which is what someone watching a screen could do."],
             ["BY DAY", "Date", "Shares compared", "Minutes compared", "Median gap", "Minutes above holdings cost",
-             "Minutes above intraday cost", "Holdings route: trades", "Holdings route: profit (Rs)",
-             "Intraday route: trades", "Intraday route: profit (Rs)"]]
+             "Holdings: gaps", "Holdings: same minute (Rs)", "Holdings: next minute (Rs)", "Holdings: next-minute wins",
+             "Intraday: gaps", "Intraday: same minute (Rs)", "Intraday: next minute (Rs)", "Intraday: next-minute wins"]]
+    g = lambda d, k: float(d.get(k) or 0)
     for d in sorted(days, key=lambda d: d["date"], reverse=True):
         rows.append(["", "'" + d["date"], int(d["shares"]), int(d["minutes_compared"]),
                      float(d["median_gap_pct"]) / 100, int(d["minutes_above_holdings_cost"]),
-                     int(d["minutes_above_intraday_cost"]), int(d["episodes_holdings"]), float(d["profit_holdings"]),
-                     int(d["episodes_intraday"]), float(d["profit_intraday"])])
+                     int(d["episodes_holdings"]), g(d, "profit_holdings"), g(d, "next_profit_holdings"),
+                     int(g(d, "next_wins_holdings")), int(d["episodes_intraday"]), g(d, "profit_intraday"),
+                     g(d, "next_profit_intraday"), int(g(d, "next_wins_intraday"))])
     months = sorted({d["date"][:7] for d in days})
-    rows += [[], ["BY MONTH", "Month", "Days", "Holdings route: trades", "Holdings route: profit (Rs)",
-                  "Intraday route: trades", "Intraday route: profit (Rs)"]]
+    rows += [[], ["BY MONTH", "Month", "Days", "Holdings: gaps", "Holdings: same minute (Rs)",
+                  "Holdings: next minute (Rs)", "Intraday: gaps", "Intraday: same minute (Rs)",
+                  "Intraday: next minute (Rs)"]]
     for m in reversed(months):
         ds = [d for d in days if d["date"].startswith(m)]
         rows.append(["", "'" + m, len(ds), sum(int(d["episodes_holdings"]) for d in ds),
-                     round(sum(float(d["profit_holdings"]) for d in ds), 2),
-                     sum(int(d["episodes_intraday"]) for d in ds), round(sum(float(d["profit_intraday"]) for d in ds), 2)])
+                     round(sum(g(d, "profit_holdings") for d in ds), 2), round(sum(g(d, "next_profit_holdings") for d in ds), 2),
+                     sum(int(d["episodes_intraday"]) for d in ds), round(sum(g(d, "profit_intraday") for d in ds), 2),
+                     round(sum(g(d, "next_profit_intraday") for d in ds), 2)])
     rows += [[], ["BIGGEST GAPS (holdings route, newest first, up to 100)", "Date", "Time", "Share", "Company",
                   "Sell on", "Buy on", "Sell price", "Buy price", "Gap", "Lasted (min)", "Shares", "Value (Rs)",
-                  "Profit after costs (Rs)"]]
+                  "Same minute: profit after costs (Rs)", "Gap a minute later", "Next minute: profit after costs (Rs)"]]
     hold = [e for e in eps if e["route"] == "holdings"]
     hold.sort(key=lambda e: (e["date"], float(e["profit"])), reverse=True)
     for e in hold[:100]:
         rows.append(["", "'" + e["date"], "'" + e["time"], e["symbol"], e["name"], e["sell_on"], e["buy_on"],
                      float(e["sell_px"]), float(e["buy_px"]), float(e["gap"]), int(e["minutes"]), int(e["qty"]),
-                     float(e["value"]), float(e["profit"])])
+                     float(e["value"]), float(e["profit"]), "" if e.get("next_gap") in ("", None) else float(e["next_gap"]),
+                     float(e.get("next_profit") or 0)])
     return rows
 
 
@@ -301,7 +337,12 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--out", default=os.path.join(HERE, "nse-bse-data"))
     ap.add_argument("--limit", type=int, default=0, help="only the first N shares (testing)")
+    ap.add_argument("--rebuild", action="store_true", help="forget stored days and measure again")
     args = ap.parse_args(argv)
+    if args.rebuild:
+        for f in ("episodes.csv", "days.csv"):
+            if os.path.exists(os.path.join(args.out, f)):
+                os.remove(os.path.join(args.out, f))
     uni = load_universe()
     if args.limit:
         uni = uni[:args.limit]

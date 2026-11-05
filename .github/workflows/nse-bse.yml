@@ -9,6 +9,11 @@ on:
   schedule:
     - cron: "57 10 * * 1-5"
   workflow_dispatch:
+    inputs:
+      rebuild:
+        description: "measure stored days again (true/false)"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -32,7 +37,10 @@ jobs:
         run: python -m unittest tests.test_nse_bse
 
       - name: Measure the gaps
-        run: python -I -u nse_bse.py
+        env:
+          REBUILD: ${{ github.event.inputs.rebuild || 'false' }}
+        run: |
+          if [ "$REBUILD" = "true" ]; then python -I -u nse_bse.py --rebuild; else python -I -u nse_bse.py; fi
 
       - name: Save the results to the repo
         if: always()

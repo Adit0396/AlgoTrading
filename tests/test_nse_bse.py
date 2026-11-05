@@ -33,6 +33,17 @@ class Episodes(unittest.TestCase):
         want = 300 * 0.5 - nb.cost("holdings", "NSE", "BSE", 300 * 100.0)
         self.assertAlmostEqual(e["profit"], round(want, 2))
         self.assertAlmostEqual(e["profit"], 67.67, 2)  # Rs 150 gap - Rs 64.50 STT and stamp - Rs 15.34 DP - charges
+        # A minute later (10:02) the BSE is still 0.6% dearer: the next-minute trade works too.
+        want2 = 300 * 0.6 - nb.cost("holdings", "NSE", "BSE", 300 * 100.0)
+        self.assertAlmostEqual(e["next_profit"], round(want2, 2))
+
+    def test_gap_gone_next_minute(self):
+        d = "2026-11-04"
+        nse = {(d, "10:00"): (100.0, 5000), (d, "10:01"): (100.0, 5000)}
+        bse = {(d, "10:00"): (100.5, 5000), (d, "10:01"): (100.0, 5000)}
+        e = nb.episodes("X", nse, bse, "holdings")[0]
+        self.assertGreater(e["profit"], 0)
+        self.assertLess(e["next_profit"], 0)           # only the costs are left
 
     def test_stale_minutes_ignored(self):
         d = "2026-11-04"
