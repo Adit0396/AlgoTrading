@@ -18,9 +18,10 @@ far from its own recent level and then coming back:
   Exit at the next closes once |z| <= 0.5, after 20 trading days, or if the gap widens to 2 more
   standard deviations than at the signal (stop).
 
-A one-day premium jump of more than 5 points is treated as a corporate action (split, bonus,
-dividend, ratio change), not an opportunity: the 60-day history restarts from there and any open
-trade is closed.
+A one-day premium jump of more than 20 points is treated as a corporate action (split, bonus,
+ratio change), not an opportunity: the 60-day history restarts and any open trade is closed.
+Moves of a few points are normal: New York often moves 3-5% after the NSE and ASX have closed,
+and the local market catches up the next day.
 
 Costs, per side: 5 bps on US trades, 15 bps on NSE, 10 bps on ASX, 10 bps currency conversion on
 the local leg, and 3% a year for carrying the short leg. P&L is in US$ and converted to A$ at each
@@ -62,7 +63,7 @@ US_COST = 0.0005
 FX_COST = 0.0010
 SHORT_CARRY = 0.03          # a year, on the short leg
 LEG_USD = 5000.0
-WINDOW, ENTRY_Z, EXIT_Z, STOP_WIDEN, MAX_DAYS, BREAK = 60, 2.0, 0.5, 2.0, 20, 0.05
+WINDOW, ENTRY_Z, EXIT_Z, STOP_WIDEN, MAX_DAYS, BREAK = 60, 2.0, 0.5, 2.0, 20, 0.20
 BENCH_YEAR = 0.0655         # Indian arbitrage funds, category 1-year average, 3 Nov 2026
 LIVE_FROM = "2026-11-05"    # trades entered from this day on are tracked live; earlier ones are backtest
 

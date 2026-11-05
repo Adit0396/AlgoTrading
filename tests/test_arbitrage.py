@@ -46,7 +46,7 @@ class Strategy(unittest.TestCase):
         zs = ab.zscores(self.series(prem))
         self.assertIsNone(zs[ab.WINDOW - 1][2])
         self.assertIsNotNone(zs[ab.WINDOW][2])
-        prem2 = prem[:65] + [0.2] + [0.2 + 0.001 * math.sin(i) for i in range(10)]
+        prem2 = prem[:65] + [0.5] + [0.5 + 0.001 * math.sin(i) for i in range(10)]
         zs = ab.zscores(self.series(prem2))
         self.assertTrue(zs[65][3])
         self.assertTrue(all(z[2] is None for z in zs[65:]))   # history restarted
@@ -70,7 +70,7 @@ class Strategy(unittest.TestCase):
             (datetime.date.fromisoformat(t["exit_date"]) - datetime.date.fromisoformat(t["entry_date"])).days) / 365, 2))
 
     def test_corporate_action_closes_at_clean_prices(self):
-        prem = [0.02 + 0.002 * math.sin(i) for i in range(65)] + [0.035, 0.036, 0.30, 0.30]
+        prem = [0.02 + 0.002 * math.sin(i) for i in range(65)] + [0.035, 0.036, 0.60, 0.60]
         ser = self.series(prem)
         pair = ("X", "X Ltd", "India ↔ US", "X", "X.NS", 1, "INR=X", True)
         t = ab.simulate(pair, ser, ab.zscores(ser))[0]

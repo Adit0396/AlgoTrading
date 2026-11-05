@@ -133,7 +133,7 @@ HDFC Bank 3; BHP 2; ResMed 10 ASX units.
 The simulated trade: when the premium is 2 standard deviations from its 60-day average, sell the
 expensive side and buy the cheap one (US$5,000 each, at each market's next close), and close when
 it is back within 0.5, after 20 trading days, or if it widens 2 more (stop). A one-day jump of
-more than 5 points is treated as a corporate action: the history restarts and an open trade closes
+more than 20 points is treated as a corporate action: the history restarts and an open trade closes
 at the last clean prices. Costs: 5 bps a side in the US, 15 bps on the NSE, 10 bps on the ASX,
 10 bps currency conversion, and 3% a year to carry the short leg.
 
