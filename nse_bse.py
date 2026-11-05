@@ -300,13 +300,13 @@ def sheet_rows(days, eps):
              "the gap is usually two last trades up to a minute apart, and firms next to the exchange take it in "
              "milliseconds); 'next minute' places both orders in the following minute and gets that minute's "
              "prices, which is what someone watching a screen could do."],
-            ["BY DAY", "Date", "Shares compared", "Minutes compared", "Median gap", "Minutes above holdings cost",
+            ["BY DAY", "Date", "Shares compared", "Minutes compared", "Median gap (%)", "Minutes above holdings cost",
              "Holdings: gaps", "Holdings: same minute (Rs)", "Holdings: next minute (Rs)", "Holdings: next-minute wins",
              "Intraday: gaps", "Intraday: same minute (Rs)", "Intraday: next minute (Rs)", "Intraday: next-minute wins"]]
     g = lambda d, k: float(d.get(k) or 0)
     for d in sorted(days, key=lambda d: d["date"], reverse=True):
         rows.append(["", "'" + d["date"], int(d["shares"]), int(d["minutes_compared"]),
-                     float(d["median_gap_pct"]) / 100, int(d["minutes_above_holdings_cost"]),
+                     float(d["median_gap_pct"]), int(d["minutes_above_holdings_cost"]),
                      int(d["episodes_holdings"]), g(d, "profit_holdings"), g(d, "next_profit_holdings"),
                      int(g(d, "next_wins_holdings")), int(d["episodes_intraday"]), g(d, "profit_intraday"),
                      g(d, "next_profit_intraday"), int(g(d, "next_wins_intraday"))])
@@ -321,14 +321,15 @@ def sheet_rows(days, eps):
                      sum(int(d["episodes_intraday"]) for d in ds), round(sum(g(d, "profit_intraday") for d in ds), 2),
                      round(sum(g(d, "next_profit_intraday") for d in ds), 2)])
     rows += [[], ["BIGGEST GAPS (holdings route, newest first, up to 100)", "Date", "Time", "Share", "Company",
-                  "Sell on", "Buy on", "Sell price", "Buy price", "Gap", "Lasted (min)", "Shares", "Value (Rs)",
-                  "Same minute: profit after costs (Rs)", "Gap a minute later", "Next minute: profit after costs (Rs)"]]
+                  "Sell on", "Buy on", "Sell price", "Buy price", "Gap (%)", "Lasted (min)", "Shares", "Value (Rs)",
+                  "Same minute: profit after costs (Rs)", "Gap a minute later (%)", "Next minute: profit after costs (Rs)"]]
     hold = [e for e in eps if e["route"] == "holdings"]
     hold.sort(key=lambda e: (e["date"], float(e["profit"])), reverse=True)
     for e in hold[:100]:
         rows.append(["", "'" + e["date"], "'" + e["time"], e["symbol"], e["name"], e["sell_on"], e["buy_on"],
-                     float(e["sell_px"]), float(e["buy_px"]), float(e["gap"]), int(e["minutes"]), int(e["qty"]),
-                     float(e["value"]), float(e["profit"]), "" if e.get("next_gap") in ("", None) else float(e["next_gap"]),
+                     round(float(e["sell_px"]), 2), round(float(e["buy_px"]), 2), round(100 * float(e["gap"]), 3),
+                     int(e["minutes"]), int(e["qty"]), float(e["value"]), float(e["profit"]),
+                     "" if e.get("next_gap") in ("", None) else round(100 * float(e["next_gap"]), 3),
                      float(e.get("next_profit") or 0)])
     return rows
 
@@ -338,7 +339,16 @@ def main(argv=None):
     ap.add_argument("--out", default=os.path.join(HERE, "nse-bse-data"))
     ap.add_argument("--limit", type=int, default=0, help="only the first N shares (testing)")
     ap.add_argument("--rebuild", action="store_true", help="forget stored days and measure again")
+    ap.add_argument("--sheet-only", action="store_true", help="rewrite the sheet rows from the stored files")
     args = ap.parse_args(argv)
+    if args.sheet_only:
+        with open(os.path.join(args.out, "days.csv"), newline="") as fh:
+            days = list(csv.DictReader(fh))
+        with open(os.path.join(args.out, "episodes.csv"), newline="") as fh:
+            eps = list(csv.DictReader(fh))
+        with open(os.path.join(args.out, "sheet_nse_bse.json"), "w") as fh:
+            json.dump(sheet_rows(days, eps), fh, ensure_ascii=False)
+        return 0
     if args.rebuild:
         for f in ("episodes.csv", "days.csv"):
             if os.path.exists(os.path.join(args.out, f)):
