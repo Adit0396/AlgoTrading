@@ -227,6 +227,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    154,
    182
+  ],
+  [
+   "'2026-11-05",
+   "'BAJFINANCE (Bajaj Finance Ltd.) target; BSE (BSE Ltd.) target; ICICIBANK (ICICI Bank Ltd.) target",
+   3,
+   3,
+   0,
+   0,
+   13713.99,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   84,
+   113
   ]
  ]
 }

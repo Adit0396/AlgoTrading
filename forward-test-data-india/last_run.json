@@ -1,13 +1,13 @@
 {
   "days": [
     {
-      "date": "2026-11-04",
+      "date": "2026-11-05",
       "picks": [
-        "FRACTAL",
-        "WELSPUNLIV",
-        "BHEL"
+        "BSE",
+        "ICICIBANK",
+        "BAJFINANCE"
       ],
-      "pnl_inr": 1344.05
+      "pnl_inr": 13713.99
     }
   ],
   "charts_loaded": 495,
