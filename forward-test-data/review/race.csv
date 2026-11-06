@@ -281,3 +281,9 @@ date,strategy,trades,pnl,detail
 2026-11-04,vwap,13,-53.85,13 flips; -$53.85
 2026-11-04,momentum,1,-7.02,SPY long -$7.02 (first half hour +1.70%)
 2026-11-04,noise,2,-31.86,SPY long -$18.42; SPY long -$13.44
+2026-11-05,v2,3,-126.95,APP -$43.40; LLY -$41.52; COST -$42.03
+2026-11-05,learned,3,-126.95,Current rule: APP LLY COST
+2026-11-05,sip,2,-38.09,JAN long -$17.91; GIL long -$20.18; U short not triggered
+2026-11-05,vwap,5,155.86,5 flips; +$155.86
+2026-11-05,momentum,1,12.45,SPY short +$12.45 (first half hour -1.64%)
+2026-11-05,noise,1,110.4,SPY short +$110.40

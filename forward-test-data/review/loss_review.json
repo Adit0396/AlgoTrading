@@ -234,5 +234,62 @@
   ],
   "best": "Buy the pullback (no trade)",
   "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-05",
+  "symbol": "APP",
+  "name": "Applovin Corporation",
+  "outcome": "stop",
+  "exit_time": "10:55",
+  "pnl": -43.36,
+  "wrong": "Market falling at entry (index -1.98% since the open); Wide stop (risk 3.01% of price); Big gap up (gapped up 29.0%)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if wide stop",
+   "skip if big gap up"
+  ],
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-05",
+  "symbol": "KO",
+  "name": "Coca-Cola Company (The)",
+  "outcome": "stop",
+  "exit_time": "11:25",
+  "pnl": -49.88,
+  "wrong": "Market falling at entry (index -1.98% since the open); Fresh breakout (broke out at 10:10)",
+  "after": "",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if fresh breakout"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": -33.15
+ },
+ {
+  "date": "2026-11-05",
+  "symbol": "LLY",
+  "name": "Eli Lilly and Company",
+  "outcome": "stop",
+  "exit_time": "10:50",
+  "pnl": -41.5,
+  "wrong": "Market falling at entry (index -1.98% since the open); Chased the breakout (0.74% above the range)",
+  "after": "",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": -30.45
  }
 ]
