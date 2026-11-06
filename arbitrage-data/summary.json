@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-05 06:56 UTC",
+ "generated_at": "2026-11-06 01:51 UTC",
  "pairs": [
-  "INFY: 477 days 2024-11-05 to 2026-11-04, typical premium +0.0%, 24 trades",
-  "WIT: 477 days 2024-11-05 to 2026-11-04, typical premium -0.7%, 19 trades",
-  "HDB: 477 days 2024-11-05 to 2026-11-04, typical premium +4.5%, 16 trades",
-  "IBN: 477 days 2024-11-05 to 2026-11-04, typical premium -0.2%, 21 trades",
-  "RDY: 476 days 2024-11-05 to 2026-11-03, typical premium -0.6%, 16 trades",
-  "BHP: 492 days 2024-11-05 to 2026-11-04, typical premium -0.1%, 21 trades",
-  "RMD: 492 days 2024-11-05 to 2026-11-04, typical premium +0.1%, 21 trades"
+  "INFY: 476 days 2024-11-06 to 2026-11-04, typical premium +0.0%, 24 trades",
+  "WIT: 476 days 2024-11-06 to 2026-11-04, typical premium -0.7%, 19 trades",
+  "HDB: 476 days 2024-11-06 to 2026-11-04, typical premium +4.6%, 16 trades",
+  "IBN: 476 days 2024-11-06 to 2026-11-04, typical premium -0.2%, 21 trades",
+  "RDY: 476 days 2024-11-06 to 2026-11-04, typical premium -0.6%, 16 trades",
+  "BHP: 491 days 2024-11-06 to 2026-11-04, typical premium -0.1%, 21 trades",
+  "RMD: 491 days 2024-11-06 to 2026-11-04, typical premium +0.1%, 21 trades"
  ],
  "latest": {
   "INFY": {
@@ -43,12 +43,12 @@
    "position": "none"
   },
   "RDY": {
-   "date": "2026-11-03",
-   "premium": -0.01,
-   "mean": -0.0105,
-   "z": 0.04,
-   "signal": "none",
-   "position": "sell US, buy local since 2026-10-23 (+116.54 US$ so far)"
+   "date": "2026-11-04",
+   "premium": 0.0185,
+   "mean": -0.0103,
+   "z": 2.81,
+   "signal": "US share expensive: sell US, buy local",
+   "position": "none"
   },
   "BHP": {
    "date": "2026-11-04",
@@ -90,6 +90,6 @@
   "2026-08": 379.74,
   "2026-09": -238.01,
   "2026-10": -34.87,
-  "2026-11": 314.86
+  "2026-11": 91.05
  }
 }
