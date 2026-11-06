@@ -122,5 +122,20 @@
   "BAJFINANCE": [],
   "BSE": [],
   "ICICIBANK": []
+ },
+ "2026-11-06": {
+  "HDFCBANK": [],
+  "ICICIBANK": [],
+  "M&M": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/macys-m-sees-more-significant-215001771.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-05T21:50:01+00:00",
+    "title": "Macy's (M) Sees a More Significant Dip Than Broader Market: Some Facts to Know"
+   }
+  ]
  }
 }

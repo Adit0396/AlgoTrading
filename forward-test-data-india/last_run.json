@@ -1,13 +1,13 @@
 {
   "days": [
     {
-      "date": "2026-11-05",
+      "date": "2026-11-06",
       "picks": [
-        "BSE",
+        "HDFCBANK",
         "ICICIBANK",
-        "BAJFINANCE"
+        "M&M"
       ],
-      "pnl_inr": 13713.99
+      "pnl_inr": 8649.08
     }
   ],
   "charts_loaded": 495,

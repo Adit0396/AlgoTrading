@@ -239,6 +239,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    84,
    113
+  ],
+  [
+   "'2026-11-06",
+   "'HDFCBANK (HDFC Bank Ltd.) target; ICICIBANK (ICICI Bank Ltd.) target; M&M (Mahindra & Mahindra Ltd.) closed 3:15",
+   3,
+   2,
+   0,
+   1,
+   8649.08,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   84,
+   109
   ]
  ]
 }
