@@ -95,6 +95,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    91,
    122
+  ],
+  [
+   "'2026-11-05",
+   "'APP (Applovin Corporation) stop; KO (Coca-Cola Company (The)) stop; LLY (Eli Lilly and Company) stop",
+   3,
+   0,
+   3,
+   0,
+   -134.74,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   81,
+   101
   ]
  ]
 }

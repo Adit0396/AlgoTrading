@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T01:37:59Z",
+ "generated_at": "2026-11-06T01:45:14Z",
  "simulation_only": true,
  "settings": {
   "market": "US",
@@ -27,20 +27,20 @@
   "news_hours": 18
  },
  "totals": {
-  "sessions": 7,
-  "trades": 21,
+  "sessions": 8,
+  "trades": 24,
   "target": 8,
-  "stop": 6,
+  "stop": 9,
   "flat": 7,
   "winners": 11,
-  "win_rate": 0.524,
-  "pnl_usd": -2.89,
-  "return_on_account": -0.0006,
-  "avg_r": 0.049,
-  "predicted_target_first_pct": 31.286,
-  "actual_target_first_pct": 38.1,
-  "predicted_stop_first_pct": 28.267,
-  "actual_stop_first_pct": 28.6
+  "win_rate": 0.458,
+  "pnl_usd": -137.63,
+  "return_on_account": -0.0275,
+  "avg_r": -0.082,
+  "predicted_target_first_pct": 28.917,
+  "actual_target_first_pct": 33.3,
+  "predicted_stop_first_pct": 26.625,
+  "actual_stop_first_pct": 37.5
  },
  "daily": [
   {
@@ -77,6 +77,11 @@
    "date": "2026-11-04",
    "pnl_usd": -70.64,
    "cumulative_usd": -2.89
+  },
+  {
+   "date": "2026-11-05",
+   "pnl_usd": -134.74,
+   "cumulative_usd": -137.63
   }
  ],
  "picks": [
@@ -1308,6 +1313,296 @@
    "candidates": 91.0,
    "rule": "v2",
    "news": []
+  },
+  {
+   "date": "2026-11-05",
+   "symbol": "APP",
+   "name": "Applovin Corporation",
+   "entry_time": "10:15 AM",
+   "entry": 360.53,
+   "stop": 349.69,
+   "target": 371.37,
+   "risk_per_share": 10.84,
+   "shares": 4.0,
+   "position_usd": 1442.12,
+   "max_loss_usd": 43.36,
+   "tm_target_pct": 9.5,
+   "tm_stop_pct": 10.6,
+   "tm_neither_pct": 79.9,
+   "tm_green_pct": 47.1,
+   "tm_avg_r": -0.036,
+   "hist_fired": 35.0,
+   "hist_target": 13.0,
+   "hist_stop": 17.0,
+   "hist_close": 5.0,
+   "hist_avg_r": -0.132,
+   "verdict": "Close to a coin flip: target first 9.5 % vs stop first 10.6 %.",
+   "actual_outcome": "stop",
+   "exit_time": "10:55",
+   "exit_price": 349.69,
+   "r_multiple": -1.0,
+   "pnl_usd": -43.36,
+   "dollar_volume_to_1015": 3146071705.0,
+   "scan_hits": 101.0,
+   "seed": 19.0,
+   "run_at": "2026-11-06 01:39 UTC",
+   "note": "",
+   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-11-05 16:02 UTC, after this entry",
+   "or_high": 360.5,
+   "or_low": 338.88,
+   "breakout_pct": 0.01,
+   "breakout_time": "9:55 AM",
+   "breakout_price": 362.44,
+   "rank": 1.0,
+   "candidates": 81.0,
+   "rule": "v2",
+   "news": []
+  },
+  {
+   "date": "2026-11-05",
+   "symbol": "KO",
+   "name": "Coca-Cola Company (The)",
+   "entry_time": "10:15 AM",
+   "entry": 97.26,
+   "stop": 96.1,
+   "target": 98.42,
+   "risk_per_share": 1.16,
+   "shares": 43.0,
+   "position_usd": 4182.18,
+   "max_loss_usd": 49.88,
+   "tm_target_pct": 6.5,
+   "tm_stop_pct": 6.8,
+   "tm_neither_pct": 86.7,
+   "tm_green_pct": 46.4,
+   "tm_avg_r": -0.04,
+   "hist_fired": 38.0,
+   "hist_target": 15.0,
+   "hist_stop": 15.0,
+   "hist_close": 8.0,
+   "hist_avg_r": -0.018,
+   "verdict": "Close to a coin flip: target first 6.5 % vs stop first 6.8 %.",
+   "actual_outcome": "stop",
+   "exit_time": "11:25",
+   "exit_price": 96.1,
+   "r_multiple": -1.0,
+   "pnl_usd": -49.88,
+   "dollar_volume_to_1015": 1314819015.0,
+   "scan_hits": 101.0,
+   "seed": 19.0,
+   "run_at": "2026-11-06 01:39 UTC",
+   "note": "",
+   "news_before_entry": "10 items (capital, earnings); latest: What Is The Best Case For PepsiCo Stock?",
+   "or_high": 96.56,
+   "or_low": 95.65,
+   "breakout_pct": 0.72,
+   "breakout_time": "10:00 AM",
+   "breakout_price": 96.72,
+   "rank": 3.0,
+   "candidates": 81.0,
+   "rule": "v2",
+   "news": [
+    {
+     "time": "2026-11-05T14:35:49+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "What Is The Best Case For PepsiCo Stock?",
+     "link": "https://www.trefis.com/stock/pep/articles/622910/what-is-the-best-case-for-pepsico-stock/2026-11-05?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-05T13:56:52+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "3 Dependable Dividend Stocks for a $250,000 Passive Income Strategy",
+     "link": "https://247wallst.com/investing/2026/11/05/3-dependable-dividend-stocks-for-a-250000-passive-income-strategy-2/?.tsrc=rss",
+     "tags": [
+      "capital"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-05T13:07:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "If You'd Invested $1,000 Alongside Warren Buffett in Coca-Cola, Here's How Much You'd Have Today",
+     "link": "https://www.fool.com/investing/2026/11/05/if-youd-invested-1000-alongside-warren-buffett-in/?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-05T12:39:14+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Coca-Cola Is Up 39% This Year. How Much of That Is Earnings and How Much Is Multiple?",
+     "link": "https://www.tikr.com/blog/coca-cola-is-up-39-this-year-how-much-of-that-is-earnings-and-how-much-is-multiple?ref=yahoofinance&tlnk=yf-261105-4wj5vjhq&.tsrc=rss",
+     "tags": [
+      "earnings"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-05T10:45:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Own This Many Shares of Coca-Cola, and the Dividends Could Cover Your Phone Bill",
+     "link": "https://www.fool.com/investing/2026/11/05/own-this-many-shares-of-coca-cola-and-the-dividend/?.tsrc=rss",
+     "tags": [
+      "capital"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-05T10:35:20+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Why Should You Think About Coca-Cola Differently Now?",
+     "link": "https://www.trefis.com/stock/ko/articles/622815/why-should-you-think-about-coca-cola-differently-now/2026-11-05?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-05T10:31:09+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Greg Abel\u2019s Next 13F Lands November 16, and 1 Question About Berkshire Hathaway\u2019s $299 Billion Portfolio Looms Larger Than Any Other",
+     "link": "https://247wallst.com/investing/2026/11/05/greg-abels-next-13f-lands-november-16-and-1-question-about-berkshire-hathaways-299-billion-portfolio-looms-larger-than-any-other/?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-05T08:35:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "1 Reason to Hold Coca-Cola Stock for 10 Years",
+     "link": "https://www.fool.com/investing/2026/11/05/1-reason-to-hold-coca-cola-stock-for-10-years/?.tsrc=rss",
+     "tags": [],
+     "important": false
+    }
+   ]
+  },
+  {
+   "date": "2026-11-05",
+   "symbol": "LLY",
+   "name": "Eli Lilly and Company",
+   "entry_time": "10:15 AM",
+   "entry": 1448.61,
+   "stop": 1427.86,
+   "target": 1469.36,
+   "risk_per_share": 20.75,
+   "shares": 2.0,
+   "position_usd": 2897.22,
+   "max_loss_usd": 41.5,
+   "tm_target_pct": 21.0,
+   "tm_stop_pct": 28.0,
+   "tm_neither_pct": 51.0,
+   "tm_green_pct": 44.1,
+   "tm_avg_r": -0.093,
+   "hist_fired": 30.0,
+   "hist_target": 7.0,
+   "hist_stop": 14.0,
+   "hist_close": 9.0,
+   "hist_avg_r": -0.23,
+   "verdict": "Leans toward the stop: target first 21.0 % vs stop first 28.0 %.",
+   "actual_outcome": "stop",
+   "exit_time": "10:50",
+   "exit_price": 1427.86,
+   "r_multiple": -1.0,
+   "pnl_usd": -41.5,
+   "dollar_volume_to_1015": 2168689970.0,
+   "scan_hits": 101.0,
+   "seed": 19.0,
+   "run_at": "2026-11-06 01:39 UTC",
+   "note": "",
+   "news_before_entry": "11 items (deal, earnings, people, regulatory); latest: Prediction: The Weight-Loss Drug Boom Could Be Just the Beginning for Lilly",
+   "or_high": 1438.0,
+   "or_low": 1417.72,
+   "breakout_pct": 0.74,
+   "breakout_time": "10:00 AM",
+   "breakout_price": 1443.91,
+   "rank": 2.0,
+   "candidates": 81.0,
+   "rule": "v2",
+   "news": [
+    {
+     "time": "2026-11-05T14:03:54+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Prediction: The Weight-Loss Drug Boom Could Be Just the Beginning for Lilly",
+     "link": "https://247wallst.com/investing/2026/11/05/prediction-the-weight-loss-drug-boom-could-be-just-the-beginning-for-lilly/?.tsrc=rss",
+     "tags": [
+      "earnings"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-05T13:12:39+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "What Changed In Bristol Myers Squibb's Story?",
+     "link": "https://www.trefis.com/stock/bmy/articles/622816/what-changed-in-bristol-myers-squibbs-story/2026-11-05?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-05T12:30:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "LifeMD expands access to Lilly\u2019s self-pay GLP-1 medicines, enabling option to dispense and ship directly to patients nationwide",
+     "link": "https://finance.yahoo.com/healthcare/articles/lifemd-expands-access-lilly-self-123000327.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-05T12:15:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Zenith Epigenetics Announces Clinical Trial Collaboration and Supply Agreement with Lilly for Registration Enabling Study of ZEN-3694 and Verzenio(R) (Abemaciclib) in NUT Carcinoma",
+     "link": "https://finance.yahoo.com/healthcare/articles/zenith-epigenetics-announces-clinical-trial-121500691.html?.tsrc=rss",
+     "tags": [
+      "regulatory"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-05T11:45:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Lilly to showcase new retatrutide, Taltz (ixekizumab) and Zepbound (tirzepatide) data at ACR Convergence 2026, advancing science at the intersection of rheumatologic conditions and obesity",
+     "link": "https://finance.yahoo.com/healthcare/articles/lilly-showcase-retatrutide-taltz-ixekizumab-114500494.html?.tsrc=rss",
+     "tags": [
+      "regulatory"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-05T11:05:02+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "What State Street Health Care SPDR (XLV) Bought: Eli Lilly Leads on Nov. 3",
+     "link": "https://finance.yahoo.com/healthcare/articles/state-street-health-care-spdr-110502486.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-05T11:01:12+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "ETFs Bought $90.0 Million of Lilly (LLY) on Nov. 3",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/etfs-bought-90-0-million-110112728.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-05T10:35:37+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Why Did Pfizer Stop Talking Up This Business?",
+     "link": "https://www.trefis.com/stock/pfe/articles/622820/why-did-pfizer-stop-talking-up-this-business/2026-11-05?.tsrc=rss",
+     "tags": [],
+     "important": false
+    }
+   ]
   }
  ]
 }
