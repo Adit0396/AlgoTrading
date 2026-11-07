@@ -502,5 +502,31 @@
     "title": "Why Did Pfizer Stop Talking Up This Business?"
    }
   ]
+ },
+ "2026-11-06": {
+  "AAPL": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/technology/ai/articles/tsmc-rises-report-potential-push-151300006.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-06T15:13:00+00:00",
+    "title": "TSMC rises on report of potential push into advanced memory for Nvidia"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/qualcomm-stock-worth-buying-mixed-151000647.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "earnings"
+    ],
+    "time": "2026-11-06T15:10:00+00:00",
+    "title": "Is Qualcomm Stock Worth Buying After Mixed Q4 Results?"
+   }
+  ],
+  "MSFT": [],
+  "TSLA": []
  }
 }

@@ -107,6 +107,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    81,
    101
+  ],
+  [
+   "'2026-11-06",
+   "'AAPL (Apple Inc.) closed 3:55; MSFT (Microsoft Corporation) closed 3:55; TSLA (Tesla, Inc.) closed 3:55",
+   3,
+   0,
+   0,
+   3,
+   -47.0,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   100,
+   134
   ]
  ]
 }
