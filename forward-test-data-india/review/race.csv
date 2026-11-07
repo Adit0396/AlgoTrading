@@ -288,3 +288,9 @@ date,strategy,trades,pnl,detail
 2026-11-05,vwap,11,356.65,11 flips; +₹356.65
 2026-11-05,momentum,1,-178.71,NIFTYBEES long -₹178.71 (first half hour +1.86%)
 2026-11-05,noise,2,-198.96,NIFTYBEES long -₹377.77; NIFTYBEES long +₹178.81
+2026-11-06,v2,3,8649.08,"HDFCBANK +₹4,797.00; ICICIBANK +₹3,726.08; M&M +₹126.00"
+2026-11-06,learned,3,8649.08,Current rule: HDFCBANK ICICIBANK M&M
+2026-11-06,sip,3,3579.37,"MPHASIS short -₹1,561.92; TITAN long +₹6,736.72; UNOMINDA short -₹1,595.43"
+2026-11-06,vwap,8,4278.75,"8 flips; +₹4,278.75"
+2026-11-06,momentum,1,1464.93,"NIFTYBEES long +₹1,464.93 (first half hour +0.16%)"
+2026-11-06,noise,1,4762.35,"NIFTYBEES long +₹4,762.35"

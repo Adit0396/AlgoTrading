@@ -291,5 +291,93 @@
   ],
   "best": "Buy the pullback",
   "best_pnl": -30.45
+ },
+ {
+  "date": "2026-11-06",
+  "symbol": "AAPL",
+  "name": "Apple Inc.",
+  "outcome": "flat at 3:55",
+  "exit_time": "15:55",
+  "pnl": -10.22,
+  "wrong": "Ordinary volume (0.8x usual volume)",
+  "after": "",
+  "fixes": [
+   [
+    "Target 0.5R",
+    22.82
+   ],
+   [
+    "Exit at 12:00",
+    13.86
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if ordinary volume"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 22.82
+ },
+ {
+  "date": "2026-11-06",
+  "symbol": "MSFT",
+  "name": "Microsoft Corporation",
+  "outcome": "flat at 3:55",
+  "exit_time": "15:55",
+  "pnl": -27.63,
+  "wrong": "Fresh breakout (broke out at 10:15)",
+  "after": "",
+  "fixes": [
+   [
+    "Target 0.5R",
+    23.4
+   ],
+   [
+    "Exit at 12:00",
+    21.78
+   ],
+   [
+    "Buy the pullback",
+    35.28
+   ],
+   [
+    "Wait 15 minutes",
+    36.72
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if fresh breakout"
+  ],
+  "best": "Wait 15 minutes",
+  "best_pnl": 36.72
+ },
+ {
+  "date": "2026-11-06",
+  "symbol": "TSLA",
+  "name": "Tesla, Inc.",
+  "outcome": "flat at 3:55",
+  "exit_time": "15:55",
+  "pnl": -9.15,
+  "wrong": "Chased the breakout (1.58% above the range); Wide stop (risk 2.56% of price); Ordinary volume (0.8x usual volume)",
+  "after": "",
+  "fixes": [
+   [
+    "Exit at 12:00",
+    5.35
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if ordinary volume"
+  ],
+  "best": "Exit at 12:00",
+  "best_pnl": 5.35
  }
 ]

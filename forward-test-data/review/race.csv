@@ -287,3 +287,9 @@ date,strategy,trades,pnl,detail
 2026-11-05,vwap,5,155.86,5 flips; +$155.86
 2026-11-05,momentum,1,12.45,SPY short +$12.45 (first half hour -1.64%)
 2026-11-05,noise,1,110.4,SPY short +$110.40
+2026-11-06,v2,3,-47.0,MSFT -$27.63; TSLA -$9.15; AAPL -$10.22
+2026-11-06,learned,3,-47.0,Current rule: MSFT TSLA AAPL
+2026-11-06,sip,3,-84.79,DKNG short -$28.57; GH short -$35.01; CHTR long -$21.21
+2026-11-06,vwap,19,-161.04,19 flips; -$161.04
+2026-11-06,momentum,1,-15.78,SPY long -$15.78 (first half hour +1.01%)
+2026-11-06,noise,1,-21.15,SPY long -$21.15
