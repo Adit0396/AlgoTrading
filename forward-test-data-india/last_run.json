@@ -1,13 +1,13 @@
 {
   "days": [
     {
-      "date": "2026-11-06",
+      "date": "2026-11-09",
       "picks": [
-        "HDFCBANK",
-        "ICICIBANK",
-        "M&M"
+        "SBIN",
+        "GLAND",
+        "DATAPATTNS"
       ],
-      "pnl_inr": 8649.08
+      "pnl_inr": -3310.56
     }
   ],
   "charts_loaded": 495,
