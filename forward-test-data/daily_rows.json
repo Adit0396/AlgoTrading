@@ -119,6 +119,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    100,
    134
+  ],
+  [
+   "'2026-11-09",
+   "'AMD (Advanced Micro Devices, Inc.) target; MU (Micron Technology, Inc.) closed 3:55; NVDA (NVIDIA Corporation) closed 3:55",
+   3,
+   1,
+   0,
+   2,
+   36.83,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   128,
+   159
   ]
  ]
 }

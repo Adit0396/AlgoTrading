@@ -528,5 +528,83 @@
   ],
   "MSFT": [],
   "TSLA": []
+ },
+ "2026-11-09": {
+  "AMD": [],
+  "MU": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.fool.com/investing/2026/11/09/if-the-stock-market-crashes-im-loading-up-on-these/?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-09T14:14:00+00:00",
+    "title": "If the Stock Market Crashes, I'm Loading Up on These 2 No-Brainer ETFs"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://247wallst.com/investing/2026/11/09/micron-has-lost-over-40-since-june-where-does-its-price-target-stand-now/?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "analyst"
+    ],
+    "time": "2026-11-09T13:47:17+00:00",
+    "title": "Micron Has Lost Over 40% Since June. Where Does Its Price Target Stand Now?"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-nasdaq-11092026-12244409?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "legal",
+     "people"
+    ],
+    "time": "2026-11-09T13:28:56+00:00",
+    "title": "Markets News, Nov. 9, 2026: Dow Climbs 1,100 Points as Stocks Rebound from Last Week\u2019s AI Sell-Off; Nvidia Sinks Amid CEO Probe"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/article/nvidia-stock-sinks-as-chipmaker-investigates-ceo-jensen-huangs-relationship-with-alleged-chinese-spy-130346548.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "people"
+    ],
+    "time": "2026-11-09T13:03:46+00:00",
+    "title": "Nvidia stock sinks 4% as chipmaker investigates CEO Jensen Huang's relationship with alleged Chinese spy"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/micron-technology-inc-mu-trending-130005788.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-09T13:00:05+00:00",
+    "title": "Micron Technology, Inc. (MU) Is a Trending Stock: Facts to Know Before Betting on It"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.axios.com/2026/11/09/schwab-retail-investors-october#utm_source=yahoo_finance&utm_medium=partner&utm_campaign=subs-partner-yahoo-finance-AI?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-09T12:31:13+00:00",
+    "title": "Schwab: Investors looked for a bounce back last month"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/technology/articles/stx-posts-record-q1-fy27-121300140.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "earnings"
+    ],
+    "time": "2026-11-09T12:13:00+00:00",
+    "title": "STX Posts Record Q1 FY27 Profit: Can AI Storage Demand Drive Growth?"
+   }
+  ],
+  "NVDA": []
  }
 }

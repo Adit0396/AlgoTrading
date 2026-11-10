@@ -8,3 +8,4 @@ date,picks,trades,target,stop,flat,day_pnl,running_pnl,candidates,broke_out
 2026-11-04,"AMZN (Amazon.com, Inc.) stop; GOOGL (Alphabet Inc.) closed 3:55; MSFT (Microsoft Corporation) closed 3:55",3,0,1,2,-70.64,-2.89,91,122
 2026-11-05,APP (Applovin Corporation) stop; KO (Coca-Cola Company (The)) stop; LLY (Eli Lilly and Company) stop,3,0,3,0,-134.74,-137.63,81,101
 2026-11-06,"AAPL (Apple Inc.) closed 3:55; MSFT (Microsoft Corporation) closed 3:55; TSLA (Tesla, Inc.) closed 3:55",3,0,0,3,-47.0,-184.63,100,134
+2026-11-09,"AMD (Advanced Micro Devices, Inc.) target; MU (Micron Technology, Inc.) closed 3:55; NVDA (NVIDIA Corporation) closed 3:55",3,1,0,2,36.83,-147.8,128,159
