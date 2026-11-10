@@ -379,5 +379,25 @@
   ],
   "best": "Exit at 12:00",
   "best_pnl": 5.35
+ },
+ {
+  "date": "2026-11-09",
+  "symbol": "NVDA",
+  "name": "NVIDIA Corporation",
+  "outcome": "flat at 3:55",
+  "exit_time": "15:55",
+  "pnl": -9.72,
+  "wrong": "Chased the breakout (1.49% above the range); Wide stop (risk 3.20% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback (no trade)",
+  "best_pnl": 0.0
  }
 ]

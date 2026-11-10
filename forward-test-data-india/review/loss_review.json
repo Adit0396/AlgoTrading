@@ -529,5 +529,53 @@
   ],
   "best": "Buy the pullback",
   "best_pnl": 2812.04
+ },
+ {
+  "date": "2026-11-09",
+  "symbol": "GLAND",
+  "name": "Gland Pharma Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -818.4,
+  "wrong": "Market falling at entry (index -0.56% since the open); Wide stop (risk 2.40% of price)",
+  "after": "",
+  "fixes": [
+   [
+    "Target 0.5R",
+    2463.26
+   ],
+   [
+    "Exit at 12:00",
+    1519.0
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if wide stop"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 2463.26
+ },
+ {
+  "date": "2026-11-09",
+  "symbol": "SBIN",
+  "name": "State Bank of India",
+  "outcome": "stop",
+  "exit_time": "12:15",
+  "pnl": -4995.96,
+  "wrong": "Market falling at entry (index -0.56% since the open); Chased the breakout (0.97% above the range); Wide stop (risk 1.51% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback (no trade)",
+  "best_pnl": 0.0
  }
 ]

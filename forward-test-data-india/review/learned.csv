@@ -19,3 +19,4 @@ date,rule,exit,skips,picks,pnl
 2026-11-04,Current rule,base,,FRACTAL WELSPUNLIV BHEL,1344.05
 2026-11-05,Current rule,base,,BSE ICICIBANK BAJFINANCE,13713.99
 2026-11-06,Current rule,base,,HDFCBANK ICICIBANK M&M,8649.08
+2026-11-09,Current rule + Target 2R,t2,,SBIN GLAND DATAPATTNS,-3310.56

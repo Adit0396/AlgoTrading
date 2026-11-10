@@ -293,3 +293,9 @@ date,strategy,trades,pnl,detail
 2026-11-06,vwap,19,-161.04,19 flips; -$161.04
 2026-11-06,momentum,1,-15.78,SPY long -$15.78 (first half hour +1.01%)
 2026-11-06,noise,1,-21.15,SPY long -$21.15
+2026-11-09,v2,3,37.91,NVDA -$8.64; AMD +$45.90; MU +$0.65
+2026-11-09,learned,3,37.91,Current rule: NVDA AMD MU
+2026-11-09,sip,3,-6.07,IONS short +$32.82; SGRY long -$15.16; ARWR short -$23.73
+2026-11-09,vwap,1,96.81,1 flips; +$96.81
+2026-11-09,momentum,1,-15.45,SPY long -$15.45 (first half hour +1.68%)
+2026-11-09,noise,1,33.06,SPY long +$33.06
