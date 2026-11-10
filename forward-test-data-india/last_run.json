@@ -1,15 +1,5 @@
 {
-  "days": [
-    {
-      "date": "2026-11-09",
-      "picks": [
-        "SBIN",
-        "GLAND",
-        "DATAPATTNS"
-      ],
-      "pnl_inr": -3310.56
-    }
-  ],
+  "days": [],
   "charts_loaded": 495,
   "charts_failed": 1
 }
