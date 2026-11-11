@@ -299,4 +299,4 @@ date,strategy,trades,pnl,detail
 2026-11-09,sip,2,3895.33,"FINCABLES short +₹5,533.77; HONASA short not triggered; SAILIFE long -₹1,638.44"
 2026-11-09,vwap,14,-2744.08,"14 flips; -₹2,744.08"
 2026-11-09,momentum,1,-228.16,NIFTYBEES short -₹228.16 (first half hour -0.02%)
-2026-11-09,noise,0,0,stayed inside the noise area
+2026-11-09,noise,0,0.0,stayed inside the noise area

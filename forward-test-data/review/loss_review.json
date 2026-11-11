@@ -399,5 +399,71 @@
   ],
   "best": "Buy the pullback (no trade)",
   "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-10",
+  "symbol": "AMD",
+  "name": "Advanced Micro Devices, Inc.",
+  "outcome": "stop",
+  "exit_time": "11:55",
+  "pnl": -28.39,
+  "wrong": "Chased the breakout (3.61% above the range); Wide stop (risk 5.27% of price)",
+  "after": "",
+  "fixes": [
+   [
+    "Buy the pullback",
+    48.15
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": 48.15
+ },
+ {
+  "date": "2026-11-10",
+  "symbol": "MU",
+  "name": "Micron Technology, Inc.",
+  "outcome": "stop",
+  "exit_time": "10:55",
+  "pnl": -28.12,
+  "wrong": "Chased the breakout (2.57% above the range); Wide stop (risk 3.80% of price); Ordinary volume (0.8x usual volume)",
+  "after": "",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if ordinary volume"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": -28.13
+ },
+ {
+  "date": "2026-11-10",
+  "symbol": "SPCX",
+  "name": "Space Exploration Technologies Corp.",
+  "outcome": "flat at 3:55",
+  "exit_time": "15:55",
+  "pnl": -19.98,
+  "wrong": "Chased the breakout (2.34% above the range); Wide stop (risk 3.61% of price); Ordinary volume (0.9x usual volume)",
+  "after": "",
+  "fixes": [
+   [
+    "Buy the pullback",
+    28.34
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if ordinary volume"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": 28.34
  }
 ]

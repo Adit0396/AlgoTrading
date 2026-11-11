@@ -299,3 +299,9 @@ date,strategy,trades,pnl,detail
 2026-11-09,vwap,1,96.81,1 flips; +$96.81
 2026-11-09,momentum,1,-15.45,SPY long -$15.45 (first half hour +1.68%)
 2026-11-09,noise,1,33.06,SPY long +$33.06
+2026-11-10,v2,3,-76.51,AMD -$28.40; MU -$28.13; SPCX -$19.98
+2026-11-10,learned,3,-76.51,Current rule: AMD MU SPCX
+2026-11-10,sip,3,-58.76,DBX long -$18.60; FA long -$24.01; GFL long -$16.15
+2026-11-10,vwap,7,42.79,7 flips; +$42.79
+2026-11-10,momentum,1,-3.24,SPY short -$3.24 (first half hour -0.25%)
+2026-11-10,noise,0,0,stayed inside the noise area
