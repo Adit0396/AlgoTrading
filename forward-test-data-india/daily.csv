@@ -20,3 +20,4 @@ date,picks,trades,target,stop,flat,day_pnl,running_pnl,candidates,broke_out
 2026-11-05,BAJFINANCE (Bajaj Finance Ltd.) target; BSE (BSE Ltd.) target; ICICIBANK (ICICI Bank Ltd.) target,3,3,0,0,13713.99,22680.16,84,113
 2026-11-06,HDFCBANK (HDFC Bank Ltd.) target; ICICIBANK (ICICI Bank Ltd.) target; M&M (Mahindra & Mahindra Ltd.) closed 3:15,3,2,0,1,8649.08,31329.24,84,109
 2026-11-09,DATAPATTNS (Data Patterns (India) Ltd.) closed 3:15; GLAND (Gland Pharma Ltd.) closed 3:15; SBIN (State Bank of India) stop,3,0,1,2,-3310.56,28018.68,39,54
+2026-11-11,IIFL (IIFL Finance Ltd.) closed 3:15; KALYANKJIL (Kalyan Jewellers India Ltd.) closed 3:15; SBIN (State Bank of India) target,3,1,0,2,-1616.08,26402.6,98,143

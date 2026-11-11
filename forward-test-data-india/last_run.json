@@ -1,5 +1,15 @@
 {
-  "days": [],
+  "days": [
+    {
+      "date": "2026-11-11",
+      "picks": [
+        "KALYANKJIL",
+        "SBIN",
+        "IIFL"
+      ],
+      "pnl_inr": -1616.08
+    }
+  ],
   "charts_loaded": 495,
   "charts_failed": 1
 }
