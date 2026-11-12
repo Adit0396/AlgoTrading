@@ -300,3 +300,9 @@ date,strategy,trades,pnl,detail
 2026-11-09,vwap,14,-2744.08,"14 flips; -₹2,744.08"
 2026-11-09,momentum,1,-228.16,NIFTYBEES short -₹228.16 (first half hour -0.02%)
 2026-11-09,noise,0,0.0,stayed inside the noise area
+2026-11-11,v2,3,-1616.08,"KALYANKJIL -₹2,849.50; SBIN +₹2,710.82; IIFL -₹1,477.40"
+2026-11-11,learned,3,1094.74,Current rule + Target 2R: KALYANKJIL SBIN IIFL
+2026-11-11,sip,2,5999.73,"COCHINSHIP short not triggered; IIFL long +₹7,686.08; KALYANKJIL long -₹1,686.35"
+2026-11-11,vwap,7,990.75,7 flips; +₹990.75
+2026-11-11,momentum,1,-1930.26,"NIFTYBEES long -₹1,930.26 (first half hour +1.60%)"
+2026-11-11,noise,1,-1380.78,"NIFTYBEES long -₹1,380.78"

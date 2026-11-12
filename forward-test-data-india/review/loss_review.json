@@ -577,5 +577,55 @@
   ],
   "best": "Buy the pullback (no trade)",
   "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-11",
+  "symbol": "IIFL",
+  "name": "IIFL Finance Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -1477.4,
+  "wrong": "Chased the breakout (2.89% above the range); Wide stop (risk 4.43% of price); Big gap up (gapped up 2.3%); Fresh breakout (broke out at 09:55)",
+  "after": "",
+  "fixes": [
+   [
+    "Target 0.5R",
+    2486.68
+   ],
+   [
+    "Exit at 12:00",
+    913.0
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if big gap up",
+   "skip if fresh breakout"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 2486.68
+ },
+ {
+  "date": "2026-11-11",
+  "symbol": "KALYANKJIL",
+  "name": "Kalyan Jewellers India Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -2849.5,
+  "wrong": "Chased the breakout (1.55% above the range); Wide stop (risk 5.24% of price); Big gap up (gapped up 2.9%)",
+  "after": "",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if big gap up"
+  ],
+  "best": "Exit at 12:00",
+  "best_pnl": -1563.75
  }
 ]

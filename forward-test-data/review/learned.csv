@@ -10,3 +10,4 @@ date,rule,exit,skips,picks,pnl
 2026-11-06,Current rule,base,,MSFT TSLA AAPL,-47.0
 2026-11-09,Current rule,base,,NVDA AMD MU,37.91
 2026-11-10,Current rule,base,,AMD MU SPCX,-76.51
+2026-11-11,Current rule,base,,MU SNDK CRWV,120.04
