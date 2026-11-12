@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-11 01:30 UTC",
+ "generated_at": "2026-11-12 02:32 UTC",
  "pairs": [
-  "INFY: 476 days 2024-11-11 to 2026-11-09, typical premium +0.0%, 24 trades",
-  "WIT: 476 days 2024-11-11 to 2026-11-09, typical premium -0.7%, 19 trades",
-  "HDB: 476 days 2024-11-11 to 2026-11-09, typical premium +4.6%, 17 trades",
-  "IBN: 476 days 2024-11-11 to 2026-11-09, typical premium -0.2%, 22 trades",
-  "RDY: 476 days 2024-11-11 to 2026-11-09, typical premium -0.6%, 17 trades",
-  "BHP: 491 days 2024-11-11 to 2026-11-09, typical premium -0.1%, 22 trades",
-  "RMD: 491 days 2024-11-11 to 2026-11-09, typical premium +0.1%, 21 trades"
+  "INFY: 475 days 2024-11-12 to 2026-11-09, typical premium +0.0%, 24 trades",
+  "WIT: 475 days 2024-11-12 to 2026-11-09, typical premium -0.7%, 19 trades",
+  "HDB: 475 days 2024-11-12 to 2026-11-09, typical premium +4.6%, 17 trades",
+  "IBN: 475 days 2024-11-12 to 2026-11-09, typical premium -0.2%, 22 trades",
+  "RDY: 475 days 2024-11-12 to 2026-11-09, typical premium -0.6%, 17 trades",
+  "BHP: 491 days 2024-11-12 to 2026-11-10, typical premium -0.1%, 22 trades",
+  "RMD: 491 days 2024-11-12 to 2026-11-10, typical premium +0.1%, 21 trades"
  ],
  "latest": {
   "INFY": {
@@ -51,20 +51,20 @@
    "position": "sell US, buy local since 2026-11-05 (-107.98 US$ so far)"
   },
   "BHP": {
-   "date": "2026-11-09",
-   "premium": 0.0189,
-   "mean": -0.0012,
-   "z": 1.15,
+   "date": "2026-11-10",
+   "premium": -0.0212,
+   "mean": -0.0009,
+   "z": -1.15,
    "signal": "none",
    "position": "none"
   },
   "RMD": {
-   "date": "2026-11-09",
-   "premium": 0.0015,
-   "mean": 0.0036,
-   "z": -0.11,
+   "date": "2026-11-10",
+   "premium": -0.0089,
+   "mean": 0.0038,
+   "z": -0.68,
    "signal": "none",
-   "position": "buy US, sell local since 2026-11-02 (+27.83 US$ so far)"
+   "position": "none"
   }
  },
  "failed": [],
@@ -90,6 +90,6 @@
   "2026-08": 379.74,
   "2026-09": -238.01,
   "2026-10": -34.87,
-  "2026-11": -488.35
+  "2026-11": -565.33
  }
 }
