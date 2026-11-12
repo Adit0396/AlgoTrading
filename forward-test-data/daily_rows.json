@@ -143,6 +143,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    121,
    145
+  ],
+  [
+   "'2026-11-11",
+   "'CRWV (CoreWeave, Inc.) target; MU (Micron Technology, Inc.) target; SNDK (Sandisk Corporation) target",
+   3,
+   3,
+   0,
+   0,
+   120.02,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   42,
+   85
   ]
  ]
 }
