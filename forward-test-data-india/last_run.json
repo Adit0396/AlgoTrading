@@ -1,13 +1,13 @@
 {
   "days": [
     {
-      "date": "2026-11-11",
+      "date": "2026-11-12",
       "picks": [
-        "KALYANKJIL",
         "SBIN",
-        "IIFL"
+        "CDSL",
+        "KOTAKBANK"
       ],
-      "pnl_inr": -1616.08
+      "pnl_inr": 242.12
     }
   ],
   "charts_loaded": 495,

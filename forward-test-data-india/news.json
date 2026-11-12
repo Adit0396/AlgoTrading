@@ -147,5 +147,22 @@
   "IIFL": [],
   "KALYANKJIL": [],
   "SBIN": []
+ },
+ "2026-11-12": {
+  "CDSL": [],
+  "KOTAKBANK": [],
+  "SBIN": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/mufin-green-finance-ltd-bom-030745343.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "earnings"
+    ],
+    "time": "2026-11-12T03:07:45+00:00",
+    "title": "Mufin Green Finance Ltd (BOM:542774) (Q2 2027) Earnings Call Highlights: AUM Jumps 71% as ..."
+   }
+  ]
  }
 }

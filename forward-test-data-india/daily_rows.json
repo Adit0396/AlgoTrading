@@ -275,6 +275,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    98,
    143
+  ],
+  [
+   "'2026-11-12",
+   "'CDSL (Central Depository Services (India) Ltd.) closed 3:15; KOTAKBANK (Kotak Mahindra Bank Ltd.) stop; SBIN (State Bank of India) target",
+   3,
+   1,
+   1,
+   1,
+   242.12,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   101,
+   134
   ]
  ]
 }
