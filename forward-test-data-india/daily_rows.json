@@ -287,6 +287,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    101,
    134
+  ],
+  [
+   "'2026-11-13",
+   "'GROWW (Billionbrains Garage Ventures Ltd.) closed 3:15; MCX (Multi Commodity Exchange of India Ltd.) closed 3:15; POWERINDIA (Hitachi Energy India Ltd.) closed 3:15",
+   3,
+   0,
+   0,
+   3,
+   -3829.49,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   132,
+   145
   ]
  ]
 }

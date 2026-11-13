@@ -1,13 +1,13 @@
 {
   "days": [
     {
-      "date": "2026-11-12",
+      "date": "2026-11-13",
       "picks": [
-        "SBIN",
-        "CDSL",
-        "KOTAKBANK"
+        "POWERINDIA",
+        "MCX",
+        "GROWW"
       ],
-      "pnl_inr": 242.12
+      "pnl_inr": -3829.49
     }
   ],
   "charts_loaded": 495,
