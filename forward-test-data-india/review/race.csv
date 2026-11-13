@@ -306,3 +306,9 @@ date,strategy,trades,pnl,detail
 2026-11-11,vwap,7,990.75,7 flips; +₹990.75
 2026-11-11,momentum,1,-1930.26,"NIFTYBEES long -₹1,930.26 (first half hour +1.60%)"
 2026-11-11,noise,1,-1380.78,"NIFTYBEES long -₹1,380.78"
+2026-11-12,v2,3,242.12,"SBIN +₹4,723.52; CDSL +₹90.60; KOTAKBANK -₹4,572.00"
+2026-11-12,learned,3,645.8,Current rule + Target 2R: SBIN CDSL KOTAKBANK
+2026-11-12,sip,1,-1587.79,"TRITURBINE long not triggered; HINDCOPPER short -₹1,587.79; CUPID long not triggered"
+2026-11-12,vwap,4,1403.86,"4 flips; +₹1,403.86"
+2026-11-12,momentum,1,416.86,NIFTYBEES long +₹416.86 (first half hour +0.85%)
+2026-11-12,noise,1,-1021.28,"NIFTYBEES long -₹1,021.28"

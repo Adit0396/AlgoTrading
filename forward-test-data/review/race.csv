@@ -311,3 +311,9 @@ date,strategy,trades,pnl,detail
 2026-11-11,vwap,2,9.94,2 flips; +$9.94
 2026-11-11,momentum,1,-2.1,SPY long -$2.10 (first half hour +0.85%)
 2026-11-11,noise,1,-0.3,SPY long -$0.30
+2026-11-12,v2,3,145.36,GEV +$49.35; SMCI +$49.84; WDC +$46.17
+2026-11-12,learned,3,145.36,Current rule: GEV SMCI WDC
+2026-11-12,sip,3,-57.96,CTRE long -$12.15; BZ short -$21.96; YETI short -$23.85
+2026-11-12,vwap,10,4.88,10 flips; +$4.88
+2026-11-12,momentum,1,0.6,SPY short +$0.60 (first half hour -0.27%)
+2026-11-12,noise,0,0,stayed inside the noise area

@@ -627,5 +627,22 @@
   ],
   "best": "Exit at 12:00",
   "best_pnl": -1563.75
+ },
+ {
+  "date": "2026-11-12",
+  "symbol": "KOTAKBANK",
+  "name": "Kotak Mahindra Bank Ltd.",
+  "outcome": "stop",
+  "exit_time": "12:10",
+  "pnl": -4572.0,
+  "wrong": "nothing flagged at entry",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [],
+  "best": "Buy the pullback (no trade)",
+  "best_pnl": 0.0
  }
 ]
