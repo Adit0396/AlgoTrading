@@ -155,6 +155,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    42,
    85
+  ],
+  [
+   "'2026-11-12",
+   "'GEV (GE Vernova Inc.) target; SMCI (Super Micro Computer, Inc.) target; WDC (Western Digital Corporation) target",
+   3,
+   3,
+   0,
+   0,
+   145.36,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   31,
+   74
   ]
  ]
 }

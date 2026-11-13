@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T02:24:32Z",
+ "generated_at": "2026-11-13T02:02:07Z",
  "simulation_only": true,
  "settings": {
   "market": "US",
@@ -27,20 +27,20 @@
   "news_hours": 18
  },
  "totals": {
-  "sessions": 12,
-  "trades": 36,
-  "target": 12,
+  "sessions": 13,
+  "trades": 39,
+  "target": 15,
   "stop": 11,
   "flat": 13,
-  "winners": 16,
-  "win_rate": 0.444,
-  "pnl_usd": -104.27,
-  "return_on_account": -0.0209,
-  "avg_r": -0.044,
-  "predicted_target_first_pct": 23.819,
-  "actual_target_first_pct": 33.3,
-  "predicted_stop_first_pct": 22.539,
-  "actual_stop_first_pct": 30.6
+  "winners": 19,
+  "win_rate": 0.487,
+  "pnl_usd": 41.09,
+  "return_on_account": 0.0082,
+  "avg_r": 0.036,
+  "predicted_target_first_pct": 24.862,
+  "actual_target_first_pct": 38.5,
+  "predicted_stop_first_pct": 23.818,
+  "actual_stop_first_pct": 28.2
  },
  "daily": [
   {
@@ -102,6 +102,11 @@
    "date": "2026-11-11",
    "pnl_usd": 120.02,
    "cumulative_usd": -104.27
+  },
+  {
+   "date": "2026-11-12",
+   "pnl_usd": 145.36,
+   "cumulative_usd": 41.09
   }
  ],
  "picks": [
@@ -2245,6 +2250,282 @@
    "candidates": 42.0,
    "rule": "v2",
    "news": []
+  },
+  {
+   "date": "2026-11-12",
+   "symbol": "GEV",
+   "name": "GE Vernova Inc.",
+   "entry_time": "10:15 AM",
+   "entry": 813.53,
+   "stop": 797.08,
+   "target": 829.98,
+   "risk_per_share": 16.45,
+   "shares": 3.0,
+   "position_usd": 2440.59,
+   "max_loss_usd": 49.35,
+   "tm_target_pct": 29.5,
+   "tm_stop_pct": 26.0,
+   "tm_neither_pct": 44.5,
+   "tm_green_pct": 52.1,
+   "tm_avg_r": 0.036,
+   "hist_fired": 32.0,
+   "hist_target": 8.0,
+   "hist_stop": 12.0,
+   "hist_close": 12.0,
+   "hist_avg_r": -0.21,
+   "verdict": "Close to a coin flip: target first 29.5 % vs stop first 26.0 %.",
+   "actual_outcome": "target",
+   "exit_time": "10:55",
+   "exit_price": 829.98,
+   "r_multiple": 1.0,
+   "pnl_usd": 49.35,
+   "dollar_volume_to_1015": 1083565805.0,
+   "scan_hits": 74.0,
+   "seed": 19.0,
+   "run_at": "2026-11-13 01:58 UTC",
+   "note": "",
+   "news_before_entry": "8 items (analyst, capital, deal, earnings); latest: Oklo Advances Groves-1 Reactor Into Research and Testing Phase",
+   "or_high": 810.54,
+   "or_low": 783.62,
+   "breakout_pct": 0.37,
+   "breakout_time": "9:55 AM",
+   "breakout_price": 815.2,
+   "rank": 1.0,
+   "candidates": 31.0,
+   "rule": "v2",
+   "news": [
+    {
+     "time": "2026-11-12T15:18:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Oklo Advances Groves-1 Reactor Into Research and Testing Phase",
+     "link": "https://finance.yahoo.com/energy/articles/oklo-advances-groves-1-reactor-151800308.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-12T15:12:39+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "67% Upside for GE Vernova? Morgan Stanley Thinks So, and Here\u2019s How",
+     "link": "https://www.tikr.com/blog/67-upside-for-ge-vernova-morgan-stanley-thinks-so-and-heres-how?ref=yahoofinance&tlnk=yf-261112-hhmf23rf&.tsrc=rss",
+     "tags": [
+      "analyst"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-12T12:11:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Data Center Power Suppliers Post Backlog and Guidance Updates Alongside a Fuel Cell Deal",
+     "link": "https://finance.yahoo.com/news/data-center-power-suppliers-post-121100408.html?.tsrc=rss",
+     "tags": [
+      "earnings",
+      "deal"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-12T11:37:32+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Energy Transition Update - Holu Hou Energy Revolutionizes MDU Solar Adoption",
+     "link": "https://finance.yahoo.com/energy/articles/energy-transition-holu-hou-energy-113732760.html?.tsrc=rss",
+     "tags": [
+      "capital"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-12T01:18:43+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "What Happened To NuScale Power Stock Over The Past Year?",
+     "link": "https://www.trefis.com/stock/smr/articles/624304/what-happened-to-nuscale-power-stock-over-the-past-year/2026-11-11?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-11T23:26:39+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "GE Vernova\u2019s Ontario Nuclear Plant Is Facing Delays And Rising Costs",
+     "link": "https://stocktwits.com/news-articles/markets/equity/ge-vernova-s-ontario-nuclear-plant-is-facing-delays-and-rising-costs/cNGx5Z4R99I?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-11T22:25:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "GE Vernova Fell 25% on Data Center Fears. Only About 20% of Its Gas Turbine Customers Are Data Centers. Time to Buy?",
+     "link": "https://www.fool.com/investing/2026/11/11/ge-vernova-fell-25-on-data-center-fears-only-about/?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-11T21:43:40+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "AI Stocks, Neoclouds Rebound From SoftBank Bump, Get CoreWeave Lift",
+     "link": "https://finance.yahoo.com/m/70db5656-a3a8-363b-9a8f-fe7f4b584fee/ai-stocks%2C-neoclouds-rebound.html?.tsrc=rss",
+     "tags": [
+      "earnings"
+     ],
+     "important": false
+    }
+   ]
+  },
+  {
+   "date": "2026-11-12",
+   "symbol": "SMCI",
+   "name": "Super Micro Computer, Inc.",
+   "entry_time": "10:15 AM",
+   "entry": 28.04,
+   "stop": 27.48,
+   "target": 28.6,
+   "risk_per_share": 0.56,
+   "shares": 89.0,
+   "position_usd": 2495.56,
+   "max_loss_usd": 49.84,
+   "tm_target_pct": 36.4,
+   "tm_stop_pct": 47.8,
+   "tm_neither_pct": 15.9,
+   "tm_green_pct": 43.5,
+   "tm_avg_r": -0.123,
+   "hist_fired": 32.0,
+   "hist_target": 12.0,
+   "hist_stop": 15.0,
+   "hist_close": 5.0,
+   "hist_avg_r": -0.082,
+   "verdict": "Leans toward the stop: target first 36.4 % vs stop first 47.8 %.",
+   "actual_outcome": "target",
+   "exit_time": "11:00",
+   "exit_price": 28.6,
+   "r_multiple": 1.0,
+   "pnl_usd": 49.84,
+   "dollar_volume_to_1015": 587328017.0,
+   "scan_hits": 74.0,
+   "seed": 19.0,
+   "run_at": "2026-11-13 01:58 UTC",
+   "note": "",
+   "news_before_entry": "2 items (analyst, people); latest: Prediction: One AI Trend Could Send Dell Stock Higher",
+   "or_high": 28.0,
+   "or_low": 26.96,
+   "breakout_pct": 0.14,
+   "breakout_time": "10:00 AM",
+   "breakout_price": 28.19,
+   "rank": 2.0,
+   "candidates": 31.0,
+   "rule": "v2",
+   "news": [
+    {
+     "time": "2026-11-12T14:33:09+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Prediction: One AI Trend Could Send Dell Stock Higher",
+     "link": "https://247wallst.com/investing/2026/11/12/prediction-one-ai-trend-could-send-dell-stock-higher/?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-12T14:06:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Nvidia Sinks 11% on Report Board Will Oust Jensen Huang; Bernstein Downgrades: \u201cWe\u2019ve Had Enough\u201d",
+     "link": "https://www.tikr.com/blog/nvidia-sinks-11-on-report-board-will-oust-jensen-huang-bernstein-downgrades-weve-had-enough?ref=yahoofinance&tlnk=yf-261112-mw4r43fw&.tsrc=rss",
+     "tags": [
+      "analyst",
+      "people"
+     ],
+     "important": false
+    }
+   ]
+  },
+  {
+   "date": "2026-11-12",
+   "symbol": "WDC",
+   "name": "Western Digital Corporation",
+   "entry_time": "10:15 AM",
+   "entry": 305.1,
+   "stop": 299.97,
+   "target": 310.23,
+   "risk_per_share": 5.13,
+   "shares": 9.0,
+   "position_usd": 2745.9,
+   "max_loss_usd": 46.17,
+   "tm_target_pct": 46.2,
+   "tm_stop_pct": 43.7,
+   "tm_neither_pct": 10.1,
+   "tm_green_pct": 51.2,
+   "tm_avg_r": 0.026,
+   "hist_fired": 34.0,
+   "hist_target": 13.0,
+   "hist_stop": 10.0,
+   "hist_close": 11.0,
+   "hist_avg_r": 0.054,
+   "verdict": "Close to a coin flip: target first 46.2 % vs stop first 43.7 %.",
+   "actual_outcome": "target",
+   "exit_time": "10:55",
+   "exit_price": 310.23,
+   "r_multiple": 1.0,
+   "pnl_usd": 46.17,
+   "dollar_volume_to_1015": 509528051.0,
+   "scan_hits": 74.0,
+   "seed": 19.0,
+   "run_at": "2026-11-13 01:58 UTC",
+   "note": "",
+   "news_before_entry": "4 items (earnings, people); latest: Wall Street Bulls Look Optimistic About Western Digital (WDC): Should You Buy?",
+   "or_high": 304.85,
+   "or_low": 295.1,
+   "breakout_pct": 0.08,
+   "breakout_time": "10:00 AM",
+   "breakout_price": 308.33,
+   "rank": 3.0,
+   "candidates": 31.0,
+   "rule": "v2",
+   "news": [
+    {
+     "time": "2026-11-12T13:30:03+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Wall Street Bulls Look Optimistic About Western Digital (WDC): Should You Buy?",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/wall-street-bulls-look-optimistic-133003573.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-12T09:42:40+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Applied Materials Stock At $395: Can It Do What CoreWeave Did?",
+     "link": "https://www.trefis.com/stock/amat/articles/624491/applied-materials-stock-at-395-can-it-do-what-coreweave-did/2026-11-12?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-11T23:03:03+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Every December the Nasdaq-100 Reshuffles. QQQ Holders Feel It Even If They Never Trade",
+     "link": "https://247wallst.com/investing/etf/2026/11/11/every-december-the-nasdaq-100-reshuffles-qqq-holders-feel-it-even-if-they-never-trade/?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-11T21:25:11+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Micron, Sandisk Soar as CoreWeave CEO Says AI Demand Outpaces World's Capacity",
+     "link": "https://www.benzinga.com/markets/prediction-markets/26/11/63169587/ai-memory-stocks?utm_source=yahooFinance&utm_campaign=partner_feed&utm_medium=referral&.tsrc=rss",
+     "tags": [
+      "earnings",
+      "people"
+     ],
+     "important": false
+    }
+   ]
   }
  ]
 }
