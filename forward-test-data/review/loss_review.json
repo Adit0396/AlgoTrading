@@ -465,5 +465,27 @@
   ],
   "best": "Buy the pullback",
   "best_pnl": 28.34
+ },
+ {
+  "date": "2026-11-13",
+  "symbol": "MRNA",
+  "name": "Moderna, Inc.",
+  "outcome": "stop",
+  "exit_time": "10:45",
+  "pnl": -46.08,
+  "wrong": "Market falling at entry (index -1.31% since the open); Chased the breakout (0.89% above the range); Wide stop (risk 2.23% of price); Ordinary volume (0.6x usual volume)",
+  "after": "stopped within 30 minutes",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if ordinary volume"
+  ],
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
  }
 ]

@@ -644,5 +644,75 @@
   "skips": [],
   "best": "Buy the pullback (no trade)",
   "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-13",
+  "symbol": "GROWW",
+  "name": "Billionbrains Garage Ventures Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -1816.49,
+  "wrong": "Market falling at entry (index -0.01% since the open); Chased the breakout (0.83% above the range); Wide stop (risk 1.90% of price); Already fading (0.5R below its high)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if already fading"
+  ],
+  "best": "Buy the pullback (no trade)",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-13",
+  "symbol": "MCX",
+  "name": "Multi Commodity Exchange of India Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -1503.0,
+  "wrong": "Market falling at entry (index -0.01% since the open); Chased the breakout (2.02% above the range); Wide stop (risk 2.95% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback (no trade)",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-13",
+  "symbol": "POWERINDIA",
+  "name": "Hitachi Energy India Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -510.0,
+  "wrong": "Market falling at entry (index -0.01% since the open); Chased the breakout (2.74% above the range); Wide stop (risk 4.19% of price); Big gap up (gapped up 6.0%)",
+  "after": "",
+  "fixes": [
+   [
+    "Exit at 12:00",
+    270.0
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if big gap up"
+  ],
+  "best": "Exit at 12:00",
+  "best_pnl": 270.0
  }
 ]

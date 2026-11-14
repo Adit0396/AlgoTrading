@@ -312,3 +312,9 @@ date,strategy,trades,pnl,detail
 2026-11-12,vwap,4,1403.86,"4 flips; +₹1,403.86"
 2026-11-12,momentum,1,416.86,NIFTYBEES long +₹416.86 (first half hour +0.85%)
 2026-11-12,noise,1,-1021.28,"NIFTYBEES long -₹1,021.28"
+2026-11-13,v2,3,-3829.49,"POWERINDIA -₹510.00; MCX -₹1,503.00; GROWW -₹1,816.49"
+2026-11-13,learned,3,-3829.49,Current rule + Target 2R: POWERINDIA MCX GROWW
+2026-11-13,sip,2,4446.52,"ITI long not triggered; MANAPPURAM short +₹6,263.39; NAVA short -₹1,816.87"
+2026-11-13,vwap,2,2249.71,"2 flips; +₹2,249.71"
+2026-11-13,momentum,1,-313.91,NIFTYBEES short -₹313.91 (first half hour -0.32%)
+2026-11-13,noise,0,0,stayed inside the noise area

@@ -316,4 +316,10 @@ date,strategy,trades,pnl,detail
 2026-11-12,sip,3,-57.96,CTRE long -$12.15; BZ short -$21.96; YETI short -$23.85
 2026-11-12,vwap,10,4.88,10 flips; +$4.88
 2026-11-12,momentum,1,0.6,SPY short +$0.60 (first half hour -0.27%)
-2026-11-12,noise,0,0,stayed inside the noise area
+2026-11-12,noise,0,0.0,stayed inside the noise area
+2026-11-13,v2,3,22.7,MRNA -$46.17; SO +$49.44; PG +$19.43
+2026-11-13,learned,3,22.7,Current rule: MRNA SO PG
+2026-11-13,sip,2,49.01,TDC short not triggered; LYV short +$67.36; KDP long -$18.35
+2026-11-13,vwap,4,102.69,4 flips; +$102.69
+2026-11-13,momentum,1,-8.04,SPY short -$8.04 (first half hour -0.37%)
+2026-11-13,noise,3,12.51,SPY short +$16.02; SPY short -$0.27; SPY short -$3.24
