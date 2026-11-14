@@ -12,3 +12,4 @@ date,picks,trades,target,stop,flat,day_pnl,running_pnl,candidates,broke_out
 2026-11-10,"AMD (Advanced Micro Devices, Inc.) stop; MU (Micron Technology, Inc.) stop; SPCX (Space Exploration Technologies Corp.) closed 3:55",3,0,2,1,-76.49,-224.29,121,145
 2026-11-11,"CRWV (CoreWeave, Inc.) target; MU (Micron Technology, Inc.) target; SNDK (Sandisk Corporation) target",3,3,0,0,120.02,-104.27,42,85
 2026-11-12,"GEV (GE Vernova Inc.) target; SMCI (Super Micro Computer, Inc.) target; WDC (Western Digital Corporation) target",3,3,0,0,145.36,41.09,31,74
+2026-11-13,"MRNA (Moderna, Inc.) stop; PG (Procter & Gamble Company (The)) target; SO (Southern Company (The)) target",3,2,1,0,22.5,63.59,33,91

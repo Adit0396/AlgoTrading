@@ -167,6 +167,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    31,
    74
+  ],
+  [
+   "'2026-11-13",
+   "'MRNA (Moderna, Inc.) stop; PG (Procter & Gamble Company (The)) target; SO (Southern Company (The)) target",
+   3,
+   2,
+   1,
+   0,
+   22.5,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   33,
+   91
   ]
  ]
 }

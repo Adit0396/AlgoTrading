@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T02:02:07Z",
+ "generated_at": "2026-11-14T01:34:41Z",
  "simulation_only": true,
  "settings": {
   "market": "US",
@@ -27,20 +27,20 @@
   "news_hours": 18
  },
  "totals": {
-  "sessions": 13,
-  "trades": 39,
-  "target": 15,
-  "stop": 11,
+  "sessions": 14,
+  "trades": 42,
+  "target": 17,
+  "stop": 12,
   "flat": 13,
-  "winners": 19,
-  "win_rate": 0.487,
-  "pnl_usd": 41.09,
-  "return_on_account": 0.0082,
-  "avg_r": 0.036,
-  "predicted_target_first_pct": 24.862,
-  "actual_target_first_pct": 38.5,
-  "predicted_stop_first_pct": 23.818,
-  "actual_stop_first_pct": 28.2
+  "winners": 21,
+  "win_rate": 0.5,
+  "pnl_usd": 63.59,
+  "return_on_account": 0.0127,
+  "avg_r": 0.057,
+  "predicted_target_first_pct": 25.986,
+  "actual_target_first_pct": 40.5,
+  "predicted_stop_first_pct": 24.521,
+  "actual_stop_first_pct": 28.6
  },
  "daily": [
   {
@@ -107,6 +107,11 @@
    "date": "2026-11-12",
    "pnl_usd": 145.36,
    "cumulative_usd": 41.09
+  },
+  {
+   "date": "2026-11-13",
+   "pnl_usd": 22.5,
+   "cumulative_usd": 63.59
   }
  ],
  "picks": [
@@ -2295,85 +2300,85 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-11-12T15:18:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Oklo Advances Groves-1 Reactor Into Research and Testing Phase",
      "link": "https://finance.yahoo.com/energy/articles/oklo-advances-groves-1-reactor-151800308.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-12T15:18:00+00:00",
+     "title": "Oklo Advances Groves-1 Reactor Into Research and Testing Phase"
     },
     {
-     "time": "2026-11-12T15:12:39+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "67% Upside for GE Vernova? Morgan Stanley Thinks So, and Here\u2019s How",
      "link": "https://www.tikr.com/blog/67-upside-for-ge-vernova-morgan-stanley-thinks-so-and-heres-how?ref=yahoofinance&tlnk=yf-261112-hhmf23rf&.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "analyst"
      ],
-     "important": false
+     "time": "2026-11-12T15:12:39+00:00",
+     "title": "67% Upside for GE Vernova? Morgan Stanley Thinks So, and Here\u2019s How"
     },
     {
-     "time": "2026-11-12T12:11:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Data Center Power Suppliers Post Backlog and Guidance Updates Alongside a Fuel Cell Deal",
      "link": "https://finance.yahoo.com/news/data-center-power-suppliers-post-121100408.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings",
       "deal"
      ],
-     "important": false
+     "time": "2026-11-12T12:11:00+00:00",
+     "title": "Data Center Power Suppliers Post Backlog and Guidance Updates Alongside a Fuel Cell Deal"
     },
     {
-     "time": "2026-11-12T11:37:32+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Energy Transition Update - Holu Hou Energy Revolutionizes MDU Solar Adoption",
      "link": "https://finance.yahoo.com/energy/articles/energy-transition-holu-hou-energy-113732760.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "capital"
      ],
-     "important": false
+     "time": "2026-11-12T11:37:32+00:00",
+     "title": "Energy Transition Update - Holu Hou Energy Revolutionizes MDU Solar Adoption"
     },
     {
-     "time": "2026-11-12T01:18:43+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "What Happened To NuScale Power Stock Over The Past Year?",
      "link": "https://www.trefis.com/stock/smr/articles/624304/what-happened-to-nuscale-power-stock-over-the-past-year/2026-11-11?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-12T01:18:43+00:00",
+     "title": "What Happened To NuScale Power Stock Over The Past Year?"
     },
     {
-     "time": "2026-11-11T23:26:39+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "GE Vernova\u2019s Ontario Nuclear Plant Is Facing Delays And Rising Costs",
      "link": "https://stocktwits.com/news-articles/markets/equity/ge-vernova-s-ontario-nuclear-plant-is-facing-delays-and-rising-costs/cNGx5Z4R99I?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-11T23:26:39+00:00",
+     "title": "GE Vernova\u2019s Ontario Nuclear Plant Is Facing Delays And Rising Costs"
     },
     {
-     "time": "2026-11-11T22:25:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "GE Vernova Fell 25% on Data Center Fears. Only About 20% of Its Gas Turbine Customers Are Data Centers. Time to Buy?",
      "link": "https://www.fool.com/investing/2026/11/11/ge-vernova-fell-25-on-data-center-fears-only-about/?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-11T22:25:00+00:00",
+     "title": "GE Vernova Fell 25% on Data Center Fears. Only About 20% of Its Gas Turbine Customers Are Data Centers. Time to Buy?"
     },
     {
-     "time": "2026-11-11T21:43:40+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "AI Stocks, Neoclouds Rebound From SoftBank Bump, Get CoreWeave Lift",
      "link": "https://finance.yahoo.com/m/70db5656-a3a8-363b-9a8f-fe7f4b584fee/ai-stocks%2C-neoclouds-rebound.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings"
      ],
-     "important": false
+     "time": "2026-11-11T21:43:40+00:00",
+     "title": "AI Stocks, Neoclouds Rebound From SoftBank Bump, Get CoreWeave Lift"
     }
    ]
   },
@@ -2421,25 +2426,25 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-11-12T14:33:09+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Prediction: One AI Trend Could Send Dell Stock Higher",
      "link": "https://247wallst.com/investing/2026/11/12/prediction-one-ai-trend-could-send-dell-stock-higher/?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-12T14:33:09+00:00",
+     "title": "Prediction: One AI Trend Could Send Dell Stock Higher"
     },
     {
-     "time": "2026-11-12T14:06:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Nvidia Sinks 11% on Report Board Will Oust Jensen Huang; Bernstein Downgrades: \u201cWe\u2019ve Had Enough\u201d",
      "link": "https://www.tikr.com/blog/nvidia-sinks-11-on-report-board-will-oust-jensen-huang-bernstein-downgrades-weve-had-enough?ref=yahoofinance&tlnk=yf-261112-mw4r43fw&.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "analyst",
       "people"
      ],
-     "important": false
+     "time": "2026-11-12T14:06:00+00:00",
+     "title": "Nvidia Sinks 11% on Report Board Will Oust Jensen Huang; Bernstein Downgrades: \u201cWe\u2019ve Had Enough\u201d"
     }
    ]
   },
@@ -2487,42 +2492,342 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-11-12T13:30:03+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Wall Street Bulls Look Optimistic About Western Digital (WDC): Should You Buy?",
      "link": "https://finance.yahoo.com/markets/stocks/articles/wall-street-bulls-look-optimistic-133003573.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-12T13:30:03+00:00",
+     "title": "Wall Street Bulls Look Optimistic About Western Digital (WDC): Should You Buy?"
     },
     {
-     "time": "2026-11-12T09:42:40+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Applied Materials Stock At $395: Can It Do What CoreWeave Did?",
      "link": "https://www.trefis.com/stock/amat/articles/624491/applied-materials-stock-at-395-can-it-do-what-coreweave-did/2026-11-12?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-12T09:42:40+00:00",
+     "title": "Applied Materials Stock At $395: Can It Do What CoreWeave Did?"
     },
     {
-     "time": "2026-11-11T23:03:03+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Every December the Nasdaq-100 Reshuffles. QQQ Holders Feel It Even If They Never Trade",
      "link": "https://247wallst.com/investing/etf/2026/11/11/every-december-the-nasdaq-100-reshuffles-qqq-holders-feel-it-even-if-they-never-trade/?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-11T23:03:03+00:00",
+     "title": "Every December the Nasdaq-100 Reshuffles. QQQ Holders Feel It Even If They Never Trade"
     },
     {
-     "time": "2026-11-11T21:25:11+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Micron, Sandisk Soar as CoreWeave CEO Says AI Demand Outpaces World's Capacity",
      "link": "https://www.benzinga.com/markets/prediction-markets/26/11/63169587/ai-memory-stocks?utm_source=yahooFinance&utm_campaign=partner_feed&utm_medium=referral&.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings",
       "people"
      ],
+     "time": "2026-11-11T21:25:11+00:00",
+     "title": "Micron, Sandisk Soar as CoreWeave CEO Says AI Demand Outpaces World's Capacity"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-13",
+   "symbol": "MRNA",
+   "name": "Moderna, Inc.",
+   "entry_time": "10:15 AM",
+   "entry": 229.92,
+   "stop": 224.8,
+   "target": 235.04,
+   "risk_per_share": 5.12,
+   "shares": 9.0,
+   "position_usd": 2069.28,
+   "max_loss_usd": 46.08,
+   "tm_target_pct": 53.6,
+   "tm_stop_pct": 42.8,
+   "tm_neither_pct": 3.5,
+   "tm_green_pct": 55.6,
+   "tm_avg_r": 0.11,
+   "hist_fired": 35.0,
+   "hist_target": 15.0,
+   "hist_stop": 10.0,
+   "hist_close": 10.0,
+   "hist_avg_r": 0.165,
+   "verdict": "Leans toward the target: target first 53.6 % vs stop first 42.8 %.",
+   "actual_outcome": "stop",
+   "exit_time": "10:45",
+   "exit_price": 224.8,
+   "r_multiple": -1.0,
+   "pnl_usd": -46.08,
+   "dollar_volume_to_1015": 402499025.0,
+   "scan_hits": 91.0,
+   "seed": 19.0,
+   "run_at": "2026-11-14 01:29 UTC",
+   "note": "",
+   "news_before_entry": "6 items (regulatory); latest: Moderna Issues Cost Outlook Amid Revenue Uncertainty, Stock Falls",
+   "or_high": 227.9,
+   "or_low": 221.7,
+   "breakout_pct": 0.89,
+   "breakout_time": "9:55 AM",
+   "breakout_price": 228.39,
+   "rank": 1.0,
+   "candidates": 33.0,
+   "rule": "v2",
+   "news": [
+    {
+     "time": "2026-11-13T13:47:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Moderna Issues Cost Outlook Amid Revenue Uncertainty, Stock Falls",
+     "link": "https://finance.yahoo.com/healthcare/articles/moderna-issues-cost-outlook-amid-134700970.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-13T12:00:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "While AI hogged the headlines, 1 overlooked sector beat the S&P 500 \u2014 and its top stock is up 700%+ this year",
+     "link": "https://finance.yahoo.com/healthcare/articles/while-ai-hogged-headlines-1-120000682.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-13T11:04:46+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "What Invesco S&P 500 Equal Weight ETF (RSP) Sold: Moderna Leads on Nov. 11",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/invesco-p-500-equal-weight-110446427.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-13T01:18:33+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "GSK (LSE:GSK) Settles Key Vaccine Patent Case And Wins Broad Europe Injunction",
+     "link": "https://finance.yahoo.com/healthcare/articles/gsk-lse-gsk-settles-key-011833121.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-12T22:14:48+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Moderna Targets 2027 Cancer Therapy Launch, Raises 2026 Revenue Growth Outlook",
+     "link": "https://www.marketbeat.com/instant-alerts/event-moderna-targets-2027-cancer-therapy-launch-raises-2026-revenue-growth-outlook-2026-11-12/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+     "tags": [
+      "regulatory"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-12T21:29:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Moderna Needs a Post-Covid Hit. Its Cancer-Drug Spending Plan Ups the Stakes.",
+     "link": "https://finance.yahoo.com/m/de21e165-70de-341f-afd1-3672f935c4cb/moderna-needs-a-post-covid.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    }
+   ]
+  },
+  {
+   "date": "2026-11-13",
+   "symbol": "PG",
+   "name": "Procter & Gamble Company (The)",
+   "entry_time": "10:15 AM",
+   "entry": 169.61,
+   "stop": 168.95,
+   "target": 170.27,
+   "risk_per_share": 0.66,
+   "shares": 29.0,
+   "position_usd": 4918.69,
+   "max_loss_usd": 19.14,
+   "tm_target_pct": 49.6,
+   "tm_stop_pct": 47.2,
+   "tm_neither_pct": 3.2,
+   "tm_green_pct": 51.3,
+   "tm_avg_r": 0.024,
+   "hist_fired": 41.0,
+   "hist_target": 14.0,
+   "hist_stop": 19.0,
+   "hist_close": 8.0,
+   "hist_avg_r": -0.165,
+   "verdict": "Close to a coin flip: target first 49.6 % vs stop first 47.2 %.",
+   "actual_outcome": "target",
+   "exit_time": "10:35",
+   "exit_price": 170.27,
+   "r_multiple": 1.0,
+   "pnl_usd": 19.14,
+   "dollar_volume_to_1015": 140947056.0,
+   "scan_hits": 91.0,
+   "seed": 19.0,
+   "run_at": "2026-11-14 01:29 UTC",
+   "note": "",
+   "news_before_entry": "4 items (analyst, capital, earnings); latest: Procter & Gamble or PepsiCo: The One Dividend Stock I\u2019d Hold for the Next 20 Years",
+   "or_high": 169.4,
+   "or_low": 168.5,
+   "breakout_pct": 0.12,
+   "breakout_time": "10:00 AM",
+   "breakout_price": 169.62,
+   "rank": 3.0,
+   "candidates": 33.0,
+   "rule": "v2",
+   "news": [
+    {
+     "time": "2026-11-13T14:17:32+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Procter & Gamble or PepsiCo: The One Dividend Stock I\u2019d Hold for the Next 20 Years",
+     "link": "https://www.tikr.com/blog/procter-gamble-or-pepsico-the-one-dividend-stock-id-hold-for-the-next-20-years?ref=yahoofinancedividend&tlnk=yf-261113-mwffm7fr&.tsrc=rss",
+     "tags": [
+      "earnings",
+      "capital"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-13T13:11:02+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "5 Dividend Aristocrats and Kings to Consider if the Stock Market Sells Off",
+     "link": "https://247wallst.com/investing/2026/11/13/5-dividend-aristocrats-and-kings-to-consider-if-the-stock-market-sells-off/?.tsrc=rss",
+     "tags": [
+      "capital"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-13T13:04:49+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Procter & Gamble Has Raised Its Dividend for 70 Straight Years. Where\u2019s the Price Target Now?",
+     "link": "https://247wallst.com/investing/2026/11/13/procter-gamble-has-raised-its-dividend-for-70-straight-years-wheres-the-price-target-now/?.tsrc=rss",
+     "tags": [
+      "analyst",
+      "capital"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-12T23:21:39+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Procter & Gamble vs. Starbucks: Which Stock Is a Better Buy for 2027?",
+     "link": "https://www.fool.com/coverage/better-buy/2026/11/12/procter-and-gamble-vs-starbucks-which-stock-is-a-better-buy-for-2027/?.tsrc=rss",
+     "tags": [],
+     "important": false
+    }
+   ]
+  },
+  {
+   "date": "2026-11-13",
+   "symbol": "SO",
+   "name": "Southern Company (The)",
+   "entry_time": "10:15 AM",
+   "entry": 93.4,
+   "stop": 92.37,
+   "target": 94.43,
+   "risk_per_share": 1.03,
+   "shares": 48.0,
+   "position_usd": 4483.2,
+   "max_loss_usd": 49.44,
+   "tm_target_pct": 18.6,
+   "tm_stop_pct": 11.0,
+   "tm_neither_pct": 70.4,
+   "tm_green_pct": 56.4,
+   "tm_avg_r": 0.101,
+   "hist_fired": 33.0,
+   "hist_target": 15.0,
+   "hist_stop": 10.0,
+   "hist_close": 8.0,
+   "hist_avg_r": 0.085,
+   "verdict": "Leans toward the target: target first 18.6 % vs stop first 11.0 %.",
+   "actual_outcome": "target",
+   "exit_time": "11:25",
+   "exit_price": 94.43,
+   "r_multiple": 1.0,
+   "pnl_usd": 49.44,
+   "dollar_volume_to_1015": 382109659.0,
+   "scan_hits": 91.0,
+   "seed": 19.0,
+   "run_at": "2026-11-14 01:29 UTC",
+   "note": "",
+   "news_before_entry": "6 items (capital, earnings, people); latest: SO Q3 Earnings Beat on Data Center Demand, Outlook Raised",
+   "or_high": 92.57,
+   "or_low": 92.18,
+   "breakout_pct": 0.9,
+   "breakout_time": "9:55 AM",
+   "breakout_price": 92.79,
+   "rank": 2.0,
+   "candidates": 33.0,
+   "rule": "v2",
+   "news": [
+    {
+     "time": "2026-11-13T15:16:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "SO Q3 Earnings Beat on Data Center Demand, Outlook Raised",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/q3-earnings-beat-data-center-151600286.html?.tsrc=rss",
+     "tags": [
+      "earnings"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-13T14:45:20+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Southern Co. eyes $100B spending plan on natural gas, nuclear and other investments",
+     "link": "https://www.utilitydive.com/news/southern/874111/?.tsrc=rss",
+     "tags": [
+      "earnings",
+      "people"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-13T06:11:04+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Is Southern (SO) Fairly Valued As It Files For 5,000,000 New Shares?",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/southern-fairly-valued-files-5-061104781.html?.tsrc=rss",
+     "tags": [
+      "capital"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-13T00:26:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Southern Company announces pricing of equity units",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/southern-company-announces-pricing-equity-002600271.html?.tsrc=rss",
+     "tags": [
+      "capital"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-12T23:26:34+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "What Does Southern (SO) $1.75 Billion Equity Units Offering Mean For Investors?",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/does-southern-1-75-billion-232634325.html?.tsrc=rss",
+     "tags": [
+      "capital"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-12T21:15:51+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Do You Like Cash? Consider Vistra Stock",
+     "link": "https://www.trefis.com/stock/vst/articles/624534/do-you-like-cash-consider-vistra-stock/2026-11-12?.tsrc=rss",
+     "tags": [],
      "important": false
     }
    ]
