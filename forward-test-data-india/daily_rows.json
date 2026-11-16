@@ -299,6 +299,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    132,
    145
+  ],
+  [
+   "'2026-11-16",
+   "'BELRISE (Belrise Industries Ltd.) closed 3:15; BHARTIARTL (Bharti Airtel Ltd.) closed 3:15; HDFCBANK (HDFC Bank Ltd.) target",
+   3,
+   1,
+   0,
+   2,
+   -1082.94,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   65,
+   72
   ]
  ]
 }
