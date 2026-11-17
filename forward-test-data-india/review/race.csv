@@ -317,4 +317,10 @@ date,strategy,trades,pnl,detail
 2026-11-13,sip,2,4446.52,"ITI long not triggered; MANAPPURAM short +₹6,263.39; NAVA short -₹1,816.87"
 2026-11-13,vwap,2,2249.71,"2 flips; +₹2,249.71"
 2026-11-13,momentum,1,-313.91,NIFTYBEES short -₹313.91 (first half hour -0.32%)
-2026-11-13,noise,0,0,stayed inside the noise area
+2026-11-13,noise,0,0.0,stayed inside the noise area
+2026-11-16,v2,3,-1082.94,"BELRISE -₹951.70; BHARTIARTL -₹2,772.00; HDFCBANK +₹2,640.76"
+2026-11-16,learned,3,-1718.45,Current rule + Target 2R: BELRISE BHARTIARTL HDFCBANK
+2026-11-16,sip,1,-2075.7,"NATCOPHARM long not triggered; PFOCUS long not triggered; KAYNES short -₹2,075.70"
+2026-11-16,vwap,11,-677.67,11 flips; -₹677.67
+2026-11-16,momentum,1,-173.91,NIFTYBEES long -₹173.91 (first half hour +0.54%)
+2026-11-16,noise,0,0,stayed inside the noise area

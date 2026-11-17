@@ -714,5 +714,53 @@
   ],
   "best": "Exit at 12:00",
   "best_pnl": 270.0
+ },
+ {
+  "date": "2026-11-16",
+  "symbol": "BELRISE",
+  "name": "Belrise Industries Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -951.7,
+  "wrong": "Wide stop (risk 3.43% of price); Big gap up (gapped up 2.8%)",
+  "after": "",
+  "fixes": [
+   [
+    "Target 0.5R",
+    2498.98
+   ],
+   [
+    "Exit at 12:00",
+    399.1
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if wide stop",
+   "skip if big gap up"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 2498.98
+ },
+ {
+  "date": "2026-11-16",
+  "symbol": "BHARTIARTL",
+  "name": "Bharti Airtel Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -2772.0,
+  "wrong": "Already fading (0.6R below its high)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if already fading"
+  ],
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
  }
 ]

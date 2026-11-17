@@ -323,3 +323,9 @@ date,strategy,trades,pnl,detail
 2026-11-13,vwap,4,102.69,4 flips; +$102.69
 2026-11-13,momentum,1,-8.04,SPY short -$8.04 (first half hour -0.37%)
 2026-11-13,noise,3,12.51,SPY short +$16.02; SPY short -$0.27; SPY short -$3.24
+2026-11-16,v2,3,-72.66,PEP -$26.73; ABNB -$3.36; NKE -$42.57
+2026-11-16,learned,3,-72.66,Current rule: PEP ABNB NKE
+2026-11-16,sip,3,-95.45,CGON short -$28.96; SMMT long -$49.96; BXDC long -$16.53
+2026-11-16,vwap,7,-12.09,7 flips; -$12.09
+2026-11-16,momentum,1,-4.38,SPY short -$4.38 (first half hour -1.03%)
+2026-11-16,noise,2,21.15,SPY short -$1.41; SPY short +$22.56

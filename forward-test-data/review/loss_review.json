@@ -487,5 +487,78 @@
   ],
   "best": "Wait 15 minutes (no trade)",
   "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-16",
+  "symbol": "ABNB",
+  "name": "Airbnb, Inc.",
+  "outcome": "flat at 3:55",
+  "exit_time": "15:55",
+  "pnl": -3.36,
+  "wrong": "Market falling at entry (index -0.62% since the open); Chased the breakout (1.05% above the range); Wide stop (risk 2.10% of price)",
+  "after": "",
+  "fixes": [
+   [
+    "Target 0.5R",
+    23.52
+   ],
+   [
+    "Exit at 12:00",
+    8.88
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 23.52
+ },
+ {
+  "date": "2026-11-16",
+  "symbol": "NKE",
+  "name": "Nike, Inc.",
+  "outcome": "stop",
+  "exit_time": "10:40",
+  "pnl": -42.57,
+  "wrong": "Market falling at entry (index -0.62% since the open); Already fading (0.5R below its high); Ordinary volume (0.9x usual volume)",
+  "after": "stopped within 25 minutes",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if already fading",
+   "skip if ordinary volume"
+  ],
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-16",
+  "symbol": "PEP",
+  "name": "PepsiCo, Inc.",
+  "outcome": "stop",
+  "exit_time": "11:10",
+  "pnl": -26.73,
+  "wrong": "Market falling at entry (index -0.62% since the open)",
+  "after": "was up 0.5R before turning down",
+  "fixes": [
+   [
+    "Target 0.5R",
+    13.2
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 13.2
  }
 ]
