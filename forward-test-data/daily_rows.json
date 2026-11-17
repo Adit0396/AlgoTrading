@@ -179,6 +179,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    33,
    91
+  ],
+  [
+   "'2026-11-16",
+   "'ABNB (Airbnb, Inc.) closed 3:55; NKE (Nike, Inc.) stop; PEP (PepsiCo, Inc.) stop",
+   3,
+   0,
+   2,
+   1,
+   -72.66,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   40,
+   90
   ]
  ]
 }
