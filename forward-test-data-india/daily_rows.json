@@ -311,6 +311,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    65,
    72
+  ],
+  [
+   "'2026-11-17",
+   "'ICICIBANK (ICICI Bank Ltd.) target; PNB (Punjab National Bank) closed 3:15; SBIN (State Bank of India) closed 3:15",
+   3,
+   1,
+   0,
+   2,
+   3196.27,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   67,
+   99
   ]
  ]
 }
