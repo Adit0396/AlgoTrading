@@ -560,5 +560,63 @@
   ],
   "best": "Target 0.5R",
   "best_pnl": 13.2
+ },
+ {
+  "date": "2026-11-17",
+  "symbol": "AAPL",
+  "name": "Apple Inc.",
+  "outcome": "stop",
+  "exit_time": "10:45",
+  "pnl": -32.2,
+  "wrong": "Market falling at entry (index -0.15% since the open); Ordinary volume (0.6x usual volume)",
+  "after": "stopped within 30 minutes",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if ordinary volume"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": -12.32
+ },
+ {
+  "date": "2026-11-17",
+  "symbol": "AMZN",
+  "name": "Amazon.com, Inc.",
+  "outcome": "stop",
+  "exit_time": "10:35",
+  "pnl": -27.74,
+  "wrong": "Market falling at entry (index -0.15% since the open); Ordinary volume (0.5x usual volume)",
+  "after": "stopped within 20 minutes",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if ordinary volume"
+  ],
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-17",
+  "symbol": "DIS",
+  "name": "Walt Disney Company (The)",
+  "outcome": "stop",
+  "exit_time": "11:00",
+  "pnl": -48.3,
+  "wrong": "Market falling at entry (index -0.15% since the open); Chased the breakout (0.67% above the range); Wide stop (risk 1.72% of price); Already fading (0.5R below its high)",
+  "after": "",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if already fading"
+  ],
+  "best": "Stop at range low",
+  "best_pnl": -47.46
  }
 ]

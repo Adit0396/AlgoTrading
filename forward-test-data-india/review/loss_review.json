@@ -762,5 +762,45 @@
   ],
   "best": "Wait 15 minutes (no trade)",
   "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-17",
+  "symbol": "PNB",
+  "name": "Punjab National Bank",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -637.5,
+  "wrong": "Chased the breakout (1.18% above the range); Wide stop (risk 2.60% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback (no trade)",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-17",
+  "symbol": "SBIN",
+  "name": "State Bank of India",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -443.75,
+  "wrong": "Chased the breakout (0.85% above the range); Ordinary volume (0.9x usual volume)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if ordinary volume"
+  ],
+  "best": "Buy the pullback (no trade)",
+  "best_pnl": 0.0
  }
 ]

@@ -329,3 +329,9 @@ date,strategy,trades,pnl,detail
 2026-11-16,vwap,7,-12.09,7 flips; -$12.09
 2026-11-16,momentum,1,-4.38,SPY short -$4.38 (first half hour -1.03%)
 2026-11-16,noise,2,21.15,SPY short -$1.41; SPY short +$22.56
+2026-11-17,v2,3,-108.38,AAPL -$32.34; AMZN -$27.74; DIS -$48.30
+2026-11-17,learned,3,-108.38,Current rule: AAPL AMZN DIS
+2026-11-17,sip,1,-23.59,DLO short -$23.59; KLAR long not triggered
+2026-11-17,vwap,13,-72.15,13 flips; -$72.15
+2026-11-17,momentum,1,-13.68,SPY short -$13.68 (first half hour -0.10%)
+2026-11-17,noise,3,-16.65,SPY short -$11.82; SPY short -$10.86; SPY short +$6.03

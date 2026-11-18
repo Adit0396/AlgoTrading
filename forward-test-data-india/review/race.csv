@@ -323,4 +323,10 @@ date,strategy,trades,pnl,detail
 2026-11-16,sip,1,-2075.7,"NATCOPHARM long not triggered; PFOCUS long not triggered; KAYNES short -₹2,075.70"
 2026-11-16,vwap,11,-677.67,11 flips; -₹677.67
 2026-11-16,momentum,1,-173.91,NIFTYBEES long -₹173.91 (first half hour +0.54%)
-2026-11-16,noise,0,0,stayed inside the noise area
+2026-11-16,noise,0,0.0,stayed inside the noise area
+2026-11-17,v2,3,3196.27,"SBIN -₹443.75; PNB -₹637.50; ICICIBANK +₹4,277.52"
+2026-11-17,learned,3,759.55,Current rule + Target 2R: SBIN PNB ICICIBANK
+2026-11-17,sip,2,-3815.28,"TATACHEM short -₹1,103.09; EXIDEIND long not triggered; KAYNES short -₹2,712.19"
+2026-11-17,vwap,6,-85.74,6 flips; -₹85.74
+2026-11-17,momentum,1,-586.15,NIFTYBEES long -₹586.15 (first half hour +0.54%)
+2026-11-17,noise,2,414.46,NIFTYBEES long ₹0.00; NIFTYBEES long +₹414.46
