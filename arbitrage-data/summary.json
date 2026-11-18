@@ -1,68 +1,68 @@
 {
- "generated_at": "2026-11-17 04:12 UTC",
+ "generated_at": "2026-11-18 03:09 UTC",
  "pairs": [
-  "INFY: 476 days 2024-11-18 to 2026-11-16, typical premium +0.0%, 24 trades",
-  "WIT: 475 days 2024-11-18 to 2026-11-13, typical premium -0.7%, 19 trades",
-  "HDB: 476 days 2024-11-18 to 2026-11-16, typical premium +4.6%, 18 trades",
-  "IBN: 476 days 2024-11-18 to 2026-11-16, typical premium -0.2%, 21 trades",
-  "RDY: 475 days 2024-11-18 to 2026-11-13, typical premium -0.6%, 17 trades",
-  "BHP: 491 days 2024-11-18 to 2026-11-16, typical premium -0.1%, 22 trades",
-  "RMD: 491 days 2024-11-18 to 2026-11-16, typical premium +0.1%, 21 trades"
+  "INFY: 477 days 2024-11-18 to 2026-11-17, typical premium +0.0%, 24 trades",
+  "WIT: 477 days 2024-11-18 to 2026-11-17, typical premium -0.7%, 19 trades",
+  "HDB: 477 days 2024-11-18 to 2026-11-17, typical premium +4.5%, 18 trades",
+  "IBN: 477 days 2024-11-18 to 2026-11-17, typical premium -0.2%, 21 trades",
+  "RDY: 476 days 2024-11-18 to 2026-11-16, typical premium -0.6%, 17 trades",
+  "BHP: 492 days 2024-11-18 to 2026-11-17, typical premium -0.1%, 22 trades",
+  "RMD: 492 days 2024-11-18 to 2026-11-17, typical premium +0.1%, 21 trades"
  ],
  "latest": {
   "INFY": {
-   "date": "2026-11-16",
-   "premium": 0.0131,
-   "mean": 0.0105,
-   "z": 0.13,
+   "date": "2026-11-17",
+   "premium": 0.0037,
+   "mean": 0.0112,
+   "z": -0.41,
    "signal": "none",
    "position": "none"
   },
   "WIT": {
-   "date": "2026-11-13",
-   "premium": 0.0244,
-   "mean": 0.0025,
-   "z": 0.63,
+   "date": "2026-11-17",
+   "premium": 0.0144,
+   "mean": 0.0032,
+   "z": 0.32,
    "signal": "none",
    "position": "none"
   },
   "HDB": {
-   "date": "2026-11-16",
-   "premium": 0.0114,
+   "date": "2026-11-17",
+   "premium": 0.0093,
    "mean": 0.0148,
-   "z": -0.26,
+   "z": -0.43,
    "signal": "none",
-   "position": "buy US, sell local since 2026-11-13 (-8.92 US$ so far)"
+   "position": "none"
   },
   "IBN": {
-   "date": "2026-11-16",
-   "premium": 0.0232,
-   "mean": 0.0058,
-   "z": 1.63,
+   "date": "2026-11-17",
+   "premium": 0.0227,
+   "mean": 0.0063,
+   "z": 1.52,
    "signal": "none",
-   "position": "sell US, buy local since 2026-11-05 (-26.14 US$ so far)"
+   "position": "sell US, buy local since 2026-11-05 (-23.52 US$ so far)"
   },
   "RDY": {
-   "date": "2026-11-13",
-   "premium": 0.0044,
-   "mean": -0.0079,
-   "z": 0.97,
+   "date": "2026-11-16",
+   "premium": 0.0054,
+   "mean": -0.0074,
+   "z": 1.02,
    "signal": "none",
    "position": "none"
   },
   "BHP": {
-   "date": "2026-11-16",
-   "premium": -0.026,
-   "mean": -0.0018,
-   "z": -1.37,
+   "date": "2026-11-17",
+   "premium": 0.0085,
+   "mean": -0.003,
+   "z": 0.68,
    "signal": "none",
    "position": "none"
   },
   "RMD": {
-   "date": "2026-11-16",
-   "premium": -0.0018,
-   "mean": 0.0042,
-   "z": -0.33,
+   "date": "2026-11-17",
+   "premium": -0.0081,
+   "mean": 0.0038,
+   "z": -0.66,
    "signal": "none",
    "position": "none"
   }
@@ -90,6 +90,6 @@
   "2026-08": 379.74,
   "2026-09": -238.01,
   "2026-10": -34.87,
-  "2026-11": -600.02
+  "2026-11": -613.37
  }
 }
