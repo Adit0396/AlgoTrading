@@ -1,13 +1,13 @@
 {
   "days": [
     {
-      "date": "2026-11-17",
+      "date": "2026-11-18",
       "picks": [
-        "SBIN",
-        "PNB",
-        "ICICIBANK"
+        "IIFL",
+        "KAYNES",
+        "INOXINDIA"
       ],
-      "pnl_inr": 3196.27
+      "pnl_inr": -374.3
     }
   ],
   "charts_loaded": 495,
