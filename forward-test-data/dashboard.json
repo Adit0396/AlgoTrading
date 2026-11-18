@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T04:04:12Z",
+ "generated_at": "2026-11-18T03:02:20Z",
  "simulation_only": true,
  "settings": {
   "market": "US",
@@ -27,20 +27,20 @@
   "news_hours": 18
  },
  "totals": {
-  "sessions": 15,
-  "trades": 45,
+  "sessions": 16,
+  "trades": 48,
   "target": 17,
-  "stop": 14,
+  "stop": 17,
   "flat": 14,
   "winners": 21,
-  "win_rate": 0.467,
-  "pnl_usd": -9.07,
-  "return_on_account": -0.0018,
-  "avg_r": 0.007,
-  "predicted_target_first_pct": 26.538,
-  "actual_target_first_pct": 37.8,
-  "predicted_stop_first_pct": 25.078,
-  "actual_stop_first_pct": 31.1
+  "win_rate": 0.438,
+  "pnl_usd": -117.31,
+  "return_on_account": -0.0235,
+  "avg_r": -0.056,
+  "predicted_target_first_pct": 27.069,
+  "actual_target_first_pct": 35.4,
+  "predicted_stop_first_pct": 25.385,
+  "actual_stop_first_pct": 35.4
  },
  "daily": [
   {
@@ -117,6 +117,11 @@
    "date": "2026-11-16",
    "pnl_usd": -72.66,
    "cumulative_usd": -9.07
+  },
+  {
+   "date": "2026-11-17",
+   "pnl_usd": -108.24,
+   "cumulative_usd": -117.31
   }
  ],
  "picks": [
@@ -2881,37 +2886,37 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-11-16T14:53:03+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Yeti downgraded, Humana upgraded: Wall Street's top analyst calls",
      "link": "https://finance.yahoo.com/markets/stocks/articles/airbnb-upgraded-zscaler-downgraded-wall-133507400.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "analyst"
      ],
-     "important": false
+     "time": "2026-11-16T14:53:03+00:00",
+     "title": "Yeti downgraded, Humana upgraded: Wall Street's top analyst calls"
     },
     {
-     "time": "2026-11-16T14:22:52+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Airbnb bets big on multibillion-dollar hotel opportunity",
      "link": "https://www.hoteldive.com/news/airbnb-hotel-strategy/874692/?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "people"
      ],
-     "important": false
+     "time": "2026-11-16T14:22:52+00:00",
+     "title": "Airbnb bets big on multibillion-dollar hotel opportunity"
     },
     {
-     "time": "2026-11-16T14:03:08+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Airbnb: PhillipCapital upgrades stock as bookings accelerate",
      "link": "https://finance.yahoo.com/markets/stocks/articles/airbnb-phillipcapital-upgrades-stock-bookings-140308544.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "analyst"
      ],
-     "important": false
+     "time": "2026-11-16T14:03:08+00:00",
+     "title": "Airbnb: PhillipCapital upgrades stock as bookings accelerate"
     }
    ]
   },
@@ -2959,35 +2964,35 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-11-16T14:53:03+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Yeti downgraded, Humana upgraded: Wall Street's top analyst calls",
      "link": "https://finance.yahoo.com/markets/stocks/articles/airbnb-upgraded-zscaler-downgraded-wall-133507400.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "analyst"
      ],
-     "important": false
+     "time": "2026-11-16T14:53:03+00:00",
+     "title": "Yeti downgraded, Humana upgraded: Wall Street's top analyst calls"
     },
     {
-     "time": "2026-11-16T14:08:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "NIKE, Inc. Unveils the Next Generation of Innovation Across Performance Sports and Sportswear",
      "link": "https://finance.yahoo.com/technology/articles/nike-inc-unveils-next-generation-140800322.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-16T14:08:00+00:00",
+     "title": "NIKE, Inc. Unveils the Next Generation of Innovation Across Performance Sports and Sportswear"
     },
     {
-     "time": "2026-11-16T14:00:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "unspun Appoints Chuck Shehadi as Chief Executive Officer",
      "link": "https://finance.yahoo.com/technology/articles/unspun-appoints-chuck-shehadi-chief-140000509.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "people"
      ],
-     "important": false
+     "time": "2026-11-16T14:00:00+00:00",
+     "title": "unspun Appoints Chuck Shehadi as Chief Executive Officer"
     }
    ]
   },
@@ -3035,24 +3040,156 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-11-16T14:35:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "PepsiCo announces progress toward deforestation-free sourcing goal",
      "link": "https://finance.yahoo.com/energy/articles/pepsico-announces-progress-toward-deforestation-143500697.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-16T14:35:00+00:00",
+     "title": "PepsiCo announces progress toward deforestation-free sourcing goal"
     },
     {
-     "time": "2026-11-16T01:40:02+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Celsius vs. Kraft Heinz: One Is Chasing Growth. The Other Is Chasing a Turnaround.",
      "link": "https://www.fool.com/coverage/better-buy/2026/11/15/celsius-vs-kraft-heinz-which-consumer-goods-stock-is-a-better-buy-for-2027/?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-16T01:40:02+00:00",
+     "title": "Celsius vs. Kraft Heinz: One Is Chasing Growth. The Other Is Chasing a Turnaround."
     }
    ]
+  },
+  {
+   "date": "2026-11-17",
+   "symbol": "AAPL",
+   "name": "Apple Inc.",
+   "entry_time": "10:15 AM",
+   "entry": 354.98,
+   "stop": 352.68,
+   "target": 357.28,
+   "risk_per_share": 2.3,
+   "shares": 14.0,
+   "position_usd": 4969.72,
+   "max_loss_usd": 32.2,
+   "tm_target_pct": 49.4,
+   "tm_stop_pct": 39.6,
+   "tm_neither_pct": 11.0,
+   "tm_green_pct": 54.9,
+   "tm_avg_r": 0.099,
+   "hist_fired": 30.0,
+   "hist_target": 14.0,
+   "hist_stop": 9.0,
+   "hist_close": 7.0,
+   "hist_avg_r": 0.176,
+   "verdict": "Leans toward the target: target first 49.4 % vs stop first 39.6 %.",
+   "actual_outcome": "stop",
+   "exit_time": "10:45",
+   "exit_price": 352.68,
+   "r_multiple": -1.0,
+   "pnl_usd": -32.2,
+   "dollar_volume_to_1015": 2289750133.0,
+   "scan_hits": 105.0,
+   "seed": 19.0,
+   "run_at": "2026-11-18 02:58 UTC",
+   "note": "",
+   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-11-17 19:31 UTC, after this entry",
+   "or_high": 353.55,
+   "or_low": 351.81,
+   "breakout_pct": 0.4,
+   "breakout_time": "9:55 AM",
+   "breakout_price": 354.68,
+   "rank": 1.0,
+   "candidates": 44.0,
+   "rule": "v2",
+   "news": []
+  },
+  {
+   "date": "2026-11-17",
+   "symbol": "AMZN",
+   "name": "Amazon.com, Inc.",
+   "entry_time": "10:15 AM",
+   "entry": 259.62,
+   "stop": 258.16,
+   "target": 261.08,
+   "risk_per_share": 1.46,
+   "shares": 19.0,
+   "position_usd": 4932.78,
+   "max_loss_usd": 27.74,
+   "tm_target_pct": 51.5,
+   "tm_stop_pct": 47.0,
+   "tm_neither_pct": 1.5,
+   "tm_green_pct": 52.3,
+   "tm_avg_r": 0.046,
+   "hist_fired": 35.0,
+   "hist_target": 9.0,
+   "hist_stop": 20.0,
+   "hist_close": 6.0,
+   "hist_avg_r": -0.335,
+   "verdict": "Close to a coin flip: target first 51.5 % vs stop first 47.0 %.",
+   "actual_outcome": "stop",
+   "exit_time": "10:35",
+   "exit_price": 258.16,
+   "r_multiple": -1.0,
+   "pnl_usd": -27.74,
+   "dollar_volume_to_1015": 1753472345.0,
+   "scan_hits": 105.0,
+   "seed": 19.0,
+   "run_at": "2026-11-18 02:58 UTC",
+   "note": "",
+   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-11-17 19:37 UTC, after this entry",
+   "or_high": 258.98,
+   "or_low": 257.35,
+   "breakout_pct": 0.25,
+   "breakout_time": "10:00 AM",
+   "breakout_price": 259.26,
+   "rank": 2.0,
+   "candidates": 44.0,
+   "rule": "v2",
+   "news": []
+  },
+  {
+   "date": "2026-11-17",
+   "symbol": "DIS",
+   "name": "Walt Disney Company (The)",
+   "entry_time": "10:15 AM",
+   "entry": 121.64,
+   "stop": 119.54,
+   "target": 123.74,
+   "risk_per_share": 2.1,
+   "shares": 23.0,
+   "position_usd": 2797.72,
+   "max_loss_usd": 48.3,
+   "tm_target_pct": 4.2,
+   "tm_stop_pct": 3.4,
+   "tm_neither_pct": 92.5,
+   "tm_green_pct": 50.9,
+   "tm_avg_r": 0.013,
+   "hist_fired": 36.0,
+   "hist_target": 14.0,
+   "hist_stop": 11.0,
+   "hist_close": 11.0,
+   "hist_avg_r": 0.069,
+   "verdict": "Close to a coin flip: target first 4.2 % vs stop first 3.4 %.",
+   "actual_outcome": "stop",
+   "exit_time": "11:00",
+   "exit_price": 119.54,
+   "r_multiple": -1.0,
+   "pnl_usd": -48.3,
+   "dollar_volume_to_1015": 670926038.0,
+   "scan_hits": 105.0,
+   "seed": 19.0,
+   "run_at": "2026-11-18 02:58 UTC",
+   "note": "",
+   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-11-17 16:57 UTC, after this entry",
+   "or_high": 120.83,
+   "or_low": 118.25,
+   "breakout_pct": 0.67,
+   "breakout_time": "9:55 AM",
+   "breakout_price": 122.46,
+   "rank": 3.0,
+   "candidates": 44.0,
+   "rule": "v2",
+   "news": []
   }
  ]
 }

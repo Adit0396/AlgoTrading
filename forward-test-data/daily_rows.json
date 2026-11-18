@@ -191,6 +191,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    40,
    90
+  ],
+  [
+   "'2026-11-17",
+   "'AAPL (Apple Inc.) stop; AMZN (Amazon.com, Inc.) stop; DIS (Walt Disney Company (The)) stop",
+   3,
+   0,
+   3,
+   0,
+   -108.24,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   44,
+   105
   ]
  ]
 }

@@ -14,3 +14,4 @@ date,picks,trades,target,stop,flat,day_pnl,running_pnl,candidates,broke_out
 2026-11-12,"GEV (GE Vernova Inc.) target; SMCI (Super Micro Computer, Inc.) target; WDC (Western Digital Corporation) target",3,3,0,0,145.36,41.09,31,74
 2026-11-13,"MRNA (Moderna, Inc.) stop; PG (Procter & Gamble Company (The)) target; SO (Southern Company (The)) target",3,2,1,0,22.5,63.59,33,91
 2026-11-16,"ABNB (Airbnb, Inc.) closed 3:55; NKE (Nike, Inc.) stop; PEP (PepsiCo, Inc.) stop",3,0,2,1,-72.66,-9.07,40,90
+2026-11-17,"AAPL (Apple Inc.) stop; AMZN (Amazon.com, Inc.) stop; DIS (Walt Disney Company (The)) stop",3,0,3,0,-108.24,-117.31,44,105
