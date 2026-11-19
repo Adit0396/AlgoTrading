@@ -1,13 +1,13 @@
 {
   "days": [
     {
-      "date": "2026-11-18",
+      "date": "2026-11-19",
       "picks": [
-        "IIFL",
-        "KAYNES",
-        "INOXINDIA"
+        "LTFOODS",
+        "MARUTI",
+        "M&M"
       ],
-      "pnl_inr": -374.3
+      "pnl_inr": 1440.75
     }
   ],
   "charts_loaded": 495,

@@ -184,5 +184,44 @@
   "IIFL": [],
   "INOXINDIA": [],
   "KAYNES": []
+ },
+ "2026-11-19": {
+  "LTFOODS": [],
+  "M&M": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/glossary-help-understand-happens-initial-020950912.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "capital"
+    ],
+    "time": "2026-11-19T02:09:50+00:00",
+    "title": "A glossary to help understand what happens in an initial public offering"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://247wallst.com/investing/2026/11/18/4-familiar-retail-stocks-have-dividend-warning-signs-investors-shouldnt-ignore/?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "earnings",
+     "capital",
+     "macro"
+    ],
+    "time": "2026-11-18T16:47:50+00:00",
+    "title": "4 Familiar Retail Stocks Have Dividend Warning Signs Investors Shouldn\u2019t Ignore"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.grocerydive.com/news/kroger-precision-marketing-melanie-zimmermann-retail-media-grocery/875037/?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-18T16:25:00+00:00",
+    "title": "Kroger names new retail media chief"
+   }
+  ],
+  "MARUTI": []
  }
 }
