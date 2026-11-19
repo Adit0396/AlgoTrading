@@ -335,3 +335,9 @@ date,strategy,trades,pnl,detail
 2026-11-17,vwap,13,-72.15,13 flips; -$72.15
 2026-11-17,momentum,1,-13.68,SPY short -$13.68 (first half hour -0.10%)
 2026-11-17,noise,3,-16.65,SPY short -$11.82; SPY short -$10.86; SPY short +$6.03
+2026-11-18,v2,3,-20.8,SPCX -$49.92; AMZN +$46.62; TJX -$17.50
+2026-11-18,learned,3,-20.8,Current rule: SPCX AMZN TJX
+2026-11-18,sip,2,203.73,MDLN long +$222.11; PRMB long -$18.38; GLBE long not triggered
+2026-11-18,vwap,6,-32.32,6 flips; -$32.32
+2026-11-18,momentum,1,2.46,SPY long +$2.46 (first half hour +0.17%)
+2026-11-18,noise,0,0,stayed inside the noise area

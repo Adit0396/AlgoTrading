@@ -618,5 +618,56 @@
   ],
   "best": "Stop at range low",
   "best_pnl": -47.46
+ },
+ {
+  "date": "2026-11-18",
+  "symbol": "SPCX",
+  "name": "Space Exploration Technologies Corp.",
+  "outcome": "stop",
+  "exit_time": "15:45",
+  "pnl": -49.66,
+  "wrong": "Market falling at entry (index -0.14% since the open); Fresh breakout (broke out at 10:15); Ordinary volume (0.7x usual volume)",
+  "after": "was up 0.7R before turning down",
+  "fixes": [
+   [
+    "Target 0.5R",
+    24.96
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if fresh breakout",
+   "skip if ordinary volume"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 24.96
+ },
+ {
+  "date": "2026-11-18",
+  "symbol": "TJX",
+  "name": "TJX Companies, Inc. (The)",
+  "outcome": "flat at 3:55",
+  "exit_time": "15:55",
+  "pnl": -17.5,
+  "wrong": "Market falling at entry (index -0.14% since the open); Chased the breakout (1.14% above the range); Wide stop (risk 3.50% of price); Big gap up (gapped up 5.5%)",
+  "after": "",
+  "fixes": [
+   [
+    "Exit at 12:00",
+    7.2
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if big gap up"
+  ],
+  "best": "Exit at 12:00",
+  "best_pnl": 7.2
  }
 ]

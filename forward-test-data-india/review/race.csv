@@ -330,3 +330,9 @@ date,strategy,trades,pnl,detail
 2026-11-17,vwap,6,-85.74,6 flips; -₹85.74
 2026-11-17,momentum,1,-586.15,NIFTYBEES long -₹586.15 (first half hour +0.54%)
 2026-11-17,noise,2,414.46,NIFTYBEES long ₹0.00; NIFTYBEES long +₹414.46
+2026-11-18,v2,3,-374.3,"IIFL -₹4,996.16; KAYNES +₹4,973.36; INOXINDIA -₹351.50"
+2026-11-18,learned,3,-10321.02,Current rule + Target 2R: IIFL KAYNES INOXINDIA
+2026-11-18,sip,2,-4016.98,"IIFL long -₹2,237.59; ANGELONE long not triggered; SIGNATURE short -₹1,779.39"
+2026-11-18,vwap,9,-2530.39,"9 flips; -₹2,530.39"
+2026-11-18,momentum,1,225.69,NIFTYBEES short +₹225.69 (first half hour -0.69%)
+2026-11-18,noise,1,-156.74,NIFTYBEES short -₹156.74
