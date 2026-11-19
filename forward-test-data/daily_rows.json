@@ -203,6 +203,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    44,
    105
+  ],
+  [
+   "'2026-11-18",
+   "'AMZN (Amazon.com, Inc.) target; SPCX (Space Exploration Technologies Corp.) stop; TJX (TJX Companies, Inc. (The)) closed 3:55",
+   3,
+   1,
+   1,
+   1,
+   -19.9,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   55,
+   86
   ]
  ]
 }

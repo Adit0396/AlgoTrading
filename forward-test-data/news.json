@@ -1033,5 +1033,53 @@
   "AAPL": [],
   "AMZN": [],
   "DIS": []
+ },
+ "2026-11-18": {
+  "AMZN": [],
+  "SPCX": [],
+  "TJX": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/tjx-q3-earnings-beat-estimates-145900093.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "earnings"
+    ],
+    "time": "2026-11-18T14:59:00+00:00",
+    "title": "TJX Q3 Earnings Beat Estimates on Strong Comparable Sales"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/video/california-bans-waymo-on-freeways-lowes--tjx-earnings-stories-to-watch-145236149.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "earnings"
+    ],
+    "time": "2026-11-18T14:52:36+00:00",
+    "title": "California bans Waymo on freeways, Lowe's & TJX earnings: Stories to watch"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://investorshub.advfn.com/market-news/article/40308/tjx-shares-jump-6-08-as-third-quarter-revenue-beats-estimates-and-fy2027-outlook-strengthens?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "earnings"
+    ],
+    "time": "2026-11-18T14:38:09+00:00",
+    "title": "TJX Shares Jump 6.08% as Third-Quarter Revenue Beats Estimates and FY2027 Outlook Strengthens"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/pre-markets-fight-green-ahead-143300935.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-18T14:33:00+00:00",
+    "title": "Pre-Markets Fight into the Green Ahead of Anthropic IPO"
+   }
+  ]
  }
 }
