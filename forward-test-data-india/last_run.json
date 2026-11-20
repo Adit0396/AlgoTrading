@@ -1,13 +1,13 @@
 {
   "days": [
     {
-      "date": "2026-11-19",
+      "date": "2026-11-20",
       "picks": [
-        "LTFOODS",
-        "MARUTI",
-        "M&M"
+        "INFY",
+        "PAYTM",
+        "APOLLOHOSP"
       ],
-      "pnl_inr": 1440.75
+      "pnl_inr": -5092.37
     }
   ],
   "charts_loaded": 495,

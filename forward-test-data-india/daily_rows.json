@@ -347,6 +347,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    137,
    155
+  ],
+  [
+   "'2026-11-20",
+   "'APOLLOHOSP (Apollo Hospitals Enterprise Ltd.) target; INFY (Infosys Ltd.) stop; PAYTM (One 97 Communications Ltd.) stop",
+   3,
+   1,
+   2,
+   0,
+   -5092.37,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   99,
+   125
   ]
  ]
 }

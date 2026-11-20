@@ -27,3 +27,4 @@ date,picks,trades,target,stop,flat,day_pnl,running_pnl,candidates,broke_out
 2026-11-17,ICICIBANK (ICICI Bank Ltd.) target; PNB (Punjab National Bank) closed 3:15; SBIN (State Bank of India) closed 3:15,3,1,0,2,3196.27,24928.56,67,99
 2026-11-18,IIFL (IIFL Finance Ltd.) stop; INOXINDIA (INOX India Ltd.) closed 3:15; KAYNES (Kaynes Technology India Ltd.) target,3,1,1,1,-374.3,24554.26,20,30
 2026-11-19,LTFOODS (LT Foods Ltd.) stop; M&M (Mahindra & Mahindra Ltd.) closed 3:15; MARUTI (Maruti Suzuki India Ltd.) closed 3:15,3,0,1,2,1440.75,25995.01,137,155
+2026-11-20,APOLLOHOSP (Apollo Hospitals Enterprise Ltd.) target; INFY (Infosys Ltd.) stop; PAYTM (One 97 Communications Ltd.) stop,3,1,2,0,-5092.37,20902.64,99,125

@@ -223,5 +223,20 @@
    }
   ],
   "MARUTI": []
+ },
+ "2026-11-20": {
+  "APOLLOHOSP": [],
+  "INFY": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.fool.com/coverage/better-buy/2026/11/19/servicenow-vs-uipath-which-technology-stock-is-a-better-buy-for-2027/?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-19T19:03:02+00:00",
+    "title": "ServiceNow vs. UiPath: Which Technology Stock Is a Better Buy for 2027?"
+   }
+  ],
+  "PAYTM": []
  }
 }
