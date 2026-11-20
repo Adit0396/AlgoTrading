@@ -215,6 +215,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    55,
    86
+  ],
+  [
+   "'2026-11-19",
+   "'BABA (Alibaba Group Holding Limited) stop; BE (Bloom Energy Corporation) stop; WMT (Walmart Inc.) stop",
+   3,
+   0,
+   3,
+   0,
+   -147.19,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   43,
+   100
   ]
  ]
 }

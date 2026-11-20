@@ -1081,5 +1081,94 @@
     "title": "Pre-Markets Fight into the Green Ahead of Anthropic IPO"
    }
   ]
+ },
+ "2026-11-19": {
+  "BABA": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.marketbeat.com/instant-alerts/transcript-what-alibaba-group-baba-said-on-its-q2-earnings-call-2026-11-19/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "earnings"
+    ],
+    "time": "2026-11-19T15:14:30+00:00",
+    "title": "What Alibaba Group (BABA) Said on Its Q2 Earnings Call"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/article/ai-trade-soars-with-anthropic-ipo-in-spotlight-alphacheck-145421789.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-19T14:54:21+00:00",
+    "title": "Anthropic IPO gives boost to AI trade: AlphaCheck"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.tikr.com/blog/pdd-holdings-soars-6-on-forecast-beating-third-quarter-earnings?ref=yahoofinance&tlnk=yf-261119-jjgxjmv9&.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "earnings"
+    ],
+    "time": "2026-11-19T14:34:59+00:00",
+    "title": "PDD Holdings Soars 6% on Forecast-Beating Third-Quarter Earnings"
+   }
+  ],
+  "BE": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/news/meta-downgraded-mongodb-upgraded-wall-143614569.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "analyst"
+    ],
+    "time": "2026-11-19T14:48:16+00:00",
+    "title": "Anthropic initiated, MongoDB upgraded: Wall Street's top analyst calls"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.tikr.com/blog/bloom-energy-soars-6-as-one-time-skeptic-bmo-upgrades-on-anthropic-ipo-day?ref=yahoofinance&tlnk=yf-261119-5r2wf69r&.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "analyst"
+    ],
+    "time": "2026-11-19T14:34:23+00:00",
+    "title": "Bloom Energy Soars 6% as One-Time Skeptic BMO Upgrades on Anthropic IPO Day"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.fool.com/investing/2026/11/19/should-you-buy-bloom-energy-with-500-right-now/?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-19T13:50:03+00:00",
+    "title": "Should You Buy Bloom Energy With $500 Right Now?"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/technology/ai/articles/bloom-energy-upgraded-bmo-anthropic-131136589.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "analyst"
+    ],
+    "time": "2026-11-19T13:11:36+00:00",
+    "title": "Bloom Energy upgraded at BMO as Anthropic IPO revives AI infrastructure trade"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/energy/articles/time-names-bloom-energy-among-231300693.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-18T23:13:00+00:00",
+    "title": "TIME Names Bloom Energy Among America\u2019s Top Manufacturers of 2027"
+   }
+  ],
+  "WMT": []
  }
 }
