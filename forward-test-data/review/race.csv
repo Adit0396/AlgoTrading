@@ -340,4 +340,10 @@ date,strategy,trades,pnl,detail
 2026-11-18,sip,2,203.73,MDLN long +$222.11; PRMB long -$18.38; GLBE long not triggered
 2026-11-18,vwap,6,-32.32,6 flips; -$32.32
 2026-11-18,momentum,1,2.46,SPY long +$2.46 (first half hour +0.17%)
-2026-11-18,noise,0,0,stayed inside the noise area
+2026-11-18,noise,0,0.0,stayed inside the noise area
+2026-11-19,v2,3,-147.36,WMT -$49.00; BE -$49.30; BABA -$49.06
+2026-11-19,learned,3,-147.36,Current rule: WMT BE BABA
+2026-11-19,sip,2,-22.86,WMG long -$13.04; WSM long not triggered; AFL short -$9.82
+2026-11-19,vwap,8,71.24,8 flips; +$71.24
+2026-11-19,momentum,1,-6.0,SPY long -$6.00 (first half hour +0.81%)
+2026-11-19,noise,2,17.4,SPY short -$7.92; SPY short +$25.32

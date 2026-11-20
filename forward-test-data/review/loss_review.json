@@ -669,5 +669,71 @@
   ],
   "best": "Exit at 12:00",
   "best_pnl": 7.2
+ },
+ {
+  "date": "2026-11-19",
+  "symbol": "BABA",
+  "name": "Alibaba Group Holding Limited",
+  "outcome": "stop",
+  "exit_time": "12:10",
+  "pnl": -49.06,
+  "wrong": "Market falling at entry (index -0.45% since the open); Wide stop (risk 2.54% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if wide stop"
+  ],
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-19",
+  "symbol": "BE",
+  "name": "Bloom Energy Corporation",
+  "outcome": "stop",
+  "exit_time": "10:25",
+  "pnl": -49.13,
+  "wrong": "Market falling at entry (index -0.45% since the open); Wide stop (risk 1.57% of price); Big gap up (gapped up 6.0%); Already fading (1.2R below its high); Ordinary volume (0.8x usual volume)",
+  "after": "stopped within 10 minutes",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if wide stop",
+   "skip if big gap up",
+   "skip if already fading",
+   "skip if ordinary volume"
+  ],
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-19",
+  "symbol": "WMT",
+  "name": "Walmart Inc.",
+  "outcome": "stop",
+  "exit_time": "11:20",
+  "pnl": -49.0,
+  "wrong": "Market falling at entry (index -0.45% since the open); Chased the breakout (0.58% above the range)",
+  "after": "",
+  "fixes": [
+   [
+    "Stop at range low",
+    4.32
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout"
+  ],
+  "best": "Stop at range low",
+  "best_pnl": 4.32
  }
 ]

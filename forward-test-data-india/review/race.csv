@@ -336,3 +336,9 @@ date,strategy,trades,pnl,detail
 2026-11-18,vwap,9,-2530.39,"9 flips; -₹2,530.39"
 2026-11-18,momentum,1,225.69,NIFTYBEES short +₹225.69 (first half hour -0.69%)
 2026-11-18,noise,1,-156.74,NIFTYBEES short -₹156.74
+2026-11-19,v2,3,1440.75,"LTFOODS -₹4,993.65; MARUTI +₹3,648.00; M&M +₹2,786.40"
+2026-11-19,learned,3,1440.75,Current rule: LTFOODS MARUTI M&M
+2026-11-19,sip,2,8647.67,"BBOX long not triggered; PGEL long -₹1,576.33; PAYTM short +₹10,224.00"
+2026-11-19,vwap,2,6546.06,"2 flips; +₹6,546.06"
+2026-11-19,momentum,1,-826.05,NIFTYBEES short -₹826.05 (first half hour -0.10%)
+2026-11-19,noise,1,2799.35,"NIFTYBEES long +₹2,799.35"

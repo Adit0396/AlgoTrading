@@ -848,5 +848,24 @@
   ],
   "best": "Wait 15 minutes",
   "best_pnl": 184.8
+ },
+ {
+  "date": "2026-11-19",
+  "symbol": "LTFOODS",
+  "name": "LT Foods Ltd.",
+  "outcome": "stop",
+  "exit_time": "10:55",
+  "pnl": -4993.65,
+  "wrong": "Chased the breakout (1.02% above the range); Wide stop (risk 2.66% of price); Big gap up (gapped up 4.4%)",
+  "after": "",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if big gap up"
+  ],
+  "best": "Stop at range low",
+  "best_pnl": -4984.1
  }
 ]
