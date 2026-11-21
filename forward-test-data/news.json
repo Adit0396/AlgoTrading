@@ -1170,5 +1170,104 @@
    }
   ],
   "WMT": []
+ },
+ "2026-11-20": {
+  "INTC": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/technology/ai/articles/intc-capitalize-ai-growth-expanded-150500460.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "deal"
+    ],
+    "time": "2026-11-20T15:05:00+00:00",
+    "title": "Can INTC Capitalize on AI Growth Through Its Expanded Microsoft Deal?"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.trefis.com/stock/mu/articles/627285/what-happens-to-micron-stock-if-prices-stop-rising/2026-11-20?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-20T15:01:47+00:00",
+    "title": "What Happens To Micron Stock If Prices Stop Rising?"
+   }
+  ],
+  "LLY": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.tikr.com/blog/a-4-7-billion-fund-just-bought-these-3-stocks-2?ref=yahoofinance&tlnk=yf-261120-753cm6cf&.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-20T14:58:02+00:00",
+    "title": "A $4.7 Billion Fund Just Bought These 3 Stocks"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://247wallst.com/investing/2026/11/20/cathie-wood-sold-nvidia-and-bought-78-million-of-anthropic-at-ipo/?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-20T14:52:42+00:00",
+    "title": "Cathie Wood Sold Nvidia and Bought $78 Million of Anthropic at IPO"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.trefis.com/stock/bmy/articles/627211/should-you-buy-bristol-myers-squibb-stock-at-todays-discount/2026-11-20?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-20T14:51:48+00:00",
+    "title": "Should You Buy Bristol Myers Squibb Stock At Today's Discount?"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/healthcare/articles/lilly-vs-pfizer-drugmaker-stronger-143900789.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-20T14:39:00+00:00",
+    "title": "Lilly vs. Pfizer: Which Drugmaker Has Stronger Growth Prospects?"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/healthcare/articles/ishares-u-healthcare-etf-iyh-110527822.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-20T11:05:27+00:00",
+    "title": "iShares U.S. Healthcare ETF (IYH) Sells $17.4 Million of Eli Lilly on Wednesday"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/invesco-p-500-equal-weight-110516166.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-20T11:05:16+00:00",
+    "title": "Invesco S&P 500 Equal Weight (RSP) Sells $0.4 Million of NVR on Nov. 18"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/healthcare/articles/state-street-health-care-spdr-110415075.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-20T11:04:15+00:00",
+    "title": "What State Street Health Care SPDR (XLV) Sold: Eli Lilly Leads on Wednesday"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-eli-lilly-110221691.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-20T11:02:21+00:00",
+    "title": "ETFs Are Net Sellers of Eli Lilly (LLY) on Nov. 18"
+   }
+  ],
+  "MSFT": []
  }
 }

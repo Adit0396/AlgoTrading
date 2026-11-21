@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T02:29:46Z",
+ "generated_at": "2026-11-21T02:38:13Z",
  "simulation_only": true,
  "settings": {
   "market": "US",
@@ -27,20 +27,20 @@
   "news_hours": 18
  },
  "totals": {
-  "sessions": 18,
-  "trades": 54,
+  "sessions": 19,
+  "trades": 57,
   "target": 18,
-  "stop": 21,
+  "stop": 24,
   "flat": 15,
   "winners": 22,
-  "win_rate": 0.407,
-  "pnl_usd": -284.4,
-  "return_on_account": -0.0569,
-  "avg_r": -0.111,
-  "predicted_target_first_pct": 26.672,
-  "actual_target_first_pct": 33.3,
-  "predicted_stop_first_pct": 25.07,
-  "actual_stop_first_pct": 38.9
+  "win_rate": 0.386,
+  "pnl_usd": -411.57,
+  "return_on_account": -0.0823,
+  "avg_r": -0.158,
+  "predicted_target_first_pct": 27.235,
+  "actual_target_first_pct": 31.6,
+  "predicted_stop_first_pct": 25.954,
+  "actual_stop_first_pct": 42.1
  },
  "daily": [
   {
@@ -132,6 +132,11 @@
    "date": "2026-11-19",
    "pnl_usd": -147.19,
    "cumulative_usd": -284.4
+  },
+  {
+   "date": "2026-11-20",
+   "pnl_usd": -127.17,
+   "cumulative_usd": -411.57
   }
  ],
  "picks": [
@@ -3420,35 +3425,35 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-11-19T15:14:30+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "What Alibaba Group (BABA) Said on Its Q2 Earnings Call",
      "link": "https://www.marketbeat.com/instant-alerts/transcript-what-alibaba-group-baba-said-on-its-q2-earnings-call-2026-11-19/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings"
      ],
-     "important": false
+     "time": "2026-11-19T15:14:30+00:00",
+     "title": "What Alibaba Group (BABA) Said on Its Q2 Earnings Call"
     },
     {
-     "time": "2026-11-19T14:54:21+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Anthropic IPO gives boost to AI trade: AlphaCheck",
      "link": "https://finance.yahoo.com/markets/article/ai-trade-soars-with-anthropic-ipo-in-spotlight-alphacheck-145421789.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-19T14:54:21+00:00",
+     "title": "Anthropic IPO gives boost to AI trade: AlphaCheck"
     },
     {
-     "time": "2026-11-19T14:34:59+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "PDD Holdings Soars 6% on Forecast-Beating Third-Quarter Earnings",
      "link": "https://www.tikr.com/blog/pdd-holdings-soars-6-on-forecast-beating-third-quarter-earnings?ref=yahoofinance&tlnk=yf-261119-jjgxjmv9&.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "earnings"
      ],
-     "important": false
+     "time": "2026-11-19T14:34:59+00:00",
+     "title": "PDD Holdings Soars 6% on Forecast-Beating Third-Quarter Earnings"
     }
    ]
   },
@@ -3496,55 +3501,55 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-11-19T14:48:16+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Anthropic initiated, MongoDB upgraded: Wall Street's top analyst calls",
      "link": "https://finance.yahoo.com/news/meta-downgraded-mongodb-upgraded-wall-143614569.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "analyst"
      ],
-     "important": false
+     "time": "2026-11-19T14:48:16+00:00",
+     "title": "Anthropic initiated, MongoDB upgraded: Wall Street's top analyst calls"
     },
     {
-     "time": "2026-11-19T14:34:23+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Bloom Energy Soars 6% as One-Time Skeptic BMO Upgrades on Anthropic IPO Day",
      "link": "https://www.tikr.com/blog/bloom-energy-soars-6-as-one-time-skeptic-bmo-upgrades-on-anthropic-ipo-day?ref=yahoofinance&tlnk=yf-261119-5r2wf69r&.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "analyst"
      ],
-     "important": false
+     "time": "2026-11-19T14:34:23+00:00",
+     "title": "Bloom Energy Soars 6% as One-Time Skeptic BMO Upgrades on Anthropic IPO Day"
     },
     {
-     "time": "2026-11-19T13:50:03+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Should You Buy Bloom Energy With $500 Right Now?",
      "link": "https://www.fool.com/investing/2026/11/19/should-you-buy-bloom-energy-with-500-right-now/?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-19T13:50:03+00:00",
+     "title": "Should You Buy Bloom Energy With $500 Right Now?"
     },
     {
-     "time": "2026-11-19T13:11:36+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Bloom Energy upgraded at BMO as Anthropic IPO revives AI infrastructure trade",
      "link": "https://finance.yahoo.com/technology/ai/articles/bloom-energy-upgraded-bmo-anthropic-131136589.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "analyst"
      ],
-     "important": false
+     "time": "2026-11-19T13:11:36+00:00",
+     "title": "Bloom Energy upgraded at BMO as Anthropic IPO revives AI infrastructure trade"
     },
     {
-     "time": "2026-11-18T23:13:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "TIME Names Bloom Energy Among America\u2019s Top Manufacturers of 2027",
      "link": "https://finance.yahoo.com/energy/articles/time-names-bloom-energy-among-231300693.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-18T23:13:00+00:00",
+     "title": "TIME Names Bloom Energy Among America\u2019s Top Manufacturers of 2027"
     }
    ]
   },
@@ -3589,6 +3594,232 @@
    "breakout_price": 125.55,
    "rank": 1.0,
    "candidates": 43.0,
+   "rule": "v2",
+   "news": []
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "INTC",
+   "name": "Intel Corporation",
+   "entry_time": "10:15 AM",
+   "entry": 55.17,
+   "stop": 53.98,
+   "target": 56.36,
+   "risk_per_share": 1.19,
+   "shares": 42.0,
+   "position_usd": 2317.14,
+   "max_loss_usd": 49.98,
+   "tm_target_pct": 36.6,
+   "tm_stop_pct": 37.2,
+   "tm_neither_pct": 26.2,
+   "tm_green_pct": 49.4,
+   "tm_avg_r": -0.009,
+   "hist_fired": 33.0,
+   "hist_target": 14.0,
+   "hist_stop": 12.0,
+   "hist_close": 7.0,
+   "hist_avg_r": 0.012,
+   "verdict": "Close to a coin flip: target first 36.6 % vs stop first 37.2 %.",
+   "actual_outcome": "stop",
+   "exit_time": "10:25",
+   "exit_price": 53.98,
+   "r_multiple": -1.0,
+   "pnl_usd": -49.98,
+   "dollar_volume_to_1015": 1700567095.0,
+   "scan_hits": 119.0,
+   "seed": 19.0,
+   "run_at": "2026-11-21 02:33 UTC",
+   "note": "",
+   "news_before_entry": "2 items (deal); latest: Can INTC Capitalize on AI Growth Through Its Expanded Microsoft Deal?",
+   "or_high": 54.48,
+   "or_low": 53.48,
+   "breakout_pct": 1.27,
+   "breakout_time": "9:50 AM",
+   "breakout_price": 54.78,
+   "rank": 2.0,
+   "candidates": 71.0,
+   "rule": "v2",
+   "news": [
+    {
+     "time": "2026-11-20T15:05:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Can INTC Capitalize on AI Growth Through Its Expanded Microsoft Deal?",
+     "link": "https://finance.yahoo.com/technology/ai/articles/intc-capitalize-ai-growth-expanded-150500460.html?.tsrc=rss",
+     "tags": [
+      "deal"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-20T15:01:47+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "What Happens To Micron Stock If Prices Stop Rising?",
+     "link": "https://www.trefis.com/stock/mu/articles/627285/what-happens-to-micron-stock-if-prices-stop-rising/2026-11-20?.tsrc=rss",
+     "tags": [],
+     "important": false
+    }
+   ]
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "LLY",
+   "name": "Eli Lilly and Company",
+   "entry_time": "10:15 AM",
+   "entry": 1369.5,
+   "stop": 1360.37,
+   "target": 1378.63,
+   "risk_per_share": 9.13,
+   "shares": 3.0,
+   "position_usd": 4108.5,
+   "max_loss_usd": 27.39,
+   "tm_target_pct": 42.6,
+   "tm_stop_pct": 55.2,
+   "tm_neither_pct": 2.2,
+   "tm_green_pct": 43.7,
+   "tm_avg_r": -0.126,
+   "hist_fired": 30.0,
+   "hist_target": 8.0,
+   "hist_stop": 14.0,
+   "hist_close": 8.0,
+   "hist_avg_r": -0.216,
+   "verdict": "Leans toward the stop: target first 42.6 % vs stop first 55.2 %.",
+   "actual_outcome": "stop",
+   "exit_time": "10:30",
+   "exit_price": 1360.37,
+   "r_multiple": -1.0,
+   "pnl_usd": -27.39,
+   "dollar_volume_to_1015": 1423523781.0,
+   "scan_hits": 119.0,
+   "seed": 19.0,
+   "run_at": "2026-11-21 02:33 UTC",
+   "note": "",
+   "news_before_entry": "10 items (earnings); latest: A $4.7 Billion Fund Just Bought These 3 Stocks",
+   "or_high": 1366.51,
+   "or_low": 1354.23,
+   "breakout_pct": 0.22,
+   "breakout_time": "10:10 AM",
+   "breakout_price": 1368.38,
+   "rank": 3.0,
+   "candidates": 71.0,
+   "rule": "v2",
+   "news": [
+    {
+     "time": "2026-11-20T14:58:02+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "A $4.7 Billion Fund Just Bought These 3 Stocks",
+     "link": "https://www.tikr.com/blog/a-4-7-billion-fund-just-bought-these-3-stocks-2?ref=yahoofinance&tlnk=yf-261120-753cm6cf&.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-20T14:52:42+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Cathie Wood Sold Nvidia and Bought $78 Million of Anthropic at IPO",
+     "link": "https://247wallst.com/investing/2026/11/20/cathie-wood-sold-nvidia-and-bought-78-million-of-anthropic-at-ipo/?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-20T14:51:48+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Should You Buy Bristol Myers Squibb Stock At Today's Discount?",
+     "link": "https://www.trefis.com/stock/bmy/articles/627211/should-you-buy-bristol-myers-squibb-stock-at-todays-discount/2026-11-20?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-20T14:39:00+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Lilly vs. Pfizer: Which Drugmaker Has Stronger Growth Prospects?",
+     "link": "https://finance.yahoo.com/healthcare/articles/lilly-vs-pfizer-drugmaker-stronger-143900789.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-20T11:05:27+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "iShares U.S. Healthcare ETF (IYH) Sells $17.4 Million of Eli Lilly on Wednesday",
+     "link": "https://finance.yahoo.com/healthcare/articles/ishares-u-healthcare-etf-iyh-110527822.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-20T11:05:16+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Invesco S&P 500 Equal Weight (RSP) Sells $0.4 Million of NVR on Nov. 18",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/invesco-p-500-equal-weight-110516166.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-20T11:04:15+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "What State Street Health Care SPDR (XLV) Sold: Eli Lilly Leads on Wednesday",
+     "link": "https://finance.yahoo.com/healthcare/articles/state-street-health-care-spdr-110415075.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-20T11:02:21+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "ETFs Are Net Sellers of Eli Lilly (LLY) on Nov. 18",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-eli-lilly-110221691.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    }
+   ]
+  },
+  {
+   "date": "2026-11-20",
+   "symbol": "MSFT",
+   "name": "Microsoft Corporation",
+   "entry_time": "10:15 AM",
+   "entry": 499.6,
+   "stop": 494.62,
+   "target": 504.58,
+   "risk_per_share": 4.98,
+   "shares": 10.0,
+   "position_usd": 4996.0,
+   "max_loss_usd": 49.8,
+   "tm_target_pct": 32.9,
+   "tm_stop_pct": 33.2,
+   "tm_neither_pct": 34.0,
+   "tm_green_pct": 48.7,
+   "tm_avg_r": -0.013,
+   "hist_fired": 30.0,
+   "hist_target": 9.0,
+   "hist_stop": 8.0,
+   "hist_close": 13.0,
+   "hist_avg_r": 0.013,
+   "verdict": "Close to a coin flip: target first 32.9 % vs stop first 33.2 %.",
+   "actual_outcome": "stop",
+   "exit_time": "10:40",
+   "exit_price": 494.62,
+   "r_multiple": -1.0,
+   "pnl_usd": -49.8,
+   "dollar_volume_to_1015": 3842785443.0,
+   "scan_hits": 119.0,
+   "seed": 19.0,
+   "run_at": "2026-11-21 02:33 UTC",
+   "note": "",
+   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-11-20 21:32 UTC, after this entry",
+   "or_high": 498.36,
+   "or_low": 490.88,
+   "breakout_pct": 0.25,
+   "breakout_time": "9:50 AM",
+   "breakout_price": 499.2,
+   "rank": 1.0,
+   "candidates": 71.0,
    "rule": "v2",
    "news": []
   }

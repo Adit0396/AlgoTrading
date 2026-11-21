@@ -227,6 +227,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    43,
    100
+  ],
+  [
+   "'2026-11-20",
+   "'INTC (Intel Corporation) stop; LLY (Eli Lilly and Company) stop; MSFT (Microsoft Corporation) stop",
+   3,
+   0,
+   3,
+   0,
+   -127.17,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   71,
+   119
   ]
  ]
 }
