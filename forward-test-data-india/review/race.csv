@@ -342,3 +342,9 @@ date,strategy,trades,pnl,detail
 2026-11-19,vwap,2,6546.06,"2 flips; +₹6,546.06"
 2026-11-19,momentum,1,-826.05,NIFTYBEES short -₹826.05 (first half hour -0.10%)
 2026-11-19,noise,1,2799.35,"NIFTYBEES long +₹2,799.35"
+2026-11-20,v2,3,-5092.37,"INFY -₹4,985.86; PAYTM -₹4,985.76; APOLLOHOSP +₹4,879.25"
+2026-11-20,learned,3,-5092.37,Current rule: INFY PAYTM APOLLOHOSP
+2026-11-20,sip,2,-2775.92,"TATATECH long -₹1,425.03; FSL long not triggered; MAXHEALTH long -₹1,350.89"
+2026-11-20,vwap,4,4503.32,"4 flips; +₹4,503.32"
+2026-11-20,momentum,1,-834.02,NIFTYBEES short -₹834.02 (first half hour -0.13%)
+2026-11-20,noise,1,3197.74,"NIFTYBEES long +₹3,197.74"

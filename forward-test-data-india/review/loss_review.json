@@ -867,5 +867,44 @@
   ],
   "best": "Stop at range low",
   "best_pnl": -4984.1
+ },
+ {
+  "date": "2026-11-20",
+  "symbol": "INFY",
+  "name": "Infosys Ltd.",
+  "outcome": "stop",
+  "exit_time": "14:20",
+  "pnl": -4985.86,
+  "wrong": "nothing flagged at entry",
+  "after": "was up 0.6R before turning down",
+  "fixes": [
+   [
+    "Target 0.5R",
+    2491.2
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [],
+  "best": "Target 0.5R",
+  "best_pnl": 2491.2
+ },
+ {
+  "date": "2026-11-20",
+  "symbol": "PAYTM",
+  "name": "One 97 Communications Ltd.",
+  "outcome": "stop",
+  "exit_time": "11:10",
+  "pnl": -4985.76,
+  "wrong": "Chased the breakout (0.67% above the range)",
+  "after": "",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if chased the breakout"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": -3095.1
  }
 ]

@@ -735,5 +735,64 @@
   ],
   "best": "Stop at range low",
   "best_pnl": 4.32
+ },
+ {
+  "date": "2026-11-20",
+  "symbol": "INTC",
+  "name": "Intel Corporation",
+  "outcome": "stop",
+  "exit_time": "10:25",
+  "pnl": -49.98,
+  "wrong": "Chased the breakout (1.27% above the range); Wide stop (risk 2.16% of price); Already fading (1.1R below its high)",
+  "after": "stopped within 10 minutes",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if already fading"
+  ],
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-20",
+  "symbol": "LLY",
+  "name": "Eli Lilly and Company",
+  "outcome": "stop",
+  "exit_time": "10:30",
+  "pnl": -27.39,
+  "wrong": "Fresh breakout (broke out at 10:10)",
+  "after": "stopped within 15 minutes",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if fresh breakout"
+  ],
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-20",
+  "symbol": "MSFT",
+  "name": "Microsoft Corporation",
+  "outcome": "stop",
+  "exit_time": "10:40",
+  "pnl": -49.8,
+  "wrong": "Already fading (0.8R below its high)",
+  "after": "stopped within 25 minutes",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if already fading"
+  ],
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
  }
 ]

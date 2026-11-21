@@ -347,3 +347,9 @@ date,strategy,trades,pnl,detail
 2026-11-19,vwap,8,71.24,8 flips; +$71.24
 2026-11-19,momentum,1,-6.0,SPY long -$6.00 (first half hour +0.81%)
 2026-11-19,noise,2,17.4,SPY short -$7.92; SPY short +$25.32
+2026-11-20,v2,3,-148.5,MSFT -$49.90; INTC -$49.98; WMT -$48.62
+2026-11-20,learned,3,-148.5,Current rule: MSFT INTC WMT
+2026-11-20,sip,2,-21.9,BILL long not triggered; BJ short -$11.86; UDR long -$10.04
+2026-11-20,vwap,3,166.11,3 flips; +$166.11
+2026-11-20,momentum,1,-12.18,SPY long -$12.18 (first half hour +0.19%)
+2026-11-20,noise,1,109.76,SPY short +$109.76
