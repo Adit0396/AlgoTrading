@@ -238,5 +238,22 @@
    }
   ],
   "PAYTM": []
+ },
+ "2026-11-23": {
+  "DIVISLAB": [],
+  "INFY": [],
+  "TCS": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "http://www.intellinews.com/corpwatch-india-s-it-giants-turn-captive-tech-centres-into-billion-dollar-deals-487312/?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "deal"
+    ],
+    "time": "2026-11-23T00:51:18+00:00",
+    "title": "CORPWATCH: India's IT giants turn captive tech centres into billion-dollar deals"
+   }
+  ]
  }
 }

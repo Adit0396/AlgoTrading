@@ -1,13 +1,13 @@
 {
   "days": [
     {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "picks": [
+        "TCS",
         "INFY",
-        "PAYTM",
-        "APOLLOHOSP"
+        "DIVISLAB"
       ],
-      "pnl_inr": -5092.37
+      "pnl_inr": 4550.05
     }
   ],
   "charts_loaded": 495,
