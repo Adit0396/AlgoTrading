@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T22:15:02Z",
+ "generated_at": "2026-11-24T20:53:45Z",
  "simulation_only": true,
  "settings": {
   "market": "IN",
@@ -4167,15 +4167,15 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-11-23T00:51:18+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "CORPWATCH: India's IT giants turn captive tech centres into billion-dollar deals",
      "link": "http://www.intellinews.com/corpwatch-india-s-it-giants-turn-captive-tech-centres-into-billion-dollar-deals-487312/?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "deal"
      ],
-     "important": false
+     "time": "2026-11-23T00:51:18+00:00",
+     "title": "CORPWATCH: India's IT giants turn captive tech centres into billion-dollar deals"
     }
    ]
   }

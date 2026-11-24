@@ -1,15 +1,5 @@
 {
-  "days": [
-    {
-      "date": "2026-11-23",
-      "picks": [
-        "TCS",
-        "INFY",
-        "DIVISLAB"
-      ],
-      "pnl_inr": 4550.05
-    }
-  ],
+  "days": [],
   "charts_loaded": 495,
   "charts_failed": 1
 }
