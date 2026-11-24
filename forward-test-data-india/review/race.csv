@@ -348,3 +348,9 @@ date,strategy,trades,pnl,detail
 2026-11-20,vwap,4,4503.32,"4 flips; +₹4,503.32"
 2026-11-20,momentum,1,-834.02,NIFTYBEES short -₹834.02 (first half hour -0.13%)
 2026-11-20,noise,1,3197.74,"NIFTYBEES long +₹3,197.74"
+2026-11-23,v2,3,4550.05,"TCS +₹4,976.10; INFY +₹3,786.95; DIVISLAB -₹4,213.00"
+2026-11-23,learned,3,4550.05,Current rule: TCS INFY DIVISLAB
+2026-11-23,sip,2,8034.58,"ITI long -₹2,113.00; TIINDIA long not triggered; SYNGENE short +₹10,147.58"
+2026-11-23,vwap,1,7433.36,"1 flips; +₹7,433.36"
+2026-11-23,momentum,1,1119.94,"NIFTYBEES short +₹1,119.94 (first half hour -0.39%)"
+2026-11-23,noise,1,6039.2,"NIFTYBEES short +₹6,039.20"

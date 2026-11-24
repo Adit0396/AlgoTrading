@@ -353,3 +353,9 @@ date,strategy,trades,pnl,detail
 2026-11-20,vwap,3,166.11,3 flips; +$166.11
 2026-11-20,momentum,1,-12.18,SPY long -$12.18 (first half hour +0.19%)
 2026-11-20,noise,1,109.76,SPY short +$109.76
+2026-11-23,v2,3,-79.03,MU -$9.24; TSLA -$23.35; MRVL -$46.44
+2026-11-23,learned,3,-79.03,Current rule: MU TSLA MRVL
+2026-11-23,sip,2,99.63,ZS short +$127.89; SYM long not triggered; ETSY short -$28.26
+2026-11-23,vwap,16,-186.28,16 flips; -$186.28
+2026-11-23,momentum,1,-12.9,SPY long -$12.90 (first half hour +4.35%)
+2026-11-23,noise,0,0,stayed inside the noise area

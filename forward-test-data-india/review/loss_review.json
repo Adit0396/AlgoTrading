@@ -906,5 +906,25 @@
   ],
   "best": "Buy the pullback",
   "best_pnl": -3095.1
+ },
+ {
+  "date": "2026-11-23",
+  "symbol": "DIVISLAB",
+  "name": "Divi's Laboratories Ltd.",
+  "outcome": "stop",
+  "exit_time": "10:40",
+  "pnl": -4213.0,
+  "wrong": "Market falling at entry (index -1.11% since the open); Ordinary volume (0.7x usual volume)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if ordinary volume"
+  ],
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
  }
 ]

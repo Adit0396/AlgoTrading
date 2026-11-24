@@ -794,5 +794,87 @@
   ],
   "best": "Wait 15 minutes (no trade)",
   "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-23",
+  "symbol": "MRVL",
+  "name": "Marvell Technology, Inc.",
+  "outcome": "stop",
+  "exit_time": "11:40",
+  "pnl": -46.44,
+  "wrong": "Market falling at entry (index -0.25% since the open); Chased the breakout (0.56% above the range); Wide stop (risk 2.63% of price); Big gap up (gapped up 19.6%); Fresh breakout (broke out at 10:15)",
+  "after": "was up 0.7R before turning down",
+  "fixes": [
+   [
+    "Target 0.5R",
+    23.28
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if big gap up",
+   "skip if fresh breakout"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 23.28
+ },
+ {
+  "date": "2026-11-23",
+  "symbol": "MU",
+  "name": "Micron Technology, Inc.",
+  "outcome": "flat at 3:55",
+  "exit_time": "15:55",
+  "pnl": -9.24,
+  "wrong": "Market falling at entry (index -0.25% since the open); Chased the breakout (1.74% above the range); Wide stop (risk 3.24% of price); Big gap up (gapped up 16.2%)",
+  "after": "",
+  "fixes": [
+   [
+    "Target 0.5R",
+    22.9
+   ],
+   [
+    "Exit at 12:00",
+    8.72
+   ]
+  ],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout",
+   "skip if wide stop",
+   "skip if big gap up"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 22.9
+ },
+ {
+  "date": "2026-11-23",
+  "symbol": "TSLA",
+  "name": "Tesla, Inc.",
+  "outcome": "flat at 3:55",
+  "exit_time": "15:55",
+  "pnl": -23.35,
+  "wrong": "Market falling at entry (index -0.25% since the open); Wide stop (risk 2.35% of price); Big gap up (gapped up 8.3%); Fresh breakout (broke out at 10:15)",
+  "after": "",
+  "fixes": [
+   [
+    "Exit at 12:00",
+    0.6
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if wide stop",
+   "skip if big gap up",
+   "skip if fresh breakout"
+  ],
+  "best": "Exit at 12:00",
+  "best_pnl": 0.6
  }
 ]
