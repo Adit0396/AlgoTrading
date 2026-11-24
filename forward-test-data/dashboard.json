@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T02:38:13Z",
+ "generated_at": "2026-11-24T05:26:46Z",
  "simulation_only": true,
  "settings": {
   "market": "US",
@@ -27,20 +27,20 @@
   "news_hours": 18
  },
  "totals": {
-  "sessions": 19,
-  "trades": 57,
+  "sessions": 20,
+  "trades": 60,
   "target": 18,
-  "stop": 24,
-  "flat": 15,
+  "stop": 25,
+  "flat": 17,
   "winners": 22,
-  "win_rate": 0.386,
-  "pnl_usd": -411.57,
-  "return_on_account": -0.0823,
-  "avg_r": -0.158,
-  "predicted_target_first_pct": 27.235,
-  "actual_target_first_pct": 31.6,
-  "predicted_stop_first_pct": 25.954,
-  "actual_stop_first_pct": 42.1
+  "win_rate": 0.367,
+  "pnl_usd": -490.6,
+  "return_on_account": -0.0981,
+  "avg_r": -0.179,
+  "predicted_target_first_pct": 26.81,
+  "actual_target_first_pct": 30.0,
+  "predicted_stop_first_pct": 25.842,
+  "actual_stop_first_pct": 41.7
  },
  "daily": [
   {
@@ -137,6 +137,11 @@
    "date": "2026-11-20",
    "pnl_usd": -127.17,
    "cumulative_usd": -411.57
+  },
+  {
+   "date": "2026-11-23",
+   "pnl_usd": -79.03,
+   "cumulative_usd": -490.6
   }
  ],
  "picks": [
@@ -3641,24 +3646,24 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-11-20T15:05:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Can INTC Capitalize on AI Growth Through Its Expanded Microsoft Deal?",
      "link": "https://finance.yahoo.com/technology/ai/articles/intc-capitalize-ai-growth-expanded-150500460.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [
       "deal"
      ],
-     "important": false
+     "time": "2026-11-20T15:05:00+00:00",
+     "title": "Can INTC Capitalize on AI Growth Through Its Expanded Microsoft Deal?"
     },
     {
-     "time": "2026-11-20T15:01:47+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "What Happens To Micron Stock If Prices Stop Rising?",
      "link": "https://www.trefis.com/stock/mu/articles/627285/what-happens-to-micron-stock-if-prices-stop-rising/2026-11-20?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-20T15:01:47+00:00",
+     "title": "What Happens To Micron Stock If Prices Stop Rising?"
     }
    ]
   },
@@ -3706,76 +3711,76 @@
    "rule": "v2",
    "news": [
     {
-     "time": "2026-11-20T14:58:02+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "A $4.7 Billion Fund Just Bought These 3 Stocks",
      "link": "https://www.tikr.com/blog/a-4-7-billion-fund-just-bought-these-3-stocks-2?ref=yahoofinance&tlnk=yf-261120-753cm6cf&.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-20T14:58:02+00:00",
+     "title": "A $4.7 Billion Fund Just Bought These 3 Stocks"
     },
     {
-     "time": "2026-11-20T14:52:42+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Cathie Wood Sold Nvidia and Bought $78 Million of Anthropic at IPO",
      "link": "https://247wallst.com/investing/2026/11/20/cathie-wood-sold-nvidia-and-bought-78-million-of-anthropic-at-ipo/?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-20T14:52:42+00:00",
+     "title": "Cathie Wood Sold Nvidia and Bought $78 Million of Anthropic at IPO"
     },
     {
-     "time": "2026-11-20T14:51:48+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Should You Buy Bristol Myers Squibb Stock At Today's Discount?",
      "link": "https://www.trefis.com/stock/bmy/articles/627211/should-you-buy-bristol-myers-squibb-stock-at-todays-discount/2026-11-20?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-20T14:51:48+00:00",
+     "title": "Should You Buy Bristol Myers Squibb Stock At Today's Discount?"
     },
     {
-     "time": "2026-11-20T14:39:00+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Lilly vs. Pfizer: Which Drugmaker Has Stronger Growth Prospects?",
      "link": "https://finance.yahoo.com/healthcare/articles/lilly-vs-pfizer-drugmaker-stronger-143900789.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-20T14:39:00+00:00",
+     "title": "Lilly vs. Pfizer: Which Drugmaker Has Stronger Growth Prospects?"
     },
     {
-     "time": "2026-11-20T11:05:27+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "iShares U.S. Healthcare ETF (IYH) Sells $17.4 Million of Eli Lilly on Wednesday",
      "link": "https://finance.yahoo.com/healthcare/articles/ishares-u-healthcare-etf-iyh-110527822.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-20T11:05:27+00:00",
+     "title": "iShares U.S. Healthcare ETF (IYH) Sells $17.4 Million of Eli Lilly on Wednesday"
     },
     {
-     "time": "2026-11-20T11:05:16+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "Invesco S&P 500 Equal Weight (RSP) Sells $0.4 Million of NVR on Nov. 18",
      "link": "https://finance.yahoo.com/markets/stocks/articles/invesco-p-500-equal-weight-110516166.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-20T11:05:16+00:00",
+     "title": "Invesco S&P 500 Equal Weight (RSP) Sells $0.4 Million of NVR on Nov. 18"
     },
     {
-     "time": "2026-11-20T11:04:15+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "What State Street Health Care SPDR (XLV) Sold: Eli Lilly Leads on Wednesday",
      "link": "https://finance.yahoo.com/healthcare/articles/state-street-health-care-spdr-110415075.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-20T11:04:15+00:00",
+     "title": "What State Street Health Care SPDR (XLV) Sold: Eli Lilly Leads on Wednesday"
     },
     {
-     "time": "2026-11-20T11:02:21+00:00",
-     "source": "Yahoo Finance",
+     "important": false,
      "kind": "headline",
-     "title": "ETFs Are Net Sellers of Eli Lilly (LLY) on Nov. 18",
      "link": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-eli-lilly-110221691.html?.tsrc=rss",
+     "source": "Yahoo Finance",
      "tags": [],
-     "important": false
+     "time": "2026-11-20T11:02:21+00:00",
+     "title": "ETFs Are Net Sellers of Eli Lilly (LLY) on Nov. 18"
     }
    ]
   },
@@ -3820,6 +3825,180 @@
    "breakout_price": 499.2,
    "rank": 1.0,
    "candidates": 71.0,
+   "rule": "v2",
+   "news": []
+  },
+  {
+   "date": "2026-11-23",
+   "symbol": "MRVL",
+   "name": "Marvell Technology, Inc.",
+   "entry_time": "10:15 AM",
+   "entry": 147.24,
+   "stop": 143.37,
+   "target": 151.11,
+   "risk_per_share": 3.87,
+   "shares": 12.0,
+   "position_usd": 1766.88,
+   "max_loss_usd": 46.44,
+   "tm_target_pct": 32.3,
+   "tm_stop_pct": 35.9,
+   "tm_neither_pct": 31.8,
+   "tm_green_pct": 47.4,
+   "tm_avg_r": -0.043,
+   "hist_fired": 33.0,
+   "hist_target": 12.0,
+   "hist_stop": 13.0,
+   "hist_close": 8.0,
+   "hist_avg_r": -0.062,
+   "verdict": "Close to a coin flip: target first 32.3 % vs stop first 35.9 %.",
+   "actual_outcome": "stop",
+   "exit_time": "11:40",
+   "exit_price": 143.37,
+   "r_multiple": -1.0,
+   "pnl_usd": -46.44,
+   "dollar_volume_to_1015": 1623499910.0,
+   "scan_hits": 71.0,
+   "seed": 19.0,
+   "run_at": "2026-11-24 05:22 UTC",
+   "note": "",
+   "news_before_entry": "4 items (deal, legal, macro); latest: Is Broadcom Stock's Drop A Chance To Buy?",
+   "or_high": 146.43,
+   "or_low": 140.32,
+   "breakout_pct": 0.55,
+   "breakout_time": "10:15 AM",
+   "breakout_price": 147.24,
+   "rank": 3.0,
+   "candidates": 48.0,
+   "rule": "v2",
+   "news": [
+    {
+     "time": "2026-11-23T15:24:55+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Is Broadcom Stock's Drop A Chance To Buy?",
+     "link": "https://www.trefis.com/stock/avgo/articles/627646/is-broadcom-stocks-drop-a-chance-to-buy/2026-11-23?.tsrc=rss",
+     "tags": [
+      "legal"
+     ],
+     "important": false
+    },
+    {
+     "time": "2026-11-23T14:08:57+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "What Is Marvell Technology (MRVL) Building In AI Memory Infrastructure?",
+     "link": "https://finance.yahoo.com/technology/ai/articles/marvell-technology-mrvl-building-ai-140857801.html?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-23T13:04:53+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Prediction: This Under-the-Radar AI Stock Could Have a Big 2030 Ahead",
+     "link": "https://247wallst.com/investing/2026/11/23/prediction-this-under-the-radar-ai-stock-could-have-a-big-2030-ahead-2/?.tsrc=rss",
+     "tags": [],
+     "important": false
+    },
+    {
+     "time": "2026-11-23T12:44:24+00:00",
+     "source": "Yahoo Finance",
+     "kind": "headline",
+     "title": "Premarket movers: Chip stocks lead AI rebound; CrowdStrike falls",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/premarket-movers-chip-stocks-lead-124424524.html?.tsrc=rss",
+     "tags": [
+      "deal",
+      "macro"
+     ],
+     "important": false
+    }
+   ]
+  },
+  {
+   "date": "2026-11-23",
+   "symbol": "MU",
+   "name": "Micron Technology, Inc.",
+   "entry_time": "10:15 AM",
+   "entry": 706.0,
+   "stop": 683.11,
+   "target": 728.89,
+   "risk_per_share": 22.89,
+   "shares": 2.0,
+   "position_usd": 1412.0,
+   "max_loss_usd": 45.78,
+   "tm_target_pct": 12.9,
+   "tm_stop_pct": 21.4,
+   "tm_neither_pct": 65.7,
+   "tm_green_pct": 43.4,
+   "tm_avg_r": -0.107,
+   "hist_fired": 30.0,
+   "hist_target": 10.0,
+   "hist_stop": 13.0,
+   "hist_close": 7.0,
+   "hist_avg_r": -0.067,
+   "verdict": "Leans toward the stop: target first 12.9 % vs stop first 21.4 %.",
+   "actual_outcome": "flat at 3:55",
+   "exit_time": "15:55",
+   "exit_price": 701.38,
+   "r_multiple": -0.2,
+   "pnl_usd": -9.24,
+   "dollar_volume_to_1015": 11449268010.0,
+   "scan_hits": 71.0,
+   "seed": 19.0,
+   "run_at": "2026-11-24 05:22 UTC",
+   "note": "",
+   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-11-23 19:43 UTC, after this entry",
+   "or_high": 693.92,
+   "or_low": 672.31,
+   "breakout_pct": 1.74,
+   "breakout_time": "10:00 AM",
+   "breakout_price": 694.85,
+   "rank": 1.0,
+   "candidates": 48.0,
+   "rule": "v2",
+   "news": []
+  },
+  {
+   "date": "2026-11-23",
+   "symbol": "TSLA",
+   "name": "Tesla, Inc.",
+   "entry_time": "10:15 AM",
+   "entry": 390.11,
+   "stop": 380.94,
+   "target": 399.28,
+   "risk_per_share": 9.17,
+   "shares": 5.0,
+   "position_usd": 1950.55,
+   "max_loss_usd": 45.85,
+   "tm_target_pct": 11.0,
+   "tm_stop_pct": 13.8,
+   "tm_neither_pct": 75.2,
+   "tm_green_pct": 45.9,
+   "tm_avg_r": -0.059,
+   "hist_fired": 34.0,
+   "hist_target": 10.0,
+   "hist_stop": 15.0,
+   "hist_close": 9.0,
+   "hist_avg_r": -0.15,
+   "verdict": "Leans toward the stop: target first 11.0 % vs stop first 13.8 %.",
+   "actual_outcome": "flat at 3:55",
+   "exit_time": "15:55",
+   "exit_price": 385.44,
+   "r_multiple": -0.51,
+   "pnl_usd": -23.35,
+   "dollar_volume_to_1015": 5510646826.0,
+   "scan_hits": 71.0,
+   "seed": 19.0,
+   "run_at": "2026-11-24 05:22 UTC",
+   "note": "",
+   "news_before_entry": "no headlines found: Yahoo's feed now starts at 2026-11-23 17:32 UTC, after this entry",
+   "or_high": 389.39,
+   "or_low": 372.5,
+   "breakout_pct": 0.18,
+   "breakout_time": "10:15 AM",
+   "breakout_price": 390.11,
+   "rank": 2.0,
+   "candidates": 48.0,
    "rule": "v2",
    "news": []
   }

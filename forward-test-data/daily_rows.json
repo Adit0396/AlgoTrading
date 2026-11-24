@@ -239,6 +239,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    71,
    119
+  ],
+  [
+   "'2026-11-23",
+   "'MRVL (Marvell Technology, Inc.) stop; MU (Micron Technology, Inc.) closed 3:55; TSLA (Tesla, Inc.) closed 3:55",
+   3,
+   0,
+   1,
+   2,
+   -79.03,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   48,
+   71
   ]
  ]
 }

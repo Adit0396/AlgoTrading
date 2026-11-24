@@ -1269,5 +1269,52 @@
    }
   ],
   "MSFT": []
+ },
+ "2026-11-23": {
+  "MRVL": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.trefis.com/stock/avgo/articles/627646/is-broadcom-stocks-drop-a-chance-to-buy/2026-11-23?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "legal"
+    ],
+    "time": "2026-11-23T15:24:55+00:00",
+    "title": "Is Broadcom Stock's Drop A Chance To Buy?"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/technology/ai/articles/marvell-technology-mrvl-building-ai-140857801.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-23T14:08:57+00:00",
+    "title": "What Is Marvell Technology (MRVL) Building In AI Memory Infrastructure?"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://247wallst.com/investing/2026/11/23/prediction-this-under-the-radar-ai-stock-could-have-a-big-2030-ahead-2/?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-23T13:04:53+00:00",
+    "title": "Prediction: This Under-the-Radar AI Stock Could Have a Big 2030 Ahead"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/premarket-movers-chip-stocks-lead-124424524.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "deal",
+     "macro"
+    ],
+    "time": "2026-11-23T12:44:24+00:00",
+    "title": "Premarket movers: Chip stocks lead AI rebound; CrowdStrike falls"
+   }
+  ],
+  "MU": [],
+  "TSLA": []
  }
 }
