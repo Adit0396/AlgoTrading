@@ -371,6 +371,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    21,
    35
+  ],
+  [
+   "'2026-11-25",
+   "'ETERNAL (Eternal Ltd.) target; ICICIBANK (ICICI Bank Ltd.) stop; JWL (Jupiter Wagons Ltd.) target",
+   3,
+   2,
+   1,
+   0,
+   5329.1,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   38,
+   67
   ]
  ]
 }

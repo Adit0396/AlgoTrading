@@ -1,5 +1,15 @@
 {
-  "days": [],
+  "days": [
+    {
+      "date": "2026-11-25",
+      "picks": [
+        "JWL",
+        "ICICIBANK",
+        "ETERNAL"
+      ],
+      "pnl_inr": 5329.1
+    }
+  ],
   "charts_loaded": 495,
   "charts_failed": 1
 }
