@@ -876,5 +876,28 @@
   ],
   "best": "Exit at 12:00",
   "best_pnl": 0.6
+ },
+ {
+  "date": "2026-11-24",
+  "symbol": "AMZN",
+  "name": "Amazon.com, Inc.",
+  "outcome": "stop",
+  "exit_time": "11:05",
+  "pnl": -49.95,
+  "wrong": "Chased the breakout (0.73% above the range); Ordinary volume (0.6x usual volume)",
+  "after": "",
+  "fixes": [
+   [
+    "Buy the pullback",
+    28.12
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if ordinary volume"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": 28.12
  }
 ]

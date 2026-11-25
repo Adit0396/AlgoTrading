@@ -358,4 +358,10 @@ date,strategy,trades,pnl,detail
 2026-11-23,sip,2,99.63,ZS short +$127.89; SYM long not triggered; ETSY short -$28.26
 2026-11-23,vwap,16,-186.28,16 flips; -$186.28
 2026-11-23,momentum,1,-12.9,SPY long -$12.90 (first half hour +4.35%)
-2026-11-23,noise,0,0,stayed inside the noise area
+2026-11-23,noise,0,0.0,stayed inside the noise area
+2026-11-24,v2,3,2.41,AAPL +$13.16; MSFT +$39.20; AMZN -$49.95
+2026-11-24,learned,3,2.41,Current rule: AAPL MSFT AMZN
+2026-11-24,sip,2,-17.88,INSM short +$3.05; FTI short -$20.93; COGT long not triggered
+2026-11-24,vwap,13,-134.35,13 flips; -$134.35
+2026-11-24,momentum,1,-16.62,SPY short -$16.62 (first half hour -0.37%)
+2026-11-24,noise,0,0,stayed inside the noise area
