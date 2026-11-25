@@ -19,3 +19,4 @@ date,picks,trades,target,stop,flat,day_pnl,running_pnl,candidates,broke_out
 2026-11-19,BABA (Alibaba Group Holding Limited) stop; BE (Bloom Energy Corporation) stop; WMT (Walmart Inc.) stop,3,0,3,0,-147.19,-284.4,43,100
 2026-11-20,INTC (Intel Corporation) stop; LLY (Eli Lilly and Company) stop; MSFT (Microsoft Corporation) stop,3,0,3,0,-127.17,-411.57,71,119
 2026-11-23,"MRVL (Marvell Technology, Inc.) stop; MU (Micron Technology, Inc.) closed 3:55; TSLA (Tesla, Inc.) closed 3:55",3,0,1,2,-79.03,-490.6,48,71
+2026-11-24,"AAPL (Apple Inc.) closed 3:55; AMZN (Amazon.com, Inc.) stop; MSFT (Microsoft Corporation) target",3,1,1,1,2.41,-488.19,121,156
