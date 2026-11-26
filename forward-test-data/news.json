@@ -1321,5 +1321,89 @@
   "AAPL": [],
   "AMZN": [],
   "MSFT": []
+ },
+ "2026-11-25": {
+  "GOOGL": [],
+  "META": [],
+  "PLTR": [
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/technology/ai/articles/cathie-wood-makes-stunning-61-151027940.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-25T15:10:27+00:00",
+    "title": "Cathie Wood Makes a Stunning $61.6 Million Bet on a Beaten-Down AI Stock"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://247wallst.com/investing/2026/11/25/palantirs-ceo-alex-karp-sold-75-million-co-founder-peter-thiel-bought-122-million/?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "people"
+    ],
+    "time": "2026-11-25T13:53:47+00:00",
+    "title": "Palantir\u2019s CEO Alex Karp Sold $75 Million. Co-Founder Peter Thiel Bought $122 Million"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/cathie-wood-buys-61-6-123632406.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-25T12:36:32+00:00",
+    "title": "Cathie Wood Buys $61.6 Million in Anthropic, Sells $21 Million in Meta and Palantir"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/ishares-expanded-tech-software-igv-110551099.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-25T11:05:51+00:00",
+    "title": "iShares Expanded Tech-Software (IGV) Buys $15 Million More Palo Alto on Nov. 23"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-palantir-pltr-110251086.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-25T11:02:51+00:00",
+    "title": "ETFs Are Net Sellers of Palantir (PLTR) on Monday"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/palantir-technologies-pltr-justify-price-070848763.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-25T07:08:48+00:00",
+    "title": "Can Palantir Technologies (PLTR) Justify Its Price Through Cash Flow?"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://www.fool.com/investing/2026/11/25/where-will-palantir-stock-be-at-the-end-of-2030/?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [],
+    "time": "2026-11-25T06:47:02+00:00",
+    "title": "Where Will Palantir Stock Be at the End of 2030?"
+   },
+   {
+    "important": false,
+    "kind": "headline",
+    "link": "https://finance.yahoo.com/video/anthropic-falls-below-ipo-price-as-nvidia-gives-back-gains-214558309.html?.tsrc=rss",
+    "source": "Yahoo Finance",
+    "tags": [
+     "earnings",
+     "capital",
+     "people"
+    ],
+    "time": "2026-11-24T21:45:58+00:00",
+    "title": "Anthropic falls below IPO price as Nvidia gives back gains"
+   }
+  ]
  }
 }
