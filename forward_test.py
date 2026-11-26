@@ -42,7 +42,8 @@ FIELDS = ["date", "symbol", "name", "entry_time", "entry", "stop", "target", "ri
           "scan_hits", "seed", "run_at", "note", "news_before_entry"]
 SHEET_FIELDS = list(FIELDS)  # the Google Sheet's Picks columns; extra fields below stay out of it
 FIELDS += ["or_high", "or_low", "breakout_pct", "breakout_time", "breakout_price", "rank", "candidates", "rule"]
-RULE = "v2"  # v2: picked and bought at 10:15 (v1 bought at each stock's own breakout bar: look-ahead)
+RULE = "v3"  # v3: v2 plus the learned rule's proven skips and exit (learned.py), read before each session
+#             v2: picked and bought at 10:15 (v1 bought at each stock's own breakout bar: look-ahead)
 
 US_HOLIDAYS = {  # NYSE full closures, 2026-2027
     "2026-01-01", "2026-01-19", "2026-02-16", "2026-04-03", "2026-05-25", "2026-06-19", "2026-07-03",
@@ -53,6 +54,15 @@ US_HOLIDAYS = {  # NYSE full closures, 2026-2027
 
 SCAN_LABEL = "10:15 AM"   # when the scan runs and every pick is bought (New York time)
 SCAN_BAR = 8              # the 5-minute bar that closes at 10:15 (9:30 is bar 0)
+
+
+def learned_module():
+    """learned.py from this folder (python -I leaves the script's folder off the import path)."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    if here not in sys.path:
+        sys.path.insert(0, here)
+    import learned  # noqa: E402
+    return learned
 
 
 def load_module(path, name):
@@ -108,10 +118,14 @@ def chart_text(tm, sym, args):
     return text
 
 
-def day_bars(tm, text, sym, day):
+def all_days(tm, text, sym):
     result = tm.chart_result(text, sym)
     _, bars, _ = tm.parse_bars(result, utcnow())
-    return tm.split_sessions(bars).get(day.isoformat(), {})
+    return tm.split_sessions(bars)
+
+
+def day_bars(tm, text, sym, day):
+    return all_days(tm, text, sym).get(day.isoformat(), {})
 
 
 def bar_close(b):
@@ -198,7 +212,10 @@ def pick_day(tm, repo, day, args):
         return [dict(base, symbol="", actual_outcome="no setup", note="no opening-range breakout by 10:15 AM")]
 
     last = (15 * 60 + 55 - tm.OPEN_MIN) // 5 - 1          # the bar that closes at 3:55 PM
-    k = SCAN_BAR                                          # every pick is decided and bought at 10:15
+    k = SCAN_BAR                                          # every pick is decided at 10:15
+    lr = learned_module()  # here, not at the top: research.py imports this file
+    exit_key, skips, rule_text, _ = lr.rule_for(args.state, day.isoformat())
+    m = lr.market("us", args.account, args.max_loss)
     # Everything below uses only what was known at 10:15: which stocks had broken out, whether they
     # were still above their range then, and how many dollars had traded since 9:30.
     cands, failed = [], 0
@@ -221,11 +238,29 @@ def pick_day(tm, repo, day, args):
                           + (" (%d charts failed to load)" % failed if failed else ""))]
 
     rows = []
-    chosen = one_per_company(cands, lambda c: c[1]["symbol"], args.names, args.top)
+    ordered = one_per_company(cands, lambda c: c[1]["symbol"], args.names, len(cands) if skips else args.top)
+    index_days = None
+    if "mkt_down" in skips:
+        try:
+            index_days = all_days(tm, chart_text(tm, "SPY", args), "SPY")
+        except Exception as e:  # noqa: BLE001 - without the index the market check is simply not made
+            print("%s: SPY chart failed (%s): the market-direction skip is not checked" % (day, e), file=sys.stderr)
+
+    def flags_of(c):
+        dv, h, text, D = c
+        return lr.flagged(m, h["symbol"], all_days(tm, text, h["symbol"]), day.isoformat(), D, k, h["or_high"],
+                          h["or_low"], dv, index_days, skips)
+    chosen, passed = lr.choose(ordered, flags_of, args.top)
+    note = lr.rule_note(rule_text, [(c[1]["symbol"], fl) for c, fl in passed], args.names)
+    if not chosen:
+        return [dict(base, symbol="", actual_outcome="no setup",
+                     note=lr.add_note(note, "every breakout still above its range was passed over"))]
     for rank, (dv, h, text, D) in enumerate(chosen, 1):
         sym = h["symbol"]
         row = dict(base, symbol=sym, name=args.names.get(sym, ""), dollar_volume_to_1015=round(dv), rank=rank,
                    breakout_time=h["at"], breakout_price=h["price"])
+        if note:
+            row["note"] = note
         oh, ol = h["or_high"], h["or_low"]
         entry = round(D[k]["c"], 2)
         stop = tm.cents_away((oh + ol) / 2, True)
@@ -238,9 +273,23 @@ def pick_day(tm, repo, day, args):
         row.update(or_high=oh, or_low=ol, breakout_pct=round((entry / oh - 1) * 100, 2))
         row.update(entry_time=SCAN_LABEL, entry=entry, stop=stop, target=target, risk_per_share=risk,
                    shares=shares, position_usd=round(shares * entry, 2), max_loss_usd=round(shares * risk, 2))
+        lt = None
+        if exit_key != "base":
+            # The learned exit (or entry) replaces v2's: same trade code the loss review scores it with.
+            lt = lr.learned_trade(m, tm, D, k, last, oh, h["or_low"], exit_key)
+            if lt is None:
+                row["note"] = lr.add_note(row.get("note"), "learned exit: bars missing after the scan")
+                rows.append(row)
+                continue
+            lr.apply_trade(row, lt, tm, "flat at 3:55")
+            if lt.get("entry") is None:
+                rows.append(row)
+                continue
+            entry, stop, target, shares = lt["entry"], lt["stop"], lt["target"], lt["shares"]
         try:
             plan = tm.normalize_plan({"symbol": sym, "date": day.isoformat(), "entry": entry, "stop": stop,
-                                      "target": target, "entry_bar": k, "setup": "orb", "stop_rule": "or_mid",
+                                      "target": target, "entry_bar": lt["entry_bar"] if lt else k, "setup": "orb",
+                                      "stop_rule": "or_mid",
                                       "opening_range": {"minutes": args.or_minutes}, "side": "buy"})
             res = tm.time_machine(text, plan, utcnow(), replays=args.replays, seed=args.seed,
                                   until="15:55")
@@ -251,7 +300,7 @@ def pick_day(tm, repo, day, args):
                        hist_stop=hist.get("stop"), hist_close=hist.get("close"), hist_avg_r=hist.get("avg_R"),
                        verdict=res["verdict"])
         except Exception as e:  # noqa: BLE001
-            row["note"] = "time machine: %s" % e
+            row["note"] = (row.get("note", "") + "; " if row.get("note") else "") + "time machine: %s" % e
         if not args.no_news:
             try:
                 text, items = news_before(repo, workdir, sym, entry_utc(tm, day, SCAN_LABEL), args.news_hours,
@@ -263,6 +312,9 @@ def pick_day(tm, repo, day, args):
         if shares < 1:
             row["note"] = (row.get("note", "") + "; " if row.get("note") else "") + \
                 "0 shares: one share risks more than the max loss"
+        if lt is not None:
+            rows.append(row)            # outcome and P&L already set by the learned exit
+            continue
         oc, t, px, why = actual_outcome(D, k, last, entry, stop, target)
         if oc is None:
             row["note"] = (row.get("note", "") + "; " if row.get("note") else "") + why
@@ -411,8 +463,8 @@ def write_daily(csv_path, state):
         running = round(running + day_pnl, 2)
         line = {"date": d, "picks": text, "trades": len(trades),
                 "target": sum(1 for r in trades if r["actual_outcome"] == "target"),
-                "stop": sum(1 for r in trades if r["actual_outcome"] == "stop"),
-                "flat": sum(1 for r in trades if r["actual_outcome"].startswith("flat")),
+                "stop": sum(1 for r in trades if r["actual_outcome"] in ("stop", "breakeven")),
+                "flat": sum(1 for r in trades if r["actual_outcome"] not in ("target", "stop", "breakeven")),
                 "day_pnl": day_pnl, "running_pnl": running,
                 "candidates": rows[0].get("candidates", ""), "broke_out": rows[0].get("scan_hits", "")}
         lines.append(line)
@@ -447,7 +499,8 @@ NUMERIC = ("entry", "stop", "target", "risk_per_share", "shares", "position_usd"
            "tm_stop_pct", "tm_neither_pct", "tm_green_pct", "tm_avg_r", "hist_fired", "hist_target", "hist_stop",
            "hist_close", "hist_avg_r", "exit_price", "r_multiple", "pnl_usd", "dollar_volume_to_1015", "scan_hits",
            "seed", "or_high", "or_low", "breakout_pct", "breakout_price", "rank", "candidates")
-TRADED = ("target", "stop", "flat at 3:55", "flat at 3:15")  # 3:15 is the NSE test's exit time
+TRADED = ("target", "stop", "flat at 3:55", "flat at 3:15",  # 3:15 is the NSE test's exit time
+          "breakeven", "exit at 12:00")                        # learned exits (rule v3)
 
 
 def clean_name(name):
@@ -527,8 +580,8 @@ def write_dashboard(csv_path, news_store, path, args, settings=None, names=None)
         "totals": {
             "sessions": len(by_day), "trades": n,
             "target": sum(1 for p in trades if p["actual_outcome"] == "target"),
-            "stop": sum(1 for p in trades if p["actual_outcome"] == "stop"),
-            "flat": sum(1 for p in trades if p["actual_outcome"].startswith("flat")),
+            "stop": sum(1 for p in trades if p["actual_outcome"] in ("stop", "breakeven")),
+            "flat": sum(1 for p in trades if p["actual_outcome"] not in ("target", "stop", "breakeven")),
             "winners": sum(1 for p in trades if p["pnl_usd"] > 0),
             "win_rate": round(sum(1 for p in trades if p["pnl_usd"] > 0) / n, 3) if n else None,
             "pnl_usd": total, "return_on_account": round(total / args.account, 4) if args.account else None,

@@ -56,6 +56,7 @@ MARKETS = {
            "sip": {"min_price": 50.0, "min_avg_vol": 500000, "min_atr": 10.0, "range_bars": 3, "vol_bars": (1, 2)}},
 }
 N_RANGE = 3            # 15-minute opening range = three 5-minute bars
+FWD_RULES = ("v2", "v3")  # forward-test rows to review: v2 (fixed rule) and v3 (follows the learned rule)
 
 
 def bar_closing(m, hhmm_min):
@@ -110,7 +111,8 @@ def result(m, D, k, last, entry, stop, target, **kw):
     oc, i, px = out
     sh = shares_for(m, entry, risk)
     return {"outcome": oc, "exit": clock(m, i), "exit_bar": i, "pnl": round(sh * (px - entry), 2),
-            "r": round((px - entry) / risk, 2), "shares": sh}
+            "r": round((px - entry) / risk, 2), "shares": sh, "entry": entry, "stop": stop, "target": target,
+            "entry_bar": k, "exit_price": px}
 
 
 def variants(m, tm, c, last):
@@ -147,7 +149,8 @@ def variants(m, tm, c, last):
             if b["l"] <= mid:      # filled and stopped in the same bar
                 sh = shares_for(m, fill, r)
                 pb = {"outcome": "stop", "exit": clock(m, i), "exit_bar": i, "pnl": round(-sh * r, 2),
-                      "r": -1.0, "shares": sh}
+                      "r": -1.0, "shares": sh, "entry": fill, "stop": mid, "target": tgt, "entry_bar": i,
+                      "exit_price": mid}
             else:
                 pb = result(m, D, i, last, fill, mid, tgt)
             break
@@ -503,9 +506,9 @@ def fmt_money(m, x):
 
 
 def review_losses(m, tm, state, charts, by_day, names, index_days):
-    """One row per losing forward-test trade (rule v2)."""
+    """One row per losing forward-test trade (rules v2 and v3)."""
     with open(os.path.join(state, "results.csv"), newline="") as fh:
-        rows = [r for r in csv.DictReader(fh) if r.get("rule") == "v2" and r.get("pnl_usd")]
+        rows = [r for r in csv.DictReader(fh) if r.get("rule") in FWD_RULES and r.get("pnl_usd")]
     out = []
     for r in rows:
         if float(r["pnl_usd"]) >= 0:
@@ -631,10 +634,11 @@ def sheet_rows_lessons(m, by_day, days, fwd_trades, learned_now, learned_log, v2
                      s["halves"][0], s["halves"][1], round(t_stat(base, s), 2), verdict(base, s)])
     exit_key, skips = learned_now
     combo = score(by_day, days, exit_key=exit_key, skip=tuple(skips))
-    rows += [[], ["LEARNED RULE", rule_text(m, exit_key, skips)],
+    rows += [[], ["LEARNED RULE (the forward test trades it next session)", rule_text(m, exit_key, skips)],
              ["History P&L", combo["pnl"], "vs current rule", round(combo["pnl"] - base["pnl"], 2)],
-             ["The learned rule is rebuilt every day from the sessions before it, then used on that day only, so its "
-              "forward record below has no hindsight."],
+             ["The learned rule is rebuilt every day from the sessions before it, then used on the next session only, "
+              "so its forward record below has no hindsight. From 27 Nov 2026 (rule v3) the forward test's own picks "
+              "follow it."],
              [], ["Date", "Learned rule", "Picks", "Day P&L", "Running P&L", "Current rule running P&L (same rebuild)"]]
     run = 0.0
     for r in learned_log:
@@ -837,9 +841,15 @@ def run_market(key, args):
 
     # How well the rebuild matches the forward test's own picks.
     with open(os.path.join(state, "results.csv"), newline="") as fh:
-        fwd = [r for r in csv.DictReader(fh) if r.get("rule") == "v2" and r.get("symbol")]
-    match = [(r["date"], r["symbol"]) for r in fwd if r["date"] in by_day]
-    hit = sum(1 for d, s in match if s in [c["symbol"] for c in picks(by_day[d])])
+        fwd = [r for r in csv.DictReader(fh) if r.get("rule") in FWD_RULES and r.get("symbol")]
+    day_skips = {}
+    learned_path = os.path.join(out_dir, "learned.csv")
+    if os.path.exists(learned_path):
+        with open(learned_path, newline="") as fh:
+            day_skips = {r["date"]: tuple(x for x in (r.get("skips") or "").split("|") if x) for r in csv.DictReader(fh)}
+    match = [(r["date"], r["symbol"], r["rule"]) for r in fwd if r["date"] in by_day]
+    hit = sum(1 for d, s, rule in match
+              if s in [c["symbol"] for c in picks(by_day[d], day_skips.get(d, ()) if rule == "v3" else ())])
     print("%s: rebuilt picks match the forward test on %d of %d trades" % (m["label"], hit, len(match)), flush=True)
 
     review = review_losses(m, tm, state, charts, by_day, names, index_days)
@@ -850,15 +860,15 @@ def run_market(key, args):
         c = next((c for c in by_day.get(r["date"], []) if c["symbol"] == r["symbol"]), None)
         fwd_trades.append({"loss": float(r["pnl_usd"]) < 0, "feat": c["feat"] if c else None})
 
-    # Walk-forward learned rule: for each forward-test day, learn from the sessions before it.
-    learned_path = os.path.join(out_dir, "learned.csv")
+    # Walk-forward learned rule: for each forward-test day, learn from the sessions before it. From rule v3 on,
+    # the forward test itself trades this rule (it reads the newest lessons.json before each session).
     log = []
     if os.path.exists(learned_path):
         with open(learned_path, newline="") as fh:
             log = list(csv.DictReader(fh))
     logged = {r["date"] for r in log}
     with open(os.path.join(state, "results.csv"), newline="") as fh:
-        fwd_days = sorted({r["date"] for r in csv.DictReader(fh) if r.get("rule") == "v2"})
+        fwd_days = sorted({r["date"] for r in csv.DictReader(fh) if r.get("rule") in FWD_RULES})
     for d in fwd_days:
         if d in logged or (d not in by_day and d not in complete):
             continue

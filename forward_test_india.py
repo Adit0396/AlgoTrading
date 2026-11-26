@@ -48,7 +48,7 @@ IST = datetime.timedelta(hours=5, minutes=30)
 SCAN_LABEL = "10:00 AM"           # when every pick is decided and bought (India time)
 SCAN_BAR = 8                      # the bar 9:55 to 10:00 (9:15 is bar 0)
 FLAT_BY = "15:15"
-RULE = "v2"
+RULE = "v3"  # v2 plus the learned rule (learned.py), read before each session
 UNIVERSE_URLS = (
     "https://archives.nseindia.com/content/indices/ind_nifty500list.csv",
     "https://nsearchives.nseindia.com/content/indices/ind_nifty500list.csv",
@@ -64,6 +64,15 @@ SETTINGS = {
     "eligible": "broke out above the range by 10:00 and still above it at 10:00",
     "entry": "the 10:00 price (close of the 9:55 bar)", "stop": "opening-range midpoint",
 }
+
+
+def learned_module():
+    """learned.py from this folder (python -I leaves the script's folder off the import path)."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    if here not in sys.path:
+        sys.path.insert(0, here)
+    import learned  # noqa: E402
+    return learned
 
 
 def load_module(path, name):
@@ -200,8 +209,9 @@ def session_days(charts, tm):
     return sorted(d for d, c in counts.items() if c >= need)
 
 
-def pick_day(tm, news, day, charts, texts, names, args):
+def pick_day(tm, news, day, charts, texts, names, args, index_days=None):
     """The picks for one session, using only what was known at 10:00."""
+    lr = learned_module()  # here, not at the top: research.py imports this file
     iso = day.isoformat()
     k, n = SCAN_BAR, args.or_minutes // 5
     last = (15 * 60 + 15 - OPEN_MIN) // 5 - 1            # the bar that closes at 15:15
@@ -231,7 +241,15 @@ def pick_day(tm, news, day, charts, texts, names, args):
         return [dict(base, symbol="", actual_outcome="no setup", note="no breakout still above its range at 10:00")]
 
     rows = []
-    chosen = ft.one_per_company(cands, lambda c: c[1], names, args.top)
+    exit_key, skips, rule_text, _ = lr.rule_for(args.state, iso)
+    m = lr.market("in", args.account, args.max_loss)
+    ordered = ft.one_per_company(cands, lambda c: c[1], names, len(cands) if skips else args.top)
+    chosen, passed = lr.choose(ordered, lambda c: lr.flagged(m, c[1], charts[c[1]], iso, c[2], k, c[3], c[4], c[0],
+                                                             index_days, skips), args.top)
+    note = lr.rule_note(rule_text, [(c[1], fl) for c, fl in passed], names)
+    if not chosen:
+        return [dict(base, symbol="", actual_outcome="no setup",
+                     note=lr.add_note(note, "every breakout still above its range was passed over"))]
     for rank, (turnover, sym, D, oh, ol, first) in enumerate(chosen, 1):
         entry = round(D[k]["c"], 2)
         stop = tm.cents_away((oh + ol) / 2, True)
@@ -243,14 +261,30 @@ def pick_day(tm, news, day, charts, texts, names, args):
                    or_high=round(oh, 2), or_low=round(ol, 2), breakout_pct=round((entry / oh - 1) * 100, 2),
                    entry_time=SCAN_LABEL, entry=entry, stop=stop, target=target, risk_per_share=risk,
                    shares=shares, position_usd=round(shares * entry, 2), max_loss_usd=round(shares * risk, 2))
+        if note:
+            row["note"] = note
+        lt, k_entry = None, k
+        if exit_key != "base":
+            # The learned exit (or entry) replaces v2's: same trade code the loss review scores it with.
+            lt = lr.learned_trade(m, tm, D, k, last, oh, ol, exit_key)
+            if lt is None:
+                row["note"] = lr.add_note(row.get("note"), "learned exit: bars missing after the scan")
+                rows.append(row)
+                continue
+            lr.apply_trade(row, lt, tm, "flat at 3:15")
+            if lt.get("entry") is None:
+                rows.append(row)
+                continue
+            entry, stop, target, shares, k_entry = lt["entry"], lt["stop"], lt["target"], lt["shares"], lt["entry_bar"]
         # Time Machine: the pack's own replay and history code on this stock's earlier NSE sessions
         days = charts[sym]
         sessions, _ = tm.full_sessions(days, iso)
         if len(sessions) < tm.MIN_SESSIONS:
-            row["note"] = "time machine: only %d full sessions before %s" % (len(sessions), iso)
+            row["note"] = (row.get("note", "") + "; " if row.get("note") else "") + \
+                "time machine: only %d full sessions before %s" % (len(sessions), iso)
         else:
             pool = tm.build_pool(sessions)
-            mc = tm.simulate(pool, entry, stop, target, k, last, args.replays, args.seed, 2, "buy")
+            mc = tm.simulate(pool, entry, stop, target, k_entry, last, args.replays, args.seed, 2, "buy")
             mc["until"] = FLAT_BY
             hist = tm.history_replay(sessions, {"setup": "orb", "or_minutes": args.or_minutes, "stop_rule": "or_mid",
                                                 "target_r": args.target_r}, last, "buy")
@@ -265,6 +299,9 @@ def pick_day(tm, news, day, charts, texts, names, args):
         if shares < 1:
             row["note"] = (row.get("note", "") + "; " if row.get("note") else "") + \
                 "0 shares: one share risks more than the max loss"
+        if lt is not None:
+            rows.append(row)            # outcome and P&L already set by the learned exit
+            continue
         oc, t, px, why = ft.actual_outcome(D, k, last, entry, stop, target)
         if oc is None:
             row["note"] = (row.get("note", "") + "; " if row.get("note") else "") + why
@@ -306,6 +343,11 @@ def diagnose(tm, charts, syms, now, offline=None):
 
 
 FIELDS = ft.FIELDS
+
+
+def lr_rule_skips(state, iso):
+    lr = learned_module()
+    return lr.rule_for(state, iso)[1]
 
 
 def main(argv=None):
@@ -381,6 +423,14 @@ def main(argv=None):
     if args.diagnose:
         return diagnose(tm, charts, args.diagnose.split(","), now, args.chart_offline)
     complete = session_days(charts, tm)
+    index_days = None
+    if any("mkt_down" in lr_rule_skips(args.state, d) for d in complete[-15:]):
+        try:
+            text = tm._get("https://query2.finance.yahoo.com/v8/finance/chart/%5ENSEI?range=60d&interval=5m")
+            _, bars, _ = tm.parse_bars(tm.chart_result(text, "^NSEI"), now)
+            index_days = tm.split_sessions(bars)
+        except Exception as e:  # noqa: BLE001 - without the index the market check is simply not made
+            print("Nifty 50 chart failed (%s): the market-direction skip is not checked" % e, file=sys.stderr)
     out = os.path.join(args.state, "results.csv")
     done = set()
     if os.path.exists(out):
@@ -402,7 +452,7 @@ def main(argv=None):
             news_store = json.load(fh)
     for d in days:
         t1 = time.time()
-        rows = pick_day(tm, news, d, charts, texts, names, args)
+        rows = pick_day(tm, news, d, charts, texts, names, args, index_days)
         save(rows, out)
         for r in rows:
             if r.get("symbol") and "_news" in r:

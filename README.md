@@ -33,7 +33,16 @@ Every step uses only what was known at 10:15, so each trade is one a person coul
 
 ### Rule versions
 
-- **v2 (current):** as above. 27 to 30 Oct 2026 were re-run under it; 26 Oct was already past
+- **v3 (current, from 27 Nov 2026):** v2 plus the **learned rule** (see the loss review below). Before each
+  session the forward test reads the newest `review/lessons.json` (built only from sessions before that
+  day) and applies its proven changes: picks flagged by a learned "skip if ..." mistake are passed over and
+  the next stock by money traded takes their place, and a learned exit or entry (target 0.5R/1.5R/2R, stop
+  at the range low, breakeven after +0.5R, exit at 12:00, buy the pullback, wait 15 minutes) replaces v2's.
+  A re-run of an old day uses the rule logged for it in `review/learned.csv`. While nothing is proven the
+  learned rule is "Current rule" and v3 trades exactly like v2. The Picks note column says which learned
+  rule was used and which stocks it passed over. Code: `learned.py`. v2's own record carries on as the
+  "Current rule" row of the strategy race and in the Lessons tab, rebuilt on the same days.
+- **v2 (27 Oct to 26 Nov 2026):** as above. 27 to 30 Oct 2026 were re-run under it; 26 Oct was already past
   Yahoo's 6-day scan window, so it has no v2 result.
 - **v1 (26 to 30 Oct 2026):** bought each stock at the close of its own breakout bar, often 9:50 to
   10:05, but chose the stocks using the 10:15 ranking. That is look-ahead: nobody could have known
@@ -91,7 +100,8 @@ and:
    fixed in advance, not tuned to the losses.
 4. **Keeps a learned rule**: the current rule plus the changes proven on the sessions *before*
    each day, used on that day only. Its record in `review/learned.csv` is walk-forward, with no
-   hindsight. The forward test's own rule (v2) is not changed, so its record stays clean.
+   hindsight. Since rule v3 the forward test trades this rule for the next session (`learned.py`);
+   the rebuilt v2 ("Current rule") is kept beside it so the two can be compared.
 5. **Races strategies** on the same days, data and account, logging each one's daily P&L in
    `review/race.csv`:
 
@@ -122,6 +132,9 @@ record drift. US data has been stable between downloads.
 Tests: `python -m unittest discover -s tests`.
 
 ## Cross-market arbitrage tracker
+
+**Stopped on 26 Nov 2026:** the workflow is no longer scheduled and the sheet sync no longer copies its
+tabs. The code and the last results in `arbitrage-data/` are kept; it can still be run by hand.
 
 `arbitrage.py` (`.github/workflows/arbitrage.yml`, weekdays 21:47 UTC after the New York close)
 follows seven companies listed in two markets: Infosys, Wipro, HDFC Bank, ICICI Bank and

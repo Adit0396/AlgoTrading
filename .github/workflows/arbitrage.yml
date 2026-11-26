@@ -1,12 +1,13 @@
 name: Cross-market arbitrage tracker
 
 # Simulation only. This workflow never places, stages or drafts an order.
-# Mon-Fri 21:47 UTC (7:47 AM Brisbane), after the New York close. Reloads two years of daily
-# closes for the dual-listed pairs in arbitrage.py and rewrites arbitrage-data/.
+# STOPPED on 2026-11-26: no longer scheduled. It ran Mon-Fri 21:47 UTC (7:47 AM Brisbane), reloading
+# two years of daily closes for the dual-listed pairs in arbitrage.py and rewriting arbitrage-data/.
+# It can still be run by hand from the Actions tab; to restart it, add back:
+#   schedule:
+#     - cron: "47 21 * * 1-5"
 
 on:
-  schedule:
-    - cron: "47 21 * * 1-5"
   workflow_dispatch:
 
 permissions:
