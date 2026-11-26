@@ -926,5 +926,33 @@
   ],
   "best": "Wait 15 minutes (no trade)",
   "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-25",
+  "symbol": "ICICIBANK",
+  "name": "ICICI Bank Ltd.",
+  "outcome": "stop",
+  "exit_time": "13:00",
+  "pnl": -3587.2,
+  "wrong": "Fresh breakout (broke out at 09:55)",
+  "after": "was up 0.6R before turning down",
+  "fixes": [
+   [
+    "Target 0.5R",
+    1793.6
+   ],
+   [
+    "Exit at 12:00",
+    547.2
+   ]
+  ],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if fresh breakout"
+  ],
+  "best": "Target 0.5R",
+  "best_pnl": 1793.6
  }
 ]

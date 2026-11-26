@@ -899,5 +899,61 @@
   ],
   "best": "Buy the pullback",
   "best_pnl": 28.12
+ },
+ {
+  "date": "2026-11-25",
+  "symbol": "GOOGL",
+  "name": "Alphabet Inc.",
+  "outcome": "stop",
+  "exit_time": "11:05",
+  "pnl": -49.53,
+  "wrong": "Market falling at entry (index -0.03% since the open); Chased the breakout (0.87% above the range)",
+  "after": "",
+  "fixes": [
+   [
+    "Stop at range low",
+    47.79
+   ],
+   [
+    "Buy the pullback",
+    27.0
+   ],
+   [
+    "Wait 15 minutes",
+    28.26
+   ]
+  ],
+  "avoided": [],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if chased the breakout"
+  ],
+  "best": "Stop at range low",
+  "best_pnl": 47.79
+ },
+ {
+  "date": "2026-11-25",
+  "symbol": "PLTR",
+  "name": "Palantir Technologies Inc.",
+  "outcome": "stop",
+  "exit_time": "10:30",
+  "pnl": -49.84,
+  "wrong": "Market falling at entry (index -0.03% since the open); Already fading (1.1R below its high)",
+  "after": "stopped within 15 minutes",
+  "fixes": [
+   [
+    "Stop at range low",
+    49.35
+   ]
+  ],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if already fading"
+  ],
+  "best": "Stop at range low",
+  "best_pnl": 49.35
  }
 ]

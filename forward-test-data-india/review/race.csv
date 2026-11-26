@@ -354,3 +354,9 @@ date,strategy,trades,pnl,detail
 2026-11-23,vwap,1,7433.36,"1 flips; +₹7,433.36"
 2026-11-23,momentum,1,1119.94,"NIFTYBEES short +₹1,119.94 (first half hour -0.39%)"
 2026-11-23,noise,1,6039.2,"NIFTYBEES short +₹6,039.20"
+2026-11-25,v2,3,5329.1,"JWL +₹4,992.60; ICICIBANK -₹3,587.20; ETERNAL +₹3,923.70"
+2026-11-25,learned,3,5329.1,Current rule: JWL ICICIBANK ETERNAL
+2026-11-25,sip,2,-4384.4,"APLAPOLLO short -₹2,973.90; MFSL long -₹1,410.50; POLICYBZR long not triggered"
+2026-11-25,vwap,7,-255.25,7 flips; -₹255.25
+2026-11-25,momentum,1,1329.12,"NIFTYBEES long +₹1,329.12 (first half hour +1.40%)"
+2026-11-25,noise,1,-1069.75,"NIFTYBEES long -₹1,069.75"

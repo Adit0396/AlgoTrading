@@ -364,4 +364,10 @@ date,strategy,trades,pnl,detail
 2026-11-24,sip,2,-17.88,INSM short +$3.05; FTI short -$20.93; COGT long not triggered
 2026-11-24,vwap,13,-134.35,13 flips; -$134.35
 2026-11-24,momentum,1,-16.62,SPY short -$16.62 (first half hour -0.37%)
-2026-11-24,noise,0,0,stayed inside the noise area
+2026-11-24,noise,0,0.0,stayed inside the noise area
+2026-11-25,v2,3,-54.01,GOOGL -$49.53; META +$45.36; PLTR -$49.84
+2026-11-25,learned,3,-54.01,Current rule: GOOGL META PLTR
+2026-11-25,sip,1,-49.91,AMBA short not triggered; BNAI long -$49.91; HSIC short not triggered
+2026-11-25,vwap,6,71.96,6 flips; +$71.96
+2026-11-25,momentum,1,-7.62,SPY short -$7.62 (first half hour -2.12%)
+2026-11-25,noise,0,0,stayed inside the noise area
