@@ -383,6 +383,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    38,
    67
+  ],
+  [
+   "'2026-11-26",
+   "'HDFCBANK (HDFC Bank Ltd.) target; HINDALCO (Hindalco Industries Ltd.) target; MCX (Multi Commodity Exchange of India Ltd.) target",
+   3,
+   3,
+   0,
+   0,
+   14005.57,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   69,
+   99
   ]
  ]
 }
