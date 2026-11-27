@@ -1,13 +1,13 @@
 {
   "days": [
     {
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "picks": [
-        "HDFCBANK",
-        "MCX",
-        "HINDALCO"
+        "BSE",
+        "APLAPOLLO",
+        "MCX"
       ],
-      "pnl_inr": 14005.57
+      "pnl_inr": -10841.86
     }
   ],
   "charts_loaded": 495,
