@@ -275,6 +275,18 @@
    "=SUM(INDIRECT(\"G2:G\"&ROW()))",
    58,
    111
+  ],
+  [
+   "'2026-11-27",
+   "'AMZN (Amazon.com, Inc.) target; AVGO (Broadcom Inc.) stop; SNDK (Sandisk Corporation) target",
+   3,
+   2,
+   1,
+   0,
+   35.25,
+   "=SUM(INDIRECT(\"G2:G\"&ROW()))",
+   70,
+   91
   ]
  ]
 }
