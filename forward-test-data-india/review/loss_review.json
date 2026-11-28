@@ -954,5 +954,62 @@
   ],
   "best": "Target 0.5R",
   "best_pnl": 1793.6
+ },
+ {
+  "date": "2026-11-27",
+  "symbol": "APLAPOLLO",
+  "name": "APL Apollo Tubes Ltd.",
+  "outcome": "stop",
+  "exit_time": "10:35",
+  "pnl": -4033.25,
+  "wrong": "Big gap up (gapped up 2.2%); Already fading (0.7R below its high)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if big gap up",
+   "skip if already fading"
+  ],
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
+ },
+ {
+  "date": "2026-11-27",
+  "symbol": "BSE",
+  "name": "BSE Ltd.",
+  "outcome": "stop",
+  "exit_time": "10:40",
+  "pnl": -4978.61,
+  "wrong": "Chased the breakout (0.75% above the range)",
+  "after": "",
+  "fixes": [],
+  "avoided": [],
+  "skips": [
+   "skip if chased the breakout"
+  ],
+  "best": "Buy the pullback",
+  "best_pnl": -3027.03
+ },
+ {
+  "date": "2026-11-27",
+  "symbol": "MCX",
+  "name": "Multi Commodity Exchange of India Ltd.",
+  "outcome": "flat at 3:15",
+  "exit_time": "15:15",
+  "pnl": -1830.0,
+  "wrong": "Chased the breakout (1.25% above the range); Wide stop (risk 1.68% of price)",
+  "after": "",
+  "fixes": [],
+  "avoided": [
+   "Buy the pullback"
+  ],
+  "skips": [
+   "skip if chased the breakout",
+   "skip if wide stop"
+  ],
+  "best": "Buy the pullback (no trade)",
+  "best_pnl": 0.0
  }
 ]

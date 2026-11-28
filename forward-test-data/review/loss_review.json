@@ -955,5 +955,26 @@
   ],
   "best": "Stop at range low",
   "best_pnl": 49.35
+ },
+ {
+  "date": "2026-11-27",
+  "symbol": "AVGO",
+  "name": "Broadcom Inc.",
+  "outcome": "stop",
+  "exit_time": "10:30",
+  "pnl": -38.24,
+  "wrong": "Market falling at entry (index -0.50% since the open); Fresh breakout (broke out at 10:15); Ordinary volume (0.6x usual volume)",
+  "after": "stopped within 15 minutes",
+  "fixes": [],
+  "avoided": [
+   "Wait 15 minutes"
+  ],
+  "skips": [
+   "skip if market falling at entry",
+   "skip if fresh breakout",
+   "skip if ordinary volume"
+  ],
+  "best": "Wait 15 minutes (no trade)",
+  "best_pnl": 0.0
  }
 ]
